@@ -1,2 +1,2 @@
 # STUNDA
-Repo för proketet STUNDA
+Repo för projektet STUNDA
