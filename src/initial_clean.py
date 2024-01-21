@@ -38,6 +38,16 @@ for entry in data:
 
     pattern_multiple_words = r"^[a-z]+ ([a-z]+ )*[a-z]+$"
 
+    pattern_pipe_char = r'\b(\w+)\|(\w+)\b'
+
+    # Define a function to handle the replacement
+    def replace(match):
+        return f"{match.group(1)} {match.group(1)}{match.group(2)}"
+
+    # Use re.sub with the defined pattern and replacement function
+    entry["eng"]["lemma"] = re.sub(pattern_pipe_char, replace, entry["eng"]["lemma"])
+    entry["swe"]["lemma"] = re.sub(pattern_pipe_char, replace, entry["swe"]["lemma"])
+
     if re.match(pattern_single_word, entry["eng"]["lemma"]) and re.match(pattern_single_word, entry["swe"]["lemma"]):
         simple_data.append(entry)
 
@@ -70,6 +80,7 @@ for entry in data:
 
 
 print(len(simple_data))
+quit()
 
 with open(path + working_file, 'w') as jsonl_file:
     for json_object in simple_data:
