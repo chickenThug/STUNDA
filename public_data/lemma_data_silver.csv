@@ -1,0 +1,1552 @@
+,id,eng_lemma,swe_lemma,status,pos,src
+37,GF1,abstract,abstrakt,silver,A,GF
+38,GF2,abstract data type,abstrakt datatyp,silver,N,GF
+40,GF3,abstract method,abstrakt metod,silver,N,GF
+43,GF4,abstract,utdrag,silver,N,GF
+46,GF5,abstraction,abstraktion,silver,N,GF
+49,GF6,accelerate, accelerera,silver,V,GF
+50,GF7,acceleration,acceleration,silver,N,GF
+52,GF8,accelerator,accelerator,silver,N,GF
+55,GF9,accept, acceptera,silver,V,GF
+56,GF10,acceptance,godkännande,silver,N,GF
+59,GF11,access control,åtkomstkontroll,silver,N,GF
+65,GF12,access,åtkomst,silver,N,GF
+68,GF13,accessibility,tillgänglighet,silver,N,GF
+71,GF14,accompany, medfölja,silver,V,GF
+74,GF15,account,konto,silver,N,GF
+76,GF16,accounting software,bokföringsprogram,silver,N,GF
+80,GF17,accumulator,ackumulator,silver,N,GF
+82,GF18,accuracy,noggrannhet,silver,N,GF
+85,GF19,achieve, uppnå,silver,V,GF
+87,GF20,acknowledge, erkänna,silver,V,GF
+88,GF21,acoustic,akustisk,silver,A,GF
+89,GF22,acoustic,akustik,silver,N,GF
+92,GF23,acronym,akronym,silver,N,GF
+95,GF24,act, agera,silver,V,GF
+96,GF25,act,handling,silver,N,GF
+99,GF26,action,handling,silver,N,GF
+101,GF27,activation,aktivering,silver,N,GF
+102,GF28,active,aktiv,silver,A,GF
+106,GF29,actor,skådespelare,silver,N,GF
+110,GF30,ad,reklam,silver,N,GF
+113,GF31,adaptation,anpassning,silver,N,GF
+115,GF32,adapter,adapter,silver,N,GF
+116,GF33,adaptive,adaptiv,silver,A,GF
+120,GF34,additional,ytterligare,silver,A,GF
+122,GF35,address space,adressrymd,silver,N,GF
+123,GF36,address, adressera,silver,V,GF
+124,GF37,address,adress,silver,N,GF
+128,GF38,administrative,administrativ,silver,A,GF
+131,GF39,admission requirement,tillträdeskrav,silver,N,GF
+134,GF40,advance, avancera,silver,V,GF
+135,GF41,advance,framsteg,silver,N,GF
+145,GF42,affect, påverka,silver,V,GF
+151,GF43,agency,byrå,silver,N,GF
+154,GF44,agent,agent,silver,N,GF
+156,GF45,aggregation,aggregation,silver,N,GF
+159,GF46,agile,agil,silver,A,GF
+162,GF47,agile software development,agil mjukvaruutveckling,silver,N,GF
+165,GF48,agreement,avtal,silver,N,GF
+166,GF49,aid, hjälpa,silver,V,GF
+167,GF50,aim, syfta,silver,V,GF
+168,GF51,aim,syfte,silver,N,GF
+170,GF52,airflow,luftflöde,silver,N,GF
+177,GF53,algebra,algebra,silver,N,GF
+179,GF54,algebraic,algebraisk,silver,A,GF
+184,GF55,algorithm analysis,algoritmanalys,silver,N,GF
+186,GF56,algorithm design techniques,algoritmdesigntekniker,silver,N,GF
+187,GF57,algorithm design,algoritmdesign,silver,N,GF
+188,GF58,algorithm,algoritm,silver,N,GF
+189,GF59,algorithmic,algoritmisk,silver,A,GF
+200,GF60,alliance,förbund,silver,N,GF
+202,GF61,allocation,fördelning,silver,N,GF
+205,GF62,allow, låta,silver,V,GF
+210,GF63,alternate, växla,silver,V,GF
+225,GF64,amplitude,amplitud,silver,N,GF
+235,GF65,analyse, analysera,silver,V,GF
+240,GF66,analysis,analys,silver,N,GF
+242,GF67,analytical,analytisk,silver,A,GF
+250,GF68,anisotropic,anisotrop,silver,A,GF
+256,GF69,answer,svar,silver,N,GF
+259,GF70,antenna,antenn,silver,N,GF
+262,GF71,antibiotic,antibiotikum,silver,N,GF
+264,GF72,antivirus,antivirus,silver,N,GF
+269,GF73,appliance,tillämpning,silver,N,GF
+279,GF74,application software,tillämpningsprogram,silver,N,GF
+282,GF75,application,applikation,silver,N,GF
+296,GF76,applied data science,applicerad datavetenskap,silver,N,GF
+299,GF77,apply, applicera,silver,V,GF
+303,GF78,appropriate, bestämma,silver,V,GF
+306,GF79,approximate, approximera,silver,V,GF
+310,GF80,approximation,approximation,silver,N,GF
+313,GF81,architect,arkitekt,silver,N,GF
+314,GF82,architectural,arkitekturell,silver,A,GF
+318,GF83,architecture,arkitektur,silver,N,GF
+322,GF84,argue, argumentera,silver,V,GF
+323,GF85,argument,argument,silver,N,GF
+328,GF86,arithmetic,aritmetik,silver,N,GF
+330,GF87,array,fält,silver,N,GF
+336,GF88,arrival,ankomst,silver,N,GF
+339,GF89,article,artikel,silver,N,GF
+340,GF90,articulate, artikulera,silver,V,GF
+341,GF91,artificial,artificiell,silver,A,GF
+343,GF92,artificial intelligence,artificiell intelligens,silver,N,GF
+351,GF93,aspect,aspekt,silver,N,GF
+353,GF94,assembly code,assemblykod,silver,N,GF
+354,GF95,assembly programming,assemblerprogrammering,silver,N,GF
+355,GF96,assembly,assembly,silver,N,GF
+358,GF97,assess, bedöma,silver,V,GF
+359,GF98,assessment,bedömning,silver,N,GF
+361,GF99,assign, tilldela,silver,V,GF
+362,GF100,assignment,inlämningsuppgift,silver,N,GF
+365,GF101,assist, hjälpa,silver,V,GF
+366,GF102,assistant,assistent,silver,N,GF
+369,GF103,associate, associera,silver,V,GF
+370,GF104,association,samband,silver,N,GF
+371,GF105,associative,associativ,silver,A,GF
+375,GF106,assume, anta,silver,V,GF
+380,GF107,asymmetric,asymmetrisk,silver,A,GF
+383,GF108,asymptotic,asymptotisk,silver,A,GF
+384,GF109,asynchronous,asynkron,silver,A,GF
+394,GF110,attachment,bilaga,silver,N,GF
+396,GF111,attack model,attackmodell,silver,N,GF
+397,GF112,attack, angripa,silver,V,GF
+398,GF113,attack,attack,silver,N,GF
+401,GF114,attenuation,försvagning,silver,N,GF
+404,GF115,attribute,attribut,silver,N,GF
+409,GF116,audio,ljud,silver,N,GF
+419,GF117,authentication,autentisering,silver,N,GF
+423,GF118,authore, författa,silver,V,GF
+424,GF119,authority,myndighet,silver,N,GF
+429,GF120,automata theory,automatteori,silver,N,GF
+431,GF121,automate, automatisera,silver,V,GF
+432,GF122,automated,automatiserad,silver,A,GF
+450,GF123,automation,automatisering,silver,N,GF
+451,GF124,automaton,automat,silver,N,GF
+454,GF125,autonomous,självstyrande,silver,A,GF
+456,GF126,availability,tillgång,silver,N,GF
+457,GF127,available,tillgänglig,silver,A,GF
+459,GF128,average,genomsnittlig,silver,A,GF
+461,GF129,average,genomsnitt,silver,N,GF
+465,GF130,axial,axial,silver,A,GF
+467,GF131,bachelor,kandidat,silver,N,GF
+471,GF132,background,bakgrund,silver,N,GF
+482,GF133,balance, balansera,silver,V,GF
+487,GF134,bandwidth,bandbredd,silver,N,GF
+493,GF135,base, basera,silver,V,GF
+495,GF136,basic,grundläggande,silver,A,GF
+497,GF137,basic principle,grundprincip,silver,N,GF
+498,GF138,basic,grund,silver,N,GF
+501,GF139,batch,batch,silver,N,GF
+508,GF140,baud,baud,silver,N,GF
+516,GF141,begin, börja,silver,V,GF
+520,GF142,behavior,beteende,silver,N,GF
+521,GF143,behaviour,beteende,silver,N,GF
+524,GF144,benchmark,riktvärde,silver,N,GF
+536,GF145,bidirectional,dubbelriktad,silver,A,GF
+538,GF146,big data,stor data,silver,N,GF
+542,GF147,binary,binär,silver,A,GF
+543,GF148,binary number,binärt tal,silver,N,GF
+544,GF149,binary search algorithm,binärsökning,silver,N,GF
+545,GF150,binary search tree,binärt sökträd,silver,N,GF
+546,GF151,binary tree,binärträd,silver,N,GF
+548,GF152,bind, binda,silver,V,GF
+551,GF153,bioinformatics,bioinformatik,silver,N,GF
+553,GF154,biology,biologi,silver,N,GF
+557,GF155,bios,bios,silver,N,GF
+558,GF156,bipolar,bipolär,silver,A,GF
+562,GF157,bit rate,överföringskapacitet,silver,N,GF
+563,GF158,bit,bit,silver,N,GF
+565,GF159,bitrate,bithastighet,silver,N,GF
+566,GF160,blacklist,svartlista,silver,N,GF
+568,GF161,block, hindra,silver,V,GF
+569,GF162,block,block,silver,N,GF
+575,GF163,blueprint,blåkopia,silver,N,GF
+576,GF164,bluetooth,blåtand,silver,N,GF
+580,GF165,book, boka,silver,V,GF
+581,GF166,boolean,boolesk,silver,A,GF
+582,GF167,boolean data type,boolesk datatyp,silver,N,GF
+584,GF168,boot, ladda,silver,V,GF
+586,GF169,border, gränsa,silver,V,GF
+587,GF170,border,gräns,silver,N,GF
+590,GF171,bot,bot,silver,N,GF
+593,GF172,bottleneck,flaskhals,silver,N,GF
+596,GF173,bound, gränsa,silver,V,GF
+600,GF174,boundary,gräns,silver,N,GF
+604,GF175,branch, grena,silver,V,GF
+605,GF176,branch,gren,silver,N,GF
+608,GF177,breadth,bredd,silver,N,GF
+613,GF178,bridge,brygga,silver,N,GF
+626,GF179,broker,agent,silver,N,GF
+633,GF180,bug,bugg,silver,N,GF
+636,GF181,build, bygga,silver,V,GF
+644,GF182,bulletin,rapport,silver,N,GF
+648,GF183,bus,buss,silver,N,GF
+652,GF184,business information system,affärsinformationssystem,silver,N,GF
+666,GF185,business,företag,silver,N,GF
+673,GF186,byte,byte,silver,N,GF
+675,GF187,cable,kabel,silver,N,GF
+679,GF188,cache memory,cacheminne,silver,N,GF
+680,GF189,cache, gömma,silver,V,GF
+681,GF190,cache,cache,silver,N,GF
+690,GF191,calculation,beräkning,silver,N,GF
+692,GF192,calculator,miniräknare,silver,N,GF
+693,GF193,calculus,analys,silver,N,GF
+700,GF194,call, anropa,silver,V,GF
+701,GF195,call, kalla,silver,V,GF
+702,GF196,call,krav,silver,N,GF
+707,GF197,camera,kamera,silver,N,GF
+715,GF198,capability,kompetens,silver,N,GF
+720,GF199,capacity,kapacitet,silver,N,GF
+721,GF200,capsule,kapsel,silver,N,GF
+722,GF201,captcha,captcha,silver,N,GF
+723,GF202,capture, fånga,silver,V,GF
+726,GF203,card reader,kortläsare,silver,N,GF
+728,GF204,card,kort,silver,N,GF
+732,GF205,carriage,vagn,silver,N,GF
+736,GF206,carrier,bärare,silver,N,GF
+739,GF207,cartridge,patron,silver,N,GF
+743,GF208,cassette,kassett,silver,N,GF
+744,GF209,categorical,kategorisk,silver,A,GF
+746,GF210,category,kategori,silver,N,GF
+747,GF211,cathode,katod,silver,N,GF
+751,GF212,cell,cell,silver,N,GF
+758,GF213,central,central,silver,N,GF
+770,GF214,challenge, utmana,silver,V,GF
+771,GF215,challenge,utmaning,silver,N,GF
+776,GF216,change, ändra,silver,V,GF
+778,GF217,channel,kanal,silver,N,GF
+784,GF218,character,karaktär,silver,N,GF
+785,GF219,characteristic,karaktäristisk,silver,A,GF
+792,GF220,chat,prat,silver,N,GF
+793,GF221,chat, chatta,silver,V,GF
+798,GF222,check, kontrollera,silver,V,GF
+799,GF223,check,test,silver,N,GF
+803,GF224,chip,chip,silver,N,GF
+809,GF225,cipher,chiffer,silver,N,GF
+811,GF226,circuit structure,kretsstruktur,silver,N,GF
+812,GF227,circuit,krets,silver,N,GF
+826,GF228,class diagram,klassmodell,silver,N,GF
+828,GF229,class,klass,silver,N,GF
+832,GF230,classification,klassificering,silver,N,GF
+834,GF231,classifier,klassificerare,silver,N,GF
+836,GF232,classless,klasslös,silver,A,GF
+837,GF233,classroom,klassrum,silver,N,GF
+839,GF234,click, klicka,silver,V,GF
+840,GF235,client,klient,silver,N,GF
+846,GF236,clock, klocka,silver,V,GF
+847,GF237,clock,klocka,silver,N,GF
+851,GF238,close, stänga,silver,V,GF
+852,GF239,closure,hölje,silver,N,GF
+854,GF240,cloud computing,datormoln,silver,N,GF
+864,GF241,cloud,moln,silver,N,GF
+867,GF242,cluster,kluster,silver,N,GF
+875,GF243,code development tool,kodutvecklingsverktyg,silver,N,GF
+877,GF244,code generator,kodgenerator,silver,N,GF
+879,GF245,code, koda,silver,V,GF
+880,GF246,code,kod,silver,N,GF
+887,GF247,coding theory,kodningsteori,silver,N,GF
+893,GF248,cognitive science,kognitionsvetenskap,silver,N,GF
+897,GF249,coherency,sammanhang,silver,N,GF
+907,GF250,collection,samling,silver,N,GF
+909,GF251,collision,kollision,silver,N,GF
+913,GF252,colour,färg,silver,N,GF
+914,GF253,column,kolumn,silver,N,GF
+917,GF254,combinatorial,kombinatorisk,silver,A,GF
+924,GF255,comma,komma,silver,N,GF
+927,GF256,command, kräva,silver,V,GF
+928,GF257,command,kommando,silver,N,GF
+929,GF258,command-line interpreter,kommandotolk,silver,N,GF
+932,GF259,comment,kommentar,silver,N,GF
+935,GF260,commercial,kommersiell,silver,A,GF
+939,GF261,commercial,reklamfilm,silver,N,GF
+942,GF262,commission,kommission,silver,N,GF
+946,GF263,common,vanlig,silver,A,GF
+949,GF264,communicate, kommunicera,silver,V,GF
+951,GF265,communication system,kommunikationssystem,silver,N,GF
+952,GF266,communication,kommunikation,silver,N,GF
+955,GF267,communications protocol,kommunikationsprotokoll,silver,N,GF
+959,GF268,community,grupp,silver,N,GF
+963,GF269,comparable,jämförbar,silver,A,GF
+966,GF270,comparison,jämförelse,silver,N,GF
+967,GF271,compatibility,förenlighet,silver,N,GF
+968,GF272,compatible,kompatibel,silver,A,GF
+977,GF273,compilation,kompilering,silver,N,GF
+978,GF274,compile, kompilera,silver,V,GF
+979,GF275,compiler construction,kompilatorkonstruktion,silver,N,GF
+980,GF276,compiler techniques,kompilatortekniker,silver,N,GF
+981,GF277,compiler,kompilator,silver,N,GF
+983,GF278,complement, komplettera,silver,V,GF
+985,GF279,complete, avsluta,silver,V,GF
+988,GF280,completion,komplettering,silver,N,GF
+989,GF281,complex,komplex,silver,A,GF
+992,GF282,complex,komplex,silver,N,GF
+993,GF283,complexity analysis,komplexitetsanalys,silver,N,GF
+998,GF284,complexity,komplexitet,silver,N,GF
+1001,GF285,component,tillhörande,silver,A,GF
+1002,GF286,component,komponent,silver,N,GF
+1005,GF287,compose, komponera,silver,V,GF
+1008,GF288,composition,komposition,silver,N,GF
+1009,GF289,comprehend, begripa,silver,V,GF
+1015,GF290,compulsory,obligatorisk,silver,A,GF
+1018,GF291,computability theory,beräkningsteori,silver,N,GF
+1019,GF292,computable,beräkningsbar,silver,A,GF
+1022,GF293,computation,beräkning,silver,N,GF
+1023,GF294,computational,beräkningsmässig,silver,A,GF
+1024,GF295,computational biology,beräkningsbiologi,silver,N,GF
+1025,GF296,computational chemistry,beräkningskemi,silver,N,GF
+1030,GF297,computational physics,beräkningsfysik,silver,N,GF
+1036,GF298,compute, beräkna,silver,V,GF
+1039,GF299,computer architecture,datorarkitektur,silver,N,GF
+1042,GF300,computer case,datorchassi,silver,N,GF
+1044,GF301,computer construction,datorkonstruktion,silver,N,GF
+1045,GF302,computer data storage,datorminne,silver,N,GF
+1046,GF303,computer engineering,datateknik,silver,N,GF
+1048,GF304,computer graphics,datorgrafik,silver,N,GF
+1049,GF305,computer interaction,datorinteraktion,silver,N,GF
+1051,GF306,computer mouse,datormus,silver,N,GF
+1052,GF307,computer network,datornätverk,silver,N,GF
+1053,GF308,computer program,datorprogram,silver,N,GF
+1055,GF309,computer science,datavetenskap,silver,N,GF
+1056,GF310,computer scientist,datalog,silver,N,GF
+1057,GF311,computer security model,datasäkerhetsmodell,silver,N,GF
+1058,GF312,computer security,datasäkerhet,silver,N,GF
+1060,GF313,computer system architecture,datorsystemarkitektur,silver,N,GF
+1061,GF314,computer system component,datorsystemkomponent,silver,N,GF
+1063,GF315,computer system,datorsystem,silver,N,GF
+1065,GF316,computer terminal,datorterminal,silver,N,GF
+1069,GF317,computer vision,datorseende,silver,N,GF
+1070,GF318,computer,dator,silver,N,GF
+1087,GF319,computing capacity,beräkningskapacitet,silver,N,GF
+1092,GF320,concatenation,konkatenering,silver,N,GF
+1096,GF321,concept,koncept,silver,N,GF
+1097,GF322,conceptual,begreppsmässig,silver,A,GF
+1099,GF323,conceptualization,begreppsmässighet,silver,N,GF
+1104,GF324,concrete,konkret,silver,A,GF
+1107,GF325,concurrency,samtidighet,silver,N,GF
+1108,GF326,concurrent,samverkande,silver,A,GF
+1112,GF327,condition,villkor,silver,N,GF
+1113,GF328,conditional,villkorlig,silver,A,GF
+1119,GF329,conference,konferens,silver,N,GF
+1123,GF330,confidential information,konfidentiell information,silver,N,GF
+1126,GF331,configuration,konfiguration,silver,N,GF
+1131,GF332,congestion control,stockningskontroll,silver,N,GF
+1133,GF333,congestion,stockning,silver,N,GF
+1134,GF334,congress,kongress,silver,N,GF
+1137,GF335,conjunction,konjunktion,silver,N,GF
+1139,GF336,connect, ansluta,silver,V,GF
+1144,GF337,connection,anslutning,silver,N,GF
+1148,GF338,connector,kopplingsdon,silver,N,GF
+1150,GF339,conquer, erövra,silver,V,GF
+1156,GF340,consistent,konsekvent,silver,A,GF
+1158,GF341,console,konsol,silver,N,GF
+1161,GF342,constant,konstant,silver,A,GF
+1162,GF343,constant,konstant,silver,N,GF
+1163,GF344,constrain, begränsa,silver,V,GF
+1169,GF345,constraint,begränsning,silver,N,GF
+1171,GF346,construct, konstruera,silver,V,GF
+1172,GF347,construction,konstruktion,silver,N,GF
+1174,GF348,constructor,konstruktor,silver,N,GF
+1177,GF349,consumer,konsument,silver,N,GF
+1180,GF350,consumption,konsumption,silver,N,GF
+1184,GF351,container,behållare,silver,N,GF
+1195,GF352,content,innehåll,silver,N,GF
+1204,GF353,context,kontext,silver,N,GF
+1209,GF354,context-free,kontextfri,silver,A,GF
+1212,GF355,continual,ständig,silver,A,GF
+1216,GF356,continuation,fortsättning,silver,N,GF
+1218,GF357,continuity,kontinuitet,silver,N,GF
+1220,GF358,continuous,kontinuerlig,silver,A,GF
+1225,GF359,contravariance,kontravarians,silver,N,GF
+1231,GF360,control flow,programflöde,silver,N,GF
+1238,GF361,control system,styrsystem,silver,N,GF
+1241,GF362,control unit,styrenhet,silver,N,GF
+1242,GF363,control, kontrollera,silver,V,GF
+1243,GF364,control,kontroll,silver,N,GF
+1247,GF365,controller,kontrollant,silver,N,GF
+1250,GF366,convention,konvention,silver,N,GF
+1257,GF367,convergence,konvergens,silver,N,GF
+1262,GF368,convert, omvandla,silver,V,GF
+1263,GF369,converter,konverterare,silver,N,GF
+1267,GF370,cooling,kylning,silver,N,GF
+1270,GF371,cooperative,samverkande,silver,A,GF
+1274,GF372,coordinate, samordna,silver,V,GF
+1279,GF373,copy, kopiera,silver,V,GF
+1280,GF374,copyright,upphovsrätt,silver,N,GF
+1286,GF375,core memory,kärnminne,silver,N,GF
+1287,GF376,core,kärna,silver,N,GF
+1296,GF377,corporation,bolag,silver,N,GF
+1298,GF378,correction,rättelse,silver,N,GF
+1301,GF379,correctness,korrekthet,silver,N,GF
+1307,GF380,cost,kostnad,silver,N,GF
+1313,GF381,countermeasure,motåtgärd,silver,N,GF
+1322,GF382,coupler,koppling,silver,N,GF
+1324,GF383,course plan,kursplan,silver,N,GF
+1325,GF384,course,kurs,silver,N,GF
+1327,GF385,covariance,kovarians,silver,N,GF
+1332,GF386,create, skapa,silver,V,GF
+1334,GF387,creativity,kreativitet,silver,N,GF
+1340,GF388,cross,kors,silver,N,GF
+1346,GF389,crosstalk,överhörning,silver,N,GF
+1349,GF390,cryptanalysis,kryptanalys,silver,N,GF
+1354,GF391,cryptography,kryptografi,silver,N,GF
+1355,GF392,cryptology,kryptologi,silver,N,GF
+1356,GF393,crystal,kristall,silver,N,GF
+1364,GF394,current,nuvarande,silver,A,GF
+1368,GF395,current,ström,silver,N,GF
+1370,GF396,curve, svänga,silver,V,GF
+1371,GF397,curve,kurva,silver,N,GF
+1382,GF398,customer,kund,silver,N,GF
+1385,GF399,cyber security,cybersäkerhet,silver,N,GF
+1386,GF400,cyberbullying,nätmobbning,silver,N,GF
+1388,GF401,cybernetics,cybernetik,silver,N,GF
+1389,GF402,cyberspace,cyberrymd,silver,N,GF
+1390,GF403,cycle,cykel,silver,N,GF
+1392,GF404,cyclic,cyklisk,silver,A,GF
+1395,GF405,cylinder,cylinder,silver,N,GF
+1399,GF406,daemon,daemon,silver,N,GF
+1405,GF407,data abstraction,dataabstraktion,silver,N,GF
+1408,GF408,data center,datorhall,silver,N,GF
+1409,GF409,data collection,datasamling,silver,N,GF
+1410,GF410,data communication,datakommunikation,silver,N,GF
+1417,GF411,data dependency,databeroende,silver,N,GF
+1422,GF412,data management,datahantering,silver,N,GF
+1427,GF413,data mining,datautvinning,silver,N,GF
+1429,GF414,data processing,databehandling,silver,N,GF
+1432,GF415,data set,datamängd,silver,N,GF
+1434,GF416,data storage device,lagringsmedium,silver,N,GF
+1436,GF417,data structure,datastruktur,silver,N,GF
+1441,GF418,data type,datatyp,silver,N,GF
+1446,GF419,data,data,silver,N,GF
+1455,GF420,database administator,databasadministratör,silver,N,GF
+1464,GF421,database,databas,silver,N,GF
+1471,GF422,day,dag,silver,N,GF
+1477,GF423,death,död,silver,N,GF
+1480,GF424,debugger,avlusare,silver,N,GF
+1487,GF425,decide, bestämma,silver,V,GF
+1490,GF426,decimal,decimal,silver,N,GF
+1497,GF427,declaration,deklaration,silver,N,GF
+1498,GF428,declare, deklarera,silver,V,GF
+1500,GF429,decompose, nedbryta,silver,V,GF
+1510,GF430,default,standard,silver,N,GF
+1513,GF431,define, definiera,silver,V,GF
+1515,GF432,definition,definition,silver,N,GF
+1516,GF433,definitive,avgörande,silver,A,GF
+1519,GF434,degree,examen,silver,N,GF
+1524,GF435,delay,fördröjning,silver,N,GF
+1528,GF436,delete, radera,silver,V,GF
+1532,GF437,delivery,leverans,silver,N,GF
+1539,GF438,denial,avslag,silver,N,GF
+1544,GF439,density,densitet,silver,N,GF
+1550,GF440,dependency,beroende,silver,N,GF
+1555,GF441,depth,djup,silver,N,GF
+1558,GF442,derive, derivera,silver,V,GF
+1562,GF443,description,beskrivning,silver,N,GF
+1563,GF444,descriptive,beskrivande,silver,A,GF
+1577,GF445,design pattern,designmönster,silver,N,GF
+1578,GF446,design process,designprocess,silver,N,GF
+1585,GF447,design, designa,silver,V,GF
+1586,GF448,design,design,silver,N,GF
+1588,GF449,desirable,önskvärd,silver,A,GF
+1590,GF450,desktop computer,skrivbordsdator,silver,N,GF
+1593,GF451,desktop,skrivbord,silver,N,GF
+1599,GF452,detect, upptäcka,silver,V,GF
+1601,GF453,detection,upptäckt,silver,N,GF
+1606,GF454,determine, fastställa,silver,V,GF
+1607,GF455,deterministic,deterministisk,silver,A,GF
+1610,GF456,develop, utveckla,silver,V,GF
+1612,GF457,developer,utvecklare,silver,N,GF
+1613,GF458,development environment,utvecklingsmiljö,silver,N,GF
+1614,GF459,development process,utvecklingsprocess,silver,N,GF
+1615,GF460,development,utveckling,silver,N,GF
+1620,GF461,device driver,drivrutin,silver,N,GF
+1625,GF462,device,enhet,silver,N,GF
+1633,GF463,diagram,diagram,silver,N,GF
+1639,GF464,dictionary,lexikon,silver,N,GF
+1642,GF465,different,annorlunda,silver,A,GF
+1643,GF466,differentiable,differentierbar,silver,A,GF
+1644,GF467,differential equation,differentialekvation,silver,N,GF
+1652,GF468,digital,digital,silver,A,GF
+1658,GF469,digital signal processor,signalprocessor,silver,N,GF
+1666,GF470,dimension,dimension,silver,N,GF
+1667,GF471,dimensional,dimensionell,silver,A,GF
+1669,GF472,diode,diod,silver,N,GF
+1675,GF473,directional,riktad,silver,A,GF
+1679,GF474,directory,katalog,silver,N,GF
+1686,GF475,disaster,katastrof,silver,N,GF
+1687,GF476,disc,disk,silver,N,GF
+1695,GF477,discovery,upptäckt,silver,N,GF
+1696,GF478,discreet,diskret,silver,A,GF
+1697,GF479,discrete,diskret,silver,A,GF
+1701,GF480,discrete mathematics,diskret matematik,silver,N,GF
+1702,GF481,discretionary,oinskränkt,silver,A,GF
+1704,GF482,discuss, diskutera,silver,V,GF
+1706,GF483,disjunction,disjunktion,silver,N,GF
+1708,GF484,disk,disk,silver,N,GF
+1714,GF485,display, uppvisa,silver,V,GF
+1715,GF486,display,bildskärm,silver,N,GF
+1724,GF487,distribute, distribuera,silver,V,GF
+1751,GF488,distributed systems,distribuerat system,silver,N,GF
+1754,GF489,distribution,distribution,silver,N,GF
+1756,GF490,distributor,återförsäljare,silver,N,GF
+1758,GF491,divide, dela,silver,V,GF
+1759,GF492,division,division,silver,N,GF
+1770,GF493,document, dokumentera,silver,V,GF
+1771,GF494,document,dokument,silver,N,GF
+1774,GF495,documentation,dokumentation,silver,N,GF
+1782,GF496,domain name system,domännamnssystem,silver,N,GF
+1783,GF497,domain name,domännamn,silver,N,GF
+1786,GF498,domain,domän,silver,N,GF
+1789,GF499,domain-specific language,domänspecifikt språk,silver,N,GF
+1795,GF500,dot,punkt,silver,N,GF
+1796,GF501,double, dubbla,silver,V,GF
+1797,GF502,double,dubbel,silver,N,GF
+1802,GF503,download, hämta,silver,V,GF
+1803,GF504,download,nedladdning,silver,N,GF
+1805,GF505,drag, dra,silver,V,GF
+1808,GF506,drive,disk,silver,N,GF
+1810,GF507,drop, släppa,silver,V,GF
+1811,GF508,drop,fall,silver,N,GF
+1819,GF509,dynamic,dynamisk,silver,A,GF
+1828,GF510,dynamic programming,dynamisk programmering,silver,N,GF
+1833,GF511,dynamic,dynamik,silver,N,GF
+1834,GF512,dynamics,dynamik,silver,N,GF
+1856,GF513,edition,upplaga,silver,N,GF
+1857,GF514,editor,redigerare,silver,N,GF
+1862,GF515,education,utbildning,silver,N,GF
+1863,GF516,educational program,utbildningsprogram,silver,N,GF
+1864,GF517,educational programme,utbildningsprogram,silver,N,GF
+1867,GF518,effect, genomföra,silver,V,GF
+1868,GF519,effect,effekt,silver,N,GF
+1869,GF520,effective,effektiv,silver,A,GF
+1876,GF521,efficient,effektiv,silver,A,GF
+1886,GF522,electrical,elektrisk,silver,A,GF
+1888,GF523,electricity,elektricitet,silver,N,GF
+1891,GF524,electromagnetic,elektromagnetisk,silver,A,GF
+1892,GF525,electromagnetic wave,elektromagnetisk strålning,silver,N,GF
+1896,GF526,electronic,elektronisk,silver,A,GF
+1906,GF527,electronics,elektronik,silver,N,GF
+1908,GF528,element,element,silver,N,GF
+1913,GF529,elliptic,elliptisk,silver,A,GF
+1917,GF530,embed, inbädda,silver,V,GF
+1924,GF531,emergency,kris,silver,N,GF
+1932,GF532,empirical,empirisk,silver,A,GF
+1935,GF533,employee,anställd,silver,N,GF
+1939,GF534,empty set,tom mängd,silver,N,GF
+1945,GF535,enable, möjliggöra,silver,V,GF
+1947,GF536,encapsulation,inkapsling,silver,N,GF
+1949,GF537,encode, koda,silver,V,GF
+1954,GF538,encrypt, kryptera,silver,V,GF
+1956,GF539,encryption,kryptering,silver,N,GF
+1958,GF540,end user,slutanvändare,silver,N,GF
+1960,GF541,end, avsluta,silver,V,GF
+1961,GF542,end,slut,silver,N,GF
+1976,GF543,energy,energi,silver,N,GF
+1981,GF544,engine,motor,silver,N,GF
+1983,GF545,engineering,ingenjörsvetenskap,silver,N,GF
+1988,GF546,enhance, höja,silver,V,GF
+1992,GF547,enhancement,förbättring,silver,N,GF
+2012,GF548,entity,entitet,silver,N,GF
+2015,GF549,entry requirement,behörighet,silver,N,GF
+2016,GF550,entry,inträde,silver,N,GF
+2018,GF551,environment,miljö,silver,N,GF
+2031,GF552,equalizer,utjämnare,silver,N,GF
+2033,GF553,equation,ekvation,silver,N,GF
+2035,GF554,equipment,utrustning,silver,N,GF
+2052,GF555,error,fel,silver,N,GF
+2060,GF556,escape, fly,silver,V,GF
+2061,GF557,escape,flykt,silver,N,GF
+2063,GF558,essential,essentiell,silver,A,GF
+2065,GF559,essential,väsentlighet,silver,N,GF
+2067,GF560,establish, etablera,silver,V,GF
+2068,GF561,estimate, estimera,silver,V,GF
+2073,GF562,ethernet,ethernet,silver,N,GF
+2074,GF563,ethical aspect,etisk aspekt,silver,N,GF
+2079,GF564,ethics,etik,silver,N,GF
+2085,GF565,evaluate, evaluera,silver,V,GF
+2089,GF566,evaluation,evaluering,silver,N,GF
+2094,GF567,event,händelse,silver,N,GF
+2099,GF568,evolution,evolution,silver,N,GF
+2103,GF569,examination hall exam,salstentamen,silver,N,GF
+2104,GF570,examination,examination,silver,N,GF
+2107,GF571,example,exempel,silver,N,GF
+2111,GF572,exception handling,undantagshantering,silver,N,GF
+2112,GF573,exception,undantag,silver,N,GF
+2115,GF574,exchange, byta,silver,V,GF
+2116,GF575,exchange,utbyte,silver,N,GF
+2121,GF576,executable,exekverbar,silver,A,GF
+2123,GF577,execute, exekvera,silver,V,GF
+2124,GF578,execution,exekvering,silver,N,GF
+2125,GF579,exemplify, exemplifiera,silver,V,GF
+2126,GF580,exercise,övning,silver,N,GF
+2129,GF581,expand, utöka,silver,V,GF
+2131,GF582,expansion bus,expansionskort,silver,N,GF
+2132,GF583,expansion,expansion,silver,N,GF
+2136,GF584,expense,utgift,silver,N,GF
+2140,GF585,experience, erfarenhet,silver,V,GF
+2142,GF586,experiment, experimentera,silver,V,GF
+2148,GF587,expert,expert,silver,N,GF
+2151,GF588,explicit,tydlig,silver,A,GF
+2156,GF589,explore, utforska,silver,V,GF
+2159,GF590,express, uttrycka,silver,V,GF
+2160,GF591,expression,uttryck,silver,N,GF
+2164,GF592,extend, utöka,silver,V,GF
+2170,GF593,extension,förlängning,silver,N,GF
+2173,GF594,exterior,yttre,silver,A,GF
+2174,GF595,exterior,yttre,silver,N,GF
+2176,GF596,external,extern,silver,A,GF
+2178,GF597,extract, extrahera,silver,V,GF
+2179,GF598,extract,utdrag,silver,N,GF
+2181,GF599,extraction,extraktion,silver,N,GF
+2184,GF600,extreme,extrem,silver,A,GF
+2191,GF601,facility,möjlighet,silver,N,GF
+2194,GF602,factor,faktor,silver,N,GF
+2195,GF603,factory,fabrik,silver,N,GF
+2204,GF604,false,falsk,silver,A,GF
+2207,GF605,fan, fläkta,silver,V,GF
+2208,GF606,fan,fläkt,silver,N,GF
+2211,GF607,fast,snabb,silver,A,GF
+2219,GF608,fault,fel,silver,N,GF
+2224,GF609,feasibility study,förstudie,silver,N,GF
+2233,GF610,feature,funktion,silver,N,GF
+2239,GF611,feed,flöde,silver,N,GF
+2250,GF612,field,fält,silver,N,GF
+2256,GF613,file format,filformat,silver,N,GF
+2258,GF614,file name,filnamn,silver,N,GF
+2263,GF615,file, arkivera,silver,V,GF
+2264,GF616,file,fil,silver,N,GF
+2265,GF617,filename extension,filändelse,silver,N,GF
+2267,GF618,filing,arkivering,silver,N,GF
+2268,GF619,filter, filtrera,silver,V,GF
+2274,GF620,finance, finansiera,silver,V,GF
+2286,GF621,finite,ändlig,silver,A,GF
+2297,GF622,firewall,brandvägg,silver,N,GF
+2302,GF623,firmware,firmware,silver,N,GF
+2305,GF624,flash memory,flashminne,silver,N,GF
+2306,GF625,flash, blinka,silver,V,GF
+2307,GF626,flash,sken,silver,N,GF
+2310,GF627,flight simulator,flygsimulator,silver,N,GF
+2312,GF628,floating point number,flyttal,silver,N,GF
+2315,GF629,floppy disk,diskett,silver,N,GF
+2318,GF630,flow,flöde,silver,N,GF
+2319,GF631,fluid,flytande,silver,A,GF
+2320,GF632,fluid,vätska,silver,N,GF
+2324,GF633,focus, fokusera,silver,V,GF
+2334,GF634,forgery,förfalskning,silver,N,GF
+2336,GF635,form factor,formfaktor,silver,N,GF
+2338,GF636,form,formulär,silver,N,GF
+2339,GF637,formal,formell,silver,A,GF
+2348,GF638,formal verification,formell verifiering,silver,N,GF
+2352,GF639,format,format,silver,N,GF
+2354,GF640,formula,formel,silver,N,GF
+2355,GF641,formulate, formulera,silver,V,GF
+2360,GF642,forwarding,spedition,silver,N,GF
+2363,GF643,foundation,grund,silver,N,GF
+2371,GF644,frame,ram,silver,N,GF
+2374,GF645,framework,ramverk,silver,N,GF
+2379,GF646,free,fri,silver,A,GF
+2381,GF647,free, fria,silver,V,GF
+2391,GF648,frequency,frekvens,silver,N,GF
+2398,GF649,front,front,silver,N,GF
+2400,GF650,frontier,gräns,silver,N,GF
+2402,GF651,full,full,silver,A,GF
+2406,GF652,function, fungera,silver,V,GF
+2407,GF653,function,funktion,silver,N,GF
+2408,GF654,functional,funktionell,silver,A,GF
+2410,GF655,functional programming,funktionell programmering,silver,N,GF
+2412,GF656,functionality,funktionalitet,silver,N,GF
+2413,GF657,fundamental,fundamental,silver,A,GF
+2415,GF658,fundamental,fundamental,silver,N,GF
+2422,GF659,future,framtida,silver,A,GF
+2427,GF660,game engine,spelmotor,silver,N,GF
+2430,GF661,game theory,spelteori,silver,N,GF
+2432,GF662,game, spela,silver,V,GF
+2433,GF663,game,spel,silver,N,GF
+2440,GF664,garbage collection,skräpsamling,silver,N,GF
+2441,GF665,garbage,skräp,silver,N,GF
+2443,GF666,gate,grind,silver,N,GF
+2445,GF667,gateway,port,silver,N,GF
+2448,GF668,general,allmän,silver,A,GF
+2505,GF669,generalization,generalisering,silver,N,GF
+2506,GF670,generalize, generalisera,silver,V,GF
+2509,GF671,generate, generera,silver,V,GF
+2513,GF672,generation,generation,silver,N,GF
+2515,GF673,generative,generativ,silver,A,GF
+2517,GF674,generic,generisk,silver,A,GF
+2523,GF675,genetic,generisk,silver,A,GF
+2527,GF676,geographic,geografisk,silver,A,GF
+2535,GF677,geography,geografi,silver,N,GF
+2539,GF678,geometric,geometrisk,silver,A,GF
+2544,GF679,geometry,geometri,silver,N,GF
+2550,GF680,gigabit,gigabit,silver,N,GF
+2551,GF681,gigabyte,gigabyte,silver,N,GF
+2556,GF682,global,global,silver,A,GF
+2561,GF683,global variable,global variabel,silver,N,GF
+2562,GF684,globalization,globalisering,silver,N,GF
+2566,GF685,goal,mål,silver,N,GF
+2582,GF686,grammar,grammatik,silver,N,GF
+2590,GF687,graph theory,grafteori,silver,N,GF
+2591,GF688,graph,graf,silver,N,GF
+2593,GF689,graphic,grafisk,silver,A,GF
+2594,GF690,graphic,grafik,silver,N,GF
+2595,GF691,graphical,grafisk,silver,A,GF
+2598,GF692,graphical user interface,grafiskt användargränssnitt,silver,N,GF
+2602,GF693,graphics card,grafikkort,silver,N,GF
+2607,GF694,graphics processing unit,grafikprocessor,silver,N,GF
+2617,GF695,grid,rutnät,silver,N,GF
+2625,GF696,group,grupp,silver,N,GF
+2633,GF697,guard,vakt,silver,N,GF
+2638,GF698,guideline,riktlinje,silver,N,GF
+2648,GF699,handler,hanterare,silver,N,GF
+2655,GF700,handshake,handskakning,silver,N,GF
+2662,GF701,hard,hård,silver,A,GF
+2663,GF702,hard,svår,silver,A,GF
+2664,GF703,hard disk drive,hårddisk,silver,N,GF
+2665,GF704,hard drive,hårddisk,silver,N,GF
+2674,GF705,hardware acceleration,hårdvaruacceleration,silver,N,GF
+2680,GF706,hardware system,hårdvarusystem,silver,N,GF
+2681,GF707,hardware unit,hårdvaruenhet,silver,N,GF
+2682,GF708,hardware,hårdvara,silver,N,GF
+2688,GF709,hash function,hashfunktion,silver,N,GF
+2689,GF710,hash table,hashtabell,silver,N,GF
+2693,GF711,head, leda,silver,V,GF
+2694,GF712,head,huvud,silver,N,GF
+2702,GF713,heapsort,heapsortering,silver,N,GF
+2712,GF714,hertz,hertz,silver,N,GF
+2719,GF715,heuristic,heuristik,silver,N,GF
+2726,GF716,hide, dölja,silver,V,GF
+2728,GF717,hierarchical,hierarkisk,silver,A,GF
+2732,GF718,hierarchy,hierarki,silver,N,GF
+2733,GF719,high,hög,silver,A,GF
+2751,GF720,hint, antyda,silver,V,GF
+2752,GF721,hint,antydan,silver,N,GF
+2753,GF722,histogram,histogram,silver,N,GF
+2756,GF723,hit,träff,silver,N,GF
+2759,GF724,holding,innehav,silver,N,GF
+2762,GF725,holistic approach,helhetssyn,silver,N,GF
+2780,GF726,host,värd,silver,N,GF
+2783,GF727,hotkey,snabbvalstangent,silver,N,GF
+2791,GF728,hub,centrum,silver,N,GF
+2801,GF729,human,människa,silver,N,GF
+2803,GF730,human-computer interation,människa-datorinteraktion,silver,N,GF
+2810,GF731,hybrid,hybrid,silver,N,GF
+2815,GF732,hyperlink,hyperlänk,silver,N,GF
+2820,GF733,hypertext,hypertext,silver,N,GF
+2831,GF734,identifier,identifierare,silver,N,GF
+2832,GF735,identify, identifiera,silver,V,GF
+2834,GF736,identity,identitet,silver,N,GF
+2835,GF737,if-loop,if-loop,silver,N,GF
+2836,GF738,if-statement,if-sats,silver,N,GF
+2850,GF739,image, föreställa,silver,V,GF
+2851,GF740,image,bild,silver,N,GF
+2852,GF741,imagery,bildsamling,silver,N,GF
+2856,GF742,immutable,oföränderlig,silver,A,GF
+2857,GF743,impact,verkan,silver,N,GF
+2860,GF744,imperative,imperativ,silver,A,GF
+2861,GF745,imperative programming,imperativ programmering,silver,N,GF
+2862,GF746,implement, implementera,silver,V,GF
+2865,GF747,implementation problem,implementationsproblem,silver,N,GF
+2866,GF748,implementation,implementering,silver,N,GF
+2867,GF749,implication,implikation,silver,N,GF
+2873,GF750,improve, förbättra,silver,V,GF
+2874,GF751,improvement,förbättring,silver,N,GF
+2887,GF752,include, inkludera,silver,V,GF
+2894,GF753,incremental,inkrementell,silver,A,GF
+2898,GF754,independent,oberoende,silver,A,GF
+2904,GF755,index,index,silver,N,GF
+2907,GF756,indicator,indikator,silver,N,GF
+2908,GF757,indirect,indirekt,silver,A,GF
+2910,GF758,individual,individuell,silver,A,GF
+2912,GF759,individual,individ,silver,N,GF
+2919,GF760,induction,induktion,silver,N,GF
+2920,GF761,industrial,industriell,silver,A,GF
+2925,GF762,industry,industri,silver,N,GF
+2930,GF763,inference,inferens,silver,N,GF
+2950,GF764,information system,informationssystem,silver,N,GF
+2955,GF765,information technology,informationsteknik,silver,N,GF
+2957,GF766,information theory,informationsteori,silver,N,GF
+2958,GF767,information,information,silver,N,GF
+2961,GF768,infrastructure,infrastruktur,silver,N,GF
+2965,GF769,inheritance,arv,silver,N,GF
+2969,GF770,initialization,initiering,silver,N,GF
+2970,GF771,initialize, initialisera,silver,V,GF
+2972,GF772,initiative,initiativ,silver,N,GF
+2973,GF773,injection,injektion,silver,N,GF
+2979,GF774,input,indata,silver,N,GF
+2990,GF775,insertion sort,insättningssortering,silver,N,GF
+2991,GF776,insertion,införande,silver,N,GF
+2995,GF777,inspection,granskning,silver,N,GF
+3000,GF778,instance,instans,silver,N,GF
+3003,GF779,institute, införa,silver,V,GF
+3004,GF780,institute,institut,silver,N,GF
+3006,GF781,instruction set architecture,instruktionsuppsättning,silver,N,GF
+3009,GF782,instruction,instruktion,silver,N,GF
+3012,GF783,instrument,instrument,silver,N,GF
+3013,GF784,instrumentation,instrumentering,silver,N,GF
+3020,GF785,integer,heltal,silver,N,GF
+3022,GF786,integrate, integrera,silver,V,GF
+3023,GF787,integrated circuit,integrerad krets,silver,N,GF
+3025,GF788,integrated development environment,integrerad utvecklingsmiljö,silver,N,GF
+3031,GF789,integration,integration,silver,N,GF
+3034,GF790,integrity,integritet,silver,N,GF
+3036,GF791,intellectual,intellektuell,silver,A,GF
+3039,GF792,intelligence,intelligens,silver,N,GF
+3040,GF793,intelligent,intelligent,silver,A,GF
+3054,GF794,inter-process communication,interprocesskommunikation,silver,N,GF
+3058,GF795,interaction,interaktion,silver,N,GF
+3059,GF796,interactive,interaktiv,silver,A,GF
+3068,GF797,interchange, växla,silver,V,GF
+3069,GF798,interchange,utbyte,silver,N,GF
+3071,GF799,interconnect, sammanlänka,silver,V,GF
+3073,GF800,interconnection,sammanlänkning,silver,N,GF
+3076,GF801,interdisciplinary,tvärvetenskaplig,silver,A,GF
+3078,GF802,interested,interesserad,silver,A,GF
+3080,GF803,interface design,gränssnittsdesign,silver,N,GF
+3083,GF804,interface,gränssnitt,silver,N,GF
+3086,GF805,interference,interferens,silver,N,GF
+3088,GF806,interior,inre,silver,A,GF
+3089,GF807,interior,inrede,silver,N,GF
+3090,GF808,interleave, interfoliera,silver,V,GF
+3093,GF809,intermediate,mellanliggande,silver,A,GF
+3096,GF810,internal,intern,silver,A,GF
+3098,GF811,international,internationell,silver,A,GF
+3099,GF812,internationalization,internationalisering,silver,N,GF
+3100,GF813,internationalize, internationalisera,silver,V,GF
+3108,GF814,internet,internet,silver,N,GF
+3119,GF815,interpret, interpretera,silver,V,GF
+3120,GF816,interpretation,tolkning,silver,N,GF
+3123,GF817,interrupt, avbryta,silver,V,GF
+3124,GF818,interruption,avbrott,silver,N,GF
+3128,GF819,interval,intervall,silver,N,GF
+3132,GF820,introduce, introducera,silver,V,GF
+3134,GF821,introduction,introduktion,silver,N,GF
+3140,GF822,intrusion,intrång,silver,N,GF
+3141,GF823,invariant,invariant,silver,A,GF
+3153,GF824,invocation,invokation,silver,N,GF
+3165,GF825,ip-adress,ip-address,silver,N,GF
+3171,GF826,irregular,oregelbunden,silver,A,GF
+3176,GF827,issue,problem,silver,N,GF
+3180,GF828,iteration,iteration,silver,N,GF
+3182,GF829,iterative,iterativ,silver,A,GF
+3196,GF830,job,arbete,silver,N,GF
+3200,GF831,junction,förbindelse,silver,N,GF
+3204,GF832,kernel,kärna,silver,N,GF
+3205,GF833,key feature,huvudfunktion,silver,N,GF
+3216,GF834,keyboard,tangentbord,silver,N,GF
+3217,GF835,kibibyte,kibibyte,silver,N,GF
+3218,GF836,kilobit,kilobit,silver,N,GF
+3219,GF837,kilobyte,kilobyte,silver,N,GF
+3220,GF838,kilohertz,kilohertz,silver,N,GF
+3222,GF839,kind,sort,silver,N,GF
+3226,GF840,kit,verktyg,silver,N,GF
+3237,GF841,knowledge,kunskap,silver,N,GF
+3239,GF842,lab,labb,silver,N,GF
+3242,GF843,label, beteckna,silver,V,GF
+3243,GF844,label,etikett,silver,N,GF
+3244,GF845,laboratory task,laboration,silver,N,GF
+3250,GF846,language extension,språkutvidgning,silver,N,GF
+3256,GF847,language,språk,silver,N,GF
+3268,GF848,laptop,laptop,silver,N,GF
+3269,GF849,large,stor,silver,A,GF
+3277,GF850,laser,laser,silver,N,GF
+3290,GF851,law,lag,silver,N,GF
+3294,GF852,layer,lager,silver,N,GF
+3296,GF853,layout,layout,silver,N,GF
+3297,GF854,lazy,lat,silver,A,GF
+3304,GF855,learn, lära,silver,V,GF
+3307,GF856,learning outcome,lärandemål,silver,N,GF
+3308,GF857,learning,bildning,silver,N,GF
+3313,GF858,lecture,föreläsning,silver,N,GF
+3315,GF,LED display,lysdiodskärm,silver,N,GF
+3316,GF0,LED,lysdiod,silver,N,GF
+3325,GF859,letters,bokstäver,silver,N,GF
+3328,GF860,level,nivå,silver,N,GF
+3332,GF861,library,bibliotek,silver,N,GF
+3333,GF862,library,programbibliotek,silver,N,GF
+3334,GF863,licence,licens,silver,N,GF
+3335,GF864,license, licensiera,silver,V,GF
+3350,GF865,light,ljus,silver,N,GF
+3352,GF866,lightweight,lätt,silver,A,GF
+3358,GF867,limit, begränsa,silver,V,GF
+3359,GF868,limit,gräns,silver,N,GF
+3362,GF869,line,linje,silver,N,GF
+3364,GF870,linear,linjär,silver,A,GF
+3368,GF871,linear search,linjärsökning,silver,N,GF
+3374,GF872,linguistics,språkvetenskap,silver,N,GF
+3378,GF873,link, knyta,silver,V,GF
+3379,GF874,link,länk,silver,N,GF
+3381,GF875,linked list,länkad lista,silver,N,GF
+3384,GF876,linux,linux,silver,N,GF
+3385,GF877,liquid,flytande,silver,A,GF
+3386,GF878,liquid,vätska,silver,N,GF
+3388,GF879,list, lista,silver,V,GF
+3389,GF880,list,lista,silver,N,GF
+3396,GF881,literature,litteratur,silver,N,GF
+3397,GF882,litterature study,litteraturstudie,silver,N,GF
+3407,GF883,load, ladda,silver,V,GF
+3408,GF884,load,laddning,silver,N,GF
+3409,GF885,loader,lastare,silver,N,GF
+3411,GF886,loading,laddning,silver,N,GF
+3412,GF887,local,lokal,silver,A,GF
+3416,GF888,locality,lokalitet,silver,N,GF
+3418,GF889,localization,lokalisering,silver,N,GF
+3428,GF890,logarithm,logaritm,silver,N,GF
+3438,GF891,logic programming,logikprogrammering,silver,N,GF
+3439,GF892,logic,logik,silver,N,GF
+3440,GF893,logical,logisk,silver,A,GF
+3448,GF894,logo,logga,silver,N,GF
+3456,GF895,look, titta,silver,V,GF
+3458,GF896,loop,loop,silver,N,GF
+3460,GF897,loss,förlust,silver,N,GF
+3461,GF898,lossless,förlustlös,silver,A,GF
+3476,GF899,machine code,maskinkod,silver,N,GF
+3478,GF900,machine learning,maskininlärning,silver,N,GF
+3482,GF901,machine,maskin,silver,N,GF
+3485,GF902,machinery,maskineri,silver,N,GF
+3491,GF903,magnetic,magnetisk,silver,A,GF
+3497,GF904,mail, posta,silver,V,GF
+3498,GF905,mail,mail,silver,N,GF
+3500,GF906,main,huvudsaklig,silver,A,GF
+3502,GF907,mainframe computer,stordator,silver,N,GF
+3505,GF908,maintain, underhålla,silver,V,GF
+3508,GF909,maintenance,underhåll,silver,N,GF
+3515,GF910,manageable,hanterlig,silver,A,GF
+3522,GF911,management,förvaltning,silver,N,GF
+3525,GF912,manager,manager,silver,N,GF
+3526,GF913,mandatory,obligatorisk,silver,A,GF
+3528,GF914,mandatory access control,obligatorisk åtkomstkontroll,silver,N,GF
+3530,GF915,manipulation,manipulation,silver,N,GF
+3534,GF916,manufacture, tillverka,silver,V,GF
+3535,GF917,manufacturer,tillverkare,silver,N,GF
+3541,GF918,map, kartlägga,silver,V,GF
+3542,GF919,map,karta,silver,N,GF
+3545,GF920,mark, markera,silver,V,GF
+3546,GF921,mark,märke,silver,N,GF
+3558,GF922,markup,påslag,silver,N,GF
+3564,GF923,master, bemästra,silver,V,GF
+3565,GF924,master,master,silver,N,GF
+3571,GF925,mathematical,matematisk,silver,A,GF
+3575,GF926,mathematical model,matematisk modell,silver,N,GF
+3577,GF927,mathematical modelling,matematiskmodellering,silver,N,GF
+3582,GF928,mathematics,matematik,silver,N,GF
+3584,GF929,matrix,matris,silver,N,GF
+3587,GF930,maturity,mognad,silver,N,GF
+3590,GF931,maximum,maximal,silver,A,GF
+3591,GF932,maximum,maximum,silver,N,GF
+3596,GF933,measure, mäta,silver,V,GF
+3598,GF934,measurement,mått,silver,N,GF
+3601,GF935,mechanical,mekanisk,silver,A,GF
+3605,GF936,mechanism,mekanism,silver,N,GF
+3610,GF937,media player,mediespelare,silver,N,GF
+3612,GF938,media,media,silver,N,GF
+3617,GF939,medical,medicinsk,silver,A,GF
+3622,GF940,medium,medium,silver,N,GF
+3626,GF941,megabit,megabit,silver,N,GF
+3627,GF942,megabyte,megabyte,silver,N,GF
+3628,GF943,megahertz,megahertz,silver,N,GF
+3631,GF944,memory address,minnesadress,silver,N,GF
+3632,GF945,memory card,minneskort,silver,N,GF
+3635,GF946,memory hierarchy level,minneshierarkinivå,silver,N,GF
+3636,GF947,memory hierarchy,minneshierarki,silver,N,GF
+3641,GF948,memory,minne,silver,N,GF
+3642,GF949,menu bar,menyfält,silver,N,GF
+3643,GF950,menu,meny,silver,N,GF
+3646,GF951,merger,sammanslagning,silver,N,GF
+3653,GF952,message,meddelande,silver,N,GF
+3659,GF953,metal,metall,silver,N,GF
+3665,GF954,method,metod,silver,N,GF
+3671,GF955,methodology,metodologi,silver,N,GF
+3677,GF956,microarchitecture level,mikroarkitekturnivå,silver,N,GF
+3681,GF957,microcode,mikroprogram,silver,N,GF
+3684,GF958,microcontroller,mikrokontroller,silver,N,GF
+3688,GF959,microprocessor,mikroprocessor,silver,N,GF
+3707,GF960,millennium,årtusende,silver,N,GF
+3710,GF961,million,miljon,silver,N,GF
+3716,GF962,minimum,minimum,silver,N,GF
+3770,GF963,miss,miss,silver,N,GF
+3831,GF964,mode,läge,silver,N,GF
+3838,GF965,model, modellera,silver,V,GF
+3839,GF966,model,modell,silver,N,GF
+3850,GF967,modeling,modellering,silver,N,GF
+3851,GF968,modelling language,modelleringsspråk,silver,N,GF
+3852,GF969,modelling,modellering,silver,N,GF
+3856,GF970,modem,modem,silver,N,GF
+3858,GF971,modern,modern,silver,A,GF
+3863,GF972,modifier,modifierare,silver,N,GF
+3864,GF973,modify, modifiera,silver,V,GF
+3866,GF974,modular,modulär,silver,A,GF
+3868,GF975,module,modul,silver,N,GF
+3871,GF976,molecular,molekylär,silver,A,GF
+3873,GF977,monad,monad,silver,N,GF
+3875,GF978,monitor, övervaka,silver,V,GF
+3876,GF979,monitor,bildskärm,silver,N,GF
+3881,GF980,monochrome,enfärgad,silver,A,GF
+3882,GF981,monochrome,monokrom,silver,N,GF
+3883,GF982,monotonic,monoton,silver,A,GF
+3888,GF983,mortality,dödlighet,silver,N,GF
+3889,GF984,motherboard,moderkort,silver,N,GF
+3894,GF985,motion sensor,rörelsesensor,silver,N,GF
+3895,GF986,motion,rörelse,silver,N,GF
+3899,GF987,mouse,mus,silver,N,GF
+3905,GF988,multi-core processor,flerkärnig processor,silver,N,GF
+3928,GF989,multilingual,flerspråkig,silver,A,GF
+3939,GF990,multimedia,multimedia,silver,N,GF
+3946,GF991,multiple,multipel,silver,A,GF
+3951,GF992,multiple,mångfald,silver,N,GF
+3955,GF993,multiplication,multiplikation,silver,N,GF
+3957,GF994,multiprocessing,multiprocessering,silver,N,GF
+3960,GF995,multiprocessor,multiprocessor,silver,N,GF
+3971,GF996,mutable,muterbar,silver,A,GF
+3976,GF997,name, namnge,silver,V,GF
+3980,GF998,national,nationell,silver,A,GF
+3983,GF999,native,inhemsk,silver,A,GF
+3985,GF1000,native,infödd,silver,N,GF
+3999,GF1001,negation,negation,silver,N,GF
+4001,GF1002,negative,negativ,silver,A,GF
+4007,GF1003,nested,nästlad,silver,A,GF
+4028,GF1004,network interface controller,nätverkskort,silver,N,GF
+4040,GF1005,network protocol,nätverksprotokoll,silver,N,GF
+4044,GF1006,network security,nätverksäkerhet,silver,N,GF
+4051,GF1007,network,nätverk,silver,N,GF
+4057,GF1008,neural,neural,silver,A,GF
+4060,GF1009,neural network,neuralt nätverk,silver,N,GF
+4068,GF1010,news,nyhet,silver,N,GF
+4074,GF1011,node,nod,silver,N,GF
+4104,GF1012,nondeterministic,icke-deterministisk,silver,A,GF
+4116,GF1013,normal,normal,silver,A,GF
+4117,GF1014,normal form,normalform,silver,N,GF
+4121,GF1015,notation,notation,silver,N,GF
+4124,GF1016,notification,meddelande,silver,N,GF
+4129,GF1017,number theory,talteori,silver,N,GF
+4130,GF1018,number, omfatta,silver,V,GF
+4131,GF1019,number,tal,silver,N,GF
+4134,GF1020,numerical,numerisk,silver,A,GF
+4138,GF1021,numerical analysis,numerisk analys,silver,N,GF
+4144,GF1022,object orientation,objektorientering,silver,N,GF
+4149,GF1023,object, invända,silver,V,GF
+4150,GF1024,object,objekt,silver,N,GF
+4155,GF1025,object-oriented program,objektorienterat program,silver,N,GF
+4160,GF1026,objective,objektiv,silver,N,GF
+4167,GF1027,obtain, erhålla,silver,V,GF
+4181,GF1028,officer,officer,silver,N,GF
+4210,GF1029,open,öppen,silver,A,GF
+4220,GF1030,operate, operera,silver,V,GF
+4222,GF1031,operating system,operativsystem,silver,N,GF
+4225,GF1032,operation,verksamhet,silver,N,GF
+4233,GF1033,operator,operator,silver,N,GF
+4240,GF1034,optical,optisk,silver,A,GF
+4245,GF1035,optical disc,optisk skiva,silver,N,GF
+4246,GF1036,optical fiber,fiberoptik,silver,N,GF
+4256,GF1037,optimal,optimal,silver,A,GF
+4263,GF1038,optimization,optimering,silver,N,GF
+4265,GF1039,optimize, optimera,silver,V,GF
+4269,GF1040,order, beställa,silver,V,GF
+4270,GF1041,order, ordna,silver,V,GF
+4271,GF1042,order,ordning,silver,N,GF
+4273,GF1043,organic,organisk,silver,A,GF
+4275,GF1044,organization,organisation,silver,N,GF
+4285,GF1045,orient, orientera,silver,V,GF
+4287,GF1046,original,ursprunglig,silver,A,GF
+4288,GF1047,original,original,silver,N,GF
+4289,GF1048,orthogonal,ortogonal,silver,A,GF
+4294,GF1049,os,operativsystem,silver,N,GF
+4306,GF1050,outcome,utfall,silver,N,GF
+4310,GF1051,output,utdata,silver,N,GF
+4317,GF1052,overcome, överkomma,silver,V,GF
+4327,GF1053,overview,översikt,silver,N,GF
+4331,GF1054,package,paket,silver,N,GF
+4336,GF1055,packet,paket,silver,N,GF
+4344,GF1056,page,sida,silver,N,GF
+4348,GF1057,pair programming,parprogrammering,silver,N,GF
+4349,GF1058,pair,par,silver,N,GF
+4351,GF1059,panel,panel,silver,N,GF
+4356,GF1060,paradigm,paradigm,silver,N,GF
+4359,GF1061,parallel,parallell,silver,A,GF
+4367,GF1062,parallel computing,parallelldator,silver,N,GF
+4376,GF1063,parallel,parallell,silver,N,GF
+4378,GF1064,parallelism,parallelism,silver,N,GF
+4379,GF1065,parallellization,parallellisering,silver,N,GF
+4382,GF1066,parameter,parameter,silver,N,GF
+4386,GF1067,parse, parsa,silver,V,GF
+4387,GF1068,parser,parser,silver,N,GF
+4391,GF1069,parsing,parsning,silver,N,GF
+4393,GF1070,part,del,silver,N,GF
+4404,GF1071,partition, dela,silver,V,GF
+4405,GF1072,partition,partition,silver,N,GF
+4410,GF1073,partnership,partnerskap,silver,N,GF
+4415,GF1074,password,lösenord,silver,N,GF
+4423,GF1075,path,väg,silver,N,GF
+4431,GF1076,pattern,mönster,silver,N,GF
+4446,GF1077,penalty,bestraffning,silver,N,GF
+4455,GF1078,perform, utföra,silver,V,GF
+4462,GF1079,performance analysis,prestandaanalys,silver,N,GF
+4466,GF1080,performance bottleneck,prestandaflaskhals,silver,N,GF
+4472,GF1081,performance optimization,prestandaoptimering,silver,N,GF
+4475,GF1082,performance,prestanda,silver,N,GF
+4480,GF1083,peripheral,yttre,silver,A,GF
+4482,GF1084,peripheral,kringutrustning,silver,N,GF
+4486,GF1085,permutation,permutation,silver,N,GF
+4488,GF1086,persistent,ständig,silver,A,GF
+4494,GF1087,personal computer,persondator,silver,N,GF
+4511,GF1088,philosophy,filosofi,silver,N,GF
+4526,GF1089,physics,fysik,silver,N,GF
+4534,GF1090,picture,bild,silver,N,GF
+4539,GF1091,pin,stift,silver,N,GF
+4547,GF1092,pitch,topp,silver,N,GF
+4549,GF1093,pixel,pixel,silver,N,GF
+4556,GF1094,plane, plana,silver,V,GF
+4557,GF1095,plane,nivå,silver,N,GF
+4562,GF1096,planning,planering,silver,N,GF
+4567,GF1097,platform,plattform,silver,N,GF
+4570,GF1098,player,spelare,silver,N,GF
+4580,GF1099,point,punkt,silver,N,GF
+4584,GF1100,pointer,pekare,silver,N,GF
+4592,GF1101,polymorph,polymorf,silver,A,GF
+4594,GF1102,polymorphism,polymorfi,silver,N,GF
+4602,GF1103,port,port,silver,N,GF
+4606,GF1104,portable,bärbar,silver,A,GF
+4607,GF1105,portable,portabel,silver,A,GF
+4624,GF1106,power consumption,strömförbrukning,silver,N,GF
+4629,GF1107,power supply,nätaggregat,silver,N,GF
+4630,GF1108,power, driva,silver,V,GF
+4631,GF1109,power,kraft,silver,N,GF
+4635,GF1110,practical,praktisk,silver,A,GF
+4637,GF1111,practice,praktiken,silver,N,GF
+4650,GF1112,precision,precision,silver,N,GF
+4651,GF1113,precondition,förhandsvillkor,silver,N,GF
+4655,GF1114,predicate logic,predikatlogik,silver,N,GF
+4656,GF1115,predict, förutsäga,silver,V,GF
+4658,GF1116,prediction,förutsägelse,silver,N,GF
+4664,GF1117,prepare, förbereda,silver,V,GF
+4667,GF1118,prerequisite,förkunskapskrav,silver,N,GF
+4676,GF1119,presence,närvaro,silver,N,GF
+4680,GF1120,presentation,presentation,silver,N,GF
+4689,GF1121,prevention,förebyggande,silver,N,GF
+4696,GF1122,primary,primär,silver,A,GF
+4699,GF1123,primitive,primitiv,silver,A,GF
+4703,GF1124,principle,princip,silver,N,GF
+4706,GF1125,printed circuit board,mönsterkort,silver,N,GF
+4708,GF1126,printer,skrivare,silver,N,GF
+4711,GF1127,priority queue,prioritetskö,silver,N,GF
+4712,GF1128,priority,prioritet,silver,N,GF
+4716,GF1129,privacy,privatliv,silver,N,GF
+4725,GF1130,probability distribution,sannolikhetsfördelning,silver,N,GF
+4727,GF1131,probability,sannolikhet,silver,N,GF
+4732,GF1132,problem solving,problemlösning,silver,N,GF
+4733,GF1133,problem,problem,silver,N,GF
+4735,GF1134,procedure,procedur,silver,N,GF
+4749,GF1135,process,process,silver,N,GF
+4750,GF1136,processing,bearbetning,silver,N,GF
+4751,GF1137,processor architecture,processorarkitektur,silver,N,GF
+4753,GF1138,processor base,processorbas,silver,N,GF
+4754,GF1139,processor core,processorkärna,silver,N,GF
+4756,GF1140,processor,processor,silver,N,GF
+4765,GF1141,product,produkt,silver,N,GF
+4769,GF1142,productivity,produktivitet,silver,N,GF
+4771,GF1143,professional,professionell,silver,A,GF
+4774,GF1144,proficiency,skicklighet,silver,N,GF
+4780,GF1145,program code,programkod,silver,N,GF
+4781,GF1146,program component,programkomponent,silver,N,GF
+4784,GF1147,program plan,programplan,silver,N,GF
+4786,GF1148,program registration,programregistrering,silver,N,GF
+4791,GF1149,program verification,programverifiering,silver,N,GF
+4792,GF1150,program, programmera,silver,V,GF
+4793,GF1151,program,program,silver,N,GF
+4794,GF1152,programmable,programerbar,silver,A,GF
+4800,GF1153,programmer,programmerare,silver,N,GF
+4801,GF1154,programming assignment,programmeringsuppgift,silver,N,GF
+4804,GF1155,programming course,programmeringskurs,silver,N,GF
+4806,GF1156,programming language,programmeringsspråk,silver,N,GF
+4809,GF1157,programming paradigm,programmeringsparadigm,silver,N,GF
+4810,GF1158,programming problem,programmeringsproblem,silver,N,GF
+4811,GF1159,programming skill,programmeringskunskap,silver,N,GF
+4814,GF1160,programming,programmering,silver,N,GF
+4816,GF1161,progress,framgång,silver,N,GF
+4824,GF1162,project, framhäva,silver,V,GF
+4825,GF1163,project,projekt,silver,N,GF
+4833,GF1164,proof,bevis,silver,N,GF
+4838,GF1165,property,egenskap,silver,N,GF
+4842,GF1166,propositional logic,satslogik,silver,N,GF
+4848,GF1167,protection,skydd,silver,N,GF
+4853,GF1168,protocol,protokoll,silver,N,GF
+4855,GF1169,prototype,prototyp,silver,N,GF
+4860,GF1170,provider,leverantör,silver,N,GF
+4871,GF1171,public,publik,silver,A,GF
+4877,GF1172,public,allmänhet,silver,N,GF
+4881,GF1173,publish, publicera,silver,V,GF
+4889,GF1174,purpose,syfte,silver,N,GF
+4904,GF1175,quality,kvalitet,silver,N,GF
+4906,GF1176,quantitative,kvantitiv,silver,A,GF
+4910,GF1177,quantum computer,kvantdator,silver,N,GF
+4918,GF1178,query,fråga,silver,N,GF
+4921,GF1179,question, ifrågasätter,silver,V,GF
+4924,GF1180,queue, köa,silver,V,GF
+4925,GF1181,queue,kö,silver,N,GF
+4929,GF1182,quick,snabb,silver,A,GF
+4946,GF1183,radio,radio,silver,N,GF
+4957,GF1184,random,slumpmässig,silver,A,GF
+4961,GF1185,randomization,randomisering,silver,N,GF
+4968,GF1186,rapid,snabb,silver,A,GF
+4976,GF1187,rate, räkna,silver,V,GF
+4977,GF1188,rate,takt,silver,N,GF
+4980,GF1189,ratio,kvot,silver,N,GF
+4982,GF1190,raw,rå,silver,A,GF
+4983,GF1191,ray, stråla,silver,V,GF
+4984,GF1192,ray,stråle,silver,N,GF
+4995,GF1193,read, läsa,silver,V,GF
+4997,GF1194,reader,läsare,silver,N,GF
+4998,GF1195,readiness,beredskap,silver,N,GF
+5014,GF1196,reality,verklighet,silver,N,GF
+5017,GF1197,reasoning,resonemang,silver,N,GF
+5023,GF1198,recent,färsk,silver,A,GF
+5028,GF1199,recognition,igenkänning,silver,N,GF
+5037,GF1200,recorder,registrator,silver,N,GF
+5038,GF1201,recording,inspelning,silver,N,GF
+5040,GF1202,recoverable,återhämtningsbar,silver,A,GF
+5043,GF1203,recovery,återhämtning,silver,N,GF
+5047,GF1204,recursion,rekursion,silver,N,GF
+5048,GF1205,recursive,rekursiv,silver,A,GF
+5049,GF1206,recursive data type,rekursiv datatyp,silver,N,GF
+5057,GF1207,reduce, minska,silver,V,GF
+5059,GF1208,reduction,reduktion,silver,N,GF
+5060,GF1209,redundancy,överskott,silver,N,GF
+5061,GF1210,redundant,överflödig,silver,A,GF
+5074,GF1211,reference,referens,silver,N,GF
+5080,GF1212,reflection,reflektion,silver,N,GF
+5086,GF1213,region,område,silver,N,GF
+5089,GF1214,register, registrera,silver,V,GF
+5090,GF1215,register,register,silver,N,GF
+5095,GF1216,regular,regelbunden,silver,A,GF
+5098,GF1217,regular expression,reguljärt uttryck,silver,N,GF
+5103,GF1218,reinforce, förstärka,silver,V,GF
+5106,GF1219,relate, relatera,silver,V,GF
+5109,GF1220,relation,relation,silver,N,GF
+5110,GF1221,relational database,relationsdatabas,silver,N,GF
+5117,GF1222,relationship,samband,silver,N,GF
+5125,GF1223,relay,relä,silver,N,GF
+5143,GF1224,reliable,pålitlig,silver,A,GF
+5150,GF1225,remote,avlägsen,silver,A,GF
+5164,GF1226,rendering,rendering,silver,N,GF
+5175,GF1227,replaceable,ersättlig,silver,A,GF
+5176,GF1228,replacement,ersättning,silver,N,GF
+5180,GF1229,report, rapportera,silver,V,GF
+5181,GF1230,report,rapport,silver,N,GF
+5193,GF1231,request, begära,silver,V,GF
+5194,GF1232,request,begäran,silver,N,GF
+5196,GF1233,require, kräva,silver,V,GF
+5197,GF1234,requirement,krav,silver,N,GF
+5198,GF1235,requirements analysis,kravhantering,silver,N,GF
+5209,GF1236,research, efterforska,silver,V,GF
+5210,GF1237,research,forskning,silver,N,GF
+5212,GF1238,reservation,bokning,silver,N,GF
+5217,GF1239,resolution,upplösning,silver,N,GF
+5226,GF1240,resource requirement search,resurskravsökning,silver,N,GF
+5230,GF1241,resource,resurs,silver,N,GF
+5238,GF1242,response,respons,silver,N,GF
+5240,GF1243,responsibility,ansvar,silver,N,GF
+5249,GF1244,result,resultat,silver,N,GF
+5287,GF1245,robot,robot,silver,N,GF
+5289,GF1246,robotics,robotik,silver,N,GF
+5294,GF1247,role,roll,silver,N,GF
+5296,GF1248,root, roota,silver,V,GF
+5307,GF1249,router,router,silver,N,GF
+5309,GF1250,routine,rutin,silver,N,GF
+5312,GF1251,routing protocol,routingprotokoll,silver,N,GF
+5314,GF1252,routing table,dirigeringstabell,silver,N,GF
+5317,GF1253,rule,regel,silver,N,GF
+5321,GF1254,run, köra,silver,V,GF
+5324,GF1255,runtime error,exekveringsfel,silver,N,GF
+5325,GF1256,runtime,körningstid,silver,N,GF
+5330,GF1257,safety,säkerhet,silver,N,GF
+5335,GF1258,sample, provsmaka,silver,V,GF
+5340,GF1259,satisfaction,tillfredsställelse,silver,N,GF
+5342,GF1260,save, spara,silver,V,GF
+5351,GF1261,scalability,skalbarhet,silver,N,GF
+5357,GF1262,scale, skala,silver,V,GF
+5358,GF1263,scale,skala,silver,N,GF
+5362,GF1264,scanner,skanner,silver,N,GF
+5383,GF1265,science,vetenskap,silver,N,GF
+5384,GF1266,scientific,vetenskaplig,silver,A,GF
+5388,GF1267,scope,räckvidd,silver,N,GF
+5389,GF1268,scramble, förvränga,silver,V,GF
+5391,GF1269,scratch, repa,silver,V,GF
+5392,GF1270,scratch,repa,silver,N,GF
+5395,GF1271,screen,skärm,silver,N,GF
+5397,GF1272,screensaver,skärmsläckare,silver,N,GF
+5400,GF1273,scripting language,skriptspråk,silver,N,GF
+5407,GF1274,search, söka,silver,V,GF
+5414,GF1275,section,sektion,silver,N,GF
+5415,GF1276,sector,sektor,silver,N,GF
+5426,GF1277,secure, säkra,silver,V,GF
+5443,GF1278,security protocol,säkerhetsprotokoll,silver,N,GF
+5447,GF1279,security,säkerhet,silver,N,GF
+5453,GF1280,segmentation,segmentering,silver,N,GF
+5456,GF1281,select, välja,silver,V,GF
+5459,GF1282,selection sort,urvalssortering,silver,N,GF
+5460,GF1283,selection,urval,silver,N,GF
+5475,GF1284,semantic,semantisk,silver,A,GF
+5482,GF1285,semantics,semantik,silver,N,GF
+5484,GF1286,semaphore,semafor,silver,N,GF
+5486,GF1287,semiconductor,halvledare,silver,N,GF
+5491,GF1288,sense, förstå,silver,V,GF
+5492,GF1289,sense,sinne,silver,N,GF
+5498,GF1290,sensor,sensor,silver,N,GF
+5505,GF1291,separate, åtskilja,silver,V,GF
+5507,GF1292,sequence,sekvens,silver,N,GF
+5510,GF1293,sequential,sekventiell,silver,A,GF
+5525,GF1294,server,server,silver,N,GF
+5542,GF1295,service,tjänst,silver,N,GF
+5550,GF1296,session,session,silver,N,GF
+5553,GF1297,set theory,mängdteori,silver,N,GF
+5554,GF1298,set, sätta,silver,V,GF
+5555,GF1299,set,uppsättning,silver,N,GF
+5557,GF1300,setting,inställning,silver,N,GF
+5565,GF1301,shadow,skugga,silver,N,GF
+5570,GF1302,share, dela,silver,V,GF
+5576,GF1303,shareware,shareware,silver,N,GF
+5579,GF1304,sharing,fördelning,silver,N,GF
+5581,GF1305,sheet,ark,silver,N,GF
+5582,GF1306,shelf,hylla,silver,N,GF
+5598,GF1307,side,sida,silver,N,GF
+5606,GF1308,signal processing,signalbehandling,silver,N,GF
+5612,GF1309,signature,signatur,silver,N,GF
+5615,GF1310,significant,viktig,silver,A,GF
+5620,GF1311,silicon,silikon,silver,N,GF
+5623,GF1312,similar,liknande,silver,A,GF
+5634,GF1313,simulate, simulera,silver,V,GF
+5647,GF1314,simulation method,simuleringsmetod,silver,N,GF
+5651,GF1315,simulation,simulering,silver,N,GF
+5660,GF1316,singleton,singleton,silver,N,GF
+5666,GF1317,site,sajt,silver,N,GF
+5673,GF1318,skill,färdighet,silver,N,GF
+5720,GF1319,software architecture,mjukvaruarkitektur,silver,N,GF
+5725,GF1320,software deployment,mjukvaruimplementering,silver,N,GF
+5727,GF1321,software development assignment,mjukvaruutvecklingsuppgift,silver,N,GF
+5730,GF1322,software development process,mjukvaruutvecklingsprocess,silver,N,GF
+5731,GF1323,software development project,mjukvaruutvecklingsprojekt,silver,N,GF
+5733,GF1324,software development,mjukvaruutveckling,silver,N,GF
+5735,GF1325,software engineer,mjukvaruingenjör,silver,N,GF
+5750,GF1326,software system,mjukvarusystem,silver,N,GF
+5751,GF1327,software technology,programvaruteknik,silver,N,GF
+5752,GF1328,software tool,programmeringsverktyg,silver,N,GF
+5753,GF1329,software,programvara,silver,N,GF
+5759,GF1330,solid,solid,silver,A,GF
+5762,GF1331,solution,lösning,silver,N,GF
+5763,GF1332,solve, lösa,silver,V,GF
+5771,GF1333,sort, sortera,silver,V,GF
+5772,GF1334,sorting algorithm,sorteringsalgoritm,silver,N,GF
+5776,GF1335,sound card,ljudkort,silver,N,GF
+5778,GF1336,sound, ljuda,silver,V,GF
+5779,GF1337,sound,ljud,silver,N,GF
+5780,GF1338,source code,källkod,silver,N,GF
+5783,GF1339,source,källa,silver,N,GF
+5784,GF1340,space, fördela,silver,V,GF
+5785,GF1341,space,plats,silver,N,GF
+5788,GF1342,spam,skräppost,silver,N,GF
+5797,GF1343,special,särskild,silver,A,GF
+5806,GF1344,specific,specifik,silver,A,GF
+5809,GF1345,specification,specifikation,silver,N,GF
+5811,GF1346,specify, specifiera,silver,V,GF
+5815,GF1347,spectrum,spektrum,silver,N,GF
+5816,GF1348,speculation,spekulering,silver,N,GF
+5821,GF1349,speech recognition,taligenkänning,silver,N,GF
+5823,GF1350,speed,hastighet,silver,N,GF
+5829,GF1351,spline,lister,silver,N,GF
+5839,GF1352,spreadsheet,kalkylark,silver,N,GF
+5843,GF1353,square,kvadrat,silver,N,GF
+5846,GF1354,stack,stack,silver,N,GF
+5855,GF1355,standard algorithm,standardalgoritm,silver,N,GF
+5857,GF1356,standard class,standardklass,silver,N,GF
+5858,GF1357,standard library,standardbibliotek,silver,N,GF
+5860,GF1358,standard,standard,silver,N,GF
+5876,GF1359,start, börja,silver,V,GF
+5881,GF1360,state, konstatera,silver,V,GF
+5882,GF1361,state,tillstånd,silver,N,GF
+5885,GF1362,statement,sats,silver,N,GF
+5887,GF1363,static,statisk,silver,A,GF
+5889,GF1364,static memory,statiskt minne,silver,N,GF
+5890,GF1365,static random-access memory,statiskt minne,silver,N,GF
+5895,GF1366,statistical,statistisk,silver,A,GF
+5903,GF1367,statistics,statistik,silver,N,GF
+5913,GF1368,stereo,stereo,silver,N,GF
+5926,GF1369,storage techniques,lagringsteknik,silver,N,GF
+5927,GF1370,storage,lagring,silver,N,GF
+5930,GF1371,store, lagra,silver,V,GF
+5931,GF1372,storm, storma,silver,V,GF
+5932,GF1373,storm,storm,silver,N,GF
+5939,GF1374,strategy,strategi,silver,N,GF
+5942,GF1375,stream, strömma,silver,V,GF
+5943,GF1376,stream,ström,silver,N,GF
+5950,GF1377,strict,strikt,silver,A,GF
+5954,GF1378,string,sträng,silver,N,GF
+5959,GF1379,structure, strukturera,silver,V,GF
+5960,GF1380,structure,struktur,silver,N,GF
+5966,GF1381,student,student,silver,N,GF
+5969,GF1382,study, studera,silver,V,GF
+5972,GF1383,style,stil,silver,N,GF
+5975,GF1384,subclass,subklass,silver,N,GF
+5977,GF1385,subjunctive,konjunktiv,silver,N,GF
+5979,GF1386,submission,inlämning,silver,N,GF
+5983,GF1387,subroutine,subrutin,silver,N,GF
+5987,GF1388,subscriber,prenumerant,silver,N,GF
+5993,GF1389,subset,delmängd,silver,N,GF
+6000,GF1390,subsystem,subsystem,silver,N,GF
+6010,GF1391,suite,svit,silver,N,GF
+6011,GF1392,summarize, summera,silver,V,GF
+6015,GF1393,superclass,superklass,silver,N,GF
+6016,GF1394,supercomputer,superdator,silver,N,GF
+6022,GF1395,supervision,handledning,silver,N,GF
+6035,GF1396,support, stödja,silver,V,GF
+6036,GF1397,support,stöd,silver,N,GF
+6048,GF1398,sustainability,hållbarhet,silver,N,GF
+6050,GF1399,sustainable,hållbar,silver,A,GF
+6063,GF1400,switch, switcha,silver,V,GF
+6064,GF1401,switch,strömbrytare,silver,N,GF
+6066,GF1402,symbol,symbol,silver,N,GF
+6071,GF1403,symmetric,symmetrisk,silver,A,GF
+6075,GF1404,synchronization error,synkroniseringsfel,silver,N,GF
+6076,GF1405,synchronization,synkronisering,silver,N,GF
+6084,GF1406,syntax analysis,syntaxanalys,silver,N,GF
+6085,GF1407,syntax,syntax,silver,N,GF
+6093,GF1408,system requirement,systemkrav,silver,N,GF
+6094,GF1409,system specification,systemspecifikation,silver,N,GF
+6100,GF1410,system verification,systemverifiering,silver,N,GF
+6101,GF1411,system,system,silver,N,GF
+6103,GF1412,systematic,systematisk,silver,A,GF
+6118,GF1413,table,tabell,silver,N,GF
+6122,GF1414,tag,tagg,silver,N,GF
+6128,GF1415,tape drive,bandstation,silver,N,GF
+6129,GF1416,tape, banda,silver,V,GF
+6134,GF1417,task,arbetsuppgift,silver,N,GF
+6136,GF1418,taskbar,aktivitetsfält,silver,N,GF
+6143,GF1419,teach, undervisa,silver,V,GF
+6145,GF1420,team,lag,silver,N,GF
+6150,GF1421,technical,teknisk,silver,A,GF
+6153,GF1422,technique,teknik,silver,N,GF
+6156,GF1423,technological,teknologisk,silver,A,GF
+6161,GF1424,technology,teknologi,silver,N,GF
+6167,GF1425,telecommunication,telekommunikation,silver,N,GF
+6168,GF1426,telecommunications,telekommunikation,silver,N,GF
+6173,GF1427,telephony,telefoni,silver,N,GF
+6176,GF1428,template,mall,silver,N,GF
+6178,GF1429,temporal,temporal,silver,A,GF
+6185,GF1430,terabyte,terabyte,silver,N,GF
+6187,GF1431,term,term,silver,N,GF
+6188,GF1432,terminal,terminal,silver,A,GF
+6191,GF1433,terminal,terminal,silver,N,GF
+6192,GF1434,terminator,terminator,silver,N,GF
+6193,GF1435,terminology,terminologi,silver,N,GF
+6211,GF1436,test, testa,silver,V,GF
+6212,GF1437,test,test,silver,N,GF
+6226,GF1438,text editor,textredigerare,silver,N,GF
+6228,GF1439,text,text,silver,N,GF
+6241,GF1440,theorem,sats,silver,N,GF
+6243,GF1441,theoretical,teoretisk,silver,A,GF
+6250,GF1442,theory,teori,silver,N,GF
+6257,GF1443,thesis,tes,silver,N,GF
+6266,GF1444,thread,tråd,silver,N,GF
+6275,GF1445,throughput,genomströmning,silver,N,GF
+6282,GF1446,time complexity,tidskomplexitet,silver,N,GF
+6294,GF1447,time, tajma,silver,V,GF
+6295,GF1448,time,tid,silver,N,GF
+6315,GF1449,token,token,silver,N,GF
+6317,GF1450,tolerance,tolerans,silver,N,GF
+6324,GF1451,tool,verktyg,silver,N,GF
+6325,GF1452,toolbox,verktygslåda,silver,N,GF
+6331,GF1453,topic,ämne,silver,N,GF
+6334,GF1454,topology,topologi,silver,N,GF
+6337,GF1455,touchscreen,pekskärm,silver,N,GF
+6341,GF1456,trace, spåra,silver,V,GF
+6345,GF1457,trackpad,styrplatta,silver,N,GF
+6369,GF1458,transaction,transaktion,silver,N,GF
+6374,GF1459,transfer, överföra,silver,V,GF
+6375,GF1460,transfer,omplacering,silver,N,GF
+6379,GF1461,transform, omvandla,silver,V,GF
+6380,GF1462,transformation,omvandling,silver,N,GF
+6381,GF1463,transformer,transformator,silver,N,GF
+6382,GF1464,transistor,transistor,silver,N,GF
+6386,GF1465,translation,översättning,silver,N,GF
+6388,GF1466,translator,översättare,silver,N,GF
+6390,GF1467,transmission,överföring,silver,N,GF
+6399,GF1468,transportation,transportering,silver,N,GF
+6404,GF1469,tree,träd,silver,N,GF
+6413,GF1470,triton,triton,silver,N,GF
+6418,GF1471,true,sann,silver,A,GF
+6429,GF1472,truth value,sanningsvärde,silver,N,GF
+6431,GF1473,tube,tub,silver,N,GF
+6439,GF1474,two-factor authentication,tvåfaktorautentisering,silver,N,GF
+6446,GF1475,type, skriva,silver,V,GF
+6447,GF1476,type, typa,silver,V,GF
+6448,GF1477,type,typ,silver,N,GF
+6465,GF1478,unauthorized access,obehörig åtkomst,silver,N,GF
+6470,GF1479,uncertainty,osäkerhet,silver,N,GF
+6476,GF1480,underlying,underliggande,silver,A,GF
+6481,GF1481,unification,unifiering,silver,N,GF
+6487,GF1482,uniform,enhetlig,silver,A,GF
+6488,GF1483,uniform,uniform,silver,N,GF
+6489,GF1484,unify, förena,silver,V,GF
+6491,GF1485,union,union,silver,N,GF
+6492,GF1486,unique,unik,silver,A,GF
+6493,GF1487,unique key,databasnyckel,silver,N,GF
+6496,GF1488,unit,enhet,silver,N,GF
+6498,GF1489,universal,allmän,silver,A,GF
+6506,GF1490,university,universitet,silver,N,GF
+6515,GF1491,unreliable,opålitlig,silver,A,GF
+6525,GF1492,update, uppdatera,silver,V,GF
+6526,GF1493,update,uppdatering,silver,N,GF
+6532,GF1494,use case,användningsfall,silver,N,GF
+6534,GF1495,use, använda,silver,V,GF
+6538,GF1496,user agent,användaragent,silver,N,GF
+6542,GF1497,user experience,användarupplevelse,silver,N,GF
+6545,GF1498,user group,användargrupp,silver,N,GF
+6548,GF1499,user interface,användargränssnitt,silver,N,GF
+6562,GF1500,user test,användartest,silver,N,GF
+6565,GF1501,user,användare,silver,N,GF
+6577,GF1502,utility,verktyg,silver,N,GF
+6585,GF1503,validation,validering,silver,N,GF
+6592,GF1504,value, värdera,silver,V,GF
+6593,GF1505,value,värde,silver,N,GF
+6597,GF1506,variable,variabel,silver,N,GF
+6599,GF1507,variance,varians,silver,N,GF
+6604,GF1508,vary, variera,silver,V,GF
+6609,GF1509,vector,vektor,silver,N,GF
+6610,GF1510,vehicle,fordon,silver,N,GF
+6626,GF1511,verification,verifiering,silver,N,GF
+6628,GF1512,verify, verifiera,silver,V,GF
+6629,GF1513,versatile,allsidig,silver,A,GF
+6633,GF1514,version control system,versionshanteringssystem,silver,N,GF
+6634,GF1515,version control,versionshantering,silver,N,GF
+6635,GF1516,version,version,silver,N,GF
+6649,GF1517,video card,grafikkort,silver,N,GF
+6658,GF1518,video,video,silver,N,GF
+6664,GF1519,virtual,virtuell,silver,A,GF
+6671,GF1520,virtual private network,virtuellt privat nätverk,silver,N,GF
+6677,GF1521,virus,virus,silver,N,GF
+6685,GF1522,visual,visuell,silver,A,GF
+6689,GF1523,visualization,visualisering,silver,N,GF
+6700,GF1524,voice,ljud,silver,N,GF
+6701,GF1525,voice,röst,silver,N,GF
+6706,GF1526,volatile,labil,silver,A,GF
+6709,GF1527,voltage,spänning,silver,N,GF
+6712,GF1528,volume,volym,silver,N,GF
+6721,GF1529,vulnerability,sårbarhet,silver,N,GF
+6728,GF1530,warehouse,lager,silver,N,GF
+6733,GF1531,waterfall model,vattenfallsmodell,silver,N,GF
+6746,GF1532,web application,webbapplikation,silver,N,GF
+6749,GF1533,web browser,webbläsare,silver,N,GF
+6752,GF1534,web page,webbsida,silver,N,GF
+6757,GF1535,web server,webbserver,silver,N,GF
+6762,GF1536,webcam,webbkamera,silver,N,GF
+6767,GF1537,website,webbsida,silver,N,GF
+6772,GF1538,well-grounded,välgrundad,silver,A,GF
+6776,GF1539,while-loop,while-loop,silver,N,GF
+6777,GF1540,while-statement,while-sats,silver,N,GF
+6779,GF1541,whitelist,vitlista,silver,N,GF
+6793,GF1542,window,fönster,silver,N,GF
+6801,GF1543,wireless,trådlös,silver,A,GF
+6834,GF1544,word processor,ordbehandlare,silver,N,GF
+6835,GF1545,word, uttrycka,silver,V,GF
+6841,GF1546,work,arbete,silver,N,GF
+6852,GF1547,world,värld,silver,N,GF
+6853,GF1548,worldwide,global,silver,A,GF
+6866,GF1549,write, skriva,silver,V,GF
