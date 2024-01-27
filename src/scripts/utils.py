@@ -16,7 +16,7 @@ def english_lemmatizer(term, pos):
 
 # Tag part of speech 
 def english_pos(word):
-    print(list(wordtags[word.lower()].items()))
+    return list(wordtags[word.lower()].items())
 
 
 english_pos("crashy")
