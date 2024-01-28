@@ -18,5 +18,9 @@ def english_lemmatizer(term, pos):
 def english_pos(word):
     return list(wordtags[word.lower()].items())
 
+# Function to check if a string is a word in WordNet
+def is_word_in_english(word):
+    return len(wordnet.synsets(word)) > 0
+
 
 english_pos("crashy")

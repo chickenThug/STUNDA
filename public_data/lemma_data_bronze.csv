@@ -38,7 +38,6 @@ ICT27,Abstract Syntax Notation.One (ASN.1),,bronze,N?,ICT
 ACM871,Abstracting methods,,bronze,N?,ACM
 ACM1370,Abuse and crime involving computers,Missbruk och kriminalitet i samband med datorer,bronze,N?,ACM
 ACM1380,Abuse and crime involving computers [**],Missbruk och  brott i samband med datorer [**],bronze,N?,ACM
-ICT29,acceleration|s,acceleration|er,bronze,N?,ICT
 ICT31,accept accepts acceptable accepted accepting,acceptera accepterar godtagbart accepteras acceptera,bronze,N?,ICT
 ICT32,access accessing accessed accessible,tillgång åtkomst nås åtkomlig,bronze,N?,ICT
 ICT33,access control,atkomstkontroll,bronze,N?,ICT
@@ -49,14 +48,12 @@ ICT34,access model,åtkomstmetod,bronze,N?,ICT
 ACM263,Access schemes,Åtkomstscheman,bronze,N?,ACM
 ICT35,accessibility,tillgänglighet framkomlighet,bronze,N?,ICT
 ICT36,accessibility promise,framkomlighetslöfte,bronze,N?,ICT
-ICT37,accommodate|s,ackommodera,bronze,N?,ICT
 ICT40,account accounts,konto konton,bronze,N?,ICT
 ACM1365,Accreditation [**],Ackreditering/godkännande,bronze,N?,ACM
 ICT43,accuracy,noggrannhet/exakthet,bronze,N?,ICT
 ICT44,accurate,ackurat/noggrann/exakt,bronze,N?,ICT
 ICT45,achieve achieves achieved,uppnå uppnår uppnådda,bronze,N?,ICT
 ICT46,acknowledge acknowledgement acknowledgements acknowledged,erkänna kvittens kvittenser kvitto,bronze,N?,ICT
-ICT47,acoustic|s,akustik,bronze,N?,ICT
 ICT49,across,tvärs/över,bronze,N?,ICT
 ICT50,act acts acting,agera agerar agerar/agerande,bronze,N?,ICT
 ICT51,action plan,åtgärdsprogram,bronze,N?,ICT
@@ -65,7 +62,6 @@ ICT53,activate activation,aktivera aktiverings,bronze,N?,ICT
 ICT54,active activated activation activity activities,aktiv aktiverad aktivering aktivitetsverksamhet,bronze,N?,ICT
 ICT55,Active Management Technology (AMT),,bronze,N?,ICT
 ICT56,activity activities,aktivitet aktiviteter,bronze,N?,ICT
-ICT57,actor|s,aktör|er,bronze,N?,ICT
 ICT58,actual actually,faktiska faktiskt,bronze,N?,ICT
 ACM215,Adaptable architectures,Anpassningsbara arkitekturer,bronze,N?,ACM
 ICT62,adapter adapters adapt adapted adaptive adapting,adapter adaptrar anpassa anpassad adaptiv/anpassningsbar anpassning,bronze,N?,ICT
@@ -87,7 +83,6 @@ ICT74,advantage advantages,fördel fördelar,bronze,N?,ICT
 ICT77,advice advisory,rådgivning rådgivande,bronze,N?,ICT
 ICT78,aesthetic interaction,estetisk interaktion,bronze,N?,ICT
 ICT80,affective interaction,påverkande interaktion,bronze,N?,ICT
-ICT79,affect|s,påverka|r,bronze,N?,ICT
 ICT83,agency agencies,agentur byrå,bronze,N?,ICT
 ICT84,agenda,agenda/dagordning,bronze,N?,ICT
 ICT85,agent agents,agent/representant/ombud,bronze,N?,ICT
@@ -122,7 +117,6 @@ ICT120,ambient intelligence,intelligent omgivning ,bronze,N?,ICT
 ICT121,ambient interface,omgivande gränssnitt,bronze,N?,ICT
 ICT122,ambient networks,omgivande nätverk,bronze,N?,ICT
 ICT123,amend amended amending,ändra ändras ändrings,bronze,N?,ICT
-ICT124,amendment|s,ändring|AR,bronze,N?,ICT
 ICT125,amount|s,belopp uppgår,bronze,N?,ICT
 ICT127,amplitude-shift,amplitud-skift,bronze,N?,ICT
 ICT128,amusement,nöjen/underhållning,bronze,N?,ICT
@@ -156,8 +150,6 @@ ICT158,application programming interface (API),programmeringsgränssnitt (API),b
 ICT159,application scalability,tillämpningsskalbarhet,bronze,N?,ICT
 ICT161,application specific intergrated circuit (ASIC),tillämpningsspecifik inbygd krets (ASIC),bronze,N?,ICT
 ICT162,application utilization,tillämpningsutnyttjande,bronze,N?,ICT
-ICT157,application-level,applikationsnivå,bronze,N?,ICT
-ICT160,application-specific,applikationsspecifika,bronze,N?,ICT
 ACM249,Applications (SMTP,Tillämpningar (SMTP,bronze,N?,ACM
 ACM1000,Applications and Expert Systems (H.4,Tillämpningar och expertsystem (H.4,bronze,N?,ACM
 ACM422,Applicative (functional) languages,Applikationsspråk (funktionella språk),bronze,N?,ACM
@@ -180,7 +172,6 @@ ACM39,ARITHMETIC AND LOGIC STRUCTURES,ARITMETISKA OCH LOGISKA STRUKTURER,bronze,
 ACM117,Arithmetic and logic units,Aritmetiska och logiska enheter,bronze,N?,ACM
 ACM206,Array and vector processors,,bronze,N?,ACM
 ICT177,arrayed waveguide grating,,bronze,N?,ICT
-ICT176,array|s,array|er,bronze,N?,ICT
 ICT179,arrival arrive arrives arriving,ankomst anlända/komma anländer anländer ,bronze,N?,ICT
 ICT178,arrival signal and processing,ankomstsignal och bearbetning,bronze,N?,ICT
 ICT181,article articles,artikel artiklar,bronze,N?,ICT
@@ -215,7 +206,6 @@ ICT203,attack attacks attacker,attack attacker Attackeraren,bronze,N?,ICT
 ICT204,attempt attempts attempting,försök försök som försöker,bronze,N?,ICT
 ICT205,attendant attended,skötare deltog,bronze,N?,ICT
 ICT207,attribute attributes,attribut attributen,bronze,N?,ICT
-ICT208,attribute-value,attributvärde,bronze,N?,ICT
 ACM932,Audio input/output,,bronze,N?,ACM
 ACM937,Auditory (non-speech) feedback,,bronze,N?,ACM
 ICT212,auditory alert,ljudsignaler,bronze,N?,ICT
@@ -223,7 +213,6 @@ ICT214,augmented reality,förstärkt verklighet,bronze,N?,ICT
 ICT215,authenticate authenticity authenticated authentication authentications authenticator authenticating,verifiera äktheten authenticated autentiserings autentiseringar verifieraren autentiserande,bronze,N?,ICT
 ICT216,authentication and data confidentiality,autentisering och datasekretess,bronze,N?,ICT
 ICT220,author authors authority authorities authorized authorization,författare författarna auktoritet myndigheterna auktoriserad auktorisation,bronze,N?,ICT
-ICT222,auto-correlation,autokorrelations,bronze,N?,ICT
 ICT221,autoconfiguration,autokonfiguration/självkonfiguration,bronze,N?,ICT
 ACM572,Automata (e.g.,Automater (t.ex. ändliga,bronze,N?,ACM
 ICT224,automated debugging,automatiserad felsökning,bronze,N?,ICT
@@ -242,7 +231,6 @@ ACM152,Automatic synthesis,Automatisk syntes,bronze,N?,ACM
 ACM18,Automatic synthesis [**],Automatisk syntes [**],bronze,N?,ACM
 ICT231,automatic target recognition,automatisk mål-erkännande,bronze,N?,ICT
 ICT232,automation,automatiserade automatisering,bronze,N?,ICT
-ICT233,automobile|s,bil|ar,bronze,N?,ICT
 ICT234,automotive telematic systems,fordonstelematiksystem,bronze,N?,ICT
 ACM1060,Autonomous vehicles,Autonoma fordon,bronze,N?,ACM
 ICT235,available availability,tillgänglig tillgänglighet,bronze,N?,ICT
@@ -265,9 +253,7 @@ ICT260,basic basically,grundläggande princip,bronze,N?,ICT
 ACM513,Batch processing systems [**],Satsvisa system,bronze,N?,ACM
 ICT263,battery,batteri batterier,bronze,N?,ICT
 ICT264,battery life,batteritid,bronze,N?,ICT
-ICT265,battery-operated,batteridriven,bronze,N?,ICT
 ICT269,beam cross-section,balktvärsnitt,bronze,N?,ICT
-ICT270,bearer|s,bärare,bronze,N?,ICT
 ICT271,become|s becoming,bli|r blir,bronze,N?,ICT
 ICT274,begin began begins beginning,"""börja började börjar """"med början""""""",bronze,N?,ICT
 ICT275,behalf,vägnar/grund,bronze,N?,ICT
@@ -320,7 +306,6 @@ ACM494,Buffering,Buffring/buffertlagring/mellanlagring,bronze,N?,ACM
 ICT343,buffer|s buffers buffered buffering,bufferten|buffertar buffert buffrad buffrande,bronze,N?,ICT
 ICT344,bug tracker,felrapporteringssystem,bronze,N?,ICT
 ICT346,build builds building buildings,bygga bygger bygga byggnader,bronze,N?,ICT
-ICT348,built-in,inbyggd,bronze,N?,ICT
 ACM107,Built-in tests [**],Inbyggda tester [**],bronze,N?,ACM
 ACM129,Built-in tests [**],Inbyggda tester [**],bronze,N?,ACM
 ACM146,Built-in tests [**],Inbyggda tester [**],bronze,N?,ACM
@@ -347,7 +332,6 @@ ICT367,busy,upptagen ,bronze,N?,ICT
 ICT368,busy hour call attempts (BHCA) traffic load,upptagen timmars samtal försök (BHCA) trafikbelastning,bronze,N?,ICT
 ICT371,byte bytes,byte bytes,bronze,N?,ICT
 ICT461,C-language,C-språk,bronze,N?,ICT
-ICT372,cable|s,kabel|kablar,bronze,N?,ICT
 ICT374,cache attack,,bronze,N?,ICT
 ACM66,Cache memories,Cacheminnen,bronze,N?,ACM
 ICT375,cacheability,,bronze,N?,ICT
@@ -365,20 +349,15 @@ ICT388,call routing,samtalsdirigering,bronze,N?,ICT
 ICT389,call-centre,call-center,bronze,N?,ICT
 ICT390,caller callers,uppringande part/parter,bronze,N?,ICT
 ACM1150,Camera calibration,Kamerakalibrering,bronze,N?,ACM
-ICT391,camera|s,kamera|kameror,bronze,N?,ICT
-ICT392,campus|capmuses,campus|campi,bronze,N?,ICT
 ICT394,cancellation cancelling,annullering annullera,bronze,N?,ICT
 ICT393,cancel|s,avboka/avbryter,bronze,N?,ICT
-ICT395,candidate|s,kandidat|Kandidater,bronze,N?,ICT
 ICT397,cannot,kan inte,bronze,N?,ICT
 ACM217,Capability architectures [**],Kapabilitetsarkitekturer,bronze,N?,ACM
 ICT396,capable capabilities capability,kapabel kapacitet kapacitet,bronze,N?,ICT
-ICT398,capacitor|s,kondensator|kondensatorer,bronze,N?,ICT
 ICT400,capacity assessment,klassningsberäkning,bronze,N?,ICT
 ICT404,card emulation,kortemulering,bronze,N?,ICT
 ICT405,card sort,kort sortera,bronze,N?,ICT
 ICT406,cardiovascular disease,hjärt-kärlsjukdom,bronze,N?,ICT
-ICT402,card|s,kort,bronze,N?,ICT
 ICT403,carefully,noggrant/försiktigt,bronze,N?,ICT
 ICT407,carrier carriers,nätgrossist/stamnätsoperatör/operatör,bronze,N?,ICT
 ICT408,carrier cloud,operatörmoln,bronze,N?,ICT
@@ -400,16 +379,13 @@ ICT425,certificate authority (CA),certifikatutfärdare,bronze,N?,ICT
 ICT424,certificate certifies,certifikat intygar,bronze,N?,ICT
 ACM801,Certification and testing,,bronze,N?,ACM
 ICT428,challenge challenges challenged,utmana/utmaning utmanar/utmaningar utmanade,bronze,N?,ICT
-ICT429,chance|s,chans|chanser,bronze,N?,ICT
 ICT430,change changes changing changed changeable,förändra/förändring förändra/förändringar föränderlig förändrade/förändrats föränderlig,bronze,N?,ICT
 ICT431,change management,förändringsledning,bronze,N?,ICT
 ICT432,change readiness,förändringsberedskap,bronze,N?,ICT
 ICT433,changing projects,förändringsprojekt,bronze,N?,ICT
 ACM90,Channels and controllers,Kanaler och kontrollenheter,bronze,N?,ACM
-ICT434,channel|s,kanal|er,bronze,N?,ICT
 ACM734,Chaotic systems,,bronze,N?,ACM
 ICT435,chapter chapters,kapitlet kapitel,bronze,N?,ICT
-ICT437,character|s,karaktär|tecken,bronze,N?,ICT
 ICT439,charges charging charged,laddningar laddar laddade,bronze,N?,ICT
 ICT440,charging/billing,fakturera,bronze,N?,ICT
 ICT442,charter charters,stadgan stadgar,bronze,N?,ICT
@@ -417,15 +393,11 @@ ICT443,cheap cheaper,billig billigare,bronze,N?,ICT
 ACM682,Chebyshev approximation and theory,,bronze,N?,ACM
 ICT445,check checks checked checking,kontrollera kontroller kontrolleras kontroll,bronze,N?,ICT
 ACM501,Checkpoint/restart,Kontrollstation/återstart,bronze,N?,ACM
-ICT448,chipset|s,kretsuppsättning|kretsuppsättningar,bronze,N?,ICT
-ICT447,chip|s,chip,bronze,N?,ICT
 ICT450,choose|s chosen,välja/väljer valda,bronze,N?,ICT
 ICT451,cipher ciphering,chiffer chiffre,bronze,N?,ICT
 ICT452,circuit circuitry,krets kretsar,bronze,N?,ICT
-ICT453,circuit-switched,kretskopplat,bronze,N?,ICT
 ACM239,Circuit-switching networks,Kretskopplade nät,bronze,N?,ACM
 ICT458,city tour,stadstur,bronze,N?,ICT
-ICT459,city-wide,stadsomfattande,bronze,N?,ICT
 ICT460,civil,civila/medborgerlig,bronze,N?,ICT
 ICT462,claim claims claimed,kräva/krav kräver/kraven hävdade,bronze,N?,ICT
 ICT463,class attendance,klassnärvaro,bronze,N?,ICT
@@ -440,7 +412,6 @@ ICT466,classify classifies,klassificera klassificerar,bronze,N?,ICT
 ICT467,clear clears clearly,klara rensar klart,bronze,N?,ICT
 ACM258,Client/server,Klient-server,bronze,N?,ACM
 ICT469,client/server programming,klient/server-programmering,bronze,N?,ICT
-ICT468,client|s,klient|er,bronze,N?,ICT
 ICT470,clinical decision support system,kliniska beslutsstödssystem,bronze,N?,ICT
 ICT471,clinical information,klinisk information,bronze,N?,ICT
 ICT472,clock|s clocking,klocka|klockor klockning,bronze,N?,ICT
@@ -455,13 +426,10 @@ ICT482,cloud networks,molnnätverk,bronze,N?,ICT
 ICT483,cloud service provider (CSP),moln-tjänsteleverantör,bronze,N?,ICT
 ICT484,cloud service type,typ av molntjänst,bronze,N?,ICT
 ICT485,cloud service/cloud services,molntjänst/molntjänster,bronze,N?,ICT
-ICT475,cloud|s,molnet|moln,bronze,N?,ICT
 ICT487,cluster head,klusterhuvud,bronze,N?,ICT
 ACM1223,Clustering,Klustring/Gruppering,bronze,N?,ACM
 ICT486,cluster|s clustered clustering,"""kluster/""""samlas i klunga"""" kluster klustrade klustring""",bronze,N?,ICT
 ICT660,co-correlation,sam-korrelation,bronze,N?,ICT
-ICT502,co-located,samlokaliserade,bronze,N?,ICT
-ICT661,co-precipitation,samutfällning,bronze,N?,ICT
 ACM552,Code breaking,Kodknäckning,bronze,N?,ACM
 ACM454,Code generation,Kodgenerering,bronze,N?,ACM
 ACM356,Code inspections and walk-throughs,Kodgranskningar och genomgångar,bronze,N?,ACM
@@ -495,7 +463,6 @@ ACM1251,Combined,Kombinerad/Samverkande,bronze,N?,ACM
 ICT506,come comes coming,komma kommer kommande,bronze,N?,ICT
 ACM1329,Command and control,Stridsledning,bronze,N?,ACM
 ACM527,Command and control languages,Kommandospråk och styrspråk,bronze,N?,ACM
-ICT508,command|s,kommando|n,bronze,N?,ICT
 ICT512,commercial activity,kommersiellverksamhet,bronze,N?,ICT
 ACM1061,Commercial robots and applications,Kommersiella robotar och tillämpningar,bronze,N?,ACM
 ACM895,Commercial services,,bronze,N?,ACM
@@ -524,8 +491,6 @@ ACM587,Complexity hierarchies,Komplexitetshierarkier,bronze,N?,ACM
 ACM380,Complexity measures,Komplexitetsmått,bronze,N?,ACM
 ACM586,Complexity Measures and Classes  (2),Komplexitetsmått och komplexitetsklasser (2),bronze,N?,ACM
 ACM602,Complexity of proof procedures,Komplexitet hos bevisprocedurer,bronze,N?,ACM
-ICT543,complicate|s,komplicera|r,bronze,N?,ICT
-ICT544,component|s,komponent|er,bronze,N?,ICT
 ACM545,Composite structures [**],Sammansatta strukturer [**],bronze,N?,ACM
 ICT549,compress compressed compression,komprimera komprimerad kompression,bronze,N?,ICT
 ACM1157,Compression (Coding) (E.4),Komprimering (kodning) (E.4),bronze,N?,ACM
@@ -587,7 +552,6 @@ ACM439,Concurrent programming structures,Jämlöpande programmeringsstrukturer,b
 ACM694,Conditioning,,bronze,N?,ACM
 ACM667,Conditioning (and ill-conditioning),,bronze,N?,ACM
 ACM4,Conference proceedings,Konferenshandlingar,bronze,N?,ACM
-ICT569,conference|s,konferens|er,bronze,N?,ICT
 ICT572,configurable computing,konfigurerbar databehandling,bronze,N?,ICT
 ICT573,configuration theory,konfigurationsteori,bronze,N?,ICT
 ICT574,configure configures configuration configurations configurable,konfigurera konfigurerar konfigurations konfigurationer konfigurerbara,bronze,N?,ICT
@@ -600,7 +564,6 @@ ICT582,connected home,anslutna hemmet,bronze,N?,ICT
 ICT584,connection connections connect connected connectivity connecting,anknytning/anslutning  kopplingar anknyta ansluter,bronze,N?,ICT
 ACM208,Connection machines,,bronze,N?,ACM
 ACM1038,Connectionism and neural nets,Konnektionism och neuronnät,bronze,N?,ACM
-ICT587,connector|s,kontakt|kontaktdon,bronze,N?,ICT
 ICT590,conservative synchronization,konservativ synkronisering,bronze,N?,ICT
 ICT589,conserve,bevara/spara,bronze,N?,ICT
 ICT591,consider considered,överväga anses,bronze,N?,ICT
@@ -639,7 +602,6 @@ ICT621,context meta-data,kontextuell metadata,bronze,N?,ICT
 ICT622,context-aware application,kontextmedveten applikation,bronze,N?,ICT
 ICT623,context-aware computing,kontextmedveten databehandling,bronze,N?,ICT
 ICT624,context-aware services,kontextmedvetna tjänster,bronze,N?,ICT
-ICT625,context-dependency,kontextberoende,bronze,N?,ICT
 ACM546,Contiguous representations [**],Angränsande representationer,bronze,N?,ACM
 ACM781,Contingency table analysis,,bronze,N?,ACM
 ICT626,continually,kontinuerligt/oavbrutet,bronze,N?,ICT
@@ -682,7 +644,6 @@ ICT658,coordinate-based,coordinat-baserad,bronze,N?,ICT
 ICT657,coordinate|s (nouns),koordinat|koordinater,bronze,N?,ICT
 ICT662,copy copies copied copying,kopiera/kopia kopior  kopierar kopierade kopiering,bronze,N?,ICT
 ACM386,Copyrights [**],Upphovsrätt [**] ,bronze,N?,ACM
-ICT663,copyright|s,upphovsrätt,bronze,N?,ICT
 ICT664,CORBA programming,CORBA programmering,bronze,N?,ICT
 ICT666,core-shell,kärna-skal,bronze,N?,ICT
 ICT667,corner-cube,hörn-kub,bronze,N?,ICT
@@ -699,7 +660,6 @@ ICT674,correlation/correlation,korrelation/korrelationer,bronze,N?,ICT
 ICT675,Cost Benefit Analysis (CBA),kostnad-nytta-analys,bronze,N?,ICT
 ICT676,cost costs,kostnad kostnader,bronze,N?,ICT
 ACM387,Cost estimation,Kostnadsberäkning/uppskattning,bronze,N?,ACM
-ICT677,cost-saving,kostnadsbesparande,bronze,N?,ICT
 ACM56,Cost/performance,Kostnad/prestanda,bronze,N?,ACM
 ICT682,counter- improvised explosive device (IED),kontra-IED,bronze,N?,ICT
 ACM767,Counting problems,,bronze,N?,ACM
@@ -707,22 +667,18 @@ ICT685,country countries,land länderna,bronze,N?,ICT
 ICT686,county-level,län-nivå,bronze,N?,ICT
 ICT687,coupled coupling,kopplad koppling,bronze,N?,ICT
 ICT689,course evaluation,kursutvärdering,bronze,N?,ICT
-ICT688,course|s,kurs|er,bronze,N?,ICT
 ICT690,cover covered,täck täckt,bronze,N?,ICT
 ICT692,cracking,krackning/sprickbildning,bronze,N?,ICT
 ICT693,create creates creating created,skapa,bronze,N?,ICT
 ICT695,credit credited,kredit kredite,bronze,N?,ICT
 ICT700,cross platform tools,multiplattformsverktyg,bronze,N?,ICT
-ICT701,cross-border,gränsöverskridande,bronze,N?,ICT
 ICT702,cross-border planning,gränsöverskridande planering,bronze,N?,ICT
-ICT703,cross-cultural,tvärkulturell,bronze,N?,ICT
 ICT704,cross-layer optimization,kors-nivå optimering,bronze,N?,ICT
 ICT705,Cross-Site Request Forgery (CSRF),,bronze,N?,ICT
 ACM507,Cryptographic controls,Kryptografiska kontroller,bronze,N?,ACM
 ICT708,cryptographically generated addresses,kryptografiskt genererade adresser,bronze,N?,ICT
 ICT711,cultural difference,kulturell skillnad,bronze,N?,ICT
 ICT712,cultural usability,kulturell användbarhet,bronze,N?,ICT
-ICT713,culture|s,kultur|er,bronze,N?,ICT
 ICT717,currency linked systems (CLS),valuta kopplade system,bronze,N?,ICT
 ACM888,Current awareness systems (selective dissemination of information--SDI) [**],,bronze,N?,ACM
 ICT718,current starved,ström utsvulten,bronze,N?,ICT
@@ -736,7 +692,6 @@ ICT725,customer retention,kundlojalitet,bronze,N?,ICT
 ICT726,customer satisfaction,kundnöjdhet,bronze,N?,ICT
 ICT727,customer support,kundsupport,bronze,N?,ICT
 ICT728,customer value,kundnytta/kundvärde,bronze,N?,ICT
-ICT719,customer|s,kund|er,bronze,N?,ICT
 ICT730,cycle/cycles,cykel/cykeler,bronze,N?,ICT
 ICT731,cyclic redundancy check (CRC),cyklisk redundanskontroll,bronze,N?,ICT
 ICT734,DAB network,DAB-nät,bronze,N?,ICT
@@ -777,7 +732,6 @@ ACM425,Data-flow languages,Dataflödesspråk,bronze,N?,ACM
 ICT745,data-only,endast data ,bronze,N?,ICT
 ICT758,data-parallel,,bronze,N?,ICT
 ACM119,Data-path design,,bronze,N?,ACM
-ICT746,data-processing,databehandling,bronze,N?,ICT
 ACM838,Database (persistent) programming languages,,bronze,N?,ACM
 ACM856,Database Administration,,bronze,N?,ACM
 ACM861,Database Applications,Databastillämpningar,bronze,N?,ACM
@@ -910,7 +864,6 @@ ICT871,directive,direktivet/direktiv,bronze,N?,ICT
 ICT872,directory,katalog/adresskalender,bronze,N?,ICT
 ACM489,Directory structures,Katalogstrukturer,bronze,N?,ACM
 ICT873,disabled disabling,inaktiverad invalidiserande,bronze,N?,ICT
-ICT874,disadvantage|s,nackdel|ar,bronze,N?,ICT
 ICT878,disaster response team,stödstyrkan,bronze,N?,ICT
 ICT879,discard discarded,kassera kasserad,bronze,N?,ICT
 ICT881,disconnected operations,frånkopplade operationer,bronze,N?,ICT
@@ -1009,12 +962,10 @@ ICT940,dynamic|s dynamic,dynamik dynamik dynamiskt,bronze,N?,ICT
 ICT953,e-book,e-bok,bronze,N?,ICT
 ICT954,e-business,e-handel,bronze,N?,ICT
 ICT975,e-government,E-förvaltning (24-timmarsmyndighet),bronze,N?,ICT
-ICT976,e-health,eHälsa,bronze,N?,ICT
 ICT982,e-learning,e-lärande,bronze,N?,ICT
 ICT997,e-mail,e-post,bronze,N?,ICT
 ACM1303,Earth and atmospheric sciences,Geovetenskap och atmosfärsvetenskap,bronze,N?,ACM
 ICT952,easy easier easily,lätt/enkel lättare lätt,bronze,N?,ICT
-ICT955,eco-driving,ekokörning,bronze,N?,ICT
 ICT956,economic economics economically,ekonomiska ekonomi ekonomiskt,bronze,N?,ICT
 ICT958,economical justifiable,ekonomiskt försvarbart,bronze,N?,ICT
 ACM1177,Edge and feature detection,Kantdetektering och särdragsdetektering,bronze,N?,ACM
@@ -1089,11 +1040,8 @@ ICT1041,energy savings,energibesparingar,bronze,N?,ICT
 ICT1042,energy scavenging,energi borttagande,bronze,N?,ICT
 ICT1043,energy storage,energilagring,bronze,N?,ICT
 ICT1044,energy systems,energisystem,bronze,N?,ICT
-ICT1034,energy-conserving,energibesparande,bronze,N?,ICT
-ICT1045,energy-efficient,energieffektiv,bronze,N?,ICT
 ACM,Engelsk rubrik,Svensk rubrik,bronze,N?,ACM
 ICT1048,engineer|s engineering engineered,ingenjör|er ingenjörs ???,bronze,N?,ICT
-ICT1047,engine|s,motor|er,bronze,N?,ICT
 ICT,English - Word or Words,Swedish,bronze,N?,ICT
 ICT1049,enhance enhanced,förbättra förbättrad,bronze,N?,ICT
 ICT1050,Enhanced Data Rates for GSM Evolution (EDGE),,bronze,N?,ICT
@@ -1115,7 +1063,6 @@ ICT1074,environmental,miljö-,bronze,N?,ICT
 ICT1075,environmental education,miljöutbildning,bronze,N?,ICT
 ICT1076,environmental impact,miljöpåverkan,bronze,N?,ICT
 ICT1077,environmental impact statement,miljökonsekvensbeskrivning,bronze,N?,ICT
-ICT1073,environment|s,miljö|er,bronze,N?,ICT
 ICT1080,epitaxial lateral growth,epitaxiella laterala tillväxten,bronze,N?,ICT
 ICT1081,equal,lika/jämlik/motsvara,bronze,N?,ICT
 ACM706,Equal interval integration [**],,bronze,N?,ACM
@@ -1159,7 +1106,6 @@ ACM933,Evaluation/methodology,,bronze,N?,ACM
 ACM940,Evaluation/methodology,,bronze,N?,ACM
 ACM960,Evaluation/methodology,,bronze,N?,ACM
 ICT1105,event events,händelse händelser,bronze,N?,ICT
-ICT1106,event-driven,händelsestyrd,bronze,N?,ICT
 ACM326,Evolutionary prototyping,Stegvisa prototypsystem,bronze,N?,ACM
 ACM1159,Exact coding [**],Exakt kodning [**],bronze,N?,ACM
 ICT1111,examine examines examination examining  examined,undersöka undersöker undersökning undersöker undersöktes,bronze,N?,ICT
@@ -1213,8 +1159,6 @@ ICT1178,fault detection and localization,fel upptäckt och lokalisering,bronze,N
 ICT1179,fault management,felhantering,bronze,N?,ICT
 ACM281,Fault tolerance,Feltolerans,bronze,N?,ACM
 ICT1180,fault tolerant control,feltolerant kontroll,bronze,N?,ICT
-ACM502,Fault-tolerance,Feltolerans,bronze,N?,ACM
-ICT1177,fault|s,fel,bronze,N?,ICT
 ICT1181,fax faxes,fax,bronze,N?,ICT
 ICT1182,feasibility study,förstudie,bronze,N?,ICT
 ICT1185,feature detection,funktionen detektering,bronze,N?,ICT
@@ -1301,7 +1245,6 @@ ICT1258,forward forwards forwarding forwarded,vidarebefordra/eftersända/omdirig
 ICT1259,Forward-Time Central-Space (FTCS),,bronze,N?,ICT
 ICT1260,found founded,funnen grundad,bronze,N?,ICT
 ICT1261,foundation,fundamentet/stiftelse,bronze,N?,ICT
-ICT1262,four-legged,fyrbent,bronze,N?,ICT
 ICT1263,fraction fractional,fraktion fraktionerad,bronze,N?,ICT
 ICT1264,fractional Fourier transform (FRFT),,bronze,N?,ICT
 ICT1265,fragment|s fragmented,fragmentet|fragmenten/fragment fragmenterad,bronze,N?,ICT
@@ -1311,7 +1254,6 @@ ACM1025,Frames and scripts,Ramar och manuskript,bronze,N?,ACM
 ICT1267,framework frameworks,ramverks,bronze,N?,ICT
 ACM758,Fredholm equations,,bronze,N?,ACM
 ICT1270,free frees freed,fri frigör befriat,bronze,N?,ICT
-ICT1271,free-running,frigång,bronze,N?,ICT
 ICT1272,free-space,fritt utrymme,bronze,N?,ICT
 ICT1273,free-time,fri-tid,bronze,N?,ICT
 ICT1274,freeconomics,,bronze,N?,ICT
@@ -1325,7 +1267,6 @@ ICT1281,fresh food transportation,färska livsmedel transport,bronze,N?,ICT
 ICT1282,friend friends,vän vänner,bronze,N?,ICT
 ICT1283,from/to,från / till,bronze,N?,ICT
 ICT1284,front,främre/främsta,bronze,N?,ICT
-ICT1285,front-end,framända,bronze,N?,ICT
 ICT1287,full fully,fullständig fullt,bronze,N?,ICT
 ICT1288,full-rate,full hastighet,bronze,N?,ICT
 ICT1289,function functions functional functionality functioning,funktion fungerar funktionell funktionalitet funktion,bronze,N?,ICT
@@ -1439,8 +1380,6 @@ ICT1387,half-rate,halv hastighet,bronze,N?,ICT
 ICT1388,handed,,bronze,N?,ICT
 ACM1383,Handicapped persons/special needs [**],Handikappade personer/speciella behov [**],bronze,N?,ACM
 ICT1390,handle handles handling handled,handtag handtag hantering hanteras,bronze,N?,ICT
-ICT1391,handler|s,hanterare,bronze,N?,ICT
-ICT1396,hands-free,handsfree,bronze,N?,ICT
 ICT1394,handset handsets,telefon telefoner,bronze,N?,ICT
 ICT1395,handset-based,lur-baserade,bronze,N?,ICT
 ICT1399,happen happening,hända händer,bronze,N?,ICT
@@ -1463,7 +1402,6 @@ ICT1408,hashmap,,bronze,N?,ICT
 ICT1409,HDFS orchestration,HDFS orkestrering,bronze,N?,ICT
 ICT1410,headed,på väg,bronze,N?,ICT
 ICT1411,header headers,huvud huvuden,bronze,N?,ICT
-ICT1412,headset|s,hörlurar,bronze,N?,ICT
 ICT1413,health care system,hälso-och sjukvården,bronze,N?,ICT
 ICT1415,health-care applications,sjukvårdsapplikationer,bronze,N?,ICT
 ICT1414,healthcare,vård/sjukvård,bronze,N?,ICT
@@ -1509,7 +1447,6 @@ ICT1458,home networking/home networks,hemnätverk,bronze,N?,ICT
 ICT1459,home router,hemroutrar,bronze,N?,ICT
 ICT1460,Home Subscriber Server (HSS),,bronze,N?,ICT
 ICT1461,home surveillance/monitoring system,hem övervakning / övervakningssystem,bronze,N?,ICT
-ICT1453,home|s,hem,bronze,N?,ICT
 ICT1464,hops/s,hoppar / s,bronze,N?,ICT
 ICT1467,horizontal handoff,horisontell överlämning,bronze,N?,ICT
 ICT1468,hospital hospitalized,"""sjukhus """"på sjukhus""""""",bronze,N?,ICT
@@ -1558,7 +1495,6 @@ ACM1203,Image Representation,Bildrepresentation,bronze,N?,ACM
 ICT1509,image|s imaging,bild bilder avbildning,bronze,N?,ICT
 ACM1151,Imaging geometry,Bildgeometri,bronze,N?,ACM
 ICT1513,immediate immediately,omedelbar omedelbart,bronze,N?,ICT
-ICT1514,impact|s,påverkan,bronze,N?,ICT
 ICT1515,impairment|s,njurfunktion nedsättningar,bronze,N?,ICT
 ACM1231,Implementation (C.3),Implementering (C.3),bronze,N?,ACM
 ICT1516,implementation implementations implements implemented implement implementing,implementeringar implementerings redskap förda genomföra tillämpnings,bronze,N?,ICT
@@ -1592,7 +1528,6 @@ ICT1546,indoor coverage simulation,täckning simulering inomhus,bronze,N?,ICT
 ICT1547,indoor environment,innemiljö,bronze,N?,ICT
 ICT1548,indoor hotspot,inomhus hotspot,bronze,N?,ICT
 ICT1549,indoor wireless,inomhus trådlös,bronze,N?,ICT
-ICT1545,indoor|s,inomhus,bronze,N?,ICT
 ACM1003,Industrial automation,Industriell automation,bronze,N?,ACM
 ACM1331,Industrial control,Industriell styrning,bronze,N?,ACM
 ICT1550,industrial environment,industriell miljö,bronze,N?,ICT
@@ -1804,7 +1739,6 @@ ICT1726,large corporation,stort företag,bronze,N?,ICT
 ICT1727,large enterprises,stora företag,bronze,N?,ICT
 ICT1728,large largely,"""stor """"stor del""""""",bronze,N?,ICT
 ACM899,Large text archives,,bronze,N?,ACM
-ICT1729,large-scale,storskalig,bronze,N?,ICT
 ICT1730,laser|s,laser lasrar,bronze,N?,ICT
 ICT1732,last hop,sista hop,bronze,N?,ICT
 ICT1731,last lasts,sista varar,bronze,N?,ICT
@@ -1829,7 +1763,6 @@ ICT1760,length lengths,längd längder,bronze,N?,ICT
 ICT1761,level levels,nivå nivåer,bronze,N?,ICT
 ICT1762,leverage,hävstångs/påtryckning,bronze,N?,ICT
 ACM898,Library Automation,,bronze,N?,ACM
-ICT1765,license-exempt,licensbefriad,bronze,N?,ICT
 ICT1764,license|s licensed licensing,licens licenserlicensierad licensiering,bronze,N?,ICT
 ACM1308,LIFE AND MEDICAL SCIENCES,BIOLOGI OCH MEDICIN,bronze,N?,ACM
 ACM388,Life cycle,Livscykel,bronze,N?,ACM
@@ -1905,7 +1838,6 @@ ICT1832,low-density parity-check (LDPC),låg densitet paritetskontroll,bronze,N?
 ICT1840,low-fi prototype,låg-fidelity prototyp,bronze,N?,ICT
 ICT1833,low-latency,låg latens,bronze,N?,ICT
 ICT1834,low-level,låg nivå,bronze,N?,ICT
-ICT1835,low-pass,lågpassfilter,bronze,N?,ICT
 ICT1836,low-power,låg effekt,bronze,N?,ICT
 ICT1837,low-rate,låg ränta,bronze,N?,ICT
 ICT1838,low-tier,låg-tier,bronze,N?,ICT
@@ -1942,7 +1874,6 @@ ACM1471,Management/Maintenance,Styrning/underhåll,bronze,N?,ACM
 ICT1866,managements of demands,kravhantering,bronze,N?,ICT
 ICT1868,manipulate manipulated manipulation,manipulera manipulerad manipulering,bronze,N?,ICT
 ICT1870,manual manually,manuell manuellt,bronze,N?,ICT
-ICT1872,manufacturer|s,tillverkaretillverkarna,bronze,N?,ICT
 ICT1871,manufacture|s,tillverkning tillverkar,bronze,N?,ICT
 ICT1873,many-core systems,flerkärnig system,bronze,N?,ICT
 ICT1874,map maps mapping mappings mapped,karta kartor kartläggning avbildningar mappade,bronze,N?,ICT
@@ -1990,7 +1921,6 @@ ICT1915,medical imaging,medicinsk bildbehandling,bronze,N?,ICT
 ACM1311,Medical information systems,Medicinska informationssystem,bronze,N?,ACM
 ICT1916,medical sensor,medicinsk sensor,bronze,N?,ICT
 ACM1005,Medicine and science,Medicin och naturvetenskap,bronze,N?,ACM
-ICT1917,medium-sized,medelstor,bronze,N?,ICT
 ICT1918,meet meeting meetings,träffas möte mötena,bronze,N?,ICT
 ICT1919,meeting room booking service (MRBS),,bronze,N?,ICT
 ICT1920,member|s,medlem medlemmar,bronze,N?,ICT
@@ -2139,13 +2069,7 @@ ICT2044,MSC-S (Ericsson term for MSC),,bronze,N?,ICT
 ICT2045,multi-application,multi-applikation,bronze,N?,ICT
 ICT2051,multi-core architecture,flerkärnig-arkitektur,bronze,N?,ICT
 ICT2052,multi-domain,multi-domän,bronze,N?,ICT
-ICT2055,multi-layer,flerskiktiga,bronze,N?,ICT
-ICT2066,multi-party,flerparti,bronze,N?,ICT
-ICT2075,multi-project,multiprojekt,bronze,N?,ICT
-ICT2079,multi-purpose,multisyften,bronze,N?,ICT
 ICT2080,multi-region,multi-regionen,bronze,N?,ICT
-ICT2081,multi-sensory,multisensorisk,bronze,N?,ICT
-ICT2082,multi-slot,flerlucks,bronze,N?,ICT
 ICT2083,multi-target,multi-mål,bronze,N?,ICT
 ICT2086,multi-threaded semantics,flertrådade semantik,bronze,N?,ICT
 ACM1274,Multi/mixed media,Blandade medier/multimedier,bronze,N?,ACM
@@ -2248,8 +2172,6 @@ ICT2142,network simulator 2- University of Cincinnati Bluetooth (NS2-UCBT) [simu
 ICT2143,Network Time Protocol (NTP),,bronze,N?,ICT
 ACM244,Network topology,Nättopologi,bronze,N?,ACM
 ICT2144,network topology discovery,identifiering av nätverkstopologin,bronze,N?,ICT
-ICT2145,network-aware,nätverksmedvetet,bronze,N?,ICT
-ICT2118,network-based,nätverksbaserat,bronze,N?,ICT
 ICT2146,network-based malware detection,nätverksbaserad detektering av skadlig kod,bronze,N?,ICT
 ICT2147,networked haptics,nätverks haptiker,bronze,N?,ICT
 ACM222,Neural nets,Neuronnät,bronze,N?,ACM
@@ -2334,7 +2256,6 @@ ICT2215,occupancy occupies,beläggning/innehavande ockupera/upptar,bronze,N?,ICT
 ICT2216,occupancy sensing,beläggning avkänning,bronze,N?,ICT
 ICT2217,occur occurs occurred occurring,inträffa inträffar inträffat förekommande,bronze,N?,ICT
 ICT2218,octet octets,oktett oktetter,bronze,N?,ICT
-ICT2223,off-line,fristående,bronze,N?,ICT
 ICT2227,off-the-shelf,färdig,bronze,N?,ICT
 ICT2219,offer offers offered offering offerings,erbjudandet erbjuder erbjuds erbjuder offer,bronze,N?,ICT
 ACM1007,Office automation,Kontorsautomation,bronze,N?,ACM
@@ -2349,7 +2270,6 @@ ICT2244,on-off,på-av,bronze,N?,ICT
 ICT2234,one-call,en-samtal,bronze,N?,ICT
 ICT2235,one-pole,en-polig,bronze,N?,ICT
 ACM741,One-step (single step) methods,,bronze,N?,ACM
-ICT2236,one-time,engångs,bronze,N?,ICT
 ICT2237,one-time password,engångslösenord,bronze,N?,ICT
 ICT2238,one-way,en-sätt,bronze,N?,ICT
 ICT2239,ongoing on-going,pågående,bronze,N?,ICT
@@ -2437,7 +2357,6 @@ ICT2324,package|s packaging,paketet paketen förpackning,bronze,N?,ICT
 ICT2327,packet classification,,bronze,N?,ICT
 ICT2328,packet loss,paketförlust,bronze,N?,ICT
 ICT2329,packet packets packetized packetization,paket paketen pakete paketering,bronze,N?,ICT
-ICT2326,packet-based,paketbaserat,bronze,N?,ICT
 ICT2330,packet-pair,paket par,bronze,N?,ICT
 ACM245,Packet-switching networks,Paketförmedlade nät,bronze,N?,ACM
 ICT2325,packet|s packetized,paketet paketen paketerad,bronze,N?,ICT
@@ -2529,12 +2448,10 @@ ACM381,Performance measures,Prestandamått,bronze,N?,ACM
 ACM279,PERFORMANCE OF SYSTEMS,PRESTANDA FÖR SYSTEM,bronze,N?,ACM
 ICT2397,performance testing,prestanda tester,bronze,N?,ICT
 ICT2398,performance tests,prestandatester,bronze,N?,ICT
-ICT2394,performance-enhancing,prestationshöjande,bronze,N?,ICT
 ACM1324,Performing arts (e.g.,,bronze,N?,ACM
 ICT2400,periodic periodically,periodisk periodiskt,bronze,N?,ICT
 ICT2399,period|s,period perioder,bronze,N?,ICT
 ACM36,Peripheral control [**],Styrning av kringutrustning [**],bronze,N?,ACM
-ICT2401,peripheral|s,kringutrustning,bronze,N?,ICT
 ICT2403,permits,tillåter ,bronze,N?,ICT
 ACM769,Permutations and combinations,,bronze,N?,ACM
 ICT2405,persistent persistently,ihållandeihärdigt,bronze,N?,ICT
@@ -2578,7 +2495,6 @@ ICT2441,place places placing placed,plats platser placera placerad,bronze,N?,ICT
 ACM173,Placement and routing,,bronze,N?,ACM
 ACM1057,Plan execution,Planering,bronze,N?,ACM
 ICT2443,plan plans planning,planen planer planering,bronze,N?,ICT
-ICT2444,plane|s,plan,bronze,N?,ICT
 ICT2447,planned maintenance,planerat underhåll,bronze,N?,ICT
 ICT2446,planned planning,planerat planering,bronze,N?,ICT
 ICT2451,platform as a service (PaaS),plattform som tjänst ,bronze,N?,ICT
@@ -2599,7 +2515,6 @@ ACM717,Polynomials,,bronze,N?,ACM
 ICT2474,poor quality cost,kvalitetsbristkostnader,bronze,N?,ICT
 ICT2477,population evolution,befolkning evolutionen,bronze,N?,ICT
 ICT2478,port ports,port portar,bronze,N?,ICT
-ICT2481,port-based,portbaserad,bronze,N?,ICT
 ACM805,Portability [**],,bronze,N?,ACM
 ACM294,Portable devices (e.g.,Bärbara enheter (t.ex. portföljdatorer,bronze,N?,ACM
 ICT2479,portable document format (PDF),portabel dokumentformat ,bronze,N?,ICT
@@ -2616,13 +2531,9 @@ ICT2496,power control,effektstyrning,bronze,N?,ICT
 ICT2498,power emission,utstrålad effekt,bronze,N?,ICT
 ICT2499,power over ethernet (PoE),strömförsörjning via Ethernet ,bronze,N?,ICT
 ICT2494,power powered,kraft driven,bronze,N?,ICT
-ICT2497,power-down,avstängnings,bronze,N?,ICT
-ICT2501,power-save,energispar,bronze,N?,ICT
 ICT2502,practice practices practical,praxis praxis praktisk,bronze,N?,ICT
 ACM618,Pre- and post-conditions,,bronze,N?,ACM
 ICT2505,pre-call,pre-samtal,bronze,N?,ICT
-ICT2511,pre-commercial,förkommersiell,bronze,N?,ICT
-ICT2521,pre-planning,förprojektering,bronze,N?,ICT
 ICT2534,pre-shared key (PSK),förväg delad nyckel ,bronze,N?,ICT
 ICT2503,preamble|s,ingressen ingresser,bronze,N?,ICT
 ICT2504,preauthentication pre-authentication,pre-autentisering,bronze,N?,ICT
@@ -2675,7 +2586,6 @@ ICT2561,probability probabilities,sannolikhet sannolikheter,bronze,N?,ICT
 ICT2563,probe|s,prob prober,bronze,N?,ICT
 ICT2564,problem problems,problemet problemen,bronze,N?,ICT
 ACM1051,Problem Solving,Problemlösning,bronze,N?,ACM
-ICT2565,problem-solving,problemlösning,bronze,N?,ICT
 ICT2567,procedure|s,förfarande förfaranden,bronze,N?,ICT
 ACM1333,Process control,Processtyrning,bronze,N?,ACM
 ACM275,Process control systems,Processtyrningssystem,bronze,N?,ACM
@@ -2762,7 +2672,6 @@ ICT2629,publish message,publicera meddelande,bronze,N?,ICT
 ICT2628,publish published,publicera publicerade,bronze,N?,ICT
 ICT2630,publish/subscribe,publicera/prenumerera,bronze,N?,ICT
 ICT2631,publish/subscribe(pub/sub) proxy,publicera/prenumerera proxy,bronze,N?,ICT
-ICT2632,publisher|s,utgivare,bronze,N?,ICT
 ICT2633,pulse|s,puls pulser,bronze,N?,ICT
 ICT2635,purpose purposes,syfte ändamål,bronze,N?,ICT
 ICT2637,push method,,bronze,N?,ICT
@@ -2779,7 +2688,6 @@ ICT2646,quality of service (QoS),tjänstekvalitet ,bronze,N?,ICT
 ICT2647,quantity quantities,kvantitet mängder,bronze,N?,ICT
 ICT2649,quantization step,kvantiseringssteg,bronze,N?,ICT
 ICT2650,quantum dot,kvantprick,bronze,N?,ICT
-ICT2651,quasi-static,kvasistatiska,bronze,N?,ICT
 ICT2652,query expansion,utökning av sökfråga,bronze,N?,ICT
 ACM882,Query formulation,Frågeformulering,bronze,N?,ACM
 ACM839,Query languages,Frågespråk,bronze,N?,ACM
@@ -2800,7 +2708,6 @@ ICT2670,radio base station/radio base stations,radiobasstation/radiobassstatione
 ICT2671,radio frequency,radiofrekvens,bronze,N?,ICT
 ICT2672,radio frequency identification/radio-frequency identification,radiofrekvensidentifiering,bronze,N?,ICT
 ICT2673,radio spectrum utilization,radiospektrum utnyttjas,bronze,N?,ICT
-ICT2674,radio-based,radiobaserad,bronze,N?,ICT
 ICT2676,Radio-frequency identification (RFID),radiofrekvensidentifiering ,bronze,N?,ICT
 ACM1139,Radiosity,Strålning (radiositet),bronze,N?,ACM
 ICT2667,radio|s,radio radioapparater,bronze,N?,ICT
@@ -2811,7 +2718,6 @@ ICT2681,random access memory (RAM),,bronze,N?,ICT
 ACM790,Random number generation,,bronze,N?,ACM
 ICT2682,random testing,slumpmässig testning,bronze,N?,ICT
 ACM1194,Range data,Omfångsdata,bronze,N?,ACM
-ICT2685,range|s,intervall,bronze,N?,ICT
 ACM413,Rapid prototyping [**],Prototypsystem [**],bronze,N?,ACM
 ICT2688,rapid rapidly,snabb/hastig snabbt,bronze,N?,ICT
 ICT2689,rapid-fading,snabb-fädning,bronze,N?,ICT
@@ -2821,9 +2727,7 @@ ICT2692,rate rates rating ratings,grad/mått                 uppskattning/värde
 ACM689,Rational approximation,,bronze,N?,ACM
 ICT2695,Rayleigh-distributed,Rayleigh-distribuerad,bronze,N?,ICT
 ICT2717,re-authentication,re-autentisering,bronze,N?,ICT
-ICT2739,re-establishment,återupprättande,bronze,N?,ICT
 ICT2816,re-sends,åter sänder,bronze,N?,ICT
-ICT2848,re-thinking,omprövning,bronze,N?,ICT
 ICT2696,reach reaches reached,nå når nådde,bronze,N?,ICT
 ICT2697,reachable reachability,nåbar nåbarhet,bronze,N?,ICT
 ICT2698,react reactive,reagera reaktiv,bronze,N?,ICT
@@ -2961,7 +2865,6 @@ ICT2832,resource reservation,resurs reservation,bronze,N?,ICT
 ICT2833,resource reservation protocol - traffic engineering (RSVP-TE),resurs reservation protokoll - trafikteknik,bronze,N?,ICT
 ICT2834,resource resources,resurs resurser,bronze,N?,ICT
 ICT2823,resource-adaptive,resurs adaptiv,bronze,N?,ICT
-ICT2824,resource-aware,resursmedveten,bronze,N?,ICT
 ICT2822,resource|s,resurs medel,bronze,N?,ICT
 ICT2836,respect respectively,respekt respektive,bronze,N?,ICT
 ICT2837,respond responds responders,reagera reagerar responders,bronze,N?,ICT
@@ -2983,7 +2886,6 @@ ACM414,Reusable software [**],Återanvändbara program [**],bronze,N?,ACM
 ACM411,Reuse models,Återanvändningsmodeller,bronze,N?,ACM
 ICT2854,reuse re-use,återanvändning,bronze,N?,ICT
 ICT2857,revenue model,intäktsmodell,bronze,N?,ICT
-ICT2856,revenue|s,intäkter,bronze,N?,ICT
 ICT2859,reverse engineering,omvänd ingenjörskonst,bronze,N?,ICT
 ICT2860,review reviewer,översyn/granska/sammanställning granskaren,bronze,N?,ICT
 ICT2861,revised revision,reviderad revidering,bronze,N?,ICT
@@ -3001,13 +2903,11 @@ ICT2871,risk identification,riskidentifiering,bronze,N?,ICT
 ICT2872,risk management,riskhantering,bronze,N?,ICT
 ICT2873,risk management process,riskprocess,bronze,N?,ICT
 ICT2874,risk perception,riskperception,bronze,N?,ICT
-ICT2877,robotic|s,robotik,bronze,N?,ICT
 ACM793,Robust regression,,bronze,N?,ACM
 ACM712,Roots of Nonlinear Equations,,bronze,N?,ACM
 ICT2882,rough roughly,ungefärlig ungefär,bronze,N?,ICT
 ICT2884,round robin,round robin,bronze,N?,ICT
 ICT2885,round rounds rounding,runda rundor avrundnings,bronze,N?,ICT
-ICT2886,round-trip,rundresa,bronze,N?,ICT
 ICT2887,route routes routed routing,väg vägar dirigeras dirigering,bronze,N?,ICT
 ICT2888,router platform development,router plattformsutveckling,bronze,N?,ICT
 ICT2889,router routers,router,bronze,N?,ICT
@@ -3026,7 +2926,6 @@ ICT3292,sammanfattning sammanfatta sammanfattar,summary summarize summarizing,br
 ICT2902,sample samples sampling sampled,prov prover provtagning samplade,bronze,N?,ICT
 ICT2903,SAP Community Network (SCN),SAP forumet nätverk,bronze,N?,ICT
 ICT2905,satellite communication,satellit kommunikationsnät,bronze,N?,ICT
-ICT2904,satellite|s,satellit,bronze,N?,ICT
 ICT2906,satisfy satisfactory,tillfreds tillfredsställande,bronze,N?,ICT
 ICT2907,saves saved,sparar sparade,bronze,N?,ICT
 ICT2908,saving|s,spara besparingar,bronze,N?,ICT
@@ -3044,7 +2943,6 @@ ICT2922,scan and print method,skanna och skriv ut-metoden,bronze,N?,ICT
 ICT2925,scatternet|s,spridanät scatternets,bronze,N?,ICT
 ICT2926,scavenging,,bronze,N?,ICT
 ICT2928,scenario analysis,scenarioanalys,bronze,N?,ICT
-ICT2927,scenario|s,scenarier,bronze,N?,ICT
 ACM1188,Scene Analysis,Scenanalys,bronze,N?,ACM
 ICT2929,scene graph,scen graf,bronze,N?,ICT
 ICT2930,schedule|s scheduled scheduling,tidtabell scheman planerad tidplanering,bronze,N?,ICT
@@ -3104,16 +3002,9 @@ ACM483,Segmentation [**],Segmentering [**],bronze,N?,ACM
 ICT2978,select selects selectively selected selective selection,väljer selektivt valda selektiva urvalet,bronze,N?,ICT
 ACM886,Selection process,Selekteringsprocess,bronze,N?,ACM
 ICT2981,self test,självtest,bronze,N?,ICT
-ICT2982,self-actualization,självförverkligande,bronze,N?,ICT
-ACM1363,Self-assessment,Självutvärdering,bronze,N?,ACM
-ICT2983,self-aware,självmedveten,bronze,N?,ICT
 ICT2984,self-configuration,själv konfiguration,bronze,N?,ICT
-ICT2985,self-configuring,självkonfigurerande,bronze,N?,ICT
 ACM576,Self-modifying machines (e.g.,Självmodifierande maskiner (t.ex. neuronnät),bronze,N?,ACM
-ICT2986,self-organization,självorganisering,bronze,N?,ICT
-ICT2987,self-organizing,självorganiserande,bronze,N?,ICT
 ICT2988,self-reconfigurable,själv rekonfigurerbar,bronze,N?,ICT
-ICT2989,self-report,självrapport,bronze,N?,ICT
 ICT2990,self-service business intelligence,självbetjäning omvärldsbevakning,bronze,N?,ICT
 ICT2993,semantic interoperability,semantisk interoperabilitet,bronze,N?,ICT
 ACM1031,Semantic networks,Semantiska nät,bronze,N?,ACM
@@ -3129,7 +3020,6 @@ ICT3001,sensitive sensitivity,känslig känslighet,bronze,N?,ICT
 ACM1195,Sensor fusion,Sensorfusion,bronze,N?,ACM
 ICT3004,sensor network,sensornätverk,bronze,N?,ICT
 ICT3005,sensor system,sensorsystem,bronze,N?,ICT
-ICT3003,sensor-based,sensorbaserad,bronze,N?,ICT
 ICT3006,sensor/sensors,sensor/sensorer,bronze,N?,ICT
 ICT3002,sensor|s,sensor sensorer,bronze,N?,ICT
 ICT3007,sent sents,från/avsändare,bronze,N?,ICT
@@ -3146,7 +3036,6 @@ ICT3015,serial presence detect (SPD),,bronze,N?,ICT
 ACM1173,Series expansion methods,Serieexpansionsmetoder,bronze,N?,ACM
 ICT3019,serve serves served serving,tjäna tjänar tjänat betjänar,bronze,N?,ICT
 ICT3020,server servers,server servrar,bronze,N?,ICT
-ICT3021,server-based,serverbaserad,bronze,N?,ICT
 ICT3024,service availability,tjänstens tillgänglighet,bronze,N?,ICT
 ICT3025,service behavior,tjänsten beteende,bronze,N?,ICT
 ICT3026,service creation,skapande av tjänster,bronze,N?,ICT
@@ -3161,7 +3050,6 @@ ICT3034,service policy management,tjänstepolicyhantering,bronze,N?,ICT
 ICT3035,service providers,tjänsteleverantörer,bronze,N?,ICT
 ICT3036,service provisioning,tjänsteprovisione,bronze,N?,ICT
 ICT3037,service quality,servicekvalitet,bronze,N?,ICT
-ICT3038,service-based,tjänstebaserad,bronze,N?,ICT
 ICT3023,service|s, tjänst  tjänster,bronze,N?,ICT
 ICT3039,servlet servlets,,bronze,N?,ICT
 ICT3041,session initiation protocol (SIP),,bronze,N?,ICT
@@ -3184,7 +3072,6 @@ ICT3060,shelter,"""""""tak över huvudet""""""",bronze,N?,ICT
 ICT3061,shift|s shifted shifting,shift skiftar skiftat växling,bronze,N?,ICT
 ICT3067,short message service (SMS),tjänst för korta textmeddelanden,bronze,N?,ICT
 ICT3068,short message service injection,kortmeddelandetjänst injektion,bronze,N?,ICT
-ICT3066,short-range,kortdistans,bronze,N?,ICT
 ICT3069,show shows showed showing,visa visar visade visning,bronze,N?,ICT
 ICT3072,side channel,sidokanal,bronze,N?,ICT
 ICT3073,side channel attacks,sidokanalsattacker,bronze,N?,ICT
@@ -3238,13 +3125,11 @@ ICT3112,size|s sized,storlek storlekar stora ,bronze,N?,ICT
 ICT3115,slave|s,slav slavar,bronze,N?,ICT
 ICT3116,sleep sleeping,sömn sovande,bronze,N?,ICT
 ICT3117,slide slides,diabild diabilder,bronze,N?,ICT
-ICT3120,slow-start,långsamstarten,bronze,N?,ICT
 ICT3121,small and medium sized enterprises (SME),små och medelstora företag (SMF),bronze,N?,ICT
 ICT3122,small cell,småceller,bronze,N?,ICT
 ICT3123,small cell network,småcellig nätet,bronze,N?,ICT
 ICT3124,small cell security,småcellig säkerhet,bronze,N?,ICT
 ICT3125,small office-home office (SOHO) routers,litet kontor-hemmakontor routrar,bronze,N?,ICT
-ICT3126,small-scale,småskalig,bronze,N?,ICT
 ICT3128,smart and IP-able TV,Smart TV,bronze,N?,ICT
 ICT3129,smart card,smartkort,bronze,N?,ICT
 ICT3130,smart card authentication,smartkort autentisering,bronze,N?,ICT
@@ -3266,7 +3151,6 @@ ICT3143,social network sites (OSNS),webbplatser för sociala nätverk,bronze,N?,
 ICT3144,social network/social networking,sociala nätverk,bronze,N?,ICT
 ICT3141,social socially,social socialt,bronze,N?,ICT
 ICT3145,socio-economic impact,socioekonomiska effekter,bronze,N?,ICT
-ICT3146,socket|s,uttag,bronze,N?,ICT
 ICT3147,soft factors,mjuka faktorer,bronze,N?,ICT
 ICT3148,soft secure element (soft-SE),programvara säkerhetselement (SE),bronze,N?,ICT
 ICT3149,soft-output Viterbi decoder,mjuk-output Viterbi-avkodare,bronze,N?,ICT
@@ -3344,7 +3228,6 @@ ACM913,Spreadsheets,,bronze,N?,ACM
 ACM673,Stability (and instability),,bronze,N?,ACM
 ACM224,Stack-oriented processors [**],Stackorienterade processorer [**],bronze,N?,ACM
 ICT3207,stamp stamps stamped,stämpel stämplar stämplat,bronze,N?,ICT
-ICT3208,stand-alone,fristående,bronze,N?,ICT
 ACM1099,Stand-alone systems [**],Fristående system [**],bronze,N?,ACM
 ACM168,Standard cells [**],Standardceller [**],bronze,N?,ACM
 ICT3209,standard standards standardization standardized,standardnormer standardisering standardiseras,bronze,N?,ICT
@@ -3497,7 +3380,6 @@ ICT3378,technological change,teknisk förändring,bronze,N?,ICT
 ICT3380,technology diffusion,teknikspridning,bronze,N?,ICT
 ICT3381,technology technologies,teknologi tekniker,bronze,N?,ICT
 ICT3379,technology technologies,teknologi teknologier,bronze,N?,ICT
-ICT3382,technology-based,teknikbaserade,bronze,N?,ICT
 ICT3384,telecommunication (telco) cloud,telekommunikation moln,bronze,N?,ICT
 ICT3385,telecommunication (telecom),telekommunikation,bronze,N?,ICT
 ICT3386,telecommunication services,telekommunikationstjänster,bronze,N?,ICT
@@ -3562,7 +3444,6 @@ ICT3433,third party development,tredjepartsutveckling,bronze,N?,ICT
 ICT3436,thought|s,tänkte tankar,bronze,N?,ICT
 ACM1094,Three-dimensional displays [**],Tredimensionella visningsenheter [**],bronze,N?,ACM
 ACM1134,Three-Dimensional Graphics and Realism,Tredimensionell grafik och realism,bronze,N?,ACM
-ICT3437,three-way,trevägs,bronze,N?,ICT
 ICT3439,threshold cryptography,tröskelkryptografi,bronze,N?,ICT
 ACM653,Thue systems,,bronze,N?,ACM
 ICT3444,tier tiers tiered,nivån nivåer differentierad,bronze,N?,ICT
@@ -3579,8 +3460,6 @@ ICT3456,time series analysis,tidsserieanalys,bronze,N?,ICT
 ICT3457,time stamping,tidstämpel,bronze,N?,ICT
 ICT3458,time timed times timely timing,tid tidsinställda gånger   rätt tid   timingen,bronze,N?,ICT
 ICT3459,time to digital converter (TDC),tid till digital omvandlare,bronze,N?,ICT
-ICT3448,time-dependent,tidsberoende,bronze,N?,ICT
-ICT3449,time-division,tidsmultiplex,bronze,N?,ICT
 ICT3461,time-parallel,,bronze,N?,ICT
 ICT3462,time-predictability,tids förutsägbarhet,bronze,N?,ICT
 ICT3465,time-share,på tidsdelningsbasis,bronze,N?,ICT
@@ -3662,10 +3541,8 @@ ICT3546,try trying,försöka försöker,bronze,N?,ICT
 ICT3548,tunnel setup protocol (TSP),tunnel inställningsprotokoll,bronze,N?,ICT
 ICT3547,tunnel|s tunneled tunneling,tunnel tunnlar tunnlas tunnling,bronze,N?,ICT
 ICT3550,turn turned turning,vända vände vrida,bronze,N?,ICT
-ICT3551,tutorial|s,handledning,bronze,N?,ICT
 ICT3552,twice,två gånger,bronze,N?,ICT
 ICT3554,two-level,två-nivå,bronze,N?,ICT
-ICT3555,two-way,tvåvägs,bronze,N?,ICT
 ICT3556,two-way-paging,tvåvägs-personsökning,bronze,N?,ICT
 ICT3557,two-year,två års,bronze,N?,ICT
 ACM632,Type structure,,bronze,N?,ACM
@@ -3676,7 +3553,6 @@ ACM1240,Types of simulation (continuous and discrete) [*],Simuleringstyper (kont
 ACM917,Types of Systems,,bronze,N?,ACM
 ICT3559,typical typically,typisk typiskt,bronze,N?,ICT
 ICT3560,ubiquitous computing,ubika datasystem,bronze,N?,ICT
-ICT3564,ultra-wideband,ultrabredbandsteknik,bronze,N?,ICT
 ICT3562,ultrahigh frequency (UHF) band,ultrahög frekvensband,bronze,N?,ICT
 ICT3565,ultrawideband (UWB),,bronze,N?,ICT
 ACM1443,Unauthorized access (e.g.,Obehörig åtkomst (t.ex. hackande,bronze,N?,ACM
@@ -3685,7 +3561,6 @@ ICT3571,unblocking,"""""""spärren hävs""""""",bronze,N?,ICT
 ACM577,Unbounded-action devices (e.g.,Enheter med icke-förutbestämda åtgärder (t.ex. cellulära automater,bronze,N?,ACM
 ACM731,Unconstrained optimization,Icke-framtvingad optimering,bronze,N?,ACM
 ICT3577,understand understands understanding,förstå förstår förståelse,bronze,N?,ICT
-ICT3580,uni-directional,enkelriktad,bronze,N?,ICT
 ICT3582,unified communications,samordnad kommunikation,bronze,N?,ICT
 ICT3583,unified extensible firmware interface (UEFI),,bronze,N?,ICT
 ICT3584,unified modeling language (UML),,bronze,N?,ICT
@@ -3731,10 +3606,7 @@ ICT3639,user testing,användartest,bronze,N?,ICT
 ICT3640,user users,användare användare,bronze,N?,ICT
 ACM952,User-centered design,,bronze,N?,ACM
 ICT3641,user-centered design,användarcentrerad design,bronze,N?,ICT
-ICT3626,user-friendly,användarvänlig,bronze,N?,ICT
-ICT3631,user-level,användarnivå,bronze,N?,ICT
 ICT3636,user-provided,användar förutsatt,bronze,N?,ICT
-ICT3637,user-specific,användarspecifik,bronze,N?,ICT
 ACM819,User/Machine Systems,,bronze,N?,ACM
 ICT3642,users’ privacy concerns,användarintegretet,bronze,N?,ICT
 ICT3643,using,"""""""med användning""""""",bronze,N?,ICT
@@ -3749,14 +3621,12 @@ ICT3656,value creation,värdeskapande,bronze,N?,ICT
 ICT3657,value drivers,värdedrivare,bronze,N?,ICT
 ACM818,Value of information,,bronze,N?,ACM
 ICT3658,value values,värde värden,bronze,N?,ICT
-ICT3653,value-added,mervärde,bronze,N?,ICT
 ICT3652,value/values,värde/värderingar,bronze,N?,ICT
 ICT3661,variant|s,variant varianter,bronze,N?,ICT
 ICT3662,varied varies,varierad  varierar,bronze,N?,ICT
 ICT3664,various,olika/diverse,bronze,N?,ICT
 ACM1095,Vector display devices [**],Vektorskärmar [**],bronze,N?,ACM
 ICT3667,vector signal transceiver (VST),vektorsignal transceiver (VST),bronze,N?,ICT
-ICT3668,vehicle|s,fordon,bronze,N?,ICT
 ICT3669,vehicular,fordons-,bronze,N?,ICT
 ICT3671,vending machine,varuautomat,bronze,N?,ICT
 ICT3672,vendor vendors,försäljaren försäljare,bronze,N?,ICT
@@ -3825,7 +3695,6 @@ ICT3726,VPN-policy,VPN-policy,bronze,N?,ICT
 ICT3728,vulnerability analysis,sårbarhetsanalys,bronze,N?,ICT
 ICT3729,Waikato Environment for knowledge analysis (WEKA),Waikato miljö för kunskapsanalys,bronze,N?,ICT
 ICT3730,wait waits waiting,vänta väntar väntar,bronze,N?,ICT
-ICT3732,walkie-talkie,komradio,bronze,N?,ICT
 ICT3734,want wants wanted,vilja vill ville,bronze,N?,ICT
 ACM1230,Waveform analysis,Vågformsanalys,bronze,N?,ACM
 ICT3739,wavelength continuity,våglängd kontinuitet,bronze,N?,ICT
@@ -3847,11 +3716,9 @@ ICT3756,web real-time communications  (WebRTC),web realtidskommunikation,bronze,
 ICT3757,web service,webbtjänst,bronze,N?,ICT
 ACM964,Web-based interaction,,bronze,N?,ACM
 ACM897,Web-based services,,bronze,N?,ACM
-ICT3758,web-browser,webbläsare,bronze,N?,ICT
 ICT3759,Weblogs (blogs),bloggar,bronze,N?,ICT
 ICT3762,Website data extraction,webbplats datautvinning,bronze,N?,ICT
 ICT3763,WebSocket,,bronze,N?,ICT
-ICT3766,well-defined,väldefinierad,bronze,N?,ICT
 ICT3778,Wi-Fi/WiFi,Wi-Fi/wifi,bronze,N?,ICT
 ICT3774,Wideband Amplifier STO CMOS microwave,Bredbands förstärkare STO CMOS mikrovågs,bronze,N?,ICT
 ICT3775,wideband code division multiplex access (WCDMA),bredbandig koduppdelad multiplex tillgång,bronze,N?,ICT
@@ -3890,7 +3757,6 @@ ICT3819,work environment,arbetsmiljö,bronze,N?,ICT
 ICT3820,work flow,arbetsflöde,bronze,N?,ICT
 ICT3821,work process,arbetsprocess/arbetssätt,bronze,N?,ICT
 ICT3822,work works worked working,arbeta/arbete arbetar arbetade arbetar,bronze,N?,ICT
-ICT3825,work-groups,arbetsgrupper,bronze,N?,ICT
 ICT3826,work-stealing,arbets stjäla,bronze,N?,ICT
 ACM1067,Workcell organization and planning,Organisation och planering av arbetsceller,bronze,N?,ACM
 ACM916,Workflow management,,bronze,N?,ACM
