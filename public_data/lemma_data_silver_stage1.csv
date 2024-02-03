@@ -1,522 +1,522 @@
 id,eng_lemma,swe_lemma,status,pos,src
-ACM437,Abstract data types,Abstrakta datatyper,silver,N?,ACM
-ACM505,Access controls,Åtkomstkontroller,silver,N?,ACM
-ACM488,Access methods,Åtkomstmetoder,silver,N?,ACM
-ACM263,Access schemes,Åtkomstscheman,silver,N?,ACM
-ACM215,Adaptable architectures,Anpassningsbara arkitekturer,silver,N?,ACM
-ACM1289,ADMINISTRATIVE DATA PROCESSING,ADMINISTRATIV DATABEHANDLING,silver,N?,ACM
-ACM162,Advanced technologies,Avancerade tekniker,silver,N?,ACM
-ACM985,Algebraic algorithms,Algebraiska algoritmer,silver,N?,ACM
-ACM163,Algorithms implemented in hardware,Algoritmer implementerade i maskinvara,silver,N?,ACM
-ACM579,Alternation and nondeterminism,Växling och icke-determinism,silver,N?,ACM
-ACM216,Analog computers,Analoga datorer,silver,N?,ACM
-ACM986,Analysis of algorithms,Analys av algoritmer,silver,N?,ACM
-ACM1108,Application packages,Applikationspaket,silver,N?,ACM
-ACM1463,Application Packages,Tillämpningsprogram,silver,N?,ACM
-ACM1158,Approximate methods,Approximativa metoder,silver,N?,ACM
-ACM39,ARITHMETIC AND LOGIC STRUCTURES,ARITMETISKA OCH LOGISKA STRUKTURER,silver,N?,ACM
-ACM117,Arithmetic and logic units,Aritmetiska och logiska enheter,silver,N?,ACM
-ACM996,ARTIFICIAL INTELLIGENCE,ARTIFICIELL INTELLIGENS,silver,N?,ACM
-ACM1316,ARTS AND HUMANITIES,KONST OCH HUMANIORA,silver,N?,ACM
-ACM65,Associative memories,Associativa minnen,silver,N?,ACM
-ACM207,Associative processors,Associativa processorer,silver,N?,ACM
-ACM237,Asynchronous Transfer Mode,Asynkron överföringsmod,silver,N?,ACM
-ACM1009,Automatic analysis of algorithms,Automatisk analys av algoritmer,silver,N?,ACM
-ACM305,Automatic Programming,Automatisk programmering,silver,N?,ACM
-ACM123,Automatic synthesis,Automatisk syntes,silver,N?,ACM
-ACM152,Automatic synthesis,Automatisk syntes,silver,N?,ACM
-ACM1060,Autonomous vehicles,Autonoma fordon,silver,N?,ACM
-ACM500,Backup procedures,Procedurer för säkerhetskopiering,silver,N?,ACM
-ACM1309,Biology and genetics,Biologi och genetik,silver,N?,ACM
-ACM1102,Bitmap and framebuffer operations,Bitmapps- och rambuffertoperationer,silver,N?,ACM
-ACM1118,Boundary representations,Representationer av gränser,silver,N?,ACM
-ACM66,Cache memories,Cacheminnen,silver,N?,ACM
-ACM1150,Camera calibration,Kamerakalibrering,silver,N?,ACM
-ACM90,Channels and controllers,Kanaler och kontrollenheter,silver,N?,ACM
-ACM239,Circuit-switching networks,Kretskopplade nät,silver,N?,ACM
-ACM438,Classes and objects,Klasser och objekt,silver,N?,ACM
-ACM552,Code breaking,Kodknäckning,silver,N?,ACM
-ACM454,Code generation,Kodgenerering,silver,N?,ACM
-ACM356,Code inspections and walk-throughs,Kodgranskningar och genomgångar,silver,N?,ACM
-ACM1453,Codes of ethics,Etiska regler,silver,N?,ACM
-ACM1454,Codes of good practice,God sed,silver,N?,ACM
-ACM556,CODING AND INFORMATION THEORY,Kodning och informationsteori,silver,N?,ACM
-ACM337,Coding Tools and Techniques,Kodningsverktyg och kodningstekniker,silver,N?,ACM
-ACM998,Cognitive simulation,Kognitiv simulering,silver,N?,ACM
-ACM1080,Coherence and coordination,Koherens och koordination,silver,N?,ACM
-ACM139,Combinational logic,Kombinatorisk logik,silver,N?,ACM
-ACM1329,Command and control,Stridsledning,silver,N?,ACM
-ACM527,Command and control languages,Kommandospråk och styrspråk,silver,N?,ACM
-ACM1061,Commercial robots and applications,Kommersiella robotar och tillämpningar,silver,N?,ACM
-ACM920,Communications Applications,Kommunikationstillämpningar,silver,N?,ACM
-ACM493,Communications Management,Kommunikationshantering,silver,N?,ACM
-ACM587,Complexity hierarchies,Komplexitetshierarkier,silver,N?,ACM
-ACM380,Complexity measures,Komplexitetsmått,silver,N?,ACM
-ACM586,Complexity Measures and Classes,Komplexitetsmått och komplexitetsklasser,silver,N?,ACM
-ACM602,Complexity of proof procedures,Komplexitet hos bevisprocedurer,silver,N?,ACM
-ACM1157,Compression,Komprimering,silver,N?,ACM
-ACM569,COMPUTATION BY ABSTRACT DEVICES,DATABEHANDLING GENOM ABSTRAKTA ENHETER,silver,N?,ACM
-ACM597,Computations in finite fields,Beräkningar på begränsade områden,silver,N?,ACM
-ACM603,Computations on discrete structures,Beräkningar på diskreta strukturer,silver,N?,ACM
-ACM598,Computations on matrices,Beräkningar av matriser,silver,N?,ACM
-ACM599,Computations on polynomials,Beräkningar av polynomer,silver,N?,ACM
-ACM1287,Computer Applications,Datortillämpningar,silver,N?,ACM
-ACM1085,COMPUTER GRAPHICS,DATORGRAFIK,silver,N?,ACM
-ACM1359,Computer science education,Utbildning i datavetenskap,silver,N?,ACM
-ACM1425,Computer selection,Val av datorer,silver,N?,ACM
-ACM286,COMPUTER SYSTEM IMPLEMENTATION,INFÖRANDE AV DATORSYSTEM,silver,N?,ACM
-ACM190,Computer Systems Organization,Organisation av datorsystem,silver,N?,ACM
-ACM1227,Computer vision,Datorseende,silver,N?,ACM
-ACM1326,Computer-aided design,Datorstödd konstruktion,silver,N?,ACM
-ACM1327,Computer-aided manufacturing,Datorstödd tillverkning,silver,N?,ACM
-ACM324,Computer-aided software engineering,Datorstödd programkonstruktion,silver,N?,ACM
-ACM231,COMPUTER-COMMUNICATION NETWORKS,Datakommunikationsnät,silver,N?,ACM
-ACM1371,Computer-related health issues,Datorrelaterade hälsofrågor,silver,N?,ACM
-ACM1386,Computer-supported collaborative work,Datorstött samarbete,silver,N?,ACM
-ACM1350,COMPUTERS AND EDUCATION,DATORER OCH UTBILDNING,silver,N?,ACM
-ACM1367,COMPUTERS AND SOCIETY,DATORER OCH SAMHÄLLE,silver,N?,ACM
-ACM1328,COMPUTERS IN OTHER SYSTEMS,DATORER I ÖVRIGA SYSTEM,silver,N?,ACM
-ACM1426,Computing equipment management,Förvaltning av datorutrustning,silver,N?,ACM
-ACM977,Computing Methodologies,Databehandlingsmetoder,silver,N?,ACM
-ACM1337,Computing Milieux,Databehandlingsmiljö,silver,N?,ACM
-ACM1037,Concept learning,Begreppsinlärning,silver,N?,ACM
-ACM306,Concurrent Programming,Jämlöpande programmering,silver,N?,ACM
-ACM439,Concurrent programming structures,Jämlöpande programmeringsstrukturer,silver,N?,ACM
-ACM4,Conference proceedings,Konferenshandlingar,silver,N?,ACM
-ACM1038,Connectionism and neural nets,Konnektionism och neuronnät,silver,N?,ACM
-ACM720,Constrained optimization,Framtvingad optimering,silver,N?,ACM
-ACM424,Constraint and logic languages,Bundna språk och logikspråk,silver,N?,ACM
-ACM1330,Consumer products,Konsumentprodukter,silver,N?,ACM
-ACM118,Control design,Kontrolldesign,silver,N?,ACM
-ACM13,Control Design Styles,Kontrolldesignmodeller,silver,N?,ACM
-ACM441,Control structures,Kontrollstrukturer,silver,N?,ACM
-ACM11,CONTROL STRUCTURES AND MICROPROGRAMMING,KONTROLLSTRUKTURER OCH MIKROPROGRAMMERING,silver,N?,ACM
-ACM1053,Control theory,Kontrollteori,silver,N?,ACM
-ACM348,Correctness proofs,Bevis på felfrihet,silver,N?,ACM
-ACM507,Cryptographic controls,Kryptografiska kontroller,silver,N?,ACM
-ACM1120,Curve,Representationer av kurvor,silver,N?,ACM
-ACM1464,Data communications,Datakommunikation,silver,N?,ACM
-ACM233,Data communications,Datakommunikation,silver,N?,ACM
-ACM85,Data Communications Devices,Datakommunikationsenheter,silver,N?,ACM
-ACM557,Data compaction and compression,Datakomprimering,silver,N?,ACM
-ACM836,Data description languages,Databeskrivningsspråk,silver,N?,ACM
-ACM551,DATA ENCRYPTION,KRYPTERING AV DATA,silver,N?,ACM
-ACM837,Data manipulation languages,Datamanipuleringsspråk,silver,N?,ACM
-ACM405,Data mapping,Datamappning,silver,N?,ACM
-ACM862,Data mining,Datautvinning,silver,N?,ACM
-ACM544,DATA STORAGE REPRESENTATIONS,REPRESENTATIONER INOM DATALAGRING,silver,N?,ACM
-ACM536,DATA STRUCTURES,DATASTRUKTURER,silver,N?,ACM
-ACM91,Data terminals and printers,Dataterminaler och skrivare,silver,N?,ACM
-ACM443,Data types and structures,Datatyper och strukturer,silver,N?,ACM
-ACM219,Data-flow architectures,Dataflödesarkitekturer,silver,N?,ACM
-ACM425,Data-flow languages,Dataflödesspråk,silver,N?,ACM
-ACM861,Database Applications,Databastillämpningar,silver,N?,ACM
-ACM1465,Database processing,Databaser,silver,N?,ACM
-ACM357,Debugging aids,Avlusningshjälpmedel,silver,N?,ACM
-ACM325,Decision tables,Beslutstabeller,silver,N?,ACM
-ACM1014,Deduction and Theorem Proving,Deduktion och teorembevisning,silver,N?,ACM
-ACM622,Denotational semantics,Denotationssemantik,silver,N?,ACM
-ACM1190,Depth cues,Djupindikatorer,silver,N?,ACM
-ACM122,Design Aids,Designhjälpmedel,silver,N?,ACM
-ACM151,Design Aids,Designhjälpmedel,silver,N?,ACM
-ACM170,Design Aids,Designhjälpmedel,silver,N?,ACM
-ACM426,Design languages,Designspråk,silver,N?,ACM
-ACM189,Design management,Designstyrning,silver,N?,ACM
-ACM280,Design studies,Designstudier,silver,N?,ACM
-ACM137,Design Styles,Designmodeller,silver,N?,ACM
-ACM64,Design Styles,Konstruktionsmetoder,silver,N?,ACM
-ACM323,Design Tools and Techniques,Designverktyg och designtekniker,silver,N?,ACM
-ACM1268,Desktop publishing,Datorstödd trycksaksproduktion,silver,N?,ACM
-ACM910,Desktop publishing,Datorstödd trycksaksproduktion,silver,N?,ACM
-ACM1149,Digitization and Image Capture,Digitalisering och bildfångst,silver,N?,ACM
-ACM1103,Digitizing and scanning,Digitalisering och bildinläsning,silver,N?,ACM
-ACM489,Directory structures,Katalogstrukturer,silver,N?,ACM
-ACM1253,Discrete event,Diskret händelse,silver,N?,ACM
-ACM1104,Display algorithms,Visningsalgoritmer,silver,N?,ACM
-ACM1356,Distance learning,Distansinlärning,silver,N?,ACM
-ACM259,Distributed applications,Distribuerade tillämpningar,silver,N?,ACM
-ACM226,Distributed architectures,Distribuerade arkitekturer,silver,N?,ACM
-ACM1079,Distributed Artificial Intelligence,Distribuerad artificiell intelligens,silver,N?,ACM
-ACM1391,Distributed commercial transactions,Distribuerade handelstransaktioner,silver,N?,ACM
-ACM538,Distributed data structures,Distribuerade datastrukturer,silver,N?,ACM
-ACM260,Distributed databases,Distribuerade databaser,silver,N?,ACM
-ACM359,Distributed debugging,Distribuerad avlusning,silver,N?,ACM
-ACM490,Distributed file systems,Distribuerade filsystem,silver,N?,ACM
-ACM479,Distributed memories,Distribuerade minnen,silver,N?,ACM
-ACM240,Distributed networks,Distribuerade nät,silver,N?,ACM
-ACM406,Distributed objects,Distribuerade objekt,silver,N?,ACM
-ACM307,Distributed programming,Distribuerad programmering,silver,N?,ACM
-ACM257,Distributed Systems,Distribuerade system,silver,N?,ACM
-ACM514,Distributed systems,Distribuerade system,silver,N?,ACM
-ACM1281,Document analysis,Dokumentanalys,silver,N?,ACM
-ACM1280,Document Capture,Dokumentfångst,silver,N?,ACM
-ACM1263,Document management,Dokumenthantering,silver,N?,ACM
-ACM1267,Document Preparation,Dokumentpreparering,silver,N?,ACM
-ACM400,Domain-specific architectures,Domänspecifika arkitekturer,silver,N?,ACM
-ACM61,Dynamic memory,Dynamiskt RAM-minne,silver,N?,ACM
-ACM1054,Dynamic programming,Dynamisk programmering,silver,N?,ACM
-ACM444,Dynamic storage management,Dynamisk lagringshantering,silver,N?,ACM
-ACM1303,Earth and atmospheric sciences,Geovetenskap och atmosfärsvetenskap,silver,N?,ACM
-ACM1177,Edge and feature detection,Kantdetektering och särdragsdetektering,silver,N?,ACM
-ACM1389,Electronic Commerce,Elektronisk handel,silver,N?,ACM
-ACM1392,Electronic data interchange,Elektronisk meddelandeutväxling,silver,N?,ACM
-ACM,Engelsk rubrik,Svensk rubrik,silver,N?,ACM
-ACM558,Error control codes,Felkoder,silver,N?,ACM
-ACM361,Error handling and recovery,Felhantering och återstart,silver,N?,ACM
-ACM1455,Ethical dilemmas,Etiska dilemman,silver,N?,ACM
-ACM989,Evaluation strategies,Utvärderingsstrategier,silver,N?,ACM
-ACM326,Evolutionary prototyping,Stegvisa prototypsystem,silver,N?,ACM
-ACM281,Fault tolerance,Feltolerans,silver,N?,ACM
-ACM1181,Feature Measurement,Särdragsmätning,silver,N?,ACM
-ACM1182,Feature representation,Särdragsrepresentation,silver,N?,ACM
-ACM96,Fiber optics,Fiberoptik,silver,N?,ACM
-ACM491,File organization,Organisation av filer,silver,N?,ACM
-ACM487,File Systems Management,Hantering av filsystem,silver,N?,ACM
-ACM1319,Fine arts,Sköna konsterna,silver,N?,ACM
-ACM327,Flow charts,Flödesscheman,silver,N?,ACM
-ACM654,Formal Languages,Formella språk,silver,N?,ACM
-ACM349,Formal methods,Formella metoder,silver,N?,ACM
-ACM559,Formal models of communication,Formella kommunikationsmodeller,silver,N?,ACM
-ACM1269,Format and notation,Format och teckensystem,silver,N?,ACM
-ACM241,Frame relay networks,Frame relay-nät,silver,N?,ACM
-ACM1025,Frames and scripts,Ramar och manuskript,silver,N?,ACM
-ACM1214,Fuzzy set,Oskarp mängd-baserade,silver,N?,ACM
-ACM480,Garbage collection,Skräpsamling,silver,N?,ACM
-ACM164,Gate arrays,Logiska grindar,silver,N?,ACM
-ACM315,General,Allmänt,silver,N?,ACM
-ACM1,General Literature,Allmän litteratur,silver,N?,ACM
-ACM816,General systems theory,Allmän systemteori,silver,N?,ACM
-ACM1121,Geometric algorithms,Geometriska algoritmer,silver,N?,ACM
-ACM1162,Geometric correction,Geometrisk korrigering,silver,N?,ACM
-ACM604,Geometrical problems and computations,Geometriska problem och beräkningar,silver,N?,ACM
-ACM722,Global optimization,Global optimering,silver,N?,ACM
-ACM1405,Governmental Issues,Statliga frågor,silver,N?,ACM
-ACM367,Graphical environments,Grafiska miljöer,silver,N?,ACM
-ACM1110,Graphics editors,Grafiska editorer,silver,N?,ACM
-ACM1111,Graphics packages,Grafiska programpaket,silver,N?,ACM
-ACM1088,Graphics processors,Grafikprocessorer,silver,N?,ACM
-ACM1107,Graphics Utilities,Grafiska hjälpprogram,silver,N?,ACM
-ACM539,Graphs and networks,Grafer och nät,silver,N?,ACM
-ACM1163,Grayscale manipulation,Gråskalehantering,silver,N?,ACM
-ACM1087,Hardware Architecture,Maskinvaruarkitektur,silver,N?,ACM
-ACM124,Hardware description languages,Beskrivningsspråk för maskinvara,silver,N?,ACM
-ACM153,Hardware description languages,Beskrivningsspråk för maskinvara,silver,N?,ACM
-ACM547,Hash-table representations,Hashtabell-representationer,silver,N?,ACM
-ACM1056,Heuristic methods,Heuristiska metoder,silver,N?,ACM
-ACM1122,Hierarchy and geometric transformations,Hierarki och geometriska transformationer,silver,N?,ACM
-ACM54,High-Speed Arithmetic,Höghastighetsaritmetik,silver,N?,ACM
-ACM1344,HISTORY OF COMPUTING,Databehandlingens historia,silver,N?,ACM
-ACM1373,Human safety,Arbetarskydd,silver,N?,ACM
-ACM863,Image databases,Bilddatabaser,silver,N?,ACM
-ACM92,Image display,Bildvisning,silver,N?,ACM
-ACM1147,Image displays,Bildskärmar,silver,N?,ACM
-ACM1148,Image processing software,Bildbehandlingsprogram,silver,N?,ACM
-ACM1203,Image Representation,Bildrepresentation,silver,N?,ACM
-ACM1151,Imaging geometry,Bildgeometri,silver,N?,ACM
-ACM1231,Implementation,Implementering,silver,N?,ACM
-ACM457,Incremental compilers,Inkrementella kompilatorer,silver,N?,ACM
-ACM1271,Index generation,Indexgenerering,silver,N?,ACM
-ACM1003,Industrial automation,Industriell automation,silver,N?,ACM
-ACM1331,Industrial control,Industriell styrning,silver,N?,ACM
-ACM1017,Inference engines,Inferensmotorer,silver,N?,ACM
-ACM881,Information filtering,Filtrering av information,silver,N?,ACM
-ACM508,Information flow controls,Flödeskontroller,silver,N?,ACM
-ACM811,Information Systems,Informationssystem,silver,N?,ACM
-ACM907,INFORMATION SYSTEMS APPLICATIONS,INFORMATIONSSYSTEMTILLÄMPNINGAR,silver,N?,ACM
-ACM1361,Information systems education,Utbildning i informationssystem,silver,N?,ACM
-ACM1090,Input devices,Inenheter,silver,N?,ACM
-ACM1423,Installation Management,Installationshantering,silver,N?,ACM
-ACM35,Instruction set interpretation,Tolkning av instruktionsuppsättningar,silver,N?,ACM
-ACM159,INTEGRATED CIRCUITS,INTEGRERADE KRETSAR,silver,N?,ACM
-ACM368,Integrated environments,Integrerade miljöer,silver,N?,ACM
-ACM1393,Intellectual property,Immateriell egendom,silver,N?,ACM
-ACM1374,Intellectual property rights,Upphovsrätt,silver,N?,ACM
-ACM1081,Intelligent agents,Intelligenta agenter,silver,N?,ACM
-ACM1131,Interaction techniques,Interaktionstekniker,silver,N?,ACM
-ACM580,Interactive and reactive computation,Interaktiv och reaktiv databehandling,silver,N?,ACM
-ACM369,Interactive environments,Interaktiva miljöer,silver,N?,ACM
-ACM1232,Interactive systems,Interaktiva system,silver,N?,ACM
-ACM516,Interactive systems,Interaktiva system,silver,N?,ACM
-ACM407,Interface definition languages,Definitionsspråk för gränssnitt,silver,N?,ACM
-ACM6,INTRODUCTORY AND SURVEY,Introduktion och överblick,silver,N?,ACM
-ACM242,ISDN,ISDN,silver,N?,ACM
-ACM1169,Kalman filtering,Kalmanfiltrering,silver,N?,ACM
-ACM1062,Kinematics and dynamics,Kinematik och dynamik,silver,N?,ACM
-ACM1040,Knowledge acquisition,Kunskapsinsamling,silver,N?,ACM
-ACM1041,Language acquisition,Språktillägnande,silver,N?,ACM
-ACM421,Language Classifications,Språkklasser,silver,N?,ACM
-ACM1045,Language generation,Språkgenerering,silver,N?,ACM
-ACM1046,Language models,Språkmodeller,silver,N?,ACM
-ACM1047,Language parsing and understanding,Språkparsning och språkförståelse,silver,N?,ACM
-ACM1320,Language translation,Språköversättning,silver,N?,ACM
-ACM835,Languages,Språk,silver,N?,ACM
-ACM28,Languages and compilers,Språk och kompilatorer,silver,N?,ACM
-ACM1082,Languages and structures,Språk och strukturer,silver,N?,ACM
-ACM1272,Languages and systems,Språk och system,silver,N?,ACM
-ACM1035,Learning,Inlärning,silver,N?,ACM
-ACM1397,LEGAL ASPECTS OF COMPUTING,RÄTTSLIGA ASPEKTER PÅ DATABEHANDLING,silver,N?,ACM
-ACM1308,LIFE AND MEDICAL SCIENCES,BIOLOGI OCH MEDICIN,silver,N?,ACM
-ACM388,Life cycle,Livscykel,silver,N?,ACM
-ACM1416,Life cycle,Livscykler,silver,N?,ACM
-ACM548,Linked representations,Länkade representationer,silver,N?,ACM
-ACM1362,Literacy,Läs- och skrivkunnighet,silver,N?,ACM
-ACM140,Logic arrays,Logiska grindar,silver,N?,ACM
-ACM135,LOGIC DESIGN,LOGISK DESIGN,silver,N?,ACM
-ACM1018,Logic programming,Logikprogrammering,silver,N?,ACM
-ACM311,Logic Programming,Logikprogrammering,silver,N?,ACM
-ACM616,Logics of programs,Logik hos program,silver,N?,ACM
-ACM1048,Machine translation,Maskinöversättning,silver,N?,ACM
-ACM428,Macro and assembly languages,Makrospråk och assemblerspråk,silver,N?,ACM
-ACM481,Main memory,Primärminne,silver,N?,ACM
-ACM1436,Management audit,Förvaltningsrevision,silver,N?,ACM
-ACM1273,Markup languages,Märkspråk,silver,N?,ACM
-ACM1019,Mathematical induction,Matematisk induktion,silver,N?,ACM
-ACM1306,Mathematics and statistics,Matematik och statistik,silver,N?,ACM
-ACM282,Measurement techniques,Mätningstekniker,silver,N?,ACM
-ACM617,Mechanical verification,Mekanisk verifiering,silver,N?,ACM
-ACM1311,Medical information systems,Medicinska informationssystem,silver,N?,ACM
-ACM1005,Medicine and science,Medicin och naturvetenskap,silver,N?,ACM
-ACM120,Memory design,Minnesdesign,silver,N?,ACM
-ACM459,Memory management,Minneshantering,silver,N?,ACM
-ACM58,MEMORY STRUCTURES,MINNESSTRUKTURER,silver,N?,ACM
-ACM166,Memory technologies,Minnestekniker,silver,N?,ACM
-ACM496,Message sending,Meddelandeöverföring,silver,N?,ACM
-ACM1127,Methodology and Techniques,Metoder och tekniker,silver,N?,ACM
-ACM32,Microcode Applications,Mikrokodtillämpningar,silver,N?,ACM
-ACM167,Microprocessors and microcomputers,Mikroprocessorer och mikrodatorer,silver,N?,ACM
-ACM227,Mobile processors,Mobila processorer,silver,N?,ACM
-ACM1026,Modal logic,Modallogik,silver,N?,ACM
-ACM350,Model checking,Test av modeller,silver,N?,ACM
-ACM1238,Model classification,Modellklassifikation,silver,N?,ACM
-ACM1244,Model Development,Modellutveckling,silver,N?,ACM
-ACM1243,Model Validation and Analysis,Modellvalidering och analys,silver,N?,ACM
-ACM520,Modeling and prediction,Modellering och förutsägelse,silver,N?,ACM
-ACM1245,Modeling methodologies,Modelleringsmetoder,silver,N?,ACM
-ACM194,Modeling of computer architecture,Modellering av datorarkitektur,silver,N?,ACM
-ACM1123,Modeling packages,Modelleringspaket,silver,N?,ACM
-ACM283,Modeling techniques,Modelleringstekniker,silver,N?,ACM
-ACM571,Models of Computation,Modeller för databehandling,silver,N?,ACM
-ACM578,Modes of Computation,Databehandlingsmetoder,silver,N?,ACM
-ACM328,Modules and interfaces,Moduler och gränssnitt,silver,N?,ACM
-ACM1256,Monte Carlo,Monte Carlo,silver,N?,ACM
-ACM1083,Multiagent systems,Multiagentsystem,silver,N?,ACM
-ACM205,Multiple Data Stream Architectures,Arkitekturer med flera dataströmmar,silver,N?,ACM
-ACM473,Mutual exclusion,Ömsesidig uteslutning,silver,N?,ACM
-ACM1006,Natural language interfaces,Gränssnitt i naturligt språk,silver,N?,ACM
-ACM1043,Natural Language Processing,Behandling av naturligt språk,silver,N?,ACM
-ACM236,Network Architecture and Design,Nätarkitektur och design,silver,N?,ACM
-ACM497,Network communication,Nätkommunikation,silver,N?,ACM
-ACM254,Network management,Nätstyrning,silver,N?,ACM
-ACM255,Network monitoring,Nätövervakning,silver,N?,ACM
-ACM261,Network operating systems,Nätoperativsystem,silver,N?,ACM
-ACM253,Network Operations,Nätdrift,silver,N?,ACM
-ACM248,Network Protocols,Nätprotokoll,silver,N?,ACM
-ACM244,Network topology,Nättopologi,silver,N?,ACM
-ACM222,Neural nets,Neuronnät,silver,N?,ACM
-ACM1216,Neural nets,Neuronnätsbaserade,silver,N?,ACM
-ACM987,Nonalgebraic algorithms,Icke-algebraiska algoritmer,silver,N?,ACM
-ACM1124,Object hierarchies,Objekthierarkier,silver,N?,ACM
-ACM1192,Object recognition,Objektigenkänning,silver,N?,ACM
-ACM549,Object representation,Objektrepresentation,silver,N?,ACM
-ACM433,Object-oriented languages,Objektorienterade språk,silver,N?,ACM
-ACM310,Object-oriented Programming,Objektorienterad programmering,silver,N?,ACM
-ACM338,Object-oriented programming,Objektorienterad programmering,silver,N?,ACM
-ACM1007,Office automation,Kontorsautomation,silver,N?,ACM
-ACM581,Online computation,Databehandling online,silver,N?,ACM
-ACM467,OPERATING SYSTEMS,OPERATIVSYSTEM,silver,N?,ACM
-ACM522,Operational analysis,Operationsanalys,silver,N?,ACM
-ACM623,Operational semantics,Operationell semantik,silver,N?,ACM
-ACM659,Operations on languages,Operationer på språk,silver,N?,ACM
-ACM1064,Operator interfaces,Operatörsgränssnitt,silver,N?,ACM
-ACM1283,Optical character recognition,Optisk teckenigenkänning,silver,N?,ACM
-ACM512,Organization and Design,Organisation och design,silver,N?,ACM
-ACM1384,Organizational Impacts,Påverkan på organisationen,silver,N?,ACM
-ACM214,Other Architecture Styles,Övriga arkitekturmodeller,silver,N?,ACM
-ACM245,Packet-switching networks,Paketförmedlade nät,silver,N?,ACM
-ACM1113,Paint systems,Illustrationssystem,silver,N?,ACM
-ACM225,Parallel Architectures,Parallella arkitekturer,silver,N?,ACM
-ACM143,Parallel circuits,Parallella kretsar,silver,N?,ACM
-ACM1091,Parallel processing,Parallellbearbetning,silver,N?,ACM
-ACM308,Parallel programming,Parallell programmering,silver,N?,ACM
-ACM582,Parallelism and concurrency,Parallellism och samtidighet,silver,N?,ACM
-ACM1042,Parameter learning,Parameterinlärning,silver,N?,ACM
-ACM624,Partial evaluation,Partiell utvärdering,silver,N?,ACM
-ACM1222,Pattern analysis,Mönsteranalys,silver,N?,ACM
-ACM605,Pattern matching,Mönstermatchning,silver,N?,ACM
-ACM1210,PATTERN RECOGNITION,MÖNSTERIGENKÄNNING,silver,N?,ACM
-ACM1074,Perceptual reasoning,Perceptuellt resonerande,silver,N?,ACM
-ACM183,PERFORMANCE AND RELIABILITY,Prestanda och tillförlitlighet,silver,N?,ACM
-ACM284,Performance attributes,Prestandaattribut,silver,N?,ACM
-ACM381,Performance measures,Prestandamått,silver,N?,ACM
-ACM279,PERFORMANCE OF SYSTEMS,PRESTANDA FÖR SYSTEM,silver,N?,ACM
-ACM293,Personal computers,Persondatorer,silver,N?,ACM
-ACM1459,PERSONAL COMPUTING,DATABEHANDLING MED PERSONDATORER,silver,N?,ACM
-ACM330,Petri nets,Petrinät,silver,N?,ACM
-ACM999,Philosophical foundations,Filosofiska grunder,silver,N?,ACM
-ACM1298,PHYSICAL SCIENCES AND ENGINEERING,Naturvetenskap och teknik,silver,N?,ACM
-ACM1125,Physically based modeling,Fysikbaserad modellering,silver,N?,ACM
-ACM1178,Pixel classification,Pixelklassificering,silver,N?,ACM
-ACM1057,Plan execution,Planering,silver,N?,ACM
-ACM1027,Predicate logic,Predikatlogik,silver,N?,ACM
-ACM1428,Pricing and resource allocation,Prissättning och resursallokering,silver,N?,ACM
-ACM69,Primary memory,Primärminne,silver,N?,ACM
-ACM1375,Privacy,Personlig integritet,silver,N?,ACM
-ACM583,Probabilistic computation,Probabilistisk databehandling,silver,N?,ACM
-ACM1051,Problem Solving,Problemlösning,silver,N?,ACM
-ACM1333,Process control,Processtyrning,silver,N?,ACM
-ACM275,Process control systems,Processtyrningssystem,silver,N?,ACM
-ACM469,Process Management,Processtyrning,silver,N?,ACM
-ACM625,Process models,Processmodeller,silver,N?,ACM
-ACM197,PROCESSOR ARCHITECTURES,PROCESSORARKITEKTURER,silver,N?,ACM
-ACM1452,Professional Ethics,Yrkesetik,silver,N?,ACM
-ACM626,Program analysis,Programanalys,silver,N?,ACM
-ACM340,Program editors,Programeditorer,silver,N?,ACM
-ACM1010,Program modification,Programmodifiering,silver,N?,ACM
-ACM1011,Program synthesis,Programsyntes,silver,N?,ACM
-ACM1012,Program transformation,Programtransformation,silver,N?,ACM
-ACM1013,Program verification,Programverifiering,silver,N?,ACM
-ACM366,Programming Environments,Programmeringsmiljöer,silver,N?,ACM
-ACM415,PROGRAMMING LANGUAGES,PROGRAMSPRÅK,silver,N?,ACM
-ACM1033,Programming Languages and Software,Programspråk och program,silver,N?,ACM
-ACM390,Programming teams,Programmeringsteam,silver,N?,ACM
-ACM302,PROGRAMMING TECHNIQUES,PROGRAMMERINGSTEKNIK,silver,N?,ACM
-ACM1415,Project and People Management,Projektstyrning och personaladministration,silver,N?,ACM
-ACM1065,Propelling mechanisms,Framdrivningsmekanismer,silver,N?,ACM
-ACM1403,Proprietary rights,Äganderättigheter,silver,N?,ACM
-ACM316,Protection mechanisms,Skyddsmekanismer,silver,N?,ACM
-ACM250,Protocol architecture,Protokollarkitekturer,silver,N?,ACM
-ACM251,Protocol verification,Protokollverifiering,silver,N?,ACM
-ACM554,Public key cryptosystems,Kryptosystem med öppna nycklar,silver,N?,ACM
-ACM256,Public networks,Allmänna nät,silver,N?,ACM
-ACM1437,Quality assurance,Kvalitetssäkring,silver,N?,ACM
-ACM882,Query formulation,Frågeformulering,silver,N?,ACM
-ACM839,Query languages,Frågespråk,silver,N?,ACM
-ACM523,Queueing theory,Köteori,silver,N?,ACM
-ACM789,Queueing theory,Köteori,silver,N?,ACM
-ACM1139,Radiosity,Strålning,silver,N?,ACM
-ACM1194,Range data,Omfångsdata,silver,N?,ACM
-ACM1092,Raster display devices,Rasterskärmar,silver,N?,ACM
-ACM62,Read-only memory,Läsminne,silver,N?,ACM
-ACM1335,Real time,Realtid,silver,N?,ACM
-ACM276,Real-time and embedded systems,Realtidssystem och inbyggda system,silver,N?,ACM
-ACM589,Reducibility and completeness,Reducerbarhet och fullständighet,silver,N?,ACM
-ACM1179,Region growing,Regionodling,silver,N?,ACM
-ACM1028,Relation systems,Relationssystem,silver,N?,ACM
-ACM590,Relations among complexity classes,Relationer mellan komplexitetsklasser,silver,N?,ACM
-ACM591,Relations among complexity measures,Relationer mellan komplexitetsmått,silver,N?,ACM
-ACM575,Relations between models,Relationer mellan modeller,silver,N?,ACM
-ACM585,Relativized computation,Relativiserad databehandling,silver,N?,ACM
-ACM791,Reliability and life testing,Tillförlitlighet,silver,N?,ACM
-ACM806,Reliability and robustness,Tillförlitlighet och robusthet,silver,N?,ACM
-ACM1029,Representation languages,Representationsspråk,silver,N?,ACM
-ACM982,Representations,Representationer,silver,N?,ACM
-ACM1030,Representations,Representationer,silver,N?,ACM
-ACM463,Retargetable compilers,Omriktningsbara kompilatorer,silver,N?,ACM
-ACM410,Reusable libraries,Återanvändbara bibliotek,silver,N?,ACM
-ACM408,Reusable Software,Återanvändbara program,silver,N?,ACM
-ACM411,Reuse models,Återanvändningsmodeller,silver,N?,ACM
-ACM606,Routing and layout,Routning och layout,silver,N?,ACM
-ACM252,Routing protocols,Routingprotokoll,silver,N?,ACM
-ACM464,Run-time environments,Run-timemiljöer,silver,N?,ACM
-ACM1188,Scene Analysis,Scenanalys,silver,N?,ACM
-ACM864,Scientific databases,Vetenskapliga databaser,silver,N?,ACM
-ACM1276,Scripting languages,Skriptspråk,silver,N?,ACM
-ACM885,Search process,Sökprocess,silver,N?,ACM
-ACM482,Secondary storage,Sekundärminne,silver,N?,ACM
-ACM504,Security and Protection,Säkerhet och skydd,silver,N?,ACM
-ACM886,Selection process,Selekteringsprocess,silver,N?,ACM
-ACM1031,Semantic networks,Semantiska nät,silver,N?,ACM
-ACM620,Semantics of Programming Languages,Semantik hos programspråk,silver,N?,ACM
-ACM60,Semiconductor Memories,Halvledarminnen,silver,N?,ACM
-ACM1195,Sensor fusion,Sensorfusion,silver,N?,ACM
-ACM607,Sequencing and scheduling,Sekvensering och schemaläggning,silver,N?,ACM
-ACM144,Sequential circuits,Sekventiella kretsar,silver,N?,ACM
-ACM309,Sequential Programming,Sekventiell programmering,silver,N?,ACM
-ACM1173,Series expansion methods,Serieexpansionsmetoder,silver,N?,ACM
-ACM71,Shared memory,Delat minne,silver,N?,ACM
-ACM1228,Signal processing,Signalbehandling,silver,N?,ACM
-ACM277,Signal processing systems,Signalbehandlingssystem,silver,N?,ACM
-ACM1225,Similarity measures,Likhetsmått,silver,N?,ACM
-ACM983,Simplification of expressions,Förenkling av uttryck,silver,N?,ACM
-ACM1235,SIMULATION AND MODELING,SIMULERING OCH MODELLERING,silver,N?,ACM
-ACM1241,Simulation Languages,Simuleringsspråk,silver,N?,ACM
-ACM1246,Simulation Output Analysis,Analys av simuleringsutdata,silver,N?,ACM
-ACM1247,Simulation Support Systems,Simuleringsstödsystem,silver,N?,ACM
-ACM1237,Simulation Theory,Simuleringsteori,silver,N?,ACM
-ACM199,Single Data Stream Architectures,Arkitekturer med singeldataström,silver,N?,ACM
-ACM1186,Size and shape,Storlek och form,silver,N?,ACM
-ACM1312,SOCIAL AND BEHAVIORAL SCIENCES,SOCIALVETENSKAP OCH BETEENDEVETENSKAP,silver,N?,ACM
-ACM1379,Social Issues,Sociala frågor,silver,N?,ACM
-ACM398,Software Architectures,Programarkitekturer,silver,N?,ACM
-ACM1430,Software development,Programutveckling,silver,N?,ACM
-ACM314,SOFTWARE ENGINEERING,Programkonstruktion,silver,N?,ACM
-ACM332,Software libraries,Programbibliotek,silver,N?,ACM
-ACM1431,Software maintenance,Programunderhåll,silver,N?,ACM
-ACM1429,Software Management,Programförvaltning,silver,N?,ACM
-ACM1432,Software process,Programprocess,silver,N?,ACM
-ACM393,Software quality assurance,Programkvalitetssäkring,silver,N?,ACM
-ACM1433,Software selection,Val av program,silver,N?,ACM
-ACM1115,Software support,Programsupport,silver,N?,ACM
-ACM608,Sorting and searching,Sortering och sökning,silver,N?,ACM
-ACM1233,Special architectures,Specialarkitekturer,silver,N?,ACM
-ACM991,Special-purpose algebraic systems,Specialinriktade algebraiska system,silver,N?,ACM
-ACM434,Specialized application languages,Specialiserade applikationsspråk,silver,N?,ACM
-ACM619,Specification techniques,Specificeringstekniker,silver,N?,ACM
-ACM1049,Speech recognition and synthesis,Taligenkänning och talsyntes,silver,N?,ACM
-ACM1126,Splines,Punktkurvor,silver,N?,ACM
-ACM333,State diagrams,Tillståndsdiagram,silver,N?,ACM
-ACM63,Static memory,Statiskt minne,silver,N?,ACM
-ACM866,Statistical databases,Statistiska databaser,silver,N?,ACM
-ACM353,Statistical methods,Statistiska metoder,silver,N?,ACM
-ACM525,Stochastic analysis,Stokastisk analys,silver,N?,ACM
-ACM484,Storage hierarchies,Lagringshierarkier,silver,N?,ACM
-ACM477,Storage Management,Lagringshantering,silver,N?,ACM
-ACM1419,Strategic information systems planning,Planering av strategiska informationssystem,silver,N?,ACM
-ACM343,Structured programming,Strukturerad programmering,silver,N?,ACM
-ACM1199,Surface fitting,Ytavpassning,silver,N?,ACM
-ACM979,SYMBOLIC AND ALGEBRAIC MANIPULATION,SYMBOLISK OCH ALGEBRAISK MANIPULERING,silver,N?,ACM
-ACM363,Symbolic execution,Symbolisk exekvering,silver,N?,ACM
-ACM195,System architectures,Systemarkitekturer,silver,N?,ACM
-ACM1434,System Management,Systemförvaltning,silver,N?,ACM
-ACM1420,Systems analysis and design,Systemanalys och systemkonstruktion,silver,N?,ACM
-ACM1421,Systems development,Systemutveckling,silver,N?,ACM
-ACM526,Systems Programs and Utilities,Systemprogram och nyttoprogram,silver,N?,ACM
-ACM196,Systems specification methodology,Metoder för systemspecificering,silver,N?,ACM
-ACM1239,Systems theory,Systemteori,silver,N?,ACM
-ACM1032,Temporal logic,Tidslogik,silver,N?,ACM
-ACM355,Testing and Debugging,Testning och avlusning,silver,N?,ACM
-ACM1050,Text analysis,Textanalys,silver,N?,ACM
-ACM1229,Text processing,Textbehandling,silver,N?,ACM
-ACM1339,THE COMPUTER INDUSTRY,Datorindustrin,silver,N?,ACM
-ACM1447,THE COMPUTING PROFESSION,DATABEHANDLING SOM YRKE,silver,N?,ACM
-ACM1134,Three-Dimensional Graphics and Realism,Tredimensionell grafik och realism,silver,N?,ACM
-ACM1200,Time-varying imagery,Tidsvarierande bildframställning,silver,N?,ACM
-ACM268,Token rings,Token ring,silver,N?,ACM
-ACM344,Top-down programming,Top-down-programmering,silver,N?,ACM
-ACM609,Tradeoffs between Complexity Measures,Byte mellan komplexitetsmått,silver,N?,ACM
-ACM1377,Transborder data flow,Gränsöverskridande dataflöde,silver,N?,ACM
-ACM1175,Transform methods,Transformmetoder,silver,N?,ACM
-ACM161,Types and Design Styles,Typer och designmodeller,silver,N?,ACM
-ACM1249,Types of Simulation,Simuleringstyper,silver,N?,ACM
-ACM731,Unconstrained optimization,Icke-framtvingad optimering,silver,N?,ACM
-ACM336,User interfaces,Användargränssnitt,silver,N?,ACM
-ACM807,User interfaces,Användargränssnitt,silver,N?,ACM
-ACM1266,Version control,Versionskontroll,silver,N?,ACM
-ACM378,Version control,Versionskontroll,silver,N?,ACM
-ACM435,Very high-level languages,Superhögnivåspråk,silver,N?,ACM
-ACM1078,Video analysis,Videoanalys,silver,N?,ACM
-ACM1106,Viewing algorithms,Bildalgoritmer,silver,N?,ACM
-ACM1116,Virtual device interfaces,Gränssnitt till virtuella enheter,silver,N?,ACM
-ACM486,Virtual memory,Virtuellt minne,silver,N?,ACM
-ACM72,Virtual memory,Virtuellt minne,silver,N?,ACM
-ACM1141,Virtual reality,Virtuell verklighet,silver,N?,ACM
-ACM312,Visual Programming,Visuell programmering,silver,N?,ACM
-ACM169,VLSI,VLSI,silver,N?,ACM
-ACM296,VLSI Systems,VLSI-system,silver,N?,ACM
-ACM1230,Waveform analysis,Vågformsanalys,silver,N?,ACM
-ACM530,Window managers,Fönsterhanterare,silver,N?,ACM
-ACM247,Wireless communication,Trådlös kommunikation,silver,N?,ACM
-ACM1469,Word processing,Ordbehandling,silver,N?,ACM
+ACM437,abstract data types,abstrakta datatyper,silver,N?,ACM
+ACM505,access controls,åtkomstkontroller,silver,N?,ACM
+ACM488,access methods,åtkomstmetoder,silver,N?,ACM
+ACM263,access schemes,åtkomstscheman,silver,N?,ACM
+ACM215,adaptable architectures,anpassningsbara arkitekturer,silver,N?,ACM
+ACM1289,administrative data processing,administrativ databehandling,silver,N?,ACM
+ACM162,advanced technologies,avancerade tekniker,silver,N?,ACM
+ACM985,algebraic algorithms,algebraiska algoritmer,silver,N?,ACM
+ACM163,algorithms implemented in hardware,algoritmer implementerade i maskinvara,silver,N?,ACM
+ACM579,alternation and nondeterminism,växling och icke-determinism,silver,N?,ACM
+ACM216,analog computers,analoga datorer,silver,N?,ACM
+ACM986,analysis of algorithms,analys av algoritmer,silver,N?,ACM
+ACM1108,application packages,applikationspaket,silver,N?,ACM
+ACM1463,application packages,tillämpningsprogram,silver,N?,ACM
+ACM1158,approximate methods,approximativa metoder,silver,N?,ACM
+ACM39,arithmetic and logic structures,aritmetiska och logiska strukturer,silver,N?,ACM
+ACM117,arithmetic and logic units,aritmetiska och logiska enheter,silver,N?,ACM
+ACM996,artificial intelligence,artificiell intelligens,silver,N?,ACM
+ACM1316,arts and humanities,konst och humaniora,silver,N?,ACM
+ACM65,associative memories,associativa minnen,silver,N?,ACM
+ACM207,associative processors,associativa processorer,silver,N?,ACM
+ACM237,asynchronous transfer mode,asynkron överföringsmod,silver,N?,ACM
+ACM1009,automatic analysis of algorithms,automatisk analys av algoritmer,silver,N?,ACM
+ACM305,automatic programming,automatisk programmering,silver,N?,ACM
+ACM123,automatic synthesis,automatisk syntes,silver,N?,ACM
+ACM152,automatic synthesis,automatisk syntes,silver,N?,ACM
+ACM1060,autonomous vehicles,autonoma fordon,silver,N?,ACM
+ACM500,backup procedures,procedurer för säkerhetskopiering,silver,N?,ACM
+ACM1309,biology and genetics,biologi och genetik,silver,N?,ACM
+ACM1102,bitmap and framebuffer operations,bitmapps- och rambuffertoperationer,silver,N?,ACM
+ACM1118,boundary representations,representationer av gränser,silver,N?,ACM
+ACM66,cache memories,cacheminnen,silver,N?,ACM
+ACM1150,camera calibration,kamerakalibrering,silver,N?,ACM
+ACM90,channels and controllers,kanaler och kontrollenheter,silver,N?,ACM
+ACM239,circuit-switching networks,kretskopplade nät,silver,N?,ACM
+ACM438,classes and objects,klasser och objekt,silver,N?,ACM
+ACM552,code breaking,kodknäckning,silver,N?,ACM
+ACM454,code generation,kodgenerering,silver,N?,ACM
+ACM356,code inspections and walk-throughs,kodgranskningar och genomgångar,silver,N?,ACM
+ACM1453,codes of ethics,etiska regler,silver,N?,ACM
+ACM1454,codes of good practice,god sed,silver,N?,ACM
+ACM556,coding and information theory,kodning och informationsteori,silver,N?,ACM
+ACM337,coding tools and techniques,kodningsverktyg och kodningstekniker,silver,N?,ACM
+ACM998,cognitive simulation,kognitiv simulering,silver,N?,ACM
+ACM1080,coherence and coordination,koherens och koordination,silver,N?,ACM
+ACM139,combinational logic,kombinatorisk logik,silver,N?,ACM
+ACM1329,command and control,stridsledning,silver,N?,ACM
+ACM527,command and control languages,kommandospråk och styrspråk,silver,N?,ACM
+ACM1061,commercial robots and applications,kommersiella robotar och tillämpningar,silver,N?,ACM
+ACM920,communications applications,kommunikationstillämpningar,silver,N?,ACM
+ACM493,communications management,kommunikationshantering,silver,N?,ACM
+ACM587,complexity hierarchies,komplexitetshierarkier,silver,N?,ACM
+ACM380,complexity measures,komplexitetsmått,silver,N?,ACM
+ACM586,complexity measures and classes,komplexitetsmått och komplexitetsklasser,silver,N?,ACM
+ACM602,complexity of proof procedures,komplexitet hos bevisprocedurer,silver,N?,ACM
+ACM1157,compression,komprimering,silver,N?,ACM
+ACM569,computation by abstract devices,databehandling genom abstrakta enheter,silver,N?,ACM
+ACM597,computations in finite fields,beräkningar på begränsade områden,silver,N?,ACM
+ACM603,computations on discrete structures,beräkningar på diskreta strukturer,silver,N?,ACM
+ACM598,computations on matrices,beräkningar av matriser,silver,N?,ACM
+ACM599,computations on polynomials,beräkningar av polynomer,silver,N?,ACM
+ACM1287,computer applications,datortillämpningar,silver,N?,ACM
+ACM1085,computer graphics,datorgrafik,silver,N?,ACM
+ACM1359,computer science education,utbildning i datavetenskap,silver,N?,ACM
+ACM1425,computer selection,val av datorer,silver,N?,ACM
+ACM286,computer system implementation,införande av datorsystem,silver,N?,ACM
+ACM190,computer systems organization,organisation av datorsystem,silver,N?,ACM
+ACM1227,computer vision,datorseende,silver,N?,ACM
+ACM1326,computer-aided design,datorstödd konstruktion,silver,N?,ACM
+ACM1327,computer-aided manufacturing,datorstödd tillverkning,silver,N?,ACM
+ACM324,computer-aided software engineering,datorstödd programkonstruktion,silver,N?,ACM
+ACM231,computer-communication networks,datakommunikationsnät,silver,N?,ACM
+ACM1371,computer-related health issues,datorrelaterade hälsofrågor,silver,N?,ACM
+ACM1386,computer-supported collaborative work,datorstött samarbete,silver,N?,ACM
+ACM1350,computers and education,datorer och utbildning,silver,N?,ACM
+ACM1367,computers and society,datorer och samhälle,silver,N?,ACM
+ACM1328,computers in other systems,datorer i övriga system,silver,N?,ACM
+ACM1426,computing equipment management,förvaltning av datorutrustning,silver,N?,ACM
+ACM977,computing methodologies,databehandlingsmetoder,silver,N?,ACM
+ACM1337,computing milieux,databehandlingsmiljö,silver,N?,ACM
+ACM1037,concept learning,begreppsinlärning,silver,N?,ACM
+ACM306,concurrent programming,jämlöpande programmering,silver,N?,ACM
+ACM439,concurrent programming structures,jämlöpande programmeringsstrukturer,silver,N?,ACM
+ACM4,conference proceedings,konferenshandlingar,silver,N?,ACM
+ACM1038,connectionism and neural nets,konnektionism och neuronnät,silver,N?,ACM
+ACM720,constrained optimization,framtvingad optimering,silver,N?,ACM
+ACM424,constraint and logic languages,bundna språk och logikspråk,silver,N?,ACM
+ACM1330,consumer products,konsumentprodukter,silver,N?,ACM
+ACM118,control design,kontrolldesign,silver,N?,ACM
+ACM13,control design styles,kontrolldesignmodeller,silver,N?,ACM
+ACM441,control structures,kontrollstrukturer,silver,N?,ACM
+ACM11,control structures and microprogramming,kontrollstrukturer och mikroprogrammering,silver,N?,ACM
+ACM1053,control theory,kontrollteori,silver,N?,ACM
+ACM348,correctness proofs,bevis på felfrihet,silver,N?,ACM
+ACM507,cryptographic controls,kryptografiska kontroller,silver,N?,ACM
+ACM1120,curve,representationer av kurvor,silver,N?,ACM
+ACM1464,data communications,datakommunikation,silver,N?,ACM
+ACM233,data communications,datakommunikation,silver,N?,ACM
+ACM85,data communications devices,datakommunikationsenheter,silver,N?,ACM
+ACM557,data compaction and compression,datakomprimering,silver,N?,ACM
+ACM836,data description languages,databeskrivningsspråk,silver,N?,ACM
+ACM551,data encryption,kryptering av data,silver,N?,ACM
+ACM837,data manipulation languages,datamanipuleringsspråk,silver,N?,ACM
+ACM405,data mapping,datamappning,silver,N?,ACM
+ACM862,data mining,datautvinning,silver,N?,ACM
+ACM544,data storage representations,representationer inom datalagring,silver,N?,ACM
+ACM536,data structures,datastrukturer,silver,N?,ACM
+ACM91,data terminals and printers,dataterminaler och skrivare,silver,N?,ACM
+ACM443,data types and structures,datatyper och strukturer,silver,N?,ACM
+ACM219,data-flow architectures,dataflödesarkitekturer,silver,N?,ACM
+ACM425,data-flow languages,dataflödesspråk,silver,N?,ACM
+ACM861,database applications,databastillämpningar,silver,N?,ACM
+ACM1465,database processing,databaser,silver,N?,ACM
+ACM357,debugging aids,avlusningshjälpmedel,silver,N?,ACM
+ACM325,decision tables,beslutstabeller,silver,N?,ACM
+ACM1014,deduction and theorem proving,deduktion och teorembevisning,silver,N?,ACM
+ACM622,denotational semantics,denotationssemantik,silver,N?,ACM
+ACM1190,depth cues,djupindikatorer,silver,N?,ACM
+ACM122,design aids,designhjälpmedel,silver,N?,ACM
+ACM151,design aids,designhjälpmedel,silver,N?,ACM
+ACM170,design aids,designhjälpmedel,silver,N?,ACM
+ACM426,design languages,designspråk,silver,N?,ACM
+ACM189,design management,designstyrning,silver,N?,ACM
+ACM280,design studies,designstudier,silver,N?,ACM
+ACM137,design styles,designmodeller,silver,N?,ACM
+ACM64,design styles,konstruktionsmetoder,silver,N?,ACM
+ACM323,design tools and techniques,designverktyg och designtekniker,silver,N?,ACM
+ACM1268,desktop publishing,datorstödd trycksaksproduktion,silver,N?,ACM
+ACM910,desktop publishing,datorstödd trycksaksproduktion,silver,N?,ACM
+ACM1149,digitization and image capture,digitalisering och bildfångst,silver,N?,ACM
+ACM1103,digitizing and scanning,digitalisering och bildinläsning,silver,N?,ACM
+ACM489,directory structures,katalogstrukturer,silver,N?,ACM
+ACM1253,discrete event,diskret händelse,silver,N?,ACM
+ACM1104,display algorithms,visningsalgoritmer,silver,N?,ACM
+ACM1356,distance learning,distansinlärning,silver,N?,ACM
+ACM259,distributed applications,distribuerade tillämpningar,silver,N?,ACM
+ACM226,distributed architectures,distribuerade arkitekturer,silver,N?,ACM
+ACM1079,distributed artificial intelligence,distribuerad artificiell intelligens,silver,N?,ACM
+ACM1391,distributed commercial transactions,distribuerade handelstransaktioner,silver,N?,ACM
+ACM538,distributed data structures,distribuerade datastrukturer,silver,N?,ACM
+ACM260,distributed databases,distribuerade databaser,silver,N?,ACM
+ACM359,distributed debugging,distribuerad avlusning,silver,N?,ACM
+ACM490,distributed file systems,distribuerade filsystem,silver,N?,ACM
+ACM479,distributed memories,distribuerade minnen,silver,N?,ACM
+ACM240,distributed networks,distribuerade nät,silver,N?,ACM
+ACM406,distributed objects,distribuerade objekt,silver,N?,ACM
+ACM307,distributed programming,distribuerad programmering,silver,N?,ACM
+ACM257,distributed systems,distribuerade system,silver,N?,ACM
+ACM514,distributed systems,distribuerade system,silver,N?,ACM
+ACM1281,document analysis,dokumentanalys,silver,N?,ACM
+ACM1280,document capture,dokumentfångst,silver,N?,ACM
+ACM1263,document management,dokumenthantering,silver,N?,ACM
+ACM1267,document preparation,dokumentpreparering,silver,N?,ACM
+ACM400,domain-specific architectures,domänspecifika arkitekturer,silver,N?,ACM
+ACM61,dynamic memory,dynamiskt ram-minne,silver,N?,ACM
+ACM1054,dynamic programming,dynamisk programmering,silver,N?,ACM
+ACM444,dynamic storage management,dynamisk lagringshantering,silver,N?,ACM
+ACM1303,earth and atmospheric sciences,geovetenskap och atmosfärsvetenskap,silver,N?,ACM
+ACM1177,edge and feature detection,kantdetektering och särdragsdetektering,silver,N?,ACM
+ACM1389,electronic commerce,elektronisk handel,silver,N?,ACM
+ACM1392,electronic data interchange,elektronisk meddelandeutväxling,silver,N?,ACM
+ACM,engelsk rubrik,svensk rubrik,silver,N?,ACM
+ACM558,error control codes,felkoder,silver,N?,ACM
+ACM361,error handling and recovery,felhantering och återstart,silver,N?,ACM
+ACM1455,ethical dilemmas,etiska dilemman,silver,N?,ACM
+ACM989,evaluation strategies,utvärderingsstrategier,silver,N?,ACM
+ACM326,evolutionary prototyping,stegvisa prototypsystem,silver,N?,ACM
+ACM281,fault tolerance,feltolerans,silver,N?,ACM
+ACM1181,feature measurement,särdragsmätning,silver,N?,ACM
+ACM1182,feature representation,särdragsrepresentation,silver,N?,ACM
+ACM96,fiber optics,fiberoptik,silver,N?,ACM
+ACM491,file organization,organisation av filer,silver,N?,ACM
+ACM487,file systems management,hantering av filsystem,silver,N?,ACM
+ACM1319,fine arts,sköna konsterna,silver,N?,ACM
+ACM327,flow charts,flödesscheman,silver,N?,ACM
+ACM654,formal languages,formella språk,silver,N?,ACM
+ACM349,formal methods,formella metoder,silver,N?,ACM
+ACM559,formal models of communication,formella kommunikationsmodeller,silver,N?,ACM
+ACM1269,format and notation,format och teckensystem,silver,N?,ACM
+ACM241,frame relay networks,frame relay-nät,silver,N?,ACM
+ACM1025,frames and scripts,ramar och manuskript,silver,N?,ACM
+ACM1214,fuzzy set,oskarp mängd-baserade,silver,N?,ACM
+ACM480,garbage collection,skräpsamling,silver,N?,ACM
+ACM164,gate arrays,logiska grindar,silver,N?,ACM
+ACM315,general,allmänt,silver,N?,ACM
+ACM1,general literature,allmän litteratur,silver,N?,ACM
+ACM816,general systems theory,allmän systemteori,silver,N?,ACM
+ACM1121,geometric algorithms,geometriska algoritmer,silver,N?,ACM
+ACM1162,geometric correction,geometrisk korrigering,silver,N?,ACM
+ACM604,geometrical problems and computations,geometriska problem och beräkningar,silver,N?,ACM
+ACM722,global optimization,global optimering,silver,N?,ACM
+ACM1405,governmental issues,statliga frågor,silver,N?,ACM
+ACM367,graphical environments,grafiska miljöer,silver,N?,ACM
+ACM1110,graphics editors,grafiska editorer,silver,N?,ACM
+ACM1111,graphics packages,grafiska programpaket,silver,N?,ACM
+ACM1088,graphics processors,grafikprocessorer,silver,N?,ACM
+ACM1107,graphics utilities,grafiska hjälpprogram,silver,N?,ACM
+ACM539,graphs and networks,grafer och nät,silver,N?,ACM
+ACM1163,grayscale manipulation,gråskalehantering,silver,N?,ACM
+ACM1087,hardware architecture,maskinvaruarkitektur,silver,N?,ACM
+ACM124,hardware description languages,beskrivningsspråk för maskinvara,silver,N?,ACM
+ACM153,hardware description languages,beskrivningsspråk för maskinvara,silver,N?,ACM
+ACM547,hash-table representations,hashtabell-representationer,silver,N?,ACM
+ACM1056,heuristic methods,heuristiska metoder,silver,N?,ACM
+ACM1122,hierarchy and geometric transformations,hierarki och geometriska transformationer,silver,N?,ACM
+ACM54,high-speed arithmetic,höghastighetsaritmetik,silver,N?,ACM
+ACM1344,history of computing,databehandlingens historia,silver,N?,ACM
+ACM1373,human safety,arbetarskydd,silver,N?,ACM
+ACM863,image databases,bilddatabaser,silver,N?,ACM
+ACM92,image display,bildvisning,silver,N?,ACM
+ACM1147,image displays,bildskärmar,silver,N?,ACM
+ACM1148,image processing software,bildbehandlingsprogram,silver,N?,ACM
+ACM1203,image representation,bildrepresentation,silver,N?,ACM
+ACM1151,imaging geometry,bildgeometri,silver,N?,ACM
+ACM1231,implementation,implementering,silver,N?,ACM
+ACM457,incremental compilers,inkrementella kompilatorer,silver,N?,ACM
+ACM1271,index generation,indexgenerering,silver,N?,ACM
+ACM1003,industrial automation,industriell automation,silver,N?,ACM
+ACM1331,industrial control,industriell styrning,silver,N?,ACM
+ACM1017,inference engines,inferensmotorer,silver,N?,ACM
+ACM881,information filtering,filtrering av information,silver,N?,ACM
+ACM508,information flow controls,flödeskontroller,silver,N?,ACM
+ACM811,information systems,informationssystem,silver,N?,ACM
+ACM907,information systems applications,informationssystemtillämpningar,silver,N?,ACM
+ACM1361,information systems education,utbildning i informationssystem,silver,N?,ACM
+ACM1090,input devices,inenheter,silver,N?,ACM
+ACM1423,installation management,installationshantering,silver,N?,ACM
+ACM35,instruction set interpretation,tolkning av instruktionsuppsättningar,silver,N?,ACM
+ACM159,integrated circuits,integrerade kretsar,silver,N?,ACM
+ACM368,integrated environments,integrerade miljöer,silver,N?,ACM
+ACM1393,intellectual property,immateriell egendom,silver,N?,ACM
+ACM1374,intellectual property rights,upphovsrätt,silver,N?,ACM
+ACM1081,intelligent agents,intelligenta agenter,silver,N?,ACM
+ACM1131,interaction techniques,interaktionstekniker,silver,N?,ACM
+ACM580,interactive and reactive computation,interaktiv och reaktiv databehandling,silver,N?,ACM
+ACM369,interactive environments,interaktiva miljöer,silver,N?,ACM
+ACM1232,interactive systems,interaktiva system,silver,N?,ACM
+ACM516,interactive systems,interaktiva system,silver,N?,ACM
+ACM407,interface definition languages,definitionsspråk för gränssnitt,silver,N?,ACM
+ACM6,introductory and survey,introduktion och överblick,silver,N?,ACM
+ACM242,isdn,isdn,silver,N?,ACM
+ACM1169,kalman filtering,kalmanfiltrering,silver,N?,ACM
+ACM1062,kinematics and dynamics,kinematik och dynamik,silver,N?,ACM
+ACM1040,knowledge acquisition,kunskapsinsamling,silver,N?,ACM
+ACM1041,language acquisition,språktillägnande,silver,N?,ACM
+ACM421,language classifications,språkklasser,silver,N?,ACM
+ACM1045,language generation,språkgenerering,silver,N?,ACM
+ACM1046,language models,språkmodeller,silver,N?,ACM
+ACM1047,language parsing and understanding,språkparsning och språkförståelse,silver,N?,ACM
+ACM1320,language translation,språköversättning,silver,N?,ACM
+ACM835,languages,språk,silver,N?,ACM
+ACM28,languages and compilers,språk och kompilatorer,silver,N?,ACM
+ACM1082,languages and structures,språk och strukturer,silver,N?,ACM
+ACM1272,languages and systems,språk och system,silver,N?,ACM
+ACM1035,learning,inlärning,silver,N?,ACM
+ACM1397,legal aspects of computing,rättsliga aspekter på databehandling,silver,N?,ACM
+ACM1308,life and medical sciences,biologi och medicin,silver,N?,ACM
+ACM388,life cycle,livscykel,silver,N?,ACM
+ACM1416,life cycle,livscykler,silver,N?,ACM
+ACM548,linked representations,länkade representationer,silver,N?,ACM
+ACM1362,literacy,läs- och skrivkunnighet,silver,N?,ACM
+ACM140,logic arrays,logiska grindar,silver,N?,ACM
+ACM135,logic design,logisk design,silver,N?,ACM
+ACM1018,logic programming,logikprogrammering,silver,N?,ACM
+ACM311,logic programming,logikprogrammering,silver,N?,ACM
+ACM616,logics of programs,logik hos program,silver,N?,ACM
+ACM1048,machine translation,maskinöversättning,silver,N?,ACM
+ACM428,macro and assembly languages,makrospråk och assemblerspråk,silver,N?,ACM
+ACM481,main memory,primärminne,silver,N?,ACM
+ACM1436,management audit,förvaltningsrevision,silver,N?,ACM
+ACM1273,markup languages,märkspråk,silver,N?,ACM
+ACM1019,mathematical induction,matematisk induktion,silver,N?,ACM
+ACM1306,mathematics and statistics,matematik och statistik,silver,N?,ACM
+ACM282,measurement techniques,mätningstekniker,silver,N?,ACM
+ACM617,mechanical verification,mekanisk verifiering,silver,N?,ACM
+ACM1311,medical information systems,medicinska informationssystem,silver,N?,ACM
+ACM1005,medicine and science,medicin och naturvetenskap,silver,N?,ACM
+ACM120,memory design,minnesdesign,silver,N?,ACM
+ACM459,memory management,minneshantering,silver,N?,ACM
+ACM58,memory structures,minnesstrukturer,silver,N?,ACM
+ACM166,memory technologies,minnestekniker,silver,N?,ACM
+ACM496,message sending,meddelandeöverföring,silver,N?,ACM
+ACM1127,methodology and techniques,metoder och tekniker,silver,N?,ACM
+ACM32,microcode applications,mikrokodtillämpningar,silver,N?,ACM
+ACM167,microprocessors and microcomputers,mikroprocessorer och mikrodatorer,silver,N?,ACM
+ACM227,mobile processors,mobila processorer,silver,N?,ACM
+ACM1026,modal logic,modallogik,silver,N?,ACM
+ACM350,model checking,test av modeller,silver,N?,ACM
+ACM1238,model classification,modellklassifikation,silver,N?,ACM
+ACM1244,model development,modellutveckling,silver,N?,ACM
+ACM1243,model validation and analysis,modellvalidering och analys,silver,N?,ACM
+ACM520,modeling and prediction,modellering och förutsägelse,silver,N?,ACM
+ACM1245,modeling methodologies,modelleringsmetoder,silver,N?,ACM
+ACM194,modeling of computer architecture,modellering av datorarkitektur,silver,N?,ACM
+ACM1123,modeling packages,modelleringspaket,silver,N?,ACM
+ACM283,modeling techniques,modelleringstekniker,silver,N?,ACM
+ACM571,models of computation,modeller för databehandling,silver,N?,ACM
+ACM578,modes of computation,databehandlingsmetoder,silver,N?,ACM
+ACM328,modules and interfaces,moduler och gränssnitt,silver,N?,ACM
+ACM1256,monte carlo,monte carlo,silver,N?,ACM
+ACM1083,multiagent systems,multiagentsystem,silver,N?,ACM
+ACM205,multiple data stream architectures,arkitekturer med flera dataströmmar,silver,N?,ACM
+ACM473,mutual exclusion,ömsesidig uteslutning,silver,N?,ACM
+ACM1006,natural language interfaces,gränssnitt i naturligt språk,silver,N?,ACM
+ACM1043,natural language processing,behandling av naturligt språk,silver,N?,ACM
+ACM236,network architecture and design,nätarkitektur och design,silver,N?,ACM
+ACM497,network communication,nätkommunikation,silver,N?,ACM
+ACM254,network management,nätstyrning,silver,N?,ACM
+ACM255,network monitoring,nätövervakning,silver,N?,ACM
+ACM261,network operating systems,nätoperativsystem,silver,N?,ACM
+ACM253,network operations,nätdrift,silver,N?,ACM
+ACM248,network protocols,nätprotokoll,silver,N?,ACM
+ACM244,network topology,nättopologi,silver,N?,ACM
+ACM222,neural nets,neuronnät,silver,N?,ACM
+ACM1216,neural nets,neuronnätsbaserade,silver,N?,ACM
+ACM987,nonalgebraic algorithms,icke-algebraiska algoritmer,silver,N?,ACM
+ACM1124,object hierarchies,objekthierarkier,silver,N?,ACM
+ACM1192,object recognition,objektigenkänning,silver,N?,ACM
+ACM549,object representation,objektrepresentation,silver,N?,ACM
+ACM433,object-oriented languages,objektorienterade språk,silver,N?,ACM
+ACM310,object-oriented programming,objektorienterad programmering,silver,N?,ACM
+ACM338,object-oriented programming,objektorienterad programmering,silver,N?,ACM
+ACM1007,office automation,kontorsautomation,silver,N?,ACM
+ACM581,online computation,databehandling online,silver,N?,ACM
+ACM467,operating systems,operativsystem,silver,N?,ACM
+ACM522,operational analysis,operationsanalys,silver,N?,ACM
+ACM623,operational semantics,operationell semantik,silver,N?,ACM
+ACM659,operations on languages,operationer på språk,silver,N?,ACM
+ACM1064,operator interfaces,operatörsgränssnitt,silver,N?,ACM
+ACM1283,optical character recognition,optisk teckenigenkänning,silver,N?,ACM
+ACM512,organization and design,organisation och design,silver,N?,ACM
+ACM1384,organizational impacts,påverkan på organisationen,silver,N?,ACM
+ACM214,other architecture styles,övriga arkitekturmodeller,silver,N?,ACM
+ACM245,packet-switching networks,paketförmedlade nät,silver,N?,ACM
+ACM1113,paint systems,illustrationssystem,silver,N?,ACM
+ACM225,parallel architectures,parallella arkitekturer,silver,N?,ACM
+ACM143,parallel circuits,parallella kretsar,silver,N?,ACM
+ACM1091,parallel processing,parallellbearbetning,silver,N?,ACM
+ACM308,parallel programming,parallell programmering,silver,N?,ACM
+ACM582,parallelism and concurrency,parallellism och samtidighet,silver,N?,ACM
+ACM1042,parameter learning,parameterinlärning,silver,N?,ACM
+ACM624,partial evaluation,partiell utvärdering,silver,N?,ACM
+ACM1222,pattern analysis,mönsteranalys,silver,N?,ACM
+ACM605,pattern matching,mönstermatchning,silver,N?,ACM
+ACM1210,pattern recognition,mönsterigenkänning,silver,N?,ACM
+ACM1074,perceptual reasoning,perceptuellt resonerande,silver,N?,ACM
+ACM183,performance and reliability,prestanda och tillförlitlighet,silver,N?,ACM
+ACM284,performance attributes,prestandaattribut,silver,N?,ACM
+ACM381,performance measures,prestandamått,silver,N?,ACM
+ACM279,performance of systems,prestanda för system,silver,N?,ACM
+ACM293,personal computers,persondatorer,silver,N?,ACM
+ACM1459,personal computing,databehandling med persondatorer,silver,N?,ACM
+ACM330,petri nets,petrinät,silver,N?,ACM
+ACM999,philosophical foundations,filosofiska grunder,silver,N?,ACM
+ACM1298,physical sciences and engineering,naturvetenskap och teknik,silver,N?,ACM
+ACM1125,physically based modeling,fysikbaserad modellering,silver,N?,ACM
+ACM1178,pixel classification,pixelklassificering,silver,N?,ACM
+ACM1057,plan execution,planering,silver,N?,ACM
+ACM1027,predicate logic,predikatlogik,silver,N?,ACM
+ACM1428,pricing and resource allocation,prissättning och resursallokering,silver,N?,ACM
+ACM69,primary memory,primärminne,silver,N?,ACM
+ACM1375,privacy,personlig integritet,silver,N?,ACM
+ACM583,probabilistic computation,probabilistisk databehandling,silver,N?,ACM
+ACM1051,problem solving,problemlösning,silver,N?,ACM
+ACM1333,process control,processtyrning,silver,N?,ACM
+ACM275,process control systems,processtyrningssystem,silver,N?,ACM
+ACM469,process management,processtyrning,silver,N?,ACM
+ACM625,process models,processmodeller,silver,N?,ACM
+ACM197,processor architectures,processorarkitekturer,silver,N?,ACM
+ACM1452,professional ethics,yrkesetik,silver,N?,ACM
+ACM626,program analysis,programanalys,silver,N?,ACM
+ACM340,program editors,programeditorer,silver,N?,ACM
+ACM1010,program modification,programmodifiering,silver,N?,ACM
+ACM1011,program synthesis,programsyntes,silver,N?,ACM
+ACM1012,program transformation,programtransformation,silver,N?,ACM
+ACM1013,program verification,programverifiering,silver,N?,ACM
+ACM366,programming environments,programmeringsmiljöer,silver,N?,ACM
+ACM415,programming languages,programspråk,silver,N?,ACM
+ACM1033,programming languages and software,programspråk och program,silver,N?,ACM
+ACM390,programming teams,programmeringsteam,silver,N?,ACM
+ACM302,programming techniques,programmeringsteknik,silver,N?,ACM
+ACM1415,project and people management,projektstyrning och personaladministration,silver,N?,ACM
+ACM1065,propelling mechanisms,framdrivningsmekanismer,silver,N?,ACM
+ACM1403,proprietary rights,äganderättigheter,silver,N?,ACM
+ACM316,protection mechanisms,skyddsmekanismer,silver,N?,ACM
+ACM250,protocol architecture,protokollarkitekturer,silver,N?,ACM
+ACM251,protocol verification,protokollverifiering,silver,N?,ACM
+ACM554,public key cryptosystems,kryptosystem med öppna nycklar,silver,N?,ACM
+ACM256,public networks,allmänna nät,silver,N?,ACM
+ACM1437,quality assurance,kvalitetssäkring,silver,N?,ACM
+ACM882,query formulation,frågeformulering,silver,N?,ACM
+ACM839,query languages,frågespråk,silver,N?,ACM
+ACM523,queueing theory,köteori,silver,N?,ACM
+ACM789,queueing theory,köteori,silver,N?,ACM
+ACM1139,radiosity,strålning,silver,N?,ACM
+ACM1194,range data,omfångsdata,silver,N?,ACM
+ACM1092,raster display devices,rasterskärmar,silver,N?,ACM
+ACM62,read-only memory,läsminne,silver,N?,ACM
+ACM1335,real time,realtid,silver,N?,ACM
+ACM276,real-time and embedded systems,realtidssystem och inbyggda system,silver,N?,ACM
+ACM589,reducibility and completeness,reducerbarhet och fullständighet,silver,N?,ACM
+ACM1179,region growing,regionodling,silver,N?,ACM
+ACM1028,relation systems,relationssystem,silver,N?,ACM
+ACM590,relations among complexity classes,relationer mellan komplexitetsklasser,silver,N?,ACM
+ACM591,relations among complexity measures,relationer mellan komplexitetsmått,silver,N?,ACM
+ACM575,relations between models,relationer mellan modeller,silver,N?,ACM
+ACM585,relativized computation,relativiserad databehandling,silver,N?,ACM
+ACM791,reliability and life testing,tillförlitlighet,silver,N?,ACM
+ACM806,reliability and robustness,tillförlitlighet och robusthet,silver,N?,ACM
+ACM1029,representation languages,representationsspråk,silver,N?,ACM
+ACM982,representations,representationer,silver,N?,ACM
+ACM1030,representations,representationer,silver,N?,ACM
+ACM463,retargetable compilers,omriktningsbara kompilatorer,silver,N?,ACM
+ACM410,reusable libraries,återanvändbara bibliotek,silver,N?,ACM
+ACM408,reusable software,återanvändbara program,silver,N?,ACM
+ACM411,reuse models,återanvändningsmodeller,silver,N?,ACM
+ACM606,routing and layout,routning och layout,silver,N?,ACM
+ACM252,routing protocols,routingprotokoll,silver,N?,ACM
+ACM464,run-time environments,run-timemiljöer,silver,N?,ACM
+ACM1188,scene analysis,scenanalys,silver,N?,ACM
+ACM864,scientific databases,vetenskapliga databaser,silver,N?,ACM
+ACM1276,scripting languages,skriptspråk,silver,N?,ACM
+ACM885,search process,sökprocess,silver,N?,ACM
+ACM482,secondary storage,sekundärminne,silver,N?,ACM
+ACM504,security and protection,säkerhet och skydd,silver,N?,ACM
+ACM886,selection process,selekteringsprocess,silver,N?,ACM
+ACM1031,semantic networks,semantiska nät,silver,N?,ACM
+ACM620,semantics of programming languages,semantik hos programspråk,silver,N?,ACM
+ACM60,semiconductor memories,halvledarminnen,silver,N?,ACM
+ACM1195,sensor fusion,sensorfusion,silver,N?,ACM
+ACM607,sequencing and scheduling,sekvensering och schemaläggning,silver,N?,ACM
+ACM144,sequential circuits,sekventiella kretsar,silver,N?,ACM
+ACM309,sequential programming,sekventiell programmering,silver,N?,ACM
+ACM1173,series expansion methods,serieexpansionsmetoder,silver,N?,ACM
+ACM71,shared memory,delat minne,silver,N?,ACM
+ACM1228,signal processing,signalbehandling,silver,N?,ACM
+ACM277,signal processing systems,signalbehandlingssystem,silver,N?,ACM
+ACM1225,similarity measures,likhetsmått,silver,N?,ACM
+ACM983,simplification of expressions,förenkling av uttryck,silver,N?,ACM
+ACM1235,simulation and modeling,simulering och modellering,silver,N?,ACM
+ACM1241,simulation languages,simuleringsspråk,silver,N?,ACM
+ACM1246,simulation output analysis,analys av simuleringsutdata,silver,N?,ACM
+ACM1247,simulation support systems,simuleringsstödsystem,silver,N?,ACM
+ACM1237,simulation theory,simuleringsteori,silver,N?,ACM
+ACM199,single data stream architectures,arkitekturer med singeldataström,silver,N?,ACM
+ACM1186,size and shape,storlek och form,silver,N?,ACM
+ACM1312,social and behavioral sciences,socialvetenskap och beteendevetenskap,silver,N?,ACM
+ACM1379,social issues,sociala frågor,silver,N?,ACM
+ACM398,software architectures,programarkitekturer,silver,N?,ACM
+ACM1430,software development,programutveckling,silver,N?,ACM
+ACM314,software engineering,programkonstruktion,silver,N?,ACM
+ACM332,software libraries,programbibliotek,silver,N?,ACM
+ACM1431,software maintenance,programunderhåll,silver,N?,ACM
+ACM1429,software management,programförvaltning,silver,N?,ACM
+ACM1432,software process,programprocess,silver,N?,ACM
+ACM393,software quality assurance,programkvalitetssäkring,silver,N?,ACM
+ACM1433,software selection,val av program,silver,N?,ACM
+ACM1115,software support,programsupport,silver,N?,ACM
+ACM608,sorting and searching,sortering och sökning,silver,N?,ACM
+ACM1233,special architectures,specialarkitekturer,silver,N?,ACM
+ACM991,special-purpose algebraic systems,specialinriktade algebraiska system,silver,N?,ACM
+ACM434,specialized application languages,specialiserade applikationsspråk,silver,N?,ACM
+ACM619,specification techniques,specificeringstekniker,silver,N?,ACM
+ACM1049,speech recognition and synthesis,taligenkänning och talsyntes,silver,N?,ACM
+ACM1126,splines,punktkurvor,silver,N?,ACM
+ACM333,state diagrams,tillståndsdiagram,silver,N?,ACM
+ACM63,static memory,statiskt minne,silver,N?,ACM
+ACM866,statistical databases,statistiska databaser,silver,N?,ACM
+ACM353,statistical methods,statistiska metoder,silver,N?,ACM
+ACM525,stochastic analysis,stokastisk analys,silver,N?,ACM
+ACM484,storage hierarchies,lagringshierarkier,silver,N?,ACM
+ACM477,storage management,lagringshantering,silver,N?,ACM
+ACM1419,strategic information systems planning,planering av strategiska informationssystem,silver,N?,ACM
+ACM343,structured programming,strukturerad programmering,silver,N?,ACM
+ACM1199,surface fitting,ytavpassning,silver,N?,ACM
+ACM979,symbolic and algebraic manipulation,symbolisk och algebraisk manipulering,silver,N?,ACM
+ACM363,symbolic execution,symbolisk exekvering,silver,N?,ACM
+ACM195,system architectures,systemarkitekturer,silver,N?,ACM
+ACM1434,system management,systemförvaltning,silver,N?,ACM
+ACM1420,systems analysis and design,systemanalys och systemkonstruktion,silver,N?,ACM
+ACM1421,systems development,systemutveckling,silver,N?,ACM
+ACM526,systems programs and utilities,systemprogram och nyttoprogram,silver,N?,ACM
+ACM196,systems specification methodology,metoder för systemspecificering,silver,N?,ACM
+ACM1239,systems theory,systemteori,silver,N?,ACM
+ACM1032,temporal logic,tidslogik,silver,N?,ACM
+ACM355,testing and debugging,testning och avlusning,silver,N?,ACM
+ACM1050,text analysis,textanalys,silver,N?,ACM
+ACM1229,text processing,textbehandling,silver,N?,ACM
+ACM1339,the computer industry,datorindustrin,silver,N?,ACM
+ACM1447,the computing profession,databehandling som yrke,silver,N?,ACM
+ACM1134,three-dimensional graphics and realism,tredimensionell grafik och realism,silver,N?,ACM
+ACM1200,time-varying imagery,tidsvarierande bildframställning,silver,N?,ACM
+ACM268,token rings,token ring,silver,N?,ACM
+ACM344,top-down programming,top-down-programmering,silver,N?,ACM
+ACM609,tradeoffs between complexity measures,byte mellan komplexitetsmått,silver,N?,ACM
+ACM1377,transborder data flow,gränsöverskridande dataflöde,silver,N?,ACM
+ACM1175,transform methods,transformmetoder,silver,N?,ACM
+ACM161,types and design styles,typer och designmodeller,silver,N?,ACM
+ACM1249,types of simulation,simuleringstyper,silver,N?,ACM
+ACM731,unconstrained optimization,icke-framtvingad optimering,silver,N?,ACM
+ACM336,user interfaces,användargränssnitt,silver,N?,ACM
+ACM807,user interfaces,användargränssnitt,silver,N?,ACM
+ACM1266,version control,versionskontroll,silver,N?,ACM
+ACM378,version control,versionskontroll,silver,N?,ACM
+ACM435,very high-level languages,superhögnivåspråk,silver,N?,ACM
+ACM1078,video analysis,videoanalys,silver,N?,ACM
+ACM1106,viewing algorithms,bildalgoritmer,silver,N?,ACM
+ACM1116,virtual device interfaces,gränssnitt till virtuella enheter,silver,N?,ACM
+ACM486,virtual memory,virtuellt minne,silver,N?,ACM
+ACM72,virtual memory,virtuellt minne,silver,N?,ACM
+ACM1141,virtual reality,virtuell verklighet,silver,N?,ACM
+ACM312,visual programming,visuell programmering,silver,N?,ACM
+ACM169,vlsi,vlsi,silver,N?,ACM
+ACM296,vlsi systems,vlsi-system,silver,N?,ACM
+ACM1230,waveform analysis,vågformsanalys,silver,N?,ACM
+ACM530,window managers,fönsterhanterare,silver,N?,ACM
+ACM247,wireless communication,trådlös kommunikation,silver,N?,ACM
+ACM1469,word processing,ordbehandling,silver,N?,ACM
 ICT29,acceleration,acceleration,silver,N?,ICT
 ICT37,accommodate,ackommodera,silver,N?,ICT
 ICT47,acoustic,akustik,silver,N?,ICT
@@ -564,14 +564,14 @@ ICT713,culture,kultur,silver,N?,ICT
 ICT719,customer,kund,silver,N?,ICT
 ICT746,data-processing,databehandling,silver,N?,ICT
 ICT874,disadvantage,nackdel,silver,N?,ICT
-ICT976,e-health,eHälsa,silver,N?,ICT
+ICT976,e-health,ehälsa,silver,N?,ICT
 ICT955,eco-driving,ekokörning,silver,N?,ICT
 ICT1034,energy-conserving,energibesparande,silver,N?,ICT
 ICT1045,energy-efficient,energieffektiv,silver,N?,ICT
 ICT1047,engine,motor,silver,N?,ICT
 ICT1073,environment,miljö,silver,N?,ICT
 ICT1106,event-driven,händelsestyrd,silver,N?,ICT
-ACM502,Fault-tolerance,Feltolerans,silver,N?,ACM
+ACM502,fault-tolerance,feltolerans,silver,N?,ACM
 ICT1177,fault,fel,silver,N?,ICT
 ICT1262,four-legged,fyrbent,silver,N?,ICT
 ICT1271,free-running,frigång,silver,N?,ICT
@@ -620,7 +620,7 @@ ICT2886,round-trip,rundresa,silver,N?,ICT
 ICT2904,satellite,satellit,silver,N?,ICT
 ICT2927,scenario,scenarier,silver,N?,ICT
 ICT2982,self-actualization,självförverkligande,silver,N?,ICT
-ACM1363,Self-assessment,Självutvärdering,silver,N?,ACM
+ACM1363,self-assessment,självutvärdering,silver,N?,ACM
 ICT2983,self-aware,självmedveten,silver,N?,ICT
 ICT2985,self-configuring,självkonfigurerande,silver,N?,ICT
 ICT2986,self-organization,självorganisering,silver,N?,ICT

@@ -9,7 +9,7 @@ ICT282,beside,bredvid,silver,N?,ICT
 ICT570,conferencing,konferenser,silver,N?,ICT
 ICT585,connectionless,anslutningslös,silver,N?,ICT
 ICT659,coorelation,samordning,silver,N?,ICT
-ACM1390,Cybercash,Cyberpengar,silver,N?,ACM
+ACM1390,cybercash,cyberpengar,silver,N?,ACM
 ICT748,datarate,datatakt,silver,N?,ICT
 ICT759,datastore,datalager,silver,N?,ICT
 ICT814,deregistration,avregistrering,silver,N?,ICT
@@ -18,7 +18,7 @@ ICT894,dissector,dissektorn,silver,N?,ICT
 ICT927,downconverting,nedkonvertering,silver,N?,ICT
 ICT936,duopoly,duopol,silver,N?,ICT
 ICT1070,entrepreneurship,entreprenörskap,silver,N?,ICT
-ICT1098,Europay,Europay,silver,N?,ICT
+ICT1098,europay,europay,silver,N?,ICT
 ICT1107,everything,allt,silver,N?,ICT
 ICT1127,expendables,utgiftsmaterial,silver,N?,ICT
 ICT1330,geolocation,geolokalisering,silver,N?,ICT
@@ -45,13 +45,13 @@ ICT2431,picocellular,pikocellular,silver,N?,ICT
 ICT2433,picoradios,picoradios,silver,N?,ICT
 ICT2449,plasmonic,plasmoniska,silver,N?,ICT
 ICT2454,playout,uppspelning,silver,N?,ICT
-ACM462,Preprocessors,Förprocessorer,silver,N?,ACM
-ACM1153,Radiometry,Radiometri,silver,N?,ACM
+ACM462,preprocessors,förprocessorer,silver,N?,ACM
+ACM1153,radiometry,radiometri,silver,N?,ACM
 ICT2675,radiotelecommunication,radiotelekommunikations,silver,N?,ICT
-ACM1140,Raytracing,Strålföljning,silver,N?,ACM
+ACM1140,raytracing,strålföljning,silver,N?,ACM
 ICT2716,reassociation,reassociering,silver,N?,ICT
 ICT2735,redial,återuppringning,silver,N?,ICT
-ACM1388,Reengineering,Omstrukturering,silver,N?,ACM
+ACM1388,reengineering,omstrukturering,silver,N?,ACM
 ICT2787,remoting,fjärrkommunikation,silver,N?,ICT
 ICT2809,reregistration,omregistrering,silver,N?,ICT
 ICT2811,resampling,omsampling,silver,N?,ICT
@@ -60,7 +60,7 @@ ICT2852,retroreflector,retroreflektor,silver,N?,ICT
 ICT2855,reusability,återanvändbarhet,silver,N?,ICT
 ICT2880,rollout,utrullning,silver,N?,ICT
 ICT2895,runtime,körtids,silver,N?,ICT
-ACM278,Smartcards,Smartkort,silver,N?,ACM
+ACM278,smartcards,smartkort,silver,N?,ACM
 ICT3168,something,något,silver,N?,ICT
 ICT3239,storytelling,berättande,silver,N?,ICT
 ICT3263,subchannels,delkanaler,silver,N?,ICT
