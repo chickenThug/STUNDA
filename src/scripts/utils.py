@@ -2,6 +2,7 @@
 import nltk
 from nltk.corpus import wordnet
 from nltk.stem import WordNetLemmatizer
+import requests
 
 nltk.download('wordnet')
 nltk.download('brown')
@@ -25,3 +26,29 @@ def english_pos(word):
 # Function to check if a string is a word in WordNet
 def is_word_in_english(word):
     return len(wordnet.synsets(word)) > 0
+
+def delete_entry_by_id(id, authorization ,verbose = False):
+    url = f"https://ws.spraakbanken.gu.se/ws/karp/v7/entries/stunda/{id}/1.1"
+    
+    headers = {
+    'Authorization': "Bearer " + authorization,
+    'Content-Type': 'application/json',
+    "entry_id": "01GX3DS1HJBMF7DNCJCQW9E6N3",
+    }
+
+    response = requests.delete(url, headers)
+
+    if verbose:
+        if response.status_code == 204:
+            print("Succesfully deleted entry with id", id)
+        else:
+            print("Could not delete entry with id", id)
+    
+    return response.status_code == 204
+
+def delete_entries_by_ids(ids, authorization, verbose=False):
+    success = []
+    for id in ids:
+        success.append(delete_entry_by_id(id, authorization, verbose))
+    
+    return success
