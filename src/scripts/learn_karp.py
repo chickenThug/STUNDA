@@ -1,11 +1,32 @@
 import requests
 import json
-from utils import get_all
+from utils import get_all, add_entry, add_entries
 
 # Define the URL endpoint you want to make a GET request to
 resource_id = "stunda"
 url =  f"https://ws.spraakbanken.gu.se/ws/karp/v7/query/split/stunda?q="
 
+
+entries = [{
+  "eng": {
+    "lemma": "reinforcement learning1"
+  },
+  "swe": {
+    "lemma": "förstärkande inlärning1"
+  },
+  "pos": "N",
+  "src": "Viggo"
+}, {"eng": {
+    "lemma": "reinforcement learning2"
+  },
+  "swe": {
+    "lemma": "förstärkande inlärning2"
+  },
+  "pos": "N",
+  "src": "Viggo"}]
+
+print(add_entries(json.load(open('data/secrets.json')).get("jwt_token", ""), entries, True))
+exit()
 headers = {
     'Authorization': "Bearer " + json.load(open('data/secrets.json')).get("jwt_token", ""),
     'Content-Type': 'application/json',

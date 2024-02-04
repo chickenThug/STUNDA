@@ -33,7 +33,6 @@ def delete_entry_by_id(id, authorization ,verbose = False):
     headers = {
     'Authorization': "Bearer " + authorization,
     'Content-Type': 'application/json',
-    "entry_id": "01GX3DS1HJBMF7DNCJCQW9E6N3",
     }
 
     response = requests.delete(url, headers)
@@ -71,3 +70,36 @@ def get_all():
     else:
         print('Error:', response.status_code)
         return {}
+    
+def add_entry(authorization, entry, verbose=False):
+    url = "https://ws.spraakbanken.gu.se/ws/karp/v7/entries/stunda"
+
+    headers = {
+    'Authorization': "Bearer " + authorization,
+    'Content-Type': 'application/json',
+    }
+
+    data = {
+        "entry" : entry,
+        "message": ""
+    }
+
+    response = requests.put(url, headers=headers, json=data)
+
+    if response.status_code == 201:
+        if verbose:
+            print("successfull add")
+        return response.json()["newID"]
+    else:
+        if verbose:
+            print("unsuccessfull add", response.status_code, response)
+        return None
+
+
+def add_entries(authorization, entries, verbose=False):
+    results = []
+    for entry in entries:
+        results.append(add_entry(authorization, entry, verbose))
+    return results
+
+
