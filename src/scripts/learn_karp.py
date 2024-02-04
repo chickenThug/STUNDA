@@ -1,5 +1,6 @@
 import requests
 import json
+from utils import get_all
 
 # Define the URL endpoint you want to make a GET request to
 resource_id = "stunda"

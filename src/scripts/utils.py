@@ -52,3 +52,22 @@ def delete_entries_by_ids(ids, authorization, verbose=False):
         success.append(delete_entry_by_id(id, authorization, verbose))
     
     return success
+
+def get_all():
+    url =  f"https://ws.spraakbanken.gu.se/ws/karp/v7/query/split/stunda?q="
+
+    params = {
+        "size" : 10000
+    }
+
+    # Make the GET request
+    response = requests.get(url, params=params)
+
+    # Check if the request was successful (status code 200)
+    if response.status_code == 200:
+        # Print the response content
+        print("succesfull get")
+        return response.json()  # Assuming the response is in JSON format
+    else:
+        print('Error:', response.status_code)
+        return {}
