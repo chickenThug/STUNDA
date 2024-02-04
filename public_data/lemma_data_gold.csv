@@ -1208,3 +1208,247 @@ GF1546,work,arbete,gold,N,GF
 GF1547,world,värld,gold,N,GF
 GF1548,worldwide,global,gold,A,GF
 GF1549,write, skriva,gold,V,GF
+GF2,abstract data type,abstrakt datatyp,gold,N,GF
+GF3,abstract method,abstrakt metod,gold,N,GF
+GF11,access control,åtkomstkontroll,gold,N,GF
+GF16,accounting software,bokföringsprogram,gold,N,GF
+GF35,address space,adressrymd,gold,N,GF
+GF39,admission requirement,tillträdeskrav,gold,N,GF
+GF55,algorithm analysis,algoritmanalys,gold,N,GF
+GF56,algorithm design techniques,algoritmdesigntekniker,gold,N,GF
+GF57,algorithm design,algoritmdesign,gold,N,GF
+GF74,application software,tillämpningsprogram,gold,N,GF
+GF76,applied data science,applicerad datavetenskap,gold,N,GF
+GF92,artificial intelligence,artificiell intelligens,gold,N,GF
+GF111,attack model,attackmodell,gold,N,GF
+GF120,automata theory,automatteori,gold,N,GF
+GF137,basic principle,grundprincip,gold,N,GF
+GF146,big data,stor data,gold,N,GF
+GF148,binary number,binärt tal,gold,N,GF
+GF149,binary search algorithm,binärsökning,gold,N,GF
+GF150,binary search tree,binärt sökträd,gold,N,GF
+GF151,binary tree,binärträd,gold,N,GF
+GF157,bit rate,överföringskapacitet,gold,N,GF
+GF184,business information system,affärsinformationssystem,gold,N,GF
+GF203,card reader,kortläsare,gold,N,GF
+GF226,circuit structure,kretsstruktur,gold,N,GF
+GF228,class diagram,klassmodell,gold,N,GF
+GF240,cloud computing,datormoln,gold,N,GF
+GF243,code development tool,kodutvecklingsverktyg,gold,N,GF
+GF244,code generator,kodgenerator,gold,N,GF
+GF247,coding theory,kodningsteori,gold,N,GF
+GF248,cognitive science,kognitionsvetenskap,gold,N,GF
+GF265,communication system,kommunikationssystem,gold,N,GF
+GF267,communications protocol,kommunikationsprotokoll,gold,N,GF
+GF275,compiler construction,kompilatorkonstruktion,gold,N,GF
+GF276,compiler techniques,kompilatortekniker,gold,N,GF
+GF283,complexity analysis,komplexitetsanalys,gold,N,GF
+GF295,computational biology,beräkningsbiologi,gold,N,GF
+GF296,computational chemistry,beräkningskemi,gold,N,GF
+GF297,computational physics,beräkningsfysik,gold,N,GF
+GF299,computer architecture,datorarkitektur,gold,N,GF
+GF300,computer case,datorchassi,gold,N,GF
+GF301,computer construction,datorkonstruktion,gold,N,GF
+GF302,computer data storage,datorminne,gold,N,GF
+GF303,computer engineering,datateknik,gold,N,GF
+GF304,computer graphics,datorgrafik,gold,N,GF
+GF305,computer interaction,datorinteraktion,gold,N,GF
+GF306,computer mouse,datormus,gold,N,GF
+GF307,computer network,datornätverk,gold,N,GF
+GF308,computer program,datorprogram,gold,N,GF
+GF309,computer science,datavetenskap,gold,N,GF
+GF310,computer scientist,datalog,gold,N,GF
+GF311,computer security model,datasäkerhetsmodell,gold,N,GF
+GF312,computer security,datasäkerhet,gold,N,GF
+GF313,computer system architecture,datorsystemarkitektur,gold,N,GF
+GF314,computer system component,datorsystemkomponent,gold,N,GF
+GF315,computer system,datorsystem,gold,N,GF
+GF316,computer terminal,datorterminal,gold,N,GF
+GF317,computer vision,datorseende,gold,N,GF
+GF319,computing capacity,beräkningskapacitet,gold,N,GF
+GF330,confidential information,konfidentiell information,gold,N,GF
+GF332,congestion control,stockningskontroll,gold,N,GF
+GF360,control flow,programflöde,gold,N,GF
+GF361,control system,styrsystem,gold,N,GF
+GF362,control unit,styrenhet,gold,N,GF
+GF375,core memory,kärnminne,gold,N,GF
+GF383,course plan,kursplan,gold,N,GF
+GF407,data abstraction,dataabstraktion,gold,N,GF
+GF408,data center,datorhall,gold,N,GF
+GF409,data collection,datasamling,gold,N,GF
+GF410,data communication,datakommunikation,gold,N,GF
+GF411,data dependency,databeroende,gold,N,GF
+GF412,data management,datahantering,gold,N,GF
+GF413,data mining,datautvinning,gold,N,GF
+GF414,data processing,databehandling,gold,N,GF
+GF415,data set,datamängd,gold,N,GF
+GF416,data storage device,lagringsmedium,gold,N,GF
+GF417,data structure,datastruktur,gold,N,GF
+GF418,data type,datatyp,gold,N,GF
+GF445,design pattern,designmönster,gold,N,GF
+GF446,design process,designprocess,gold,N,GF
+GF450,desktop computer,skrivbordsdator,gold,N,GF
+GF458,development environment,utvecklingsmiljö,gold,N,GF
+GF459,development process,utvecklingsprocess,gold,N,GF
+GF461,device driver,drivrutin,gold,N,GF
+GF467,differential equation,differentialekvation,gold,N,GF
+GF469,digital signal processor,signalprocessor,gold,N,GF
+GF480,discrete mathematics,diskret matematik,gold,N,GF
+GF488,distributed systems,distribuerat system,gold,N,GF
+GF496,domain name system,domännamnssystem,gold,N,GF
+GF497,domain name,domännamn,gold,N,GF
+GF510,dynamic programming,dynamisk programmering,gold,N,GF
+GF516,educational program,utbildningsprogram,gold,N,GF
+GF517,educational programme,utbildningsprogram,gold,N,GF
+GF525,electromagnetic wave,elektromagnetisk strålning,gold,N,GF
+GF534,empty set,tom mängd,gold,N,GF
+GF540,end user,slutanvändare,gold,N,GF
+GF549,entry requirement,behörighet,gold,N,GF
+GF563,ethical aspect,etisk aspekt,gold,N,GF
+GF569,examination hall exam,salstentamen,gold,N,GF
+GF572,exception handling,undantagshantering,gold,N,GF
+GF582,expansion bus,expansionskort,gold,N,GF
+GF609,feasibility study,förstudie,gold,N,GF
+GF613,file format,filformat,gold,N,GF
+GF614,file name,filnamn,gold,N,GF
+GF617,filename extension,filändelse,gold,N,GF
+GF627,flight simulator,flygsimulator,gold,N,GF
+GF628,floating point number,flyttal,gold,N,GF
+GF629,floppy disk,diskett,gold,N,GF
+GF635,form factor,formfaktor,gold,N,GF
+GF638,formal verification,formell verifiering,gold,N,GF
+GF655,functional programming,funktionell programmering,gold,N,GF
+GF660,game engine,spelmotor,gold,N,GF
+GF661,game theory,spelteori,gold,N,GF
+GF664,garbage collection,skräpsamling,gold,N,GF
+GF683,global variable,global variabel,gold,N,GF
+GF687,graph theory,grafteori,gold,N,GF
+GF692,graphical user interface,grafiskt användargränssnitt,gold,N,GF
+GF693,graphics card,grafikkort,gold,N,GF
+GF694,graphics processing unit,grafikprocessor,gold,N,GF
+GF703,hard disk drive,hårddisk,gold,N,GF
+GF704,hard drive,hårddisk,gold,N,GF
+GF705,hardware acceleration,hårdvaruacceleration,gold,N,GF
+GF706,hardware system,hårdvarusystem,gold,N,GF
+GF707,hardware unit,hårdvaruenhet,gold,N,GF
+GF725,holistic approach,helhetssyn,gold,N,GF
+GF745,imperative programming,imperativ programmering,gold,N,GF
+GF764,information system,informationssystem,gold,N,GF
+GF765,information technology,informationsteknik,gold,N,GF
+GF766,information theory,informationsteori,gold,N,GF
+GF775,insertion sort,insättningssortering,gold,N,GF
+GF781,instruction set architecture,instruktionsuppsättning,gold,N,GF
+GF787,integrated circuit,integrerad krets,gold,N,GF
+GF788,integrated development environment,integrerad utvecklingsmiljö,gold,N,GF
+GF803,interface design,gränssnittsdesign,gold,N,GF
+GF833,key feature,huvudfunktion,gold,N,GF
+GF845,laboratory task,laboration,gold,N,GF
+GF846,language extension,språkutvidgning,gold,N,GF
+GF856,learning outcome,lärandemål,gold,N,GF
+GF,LED display,lysdiodskärm,gold,N,GF
+GF875,linked list,länkad lista,gold,N,GF
+GF891,logic programming,logikprogrammering,gold,N,GF
+GF899,machine code,maskinkod,gold,N,GF
+GF900,machine learning,maskininlärning,gold,N,GF
+GF907,mainframe computer,stordator,gold,N,GF
+GF914,mandatory access control,obligatorisk åtkomstkontroll,gold,N,GF
+GF926,mathematical model,matematisk modell,gold,N,GF
+GF937,media player,mediespelare,gold,N,GF
+GF944,memory address,minnesadress,gold,N,GF
+GF945,memory card,minneskort,gold,N,GF
+GF946,memory hierarchy level,minneshierarkinivå,gold,N,GF
+GF947,memory hierarchy,minneshierarki,gold,N,GF
+GF949,menu bar,menyfält,gold,N,GF
+GF968,modelling language,modelleringsspråk,gold,N,GF
+GF985,motion sensor,rörelsesensor,gold,N,GF
+GF1004,network interface controller,nätverkskort,gold,N,GF
+GF1005,network protocol,nätverksprotokoll,gold,N,GF
+GF1006,network security,nätverksäkerhet,gold,N,GF
+GF1014,normal form,normalform,gold,N,GF
+GF1017,number theory,talteori,gold,N,GF
+GF1021,numerical analysis,numerisk analys,gold,N,GF
+GF1022,object orientation,objektorientering,gold,N,GF
+GF1031,operating system,operativsystem,gold,N,GF
+GF1035,optical disc,optisk skiva,gold,N,GF
+GF1036,optical fiber,fiberoptik,gold,N,GF
+GF1057,pair programming,parprogrammering,gold,N,GF
+GF1062,parallel computing,parallelldator,gold,N,GF
+GF1079,performance analysis,prestandaanalys,gold,N,GF
+GF1080,performance bottleneck,prestandaflaskhals,gold,N,GF
+GF1081,performance optimization,prestandaoptimering,gold,N,GF
+GF1087,personal computer,persondator,gold,N,GF
+GF1106,power consumption,strömförbrukning,gold,N,GF
+GF1107,power supply,nätaggregat,gold,N,GF
+GF1114,predicate logic,predikatlogik,gold,N,GF
+GF1125,printed circuit board,mönsterkort,gold,N,GF
+GF1127,priority queue,prioritetskö,gold,N,GF
+GF1130,probability distribution,sannolikhetsfördelning,gold,N,GF
+GF1132,problem solving,problemlösning,gold,N,GF
+GF1137,processor architecture,processorarkitektur,gold,N,GF
+GF1138,processor base,processorbas,gold,N,GF
+GF1139,processor core,processorkärna,gold,N,GF
+GF1145,program code,programkod,gold,N,GF
+GF1146,program component,programkomponent,gold,N,GF
+GF1147,program plan,programplan,gold,N,GF
+GF1148,program registration,programregistrering,gold,N,GF
+GF1149,program verification,programverifiering,gold,N,GF
+GF1154,programming assignment,programmeringsuppgift,gold,N,GF
+GF1155,programming course,programmeringskurs,gold,N,GF
+GF1156,programming language,programmeringsspråk,gold,N,GF
+GF1157,programming paradigm,programmeringsparadigm,gold,N,GF
+GF1158,programming problem,programmeringsproblem,gold,N,GF
+GF1159,programming skill,programmeringskunskap,gold,N,GF
+GF1177,quantum computer,kvantdator,gold,N,GF
+GF1206,recursive data type,rekursiv datatyp,gold,N,GF
+GF1217,regular expression,reguljärt uttryck,gold,N,GF
+GF1221,relational database,relationsdatabas,gold,N,GF
+GF1235,requirements analysis,kravhantering,gold,N,GF
+GF1240,resource requirement search,resurskravsökning,gold,N,GF
+GF1252,routing table,dirigeringstabell,gold,N,GF
+GF1278,security protocol,säkerhetsprotokoll,gold,N,GF
+GF1282,selection sort,urvalssortering,gold,N,GF
+GF1297,set theory,mängdteori,gold,N,GF
+GF1308,signal processing,signalbehandling,gold,N,GF
+GF1314,simulation method,simuleringsmetod,gold,N,GF
+GF1319,software architecture,mjukvaruarkitektur,gold,N,GF
+GF1320,software deployment,mjukvaruimplementering,gold,N,GF
+GF1321,software development assignment,mjukvaruutvecklingsuppgift,gold,N,GF
+GF1322,software development process,mjukvaruutvecklingsprocess,gold,N,GF
+GF1323,software development project,mjukvaruutvecklingsprojekt,gold,N,GF
+GF1324,software development,mjukvaruutveckling,gold,N,GF
+GF1325,software engineer,mjukvaruingenjör,gold,N,GF
+GF1326,software system,mjukvarusystem,gold,N,GF
+GF1327,software technology,programvaruteknik,gold,N,GF
+GF1328,software tool,programmeringsverktyg,gold,N,GF
+GF1334,sorting algorithm,sorteringsalgoritm,gold,N,GF
+GF1335,sound card,ljudkort,gold,N,GF
+GF1338,source code,källkod,gold,N,GF
+GF1349,speech recognition,taligenkänning,gold,N,GF
+GF1355,standard algorithm,standardalgoritm,gold,N,GF
+GF1356,standard class,standardklass,gold,N,GF
+GF1357,standard library,standardbibliotek,gold,N,GF
+GF1364,static memory,statiskt minne,gold,N,GF
+GF1369,storage techniques,lagringsteknik,gold,N,GF
+GF1404,synchronization error,synkroniseringsfel,gold,N,GF
+GF1406,syntax analysis,syntaxanalys,gold,N,GF
+GF1408,system requirement,systemkrav,gold,N,GF
+GF1409,system specification,systemspecifikation,gold,N,GF
+GF1410,system verification,systemverifiering,gold,N,GF
+GF1415,tape drive,bandstation,gold,N,GF
+GF1438,text editor,textredigerare,gold,N,GF
+GF1446,time complexity,tidskomplexitet,gold,N,GF
+GF1472,truth value,sanningsvärde,gold,N,GF
+GF1478,unauthorized access,obehörig åtkomst,gold,N,GF
+GF1487,unique key,databasnyckel,gold,N,GF
+GF1494,use case,användningsfall,gold,N,GF
+GF1496,user agent,användaragent,gold,N,GF
+GF1497,user experience,användarupplevelse,gold,N,GF
+GF1498,user group,användargrupp,gold,N,GF
+GF1499,user interface,användargränssnitt,gold,N,GF
+GF1500,user test,användartest,gold,N,GF
+GF1514,version control system,versionshanteringssystem,gold,N,GF
+GF1515,version control,versionshantering,gold,N,GF
+GF1517,video card,grafikkort,gold,N,GF
+GF1520,virtual private network,virtuellt privat nätverk,gold,N,GF
+GF1531,waterfall model,vattenfallsmodell,gold,N,GF
+GF1544,word processor,ordbehandlare,gold,N,GF
