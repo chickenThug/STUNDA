@@ -76,3 +76,36 @@ GF1537,website,webbsida,silver,N,GF,swe
 GF1539,while-loop,while-loop,silver,N,GF,both
 GF1540,while-statement,while-sats,silver,N,GF,both
 GF1541,whitelist,vitlista,silver,N,GF,eng
+GF47,agile software development,agil mjukvaruutveckling,silver,N,GF,swe
+GF94,assembly code,assemblykod,silver,N,GF,swe
+GF95,assembly programming,assemblerprogrammering,silver,N,GF,swe
+GF167,boolean data type,boolesk datatyp,silver,N,GF,swe
+GF188,cache memory,cacheminne,silver,N,GF,swe
+GF258,command-line interpreter,kommandotolk,silver,N,GF,eng
+GF291,computability theory,beräkningsteori,silver,N,GF,eng
+GF399,cyber security,cybersäkerhet,silver,N,GF,eng
+GF420,database administator,databasadministratör,silver,N,GF,eng
+GF499,domain-specific language,domänspecifikt språk,silver,N,GF,eng
+GF624,flash memory,flashminne,silver,N,GF,swe
+GF709,hash function,hashfunktion,silver,N,GF,swe
+GF710,hash table,hashtabell,silver,N,GF,swe
+GF730,human-computer interation,människa-datorinteraktion,silver,N,GF,eng
+GF747,implementation problem,implementationsproblem,silver,N,GF,swe
+GF794,inter-process communication,interprocesskommunikation,silver,N,GF,eng
+GF871,linear search,linjärsökning,silver,N,GF,swe
+GF882,litterature study,litteraturstudie,silver,N,GF,eng
+GF927,mathematical modelling,matematiskmodellering,silver,N,GF,swe
+GF956,microarchitecture level,mikroarkitekturnivå,silver,N,GF,eng
+GF988,multi-core processor,flerkärnig processor,silver,N,GF,eng
+GF1009,neural network,neuralt nätverk,silver,N,GF,swe
+GF1025,object-oriented program,objektorienterat program,silver,N,GF,eng
+GF1166,propositional logic,satslogik,silver,N,GF,eng
+GF1251,routing protocol,routingprotokoll,silver,N,GF,swe
+GF1255,runtime error,exekveringsfel,silver,N,GF,eng
+GF1273,scripting language,skriptspråk,silver,N,GF,swe
+GF1365,static random-access memory,statiskt minne,silver,N,GF,eng
+GF1474,two-factor authentication,tvåfaktorautentisering,silver,N,GF,eng
+GF1532,web application,webbapplikation,silver,N,GF,swe
+GF1533,web browser,webbläsare,silver,N,GF,swe
+GF1534,web page,webbsida,silver,N,GF,swe
+GF1535,web server,webbserver,silver,N,GF,swe
