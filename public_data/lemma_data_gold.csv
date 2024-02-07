@@ -226,8 +226,6 @@ GF279,complete, avsluta,gold,V,GF
 GF280,completion,komplettering,gold,N,GF
 GF281,complex,komplex,gold,A,GF
 GF282,complex,komplex,gold,N,GF
-GF281,complex,komplex,gold,A,GF
-GF282,complex,komplex,gold,N,GF
 GF284,complexity,komplexitet,gold,N,GF
 GF285,component,tillhörande,gold,A,GF
 GF286,component,komponent,gold,N,GF
@@ -259,8 +257,6 @@ GF338,connector,kopplingsdon,gold,N,GF
 GF339,conquer, erövra,gold,V,GF
 GF340,consistent,konsekvent,gold,A,GF
 GF341,console,konsol,gold,N,GF
-GF342,constant,konstant,gold,A,GF
-GF343,constant,konstant,gold,N,GF
 GF342,constant,konstant,gold,A,GF
 GF343,constant,konstant,gold,N,GF
 GF344,constrain, begränsa,gold,V,GF
@@ -463,8 +459,6 @@ GF592,extend, utöka,gold,V,GF
 GF593,extension,förlängning,gold,N,GF
 GF594,exterior,yttre,gold,A,GF
 GF595,exterior,yttre,gold,N,GF
-GF594,exterior,yttre,gold,A,GF
-GF595,exterior,yttre,gold,N,GF
 GF596,external,extern,gold,A,GF
 GF597,extract, extrahera,gold,V,GF
 GF598,extract,utdrag,gold,N,GF
@@ -514,8 +508,6 @@ GF652,function, fungera,gold,V,GF
 GF653,function,funktion,gold,N,GF
 GF654,functional,funktionell,gold,A,GF
 GF656,functionality,funktionalitet,gold,N,GF
-GF657,fundamental,fundamental,gold,A,GF
-GF658,fundamental,fundamental,gold,N,GF
 GF657,fundamental,fundamental,gold,A,GF
 GF658,fundamental,fundamental,gold,N,GF
 GF659,future,framtida,gold,A,GF
@@ -835,8 +827,6 @@ GF1059,panel,panel,gold,N,GF
 GF1060,paradigm,paradigm,gold,N,GF
 GF1061,parallel,parallell,gold,A,GF
 GF1063,parallel,parallell,gold,N,GF
-GF1061,parallel,parallell,gold,A,GF
-GF1063,parallel,parallell,gold,N,GF
 GF1066,parameter,parameter,gold,N,GF
 GF1067,parse, parsa,gold,V,GF
 GF1068,parser,parser,gold,N,GF
@@ -1117,8 +1107,6 @@ GF1428,template,mall,gold,N,GF
 GF1429,temporal,temporal,gold,A,GF
 GF1430,terabyte,terabyte,gold,N,GF
 GF1431,term,term,gold,N,GF
-GF1432,terminal,terminal,gold,A,GF
-GF1433,terminal,terminal,gold,N,GF
 GF1432,terminal,terminal,gold,A,GF
 GF1433,terminal,terminal,gold,N,GF
 GF1435,terminology,terminologi,gold,N,GF
