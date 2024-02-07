@@ -4,7 +4,6 @@ ICT22,ability,förmåga,silver,N?,ICT
 ICT23,absence,frånvaro,silver,N?,ICT
 ICT25,abstract,abstrakt,silver,N?,ICT
 ICT28,abstraction,abstraktion,silver,N?,ICT
-ICT30,accelerometer,accelerometern,silver,N?,ICT
 ICT38,accompanied,åtföljd,silver,N?,ICT
 ICT39,according,enligt,silver,N?,ICT
 ICT41,accounting,redovisning,silver,N?,ICT
@@ -19,7 +18,6 @@ ACM1299,aerospace,rymdfart,silver,N?,ACM
 ICT81,affordable,prisvärd,silver,N?,ICT
 ICT82,again,igen,silver,N?,ICT
 ICT90,aggressive,aggressiv,silver,N?,ICT
-ICT88,agile,agila,silver,N?,ICT
 ICT91,agile,vig,silver,N?,ICT
 ICT93,aiming,siktar,silver,N?,ICT
 ICT94,airports,flygplatser,silver,N?,ICT
@@ -46,7 +44,6 @@ ACM1250,animation,animering,silver,N?,ACM
 ICT142,annual,årlig,silver,N?,ICT
 ICT143,anonymous,anonym,silver,N?,ICT
 ICT147,anticipated,förväntad,silver,N?,ICT
-ICT148,aperiodic,aperiodisk,silver,N?,ICT
 ICT149,apparatus,apparat,silver,N?,ICT
 ACM1143,applications,tillämpningar,silver,N?,ACM
 ACM1202,applications,tillämpningar,silver,N?,ACM
@@ -77,7 +74,6 @@ ICT211,auditing,revision,silver,N?,ICT
 ICT213,augmented,förstärkt,silver,N?,ICT
 ACM1439,authentication,autentisering,silver,N?,ACM
 ACM506,authentication,autentisering,silver,N?,ACM
-ICT217,authenticator,verifieraren,silver,N?,ICT
 ICT218,authenticity,äkthet,silver,N?,ICT
 ICT219,authorization,tillstånd,silver,N?,ICT
 ICT223,automate,automatisering,silver,N?,ICT
@@ -110,7 +106,6 @@ ICT288,bibliography,bibliografi,silver,N?,ICT
 ICT290,billing,fakturering,silver,N?,ICT
 ICT292,binary,binär,silver,N?,ICT
 ICT295,biomedical,biomedicinska,silver,N?,ICT
-ICT304,blog,blogg,silver,N?,ICT
 ICT305,blood,blod,silver,N?,ICT
 ICT310,boosters,förstärkare,silver,N?,ICT
 ICT311,bootstrap,programladda,silver,N?,ICT
@@ -125,7 +120,6 @@ ICT328,bring,föra,silver,N?,ICT
 ICT330,broad,bred,silver,N?,ICT
 ICT331,broadband,bredband,silver,N?,ICT
 ICT338,broker,mäklare,silver,N?,ICT
-ICT340,browser,webbläsare,silver,N?,ICT
 ICT345,bugs,buggar,silver,N?,ICT
 ICT347,built,byggd,silver,N?,ICT
 ICT349,bunches,klasar,silver,N?,ICT
@@ -160,7 +154,6 @@ ICT455,circumstances,omständigheter,silver,N?,ICT
 ICT456,citation,citering,silver,N?,ICT
 ICT457,cities,städer,silver,N?,ICT
 ICT473,clone,klon,silver,N?,ICT
-ACM880,clustering,klustring,silver,N?,ACM
 ICT490,coexistence,samexistens,silver,N?,ICT
 ICT491,coffee,kaffe,silver,N?,ICT
 ICT492,cognition,kognition,silver,N?,ICT
@@ -247,11 +240,9 @@ ICT738,data,data,silver,N?,ICT
 ACM471,deadlocks,dödlägen,silver,N?,ACM
 ICT764,debacle,debacle,silver,N?,ICT
 ICT765,debiting,debitering,silver,N?,ICT
-ACM456,debuggers,avlusare,silver,N?,ACM
 ICT767,decayed,skämda,silver,N?,ICT
 ICT769,decimal,decimal,silver,N?,ICT
 ICT772,decision,beslutet,silver,N?,ICT
-ICT776,decrements,dekrement,silver,N?,ICT
 ICT778,dedicated,dedicerad,silver,N?,ICT
 ICT779,deeper,djupare,silver,N?,ICT
 ICT780,default,standard,silver,N?,ICT
@@ -293,7 +284,6 @@ ACM1254,distributed,distribuerad,silver,N?,ACM
 ACM371,distribution,distribution,silver,N?,ACM
 ACM373,documentation,dokumentation,silver,N?,ACM
 ICT913,doing,gör,silver,N?,ICT
-ICT922,dongles,donglar,silver,N?,ICT
 ICT923,donor,donator,silver,N?,ICT
 ICT926,doubled,fördubblats,silver,N?,ICT
 ICT931,drain,dränera,silver,N?,ICT
@@ -322,7 +312,6 @@ ICT1011,emphasis,tonvikt,silver,N?,ICT
 ICT1012,employed,anställd,silver,N?,ICT
 ACM1382,employment,sysselsättning,silver,N?,ACM
 ACM1387,employment,sysselsättning,silver,N?,ACM
-ICT1016,emulator,emulator,silver,N?,ICT
 ICT1026,encryption,kryptering,silver,N?,ICT
 ICT1032,energy,energi,silver,N?,ICT
 ICT1046,enforcement,verkställighet,silver,N?,ICT
@@ -345,7 +334,6 @@ ACM1129,ergonomics,ergonomi,silver,N?,ACM
 ICT1086,ergonomics,ergonomi,silver,N?,ICT
 ACM1372,ethics,etik,silver,N?,ACM
 ICT1097,ethics,etik,silver,N?,ICT
-ICT1099,europe,europa,silver,N?,ICT
 ICT1100,european,europeiska,silver,N?,ICT
 ICT1108,everywhere,överallt,silver,N?,ICT
 ICT1109,evolution,evolutionen,silver,N?,ICT
@@ -365,7 +353,6 @@ ICT1151,external,extern,silver,N?,ICT
 ICT1155,extremely,extremt,silver,N?,ICT
 ICT1157,faced,inför,silver,N?,ICT
 ICT1160,facility,anläggning,silver,N?,ICT
-ICT1161,factoid,faktoid,silver,N?,ICT
 ICT1162,factor,faktor,silver,N?,ICT
 ICT1163,faculty,fakultet,silver,N?,ICT
 ICT1164,fading,blekning,silver,N?,ICT
@@ -396,7 +383,6 @@ ICT1247,forecast,prognos,silver,N?,ICT
 ICT1253,formally,formellt,silver,N?,ICT
 ICT1256,forthcoming,kommande,silver,N?,ICT
 ICT1257,forum,forum,silver,N?,ICT
-ACM1137,fractals,fraktaler,silver,N?,ACM
 ACM445,frameworks,ramar,silver,N?,ACM
 ICT1268,franchising,franchising,silver,N?,ICT
 ICT1269,fraud,bedrägeri,silver,N?,ICT
@@ -465,7 +451,6 @@ ICT1329,geography,geografi,silver,N?,ICT
 ICT1331,geologic,geologiska,silver,N?,ICT
 ICT1332,geometric,geometrisk,silver,N?,ICT
 ACM1215,geometric,geometriska,silver,N?,ACM
-ICT1334,geostationary,geostationary,silver,N?,ICT
 ICT1336,gestures,gester,silver,N?,ICT
 ICT1337,getting,få,silver,N?,ICT
 ICT1340,glasses,glasögon,silver,N?,ICT
@@ -501,7 +486,6 @@ ICT1418,heart,hjärta,silver,N?,ICT
 ICT1420,heavy,tung,silver,N?,ICT
 ICT1421,height,höjd,silver,N?,ICT
 ICT1423,help,hjälpa,silver,N?,ICT
-ICT1429,hexadecimal,hexadecimalt,silver,N?,ICT
 ACM1204,hierarchical,hierarkisk,silver,N?,ACM
 ICT1447,hijacking,kapning,silver,N?,ICT
 ICT1449,hogging,svampsugna,silver,N?,ICT
@@ -564,8 +548,6 @@ ICT1626,interleaving,interfoliering,silver,N?,ICT
 ICT1629,international,internationell,silver,N?,ICT
 ACM404,interoperability,interoperabilitet,silver,N?,ACM
 ICT1638,interoperability,interoperabilitet,silver,N?,ICT
-ICT1641,interplanetary,interplaneta,silver,N?,ICT
-ACM458,interpreters,interpretatorer,silver,N?,ACM
 ICT1643,interrogating,förhöra,silver,N?,ICT
 ICT1645,interval,intervall,silver,N?,ICT
 ICT1646,intervention,ingripande,silver,N?,ICT
@@ -631,7 +613,6 @@ ICT1817,logistics,logistik,silver,N?,ICT
 ICT1822,longitude,longitud,silver,N?,ICT
 ICT1829,lost,förlorat,silver,N?,ICT
 ICT1839,lower,lägre,silver,N?,ICT
-ICT1845,macro,makro,silver,N?,ICT
 ICT1851,magnetite,magnetit,silver,N?,ICT
 ICT1852,magnitude,magnitud,silver,N?,ICT
 ICT1854,mailbox,brevlåda,silver,N?,ICT
@@ -742,7 +723,6 @@ ACM1205,morphological,morfologisk,silver,N?,ACM
 ACM1073,motion,rörelse,silver,N?,ACM
 ACM1191,motion,rörelse,silver,N?,ACM
 ICT2041,mounted,monterad,silver,N?,ICT
-ICT2057,multimedia,mulitmedia,silver,N?,ICT
 ICT2069,multiple,multipel,silver,N?,ICT
 ICT2088,museums,museer,silver,N?,ICT
 ICT2089,music,musik,silver,N?,ICT
@@ -810,7 +790,6 @@ ACM43,parallel,parallella,silver,N?,ACM
 ICT2346,parentheses,parenteser,silver,N?,ICT
 ICT2347,parity,paritet,silver,N?,ICT
 ICT2349,parsing,pars,silver,N?,ICT
-ACM461,parsing,parsning,silver,N?,ACM
 ICT2361,partnering,samverkan,silver,N?,ICT
 ICT2367,passive,passiv,silver,N?,ICT
 ICT2368,patches,plåster,silver,N?,ICT
@@ -832,10 +811,8 @@ ACM1307,physics,fysik,silver,N?,ACM
 ICT2428,physiological,fysiologisk,silver,N?,ICT
 ICT2429,picking,plocka,silver,N?,ICT
 ICT2434,pictures,bilder,silver,N?,ICT
-ICT2437,pioneer,pioneer,silver,N?,ICT
 ACM44,pipeline,pipeline,silver,N?,ACM
 ICT2438,pipeline,rörledning,silver,N?,ICT
-ICT2440,pixels,pixlar,silver,N?,ICT
 ICT2442,plain,enkel,silver,N?,ICT
 ICT2445,planet,planeten,silver,N?,ICT
 ICT2448,plant,växt,silver,N?,ICT
@@ -847,14 +824,11 @@ ICT2460,poetry,poesi,silver,N?,ICT
 ICT2467,poles,poler,silver,N?,ICT
 ICT2468,police,polis,silver,N?,ICT
 ICT2471,political,politisk,silver,N?,ICT
-ACM450,polymorphism,polymorfism,silver,N?,ACM
-ICT2473,pooled,poolade,silver,N?,ICT
 ICT2475,popular,populär,silver,N?,ICT
 ICT2476,population,befolkning,silver,N?,ICT
 ACM376,portability,portabilitet,silver,N?,ACM
 ICT2482,ported,portas,silver,N?,ICT
 ICT2485,position,position,silver,N?,ICT
-ICT2487,positioning,positionering,silver,N?,ICT
 ICT2490,postage,porto,silver,N?,ICT
 ICT2491,poster,affisch,silver,N?,ICT
 ICT2500,powerful,kraftfull,silver,N?,ICT
@@ -873,7 +847,6 @@ ICT2552,prior,före,silver,N?,ICT
 ICT2554,privacy,integritet,silver,N?,ICT
 ICT2556,private,privat,silver,N?,ICT
 ICT2558,proactive,proaktiv,silver,N?,ICT
-ICT2559,probabilistic,probabilistiska,silver,N?,ICT
 ICT2562,probably,förmodligen,silver,N?,ICT
 ACM451,procedures,procedurer,silver,N?,ACM
 ICT2568,proceed,fortsätt,silver,N?,ICT
@@ -891,7 +864,6 @@ ICT2599,promise,löfte,silver,N?,ICT
 ICT2601,prompt,prompt,silver,N?,ICT
 ICT2602,proof,bevis,silver,N?,ICT
 ICT2605,properties,fastigheter,silver,N?,ICT
-ICT2609,proprietary,proprietära,silver,N?,ICT
 ICT2614,prototype,prototyp,silver,N?,ICT
 ICT2617,proved,bevisade,silver,N?,ICT
 ICT2619,provisional,provisorisk,silver,N?,ICT
@@ -933,7 +905,6 @@ ICT2723,reciprocal,ömsesidig,silver,N?,ICT
 ACM1172,reconstruction,rekonstruktion,silver,N?,ACM
 ACM541,records,poster,silver,N?,ACM
 ICT2731,rectangular,rektangulär,silver,N?,ICT
-ACM452,recursion,rekursion,silver,N?,ACM
 ICT2732,recycling,återvinning,silver,N?,ICT
 ICT2734,redefinition,omdefiniering,silver,N?,ICT
 ICT2743,refine,förfina,silver,N?,ICT
@@ -978,14 +949,10 @@ ICT2844,restricted,begränsad,silver,N?,ICT
 ICT2846,resume,återuppta,silver,N?,ICT
 ICT2858,revert,återgå,silver,N?,ICT
 ICT2875,roadside,vägkanten,silver,N?,ICT
-ICT2876,roaming,roaming,silver,N?,ICT
-ACM1059,robotics,robotik,silver,N?,ACM
 ICT2878,robustness,robusthet,silver,N?,ICT
 ICT2879,role,roll,silver,N?,ICT
 ICT2881,rotation,vridning,silver,N?,ICT
 ICT2883,roughness,ytråhet,silver,N?,ICT
-ACM270,routers,routrar,silver,N?,ACM
-ICT2890,routing,routning,silver,N?,ICT
 ICT2896,rural,landsbygd,silver,N?,ICT
 ICT2899,safety,säkerhet,silver,N?,ICT
 ICT2900,sales,försäljning,silver,N?,ICT
@@ -1000,7 +967,6 @@ ICT2924,scattered,spridda,silver,N?,ICT
 ACM1058,scheduling,schemaläggning,silver,N?,ACM
 ACM474,scheduling,schemaläggning,silver,N?,ACM
 ICT2941,screenplay,filmmanus,silver,N?,ICT
-ICT2944,scrum,scrum,silver,N?,ICT
 ICT2949,secondary,sekundär,silver,N?,ICT
 ICT2952,section,sektion,silver,N?,ICT
 ACM1395,security,säkerhet,silver,N?,ACM
@@ -1018,10 +984,8 @@ ICT2996,seminar,seminarium,silver,N?,ICT
 ACM1066,sensors,sensorer,silver,N?,ACM
 ICT3008,separable,separerbar,silver,N?,ICT
 ICT3012,serial,seriell,silver,N?,ICT
-ICT3016,serialization,serialisering,silver,N?,ICT
 ICT3017,series,serie,silver,N?,ICT
 ICT3018,serious,allvarlig,silver,N?,ICT
-ACM297,servers,servrar,silver,N?,ACM
 ICT3046,settlements,settlement,silver,N?,ICT
 ICT3022,several,flera,silver,N?,ICT
 ACM1196,shading,skuggning,silver,N?,ACM
@@ -1040,7 +1004,6 @@ ICT3065,short,kort,silver,N?,ICT
 ICT3070,shown,visas,silver,N?,ICT
 ICT3071,shutdown,avstängning,silver,N?,ICT
 ICT3074,sight,syn,silver,N?,ICT
-ICT3075,sigmoid,sigmoid,silver,N?,ICT
 ICT3080,signaling,signalering,silver,N?,ICT
 ICT3086,silence,tystnad,silver,N?,ICT
 ICT3087,silent,tyst,silver,N?,ICT
@@ -1153,7 +1116,6 @@ ACM475,synchronization,synkronisering,silver,N?,ACM
 ICT3333,synchronization,synkronisering,silver,N?,ICT
 ICT3336,synchronous,synkrona,silver,N?,ICT
 ACM420,syntax,syntax,silver,N?,ACM
-ICT3339,synthesizer,syntetiserare,silver,N?,ICT
 ACM1348,systems,system,silver,N?,ACM
 ACM841,systems,system,silver,N?,ACM
 ICT3364,taught,lärt,silver,N?,ICT
@@ -1224,7 +1186,6 @@ ICT3561,ultimate,ultimata,silver,N?,ICT
 ICT3563,ultrasound,ultraljud,silver,N?,ICT
 ICT3566,unable,oförmögen,silver,N?,ICT
 ICT3567,unacceptable,oacceptabelt,silver,N?,ICT
-ICT3568,unassigned,otilldelad,silver,N?,ICT
 ICT3569,unattended,obevakad,silver,N?,ICT
 ICT3572,uncertain,osäkert,silver,N?,ICT
 ICT3573,unconditional,ovillkorlig,silver,N?,ICT
@@ -1237,13 +1198,11 @@ ICT3581,unified,enhetlig,silver,N?,ICT
 ICT3586,union,union,silver,N?,ICT
 ICT3590,universal,universell,silver,N?,ICT
 ICT3597,unknown,okänd,silver,N?,ICT
-ICT3599,unlicensed,olicensierad,silver,N?,ICT
 ICT3601,unlimited,obegränsad,silver,N?,ICT
 ICT3602,unload,lasta,silver,N?,ICT
 ICT3603,unnumbered,onumrerade,silver,N?,ICT
 ICT3605,unstructured,ostrukturerad,silver,N?,ICT
 ICT3606,unsuited,olämpliga,silver,N?,ICT
-ICT3607,unsynchronized,osynkroniserad,silver,N?,ICT
 ICT3609,unused,oanvänd,silver,N?,ICT
 ICT3611,unwired,trådlös,silver,N?,ICT
 ICT3612,upcoming,kommande,silver,N?,ICT
@@ -1260,7 +1219,6 @@ ICT3660,variance,varians,silver,N?,ICT
 ICT3663,variety,mängd,silver,N?,ICT
 ICT3665,varying,varierande,silver,N?,ICT
 ICT3666,vector,vektor,silver,N?,ICT
-ICT3670,vending,varu,silver,N?,ICT
 ACM127,verification,verifiering,silver,N?,ACM
 ACM157,verification,verifiering,silver,N?,ACM
 ACM175,verification,verifiering,silver,N?,ACM
@@ -1280,7 +1238,6 @@ ICT3710,voice,röst,silver,N?,ICT
 ICT3717,voicemail,röstmeddelande,silver,N?,ICT
 ICT3720,volcano,vulkan,silver,N?,ICT
 ICT3721,voltage,spänning,silver,N?,ICT
-ACM1208,volumetric,volymetrisk,silver,N?,ACM
 ICT3727,vulnerability,sårbarhet,silver,N?,ICT
 ICT3731,wakes,vaknar,silver,N?,ICT
 ICT3733,walking,gång,silver,N?,ICT
@@ -1290,8 +1247,6 @@ ICT3737,watchdog,övervaknings,silver,N?,ICT
 ICT3738,water,vatten,silver,N?,ICT
 ICT3743,weaker,svagare,silver,N?,ICT
 ICT3745,weather,väder,silver,N?,ICT
-ICT3746,web,webb,silver,N?,ICT
-ICT3761,website,webbsida,silver,N?,ICT
 ICT3764,welcome,välkommen,silver,N?,ICT
 ICT3765,well,väl,silver,N?,ICT
 ICT3770,white,vit,silver,N?,ICT
