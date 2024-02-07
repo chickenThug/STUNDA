@@ -2,23 +2,23 @@ id,eng_lemma,swe_lemma,status,pos,src
 GF1,abstract,abstrakt,gold,A,GF
 GF4,abstract,utdrag,gold,N,GF
 GF5,abstraction,abstraktion,gold,N,GF
-GF6,accelerate, accelerera,gold,V,GF
+GF6,accelerate,accelerera,gold,V,GF
 GF7,acceleration,acceleration,gold,N,GF
 GF8,accelerator,accelerator,gold,N,GF
-GF9,accept, acceptera,gold,V,GF
+GF9,accept,acceptera,gold,V,GF
 GF10,acceptance,godkännande,gold,N,GF
 GF12,access,åtkomst,gold,N,GF
 GF13,accessibility,tillgänglighet,gold,N,GF
-GF14,accompany, medfölja,gold,V,GF
+GF14,accompany,medfölja,gold,V,GF
 GF15,account,konto,gold,N,GF
 GF17,accumulator,ackumulator,gold,N,GF
 GF18,accuracy,noggrannhet,gold,N,GF
-GF19,achieve, uppnå,gold,V,GF
-GF20,acknowledge, erkänna,gold,V,GF
+GF19,achieve,uppnå,gold,V,GF
+GF20,acknowledge,erkänna,gold,V,GF
 GF21,acoustic,akustisk,gold,A,GF
 GF22,acoustic,akustik,gold,N,GF
 GF23,acronym,akronym,gold,N,GF
-GF24,act, agera,gold,V,GF
+GF24,act,agera,gold,V,GF
 GF25,act,handling,gold,N,GF
 GF26,action,handling,gold,N,GF
 GF27,activation,aktivering,gold,N,GF
@@ -29,18 +29,18 @@ GF31,adaptation,anpassning,gold,N,GF
 GF32,adapter,adapter,gold,N,GF
 GF33,adaptive,adaptiv,gold,A,GF
 GF34,additional,ytterligare,gold,A,GF
-GF36,address, adressera,gold,V,GF
+GF36,address,adressera,gold,V,GF
 GF37,address,adress,gold,N,GF
 GF38,administrative,administrativ,gold,A,GF
-GF40,advance, avancera,gold,V,GF
+GF40,advance,avancera,gold,V,GF
 GF41,advance,framsteg,gold,N,GF
-GF42,affect, påverka,gold,V,GF
+GF42,affect,påverka,gold,V,GF
 GF43,agency,byrå,gold,N,GF
 GF44,agent,agent,gold,N,GF
 GF45,aggregation,aggregation,gold,N,GF
 GF48,agreement,avtal,gold,N,GF
-GF49,aid, hjälpa,gold,V,GF
-GF50,aim, syfta,gold,V,GF
+GF49,aid,hjälpa,gold,V,GF
+GF50,aim,syfta,gold,V,GF
 GF51,aim,syfte,gold,N,GF
 GF52,airflow,luftflöde,gold,N,GF
 GF53,algebra,algebra,gold,N,GF
@@ -49,10 +49,10 @@ GF58,algorithm,algoritm,gold,N,GF
 GF59,algorithmic,algoritmisk,gold,A,GF
 GF60,alliance,förbund,gold,N,GF
 GF61,allocation,fördelning,gold,N,GF
-GF62,allow, låta,gold,V,GF
-GF63,alternate, växla,gold,V,GF
+GF62,allow,låta,gold,V,GF
+GF63,alternate,växla,gold,V,GF
 GF64,amplitude,amplitud,gold,N,GF
-GF65,analyse, analysera,gold,V,GF
+GF65,analyse,analysera,gold,V,GF
 GF66,analysis,analys,gold,N,GF
 GF67,analytical,analytisk,gold,A,GF
 GF68,anisotropic,anisotrop,gold,A,GF
@@ -61,43 +61,43 @@ GF70,antenna,antenn,gold,N,GF
 GF71,antibiotic,antibiotikum,gold,N,GF
 GF73,appliance,tillämpning,gold,N,GF
 GF75,application,applikation,gold,N,GF
-GF77,apply, applicera,gold,V,GF
-GF78,appropriate, bestämma,gold,V,GF
-GF79,approximate, approximera,gold,V,GF
+GF77,apply,applicera,gold,V,GF
+GF78,appropriate,bestämma,gold,V,GF
+GF79,approximate,approximera,gold,V,GF
 GF80,approximation,approximation,gold,N,GF
 GF81,architect,arkitekt,gold,N,GF
 GF83,architecture,arkitektur,gold,N,GF
-GF84,argue, argumentera,gold,V,GF
+GF84,argue,argumentera,gold,V,GF
 GF85,argument,argument,gold,N,GF
 GF86,arithmetic,aritmetik,gold,N,GF
 GF87,array,fält,gold,N,GF
 GF88,arrival,ankomst,gold,N,GF
 GF89,article,artikel,gold,N,GF
-GF90,articulate, artikulera,gold,V,GF
+GF90,articulate,artikulera,gold,V,GF
 GF91,artificial,artificiell,gold,A,GF
 GF93,aspect,aspekt,gold,N,GF
-GF97,assess, bedöma,gold,V,GF
+GF97,assess,bedöma,gold,V,GF
 GF98,assessment,bedömning,gold,N,GF
-GF99,assign, tilldela,gold,V,GF
+GF99,assign,tilldela,gold,V,GF
 GF100,assignment,inlämningsuppgift,gold,N,GF
-GF101,assist, hjälpa,gold,V,GF
+GF101,assist,hjälpa,gold,V,GF
 GF102,assistant,assistent,gold,N,GF
-GF103,associate, associera,gold,V,GF
+GF103,associate,associera,gold,V,GF
 GF104,association,samband,gold,N,GF
 GF105,associative,associativ,gold,A,GF
-GF106,assume, anta,gold,V,GF
+GF106,assume,anta,gold,V,GF
 GF107,asymmetric,asymmetrisk,gold,A,GF
 GF108,asymptotic,asymptotisk,gold,A,GF
 GF109,asynchronous,asynkron,gold,A,GF
 GF110,attachment,bilaga,gold,N,GF
-GF112,attack, angripa,gold,V,GF
+GF112,attack,angripa,gold,V,GF
 GF113,attack,attack,gold,N,GF
 GF114,attenuation,försvagning,gold,N,GF
 GF115,attribute,attribut,gold,N,GF
 GF116,audio,ljud,gold,N,GF
 GF117,authentication,autentisering,gold,N,GF
 GF119,authority,myndighet,gold,N,GF
-GF121,automate, automatisera,gold,V,GF
+GF121,automate,automatisera,gold,V,GF
 GF122,automated,automatiserad,gold,A,GF
 GF123,automation,automatisering,gold,N,GF
 GF124,automaton,automat,gold,N,GF
@@ -109,58 +109,58 @@ GF129,average,genomsnitt,gold,N,GF
 GF130,axial,axial,gold,A,GF
 GF131,bachelor,kandidat,gold,N,GF
 GF132,background,bakgrund,gold,N,GF
-GF133,balance, balansera,gold,V,GF
+GF133,balance,balansera,gold,V,GF
 GF134,bandwidth,bandbredd,gold,N,GF
-GF135,base, basera,gold,V,GF
+GF135,base,basera,gold,V,GF
 GF136,basic,grundläggande,gold,A,GF
 GF138,basic,grund,gold,N,GF
 GF140,baud,baud,gold,N,GF
-GF141,begin, börja,gold,V,GF
+GF141,begin,börja,gold,V,GF
 GF142,behavior,beteende,gold,N,GF
 GF143,behaviour,beteende,gold,N,GF
 GF144,benchmark,riktvärde,gold,N,GF
 GF145,bidirectional,dubbelriktad,gold,A,GF
 GF147,binary,binär,gold,A,GF
-GF152,bind, binda,gold,V,GF
+GF152,bind,binda,gold,V,GF
 GF154,biology,biologi,gold,N,GF
 GF156,bipolar,bipolär,gold,A,GF
 GF158,bit,bit,gold,N,GF
 GF160,blacklist,svartlista,gold,N,GF
-GF161,block, hindra,gold,V,GF
+GF161,block,hindra,gold,V,GF
 GF162,block,block,gold,N,GF
 GF163,blueprint,blåkopia,gold,N,GF
-GF165,book, boka,gold,V,GF
-GF168,boot, ladda,gold,V,GF
-GF169,border, gränsa,gold,V,GF
+GF165,book,boka,gold,V,GF
+GF168,boot,ladda,gold,V,GF
+GF169,border,gränsa,gold,V,GF
 GF170,border,gräns,gold,N,GF
 GF171,bot,bot,gold,N,GF
 GF172,bottleneck,flaskhals,gold,N,GF
-GF173,bound, gränsa,gold,V,GF
+GF173,bound,gränsa,gold,V,GF
 GF174,boundary,gräns,gold,N,GF
-GF175,branch, grena,gold,V,GF
+GF175,branch,grena,gold,V,GF
 GF176,branch,gren,gold,N,GF
 GF177,breadth,bredd,gold,N,GF
 GF178,bridge,brygga,gold,N,GF
 GF179,broker,agent,gold,N,GF
 GF180,bug,bugg,gold,N,GF
-GF181,build, bygga,gold,V,GF
+GF181,build,bygga,gold,V,GF
 GF182,bulletin,rapport,gold,N,GF
 GF183,bus,buss,gold,N,GF
 GF185,business,företag,gold,N,GF
 GF186,byte,byte,gold,N,GF
 GF187,cable,kabel,gold,N,GF
-GF189,cache, gömma,gold,V,GF
+GF189,cache,gömma,gold,V,GF
 GF191,calculation,beräkning,gold,N,GF
 GF192,calculator,miniräknare,gold,N,GF
 GF193,calculus,analys,gold,N,GF
-GF194,call, anropa,gold,V,GF
-GF195,call, kalla,gold,V,GF
+GF194,call,anropa,gold,V,GF
+GF195,call,kalla,gold,V,GF
 GF196,call,krav,gold,N,GF
 GF197,camera,kamera,gold,N,GF
 GF198,capability,kompetens,gold,N,GF
 GF199,capacity,kapacitet,gold,N,GF
 GF200,capsule,kapsel,gold,N,GF
-GF202,capture, fånga,gold,V,GF
+GF202,capture,fånga,gold,V,GF
 GF204,card,kort,gold,N,GF
 GF205,carriage,vagn,gold,N,GF
 GF206,carrier,bärare,gold,N,GF
@@ -171,14 +171,14 @@ GF210,category,kategori,gold,N,GF
 GF211,cathode,katod,gold,N,GF
 GF212,cell,cell,gold,N,GF
 GF213,central,central,gold,N,GF
-GF214,challenge, utmana,gold,V,GF
+GF214,challenge,utmana,gold,V,GF
 GF215,challenge,utmaning,gold,N,GF
-GF216,change, ändra,gold,V,GF
+GF216,change,ändra,gold,V,GF
 GF217,channel,kanal,gold,N,GF
 GF218,character,karaktär,gold,N,GF
 GF219,characteristic,karaktäristisk,gold,A,GF
 GF220,chat,prat,gold,N,GF
-GF222,check, kontrollera,gold,V,GF
+GF222,check,kontrollera,gold,V,GF
 GF223,check,test,gold,N,GF
 GF225,cipher,chiffer,gold,N,GF
 GF227,circuit,krets,gold,N,GF
@@ -187,15 +187,15 @@ GF230,classification,klassificering,gold,N,GF
 GF231,classifier,klassificerare,gold,N,GF
 GF232,classless,klasslös,gold,A,GF
 GF233,classroom,klassrum,gold,N,GF
-GF234,click, klicka,gold,V,GF
+GF234,click,klicka,gold,V,GF
 GF235,client,klient,gold,N,GF
-GF236,clock, klocka,gold,V,GF
+GF236,clock,klocka,gold,V,GF
 GF237,clock,klocka,gold,N,GF
-GF238,close, stänga,gold,V,GF
+GF238,close,stänga,gold,V,GF
 GF239,closure,hölje,gold,N,GF
 GF241,cloud,moln,gold,N,GF
 GF242,cluster,kluster,gold,N,GF
-GF245,code, koda,gold,V,GF
+GF245,code,koda,gold,V,GF
 GF246,code,kod,gold,N,GF
 GF249,coherency,sammanhang,gold,N,GF
 GF250,collection,samling,gold,N,GF
@@ -204,14 +204,14 @@ GF252,colour,färg,gold,N,GF
 GF253,column,kolumn,gold,N,GF
 GF254,combinatorial,kombinatorisk,gold,A,GF
 GF255,comma,komma,gold,N,GF
-GF256,command, kräva,gold,V,GF
+GF256,command,kräva,gold,V,GF
 GF257,command,kommando,gold,N,GF
 GF259,comment,kommentar,gold,N,GF
 GF260,commercial,kommersiell,gold,A,GF
 GF261,commercial,reklamfilm,gold,N,GF
 GF262,commission,kommission,gold,N,GF
 GF263,common,vanlig,gold,A,GF
-GF264,communicate, kommunicera,gold,V,GF
+GF264,communicate,kommunicera,gold,V,GF
 GF266,communication,kommunikation,gold,N,GF
 GF268,community,grupp,gold,N,GF
 GF269,comparable,jämförbar,gold,A,GF
@@ -219,24 +219,24 @@ GF270,comparison,jämförelse,gold,N,GF
 GF271,compatibility,förenlighet,gold,N,GF
 GF272,compatible,kompatibel,gold,A,GF
 GF273,compilation,kompilering,gold,N,GF
-GF274,compile, kompilera,gold,V,GF
+GF274,compile,kompilera,gold,V,GF
 GF277,compiler,kompilator,gold,N,GF
-GF278,complement, komplettera,gold,V,GF
-GF279,complete, avsluta,gold,V,GF
+GF278,complement,komplettera,gold,V,GF
+GF279,complete,avsluta,gold,V,GF
 GF280,completion,komplettering,gold,N,GF
 GF281,complex,komplex,gold,A,GF
 GF282,complex,komplex,gold,N,GF
 GF284,complexity,komplexitet,gold,N,GF
 GF285,component,tillhörande,gold,A,GF
 GF286,component,komponent,gold,N,GF
-GF287,compose, komponera,gold,V,GF
+GF287,compose,komponera,gold,V,GF
 GF288,composition,komposition,gold,N,GF
-GF289,comprehend, begripa,gold,V,GF
+GF289,comprehend,begripa,gold,V,GF
 GF290,compulsory,obligatorisk,gold,A,GF
 GF292,computable,beräkningsbar,gold,A,GF
 GF293,computation,beräkning,gold,N,GF
 GF294,computational,beräkningsmässig,gold,A,GF
-GF298,compute, beräkna,gold,V,GF
+GF298,compute,beräkna,gold,V,GF
 GF318,computer,dator,gold,N,GF
 GF321,concept,koncept,gold,N,GF
 GF322,conceptual,begreppsmässig,gold,A,GF
@@ -251,17 +251,17 @@ GF331,configuration,konfiguration,gold,N,GF
 GF333,congestion,stockning,gold,N,GF
 GF334,congress,kongress,gold,N,GF
 GF335,conjunction,konjunktion,gold,N,GF
-GF336,connect, ansluta,gold,V,GF
+GF336,connect,ansluta,gold,V,GF
 GF337,connection,anslutning,gold,N,GF
 GF338,connector,kopplingsdon,gold,N,GF
-GF339,conquer, erövra,gold,V,GF
+GF339,conquer,erövra,gold,V,GF
 GF340,consistent,konsekvent,gold,A,GF
 GF341,console,konsol,gold,N,GF
 GF342,constant,konstant,gold,A,GF
 GF343,constant,konstant,gold,N,GF
-GF344,constrain, begränsa,gold,V,GF
+GF344,constrain,begränsa,gold,V,GF
 GF345,constraint,begränsning,gold,N,GF
-GF346,construct, konstruera,gold,V,GF
+GF346,construct,konstruera,gold,V,GF
 GF347,construction,konstruktion,gold,N,GF
 GF348,constructor,konstruktor,gold,N,GF
 GF349,consumer,konsument,gold,N,GF
@@ -272,17 +272,17 @@ GF355,continual,ständig,gold,A,GF
 GF356,continuation,fortsättning,gold,N,GF
 GF357,continuity,kontinuitet,gold,N,GF
 GF358,continuous,kontinuerlig,gold,A,GF
-GF363,control, kontrollera,gold,V,GF
+GF363,control,kontrollera,gold,V,GF
 GF364,control,kontroll,gold,N,GF
 GF365,controller,kontrollant,gold,N,GF
 GF366,convention,konvention,gold,N,GF
 GF367,convergence,konvergens,gold,N,GF
-GF368,convert, omvandla,gold,V,GF
+GF368,convert,omvandla,gold,V,GF
 GF369,converter,konverterare,gold,N,GF
 GF370,cooling,kylning,gold,N,GF
 GF371,cooperative,samverkande,gold,A,GF
-GF372,coordinate, samordna,gold,V,GF
-GF373,copy, kopiera,gold,V,GF
+GF372,coordinate,samordna,gold,V,GF
+GF373,copy,kopiera,gold,V,GF
 GF374,copyright,upphovsrätt,gold,N,GF
 GF376,core,kärna,gold,N,GF
 GF377,corporation,bolag,gold,N,GF
@@ -293,7 +293,7 @@ GF381,countermeasure,motåtgärd,gold,N,GF
 GF382,coupler,koppling,gold,N,GF
 GF384,course,kurs,gold,N,GF
 GF385,covariance,kovarians,gold,N,GF
-GF386,create, skapa,gold,V,GF
+GF386,create,skapa,gold,V,GF
 GF387,creativity,kreativitet,gold,N,GF
 GF388,cross,kors,gold,N,GF
 GF389,crosstalk,överhörning,gold,N,GF
@@ -303,7 +303,7 @@ GF392,cryptology,kryptologi,gold,N,GF
 GF393,crystal,kristall,gold,N,GF
 GF394,current,nuvarande,gold,A,GF
 GF395,current,ström,gold,N,GF
-GF396,curve, svänga,gold,V,GF
+GF396,curve,svänga,gold,V,GF
 GF397,curve,kurva,gold,N,GF
 GF398,customer,kund,gold,N,GF
 GF401,cybernetics,cybernetik,gold,N,GF
@@ -315,35 +315,35 @@ GF419,data,data,gold,N,GF
 GF421,database,databas,gold,N,GF
 GF422,day,dag,gold,N,GF
 GF423,death,död,gold,N,GF
-GF425,decide, bestämma,gold,V,GF
+GF425,decide,bestämma,gold,V,GF
 GF426,decimal,decimal,gold,N,GF
 GF427,declaration,deklaration,gold,N,GF
-GF428,declare, deklarera,gold,V,GF
-GF429,decompose, nedbryta,gold,V,GF
+GF428,declare,deklarera,gold,V,GF
+GF429,decompose,nedbryta,gold,V,GF
 GF430,default,standard,gold,N,GF
-GF431,define, definiera,gold,V,GF
+GF431,define,definiera,gold,V,GF
 GF432,definition,definition,gold,N,GF
 GF433,definitive,avgörande,gold,A,GF
 GF434,degree,examen,gold,N,GF
 GF435,delay,fördröjning,gold,N,GF
-GF436,delete, radera,gold,V,GF
+GF436,delete,radera,gold,V,GF
 GF437,delivery,leverans,gold,N,GF
 GF438,denial,avslag,gold,N,GF
 GF439,density,densitet,gold,N,GF
 GF440,dependency,beroende,gold,N,GF
 GF441,depth,djup,gold,N,GF
-GF442,derive, derivera,gold,V,GF
+GF442,derive,derivera,gold,V,GF
 GF443,description,beskrivning,gold,N,GF
 GF444,descriptive,beskrivande,gold,A,GF
-GF447,design, designa,gold,V,GF
+GF447,design,designa,gold,V,GF
 GF448,design,design,gold,N,GF
 GF449,desirable,önskvärd,gold,A,GF
 GF451,desktop,skrivbord,gold,N,GF
-GF452,detect, upptäcka,gold,V,GF
+GF452,detect,upptäcka,gold,V,GF
 GF453,detection,upptäckt,gold,N,GF
-GF454,determine, fastställa,gold,V,GF
+GF454,determine,fastställa,gold,V,GF
 GF455,deterministic,deterministisk,gold,A,GF
-GF456,develop, utveckla,gold,V,GF
+GF456,develop,utveckla,gold,V,GF
 GF457,developer,utvecklare,gold,N,GF
 GF460,development,utveckling,gold,N,GF
 GF462,device,enhet,gold,N,GF
@@ -362,28 +362,28 @@ GF477,discovery,upptäckt,gold,N,GF
 GF478,discreet,diskret,gold,A,GF
 GF479,discrete,diskret,gold,A,GF
 GF481,discretionary,oinskränkt,gold,A,GF
-GF482,discuss, diskutera,gold,V,GF
+GF482,discuss,diskutera,gold,V,GF
 GF483,disjunction,disjunktion,gold,N,GF
 GF484,disk,disk,gold,N,GF
-GF485,display, uppvisa,gold,V,GF
+GF485,display,uppvisa,gold,V,GF
 GF486,display,bildskärm,gold,N,GF
-GF487,distribute, distribuera,gold,V,GF
+GF487,distribute,distribuera,gold,V,GF
 GF489,distribution,distribution,gold,N,GF
 GF490,distributor,återförsäljare,gold,N,GF
-GF491,divide, dela,gold,V,GF
+GF491,divide,dela,gold,V,GF
 GF492,division,division,gold,N,GF
-GF493,document, dokumentera,gold,V,GF
+GF493,document,dokumentera,gold,V,GF
 GF494,document,dokument,gold,N,GF
 GF495,documentation,dokumentation,gold,N,GF
 GF498,domain,domän,gold,N,GF
 GF500,dot,punkt,gold,N,GF
-GF501,double, dubbla,gold,V,GF
+GF501,double,dubbla,gold,V,GF
 GF502,double,dubbel,gold,N,GF
-GF503,download, hämta,gold,V,GF
+GF503,download,hämta,gold,V,GF
 GF504,download,nedladdning,gold,N,GF
-GF505,drag, dra,gold,V,GF
+GF505,drag,dra,gold,V,GF
 GF506,drive,disk,gold,N,GF
-GF507,drop, släppa,gold,V,GF
+GF507,drop,släppa,gold,V,GF
 GF508,drop,fall,gold,N,GF
 GF509,dynamic,dynamisk,gold,A,GF
 GF511,dynamic,dynamik,gold,N,GF
@@ -391,7 +391,7 @@ GF512,dynamics,dynamik,gold,N,GF
 GF513,edition,upplaga,gold,N,GF
 GF514,editor,redigerare,gold,N,GF
 GF515,education,utbildning,gold,N,GF
-GF518,effect, genomföra,gold,V,GF
+GF518,effect,genomföra,gold,V,GF
 GF519,effect,effekt,gold,N,GF
 GF520,effective,effektiv,gold,A,GF
 GF521,efficient,effektiv,gold,A,GF
@@ -402,21 +402,21 @@ GF526,electronic,elektronisk,gold,A,GF
 GF527,electronics,elektronik,gold,N,GF
 GF528,element,element,gold,N,GF
 GF529,elliptic,elliptisk,gold,A,GF
-GF530,embed, inbädda,gold,V,GF
+GF530,embed,inbädda,gold,V,GF
 GF531,emergency,kris,gold,N,GF
 GF532,empirical,empirisk,gold,A,GF
 GF533,employee,anställd,gold,N,GF
-GF535,enable, möjliggöra,gold,V,GF
+GF535,enable,möjliggöra,gold,V,GF
 GF536,encapsulation,inkapsling,gold,N,GF
-GF537,encode, koda,gold,V,GF
-GF538,encrypt, kryptera,gold,V,GF
+GF537,encode,koda,gold,V,GF
+GF538,encrypt,kryptera,gold,V,GF
 GF539,encryption,kryptering,gold,N,GF
-GF541,end, avsluta,gold,V,GF
+GF541,end,avsluta,gold,V,GF
 GF542,end,slut,gold,N,GF
 GF543,energy,energi,gold,N,GF
 GF544,engine,motor,gold,N,GF
 GF545,engineering,ingenjörsvetenskap,gold,N,GF
-GF546,enhance, höja,gold,V,GF
+GF546,enhance,höja,gold,V,GF
 GF547,enhancement,förbättring,gold,N,GF
 GF548,entity,entitet,gold,N,GF
 GF550,entry,inträde,gold,N,GF
@@ -425,42 +425,42 @@ GF552,equalizer,utjämnare,gold,N,GF
 GF553,equation,ekvation,gold,N,GF
 GF554,equipment,utrustning,gold,N,GF
 GF555,error,fel,gold,N,GF
-GF556,escape, fly,gold,V,GF
+GF556,escape,fly,gold,V,GF
 GF557,escape,flykt,gold,N,GF
 GF558,essential,essentiell,gold,A,GF
 GF559,essential,väsentlighet,gold,N,GF
-GF560,establish, etablera,gold,V,GF
-GF561,estimate, estimera,gold,V,GF
+GF560,establish,etablera,gold,V,GF
+GF561,estimate,estimera,gold,V,GF
 GF564,ethics,etik,gold,N,GF
-GF565,evaluate, evaluera,gold,V,GF
+GF565,evaluate,evaluera,gold,V,GF
 GF566,evaluation,evaluering,gold,N,GF
 GF567,event,händelse,gold,N,GF
 GF568,evolution,evolution,gold,N,GF
 GF570,examination,examination,gold,N,GF
 GF571,example,exempel,gold,N,GF
 GF573,exception,undantag,gold,N,GF
-GF574,exchange, byta,gold,V,GF
+GF574,exchange,byta,gold,V,GF
 GF575,exchange,utbyte,gold,N,GF
-GF577,execute, exekvera,gold,V,GF
+GF577,execute,exekvera,gold,V,GF
 GF578,execution,exekvering,gold,N,GF
-GF579,exemplify, exemplifiera,gold,V,GF
+GF579,exemplify,exemplifiera,gold,V,GF
 GF580,exercise,övning,gold,N,GF
-GF581,expand, utöka,gold,V,GF
+GF581,expand,utöka,gold,V,GF
 GF583,expansion,expansion,gold,N,GF
 GF584,expense,utgift,gold,N,GF
-GF585,experience, erfarenhet,gold,V,GF
-GF586,experiment, experimentera,gold,V,GF
+GF585,experience,erfarenhet,gold,V,GF
+GF586,experiment,experimentera,gold,V,GF
 GF587,expert,expert,gold,N,GF
 GF588,explicit,tydlig,gold,A,GF
-GF589,explore, utforska,gold,V,GF
-GF590,express, uttrycka,gold,V,GF
+GF589,explore,utforska,gold,V,GF
+GF590,express,uttrycka,gold,V,GF
 GF591,expression,uttryck,gold,N,GF
-GF592,extend, utöka,gold,V,GF
+GF592,extend,utöka,gold,V,GF
 GF593,extension,förlängning,gold,N,GF
 GF594,exterior,yttre,gold,A,GF
 GF595,exterior,yttre,gold,N,GF
 GF596,external,extern,gold,A,GF
-GF597,extract, extrahera,gold,V,GF
+GF597,extract,extrahera,gold,V,GF
 GF598,extract,utdrag,gold,N,GF
 GF599,extraction,extraktion,gold,N,GF
 GF600,extreme,extrem,gold,A,GF
@@ -468,58 +468,58 @@ GF601,facility,möjlighet,gold,N,GF
 GF602,factor,faktor,gold,N,GF
 GF603,factory,fabrik,gold,N,GF
 GF604,false,falsk,gold,A,GF
-GF605,fan, fläkta,gold,V,GF
+GF605,fan,fläkta,gold,V,GF
 GF606,fan,fläkt,gold,N,GF
 GF607,fast,snabb,gold,A,GF
 GF608,fault,fel,gold,N,GF
 GF610,feature,funktion,gold,N,GF
 GF611,feed,flöde,gold,N,GF
 GF612,field,fält,gold,N,GF
-GF615,file, arkivera,gold,V,GF
+GF615,file,arkivera,gold,V,GF
 GF616,file,fil,gold,N,GF
 GF618,filing,arkivering,gold,N,GF
-GF619,filter, filtrera,gold,V,GF
-GF620,finance, finansiera,gold,V,GF
+GF619,filter,filtrera,gold,V,GF
+GF620,finance,finansiera,gold,V,GF
 GF621,finite,ändlig,gold,A,GF
 GF622,firewall,brandvägg,gold,N,GF
-GF625,flash, blinka,gold,V,GF
+GF625,flash,blinka,gold,V,GF
 GF626,flash,sken,gold,N,GF
 GF630,flow,flöde,gold,N,GF
 GF631,fluid,flytande,gold,A,GF
 GF632,fluid,vätska,gold,N,GF
-GF633,focus, fokusera,gold,V,GF
+GF633,focus,fokusera,gold,V,GF
 GF634,forgery,förfalskning,gold,N,GF
 GF636,form,formulär,gold,N,GF
 GF637,formal,formell,gold,A,GF
 GF639,format,format,gold,N,GF
 GF640,formula,formel,gold,N,GF
-GF641,formulate, formulera,gold,V,GF
+GF641,formulate,formulera,gold,V,GF
 GF642,forwarding,spedition,gold,N,GF
 GF643,foundation,grund,gold,N,GF
 GF644,frame,ram,gold,N,GF
 GF645,framework,ramverk,gold,N,GF
 GF646,free,fri,gold,A,GF
-GF647,free, fria,gold,V,GF
+GF647,free,fria,gold,V,GF
 GF648,frequency,frekvens,gold,N,GF
 GF649,front,front,gold,N,GF
 GF650,frontier,gräns,gold,N,GF
 GF651,full,full,gold,A,GF
-GF652,function, fungera,gold,V,GF
+GF652,function,fungera,gold,V,GF
 GF653,function,funktion,gold,N,GF
 GF654,functional,funktionell,gold,A,GF
 GF656,functionality,funktionalitet,gold,N,GF
 GF657,fundamental,fundamental,gold,A,GF
 GF658,fundamental,fundamental,gold,N,GF
 GF659,future,framtida,gold,A,GF
-GF662,game, spela,gold,V,GF
+GF662,game,spela,gold,V,GF
 GF663,game,spel,gold,N,GF
 GF665,garbage,skräp,gold,N,GF
 GF666,gate,grind,gold,N,GF
 GF667,gateway,port,gold,N,GF
 GF668,general,allmän,gold,A,GF
 GF669,generalization,generalisering,gold,N,GF
-GF670,generalize, generalisera,gold,V,GF
-GF671,generate, generera,gold,V,GF
+GF670,generalize,generalisera,gold,V,GF
+GF671,generate,generera,gold,V,GF
 GF672,generation,generation,gold,N,GF
 GF673,generative,generativ,gold,A,GF
 GF674,generic,generisk,gold,A,GF
@@ -546,15 +546,15 @@ GF700,handshake,handskakning,gold,N,GF
 GF701,hard,hård,gold,A,GF
 GF702,hard,svår,gold,A,GF
 GF708,hardware,hårdvara,gold,N,GF
-GF711,head, leda,gold,V,GF
+GF711,head,leda,gold,V,GF
 GF712,head,huvud,gold,N,GF
 GF714,hertz,hertz,gold,N,GF
 GF715,heuristic,heuristik,gold,N,GF
-GF716,hide, dölja,gold,V,GF
+GF716,hide,dölja,gold,V,GF
 GF717,hierarchical,hierarkisk,gold,A,GF
 GF718,hierarchy,hierarki,gold,N,GF
 GF719,high,hög,gold,A,GF
-GF720,hint, antyda,gold,V,GF
+GF720,hint,antyda,gold,V,GF
 GF721,hint,antydan,gold,N,GF
 GF722,histogram,histogram,gold,N,GF
 GF723,hit,träff,gold,N,GF
@@ -565,20 +565,20 @@ GF729,human,människa,gold,N,GF
 GF731,hybrid,hybrid,gold,N,GF
 GF732,hyperlink,hyperlänk,gold,N,GF
 GF733,hypertext,hypertext,gold,N,GF
-GF735,identify, identifiera,gold,V,GF
+GF735,identify,identifiera,gold,V,GF
 GF736,identity,identitet,gold,N,GF
-GF739,image, föreställa,gold,V,GF
+GF739,image,föreställa,gold,V,GF
 GF740,image,bild,gold,N,GF
 GF741,imagery,bildsamling,gold,N,GF
 GF742,immutable,oföränderlig,gold,A,GF
 GF743,impact,verkan,gold,N,GF
 GF744,imperative,imperativ,gold,A,GF
-GF746,implement, implementera,gold,V,GF
+GF746,implement,implementera,gold,V,GF
 GF748,implementation,implementering,gold,N,GF
 GF749,implication,implikation,gold,N,GF
-GF750,improve, förbättra,gold,V,GF
+GF750,improve,förbättra,gold,V,GF
 GF751,improvement,förbättring,gold,N,GF
-GF752,include, inkludera,gold,V,GF
+GF752,include,inkludera,gold,V,GF
 GF754,independent,oberoende,gold,A,GF
 GF755,index,index,gold,N,GF
 GF756,indicator,indikator,gold,N,GF
@@ -598,13 +598,13 @@ GF774,input,indata,gold,N,GF
 GF776,insertion,införande,gold,N,GF
 GF777,inspection,granskning,gold,N,GF
 GF778,instance,instans,gold,N,GF
-GF779,institute, införa,gold,V,GF
+GF779,institute,införa,gold,V,GF
 GF780,institute,institut,gold,N,GF
 GF782,instruction,instruktion,gold,N,GF
 GF783,instrument,instrument,gold,N,GF
 GF784,instrumentation,instrumentering,gold,N,GF
 GF785,integer,heltal,gold,N,GF
-GF786,integrate, integrera,gold,V,GF
+GF786,integrate,integrera,gold,V,GF
 GF789,integration,integration,gold,N,GF
 GF790,integrity,integritet,gold,N,GF
 GF791,intellectual,intellektuell,gold,A,GF
@@ -612,27 +612,27 @@ GF792,intelligence,intelligens,gold,N,GF
 GF793,intelligent,intelligent,gold,A,GF
 GF795,interaction,interaktion,gold,N,GF
 GF796,interactive,interaktiv,gold,A,GF
-GF797,interchange, växla,gold,V,GF
+GF797,interchange,växla,gold,V,GF
 GF798,interchange,utbyte,gold,N,GF
-GF799,interconnect, sammanlänka,gold,V,GF
+GF799,interconnect,sammanlänka,gold,V,GF
 GF800,interconnection,sammanlänkning,gold,N,GF
 GF801,interdisciplinary,tvärvetenskaplig,gold,A,GF
 GF804,interface,gränssnitt,gold,N,GF
 GF805,interference,interferens,gold,N,GF
 GF806,interior,inre,gold,A,GF
 GF807,interior,inrede,gold,N,GF
-GF808,interleave, interfoliera,gold,V,GF
+GF808,interleave,interfoliera,gold,V,GF
 GF809,intermediate,mellanliggande,gold,A,GF
 GF810,internal,intern,gold,A,GF
 GF811,international,internationell,gold,A,GF
 GF812,internationalization,internationalisering,gold,N,GF
-GF813,internationalize, internationalisera,gold,V,GF
-GF815,interpret, interpretera,gold,V,GF
+GF813,internationalize,internationalisera,gold,V,GF
+GF815,interpret,interpretera,gold,V,GF
 GF816,interpretation,tolkning,gold,N,GF
-GF817,interrupt, avbryta,gold,V,GF
+GF817,interrupt,avbryta,gold,V,GF
 GF818,interruption,avbrott,gold,N,GF
 GF819,interval,intervall,gold,N,GF
-GF820,introduce, introducera,gold,V,GF
+GF820,introduce,introducera,gold,V,GF
 GF821,introduction,introduktion,gold,N,GF
 GF822,intrusion,intrång,gold,N,GF
 GF823,invariant,invariant,gold,A,GF
@@ -652,7 +652,7 @@ GF839,kind,sort,gold,N,GF
 GF840,kit,verktyg,gold,N,GF
 GF841,knowledge,kunskap,gold,N,GF
 GF842,lab,labb,gold,N,GF
-GF843,label, beteckna,gold,V,GF
+GF843,label,beteckna,gold,V,GF
 GF844,label,etikett,gold,N,GF
 GF847,language,språk,gold,N,GF
 GF849,large,stor,gold,A,GF
@@ -661,7 +661,7 @@ GF851,law,lag,gold,N,GF
 GF852,layer,lager,gold,N,GF
 GF853,layout,layout,gold,N,GF
 GF854,lazy,lat,gold,A,GF
-GF855,learn, lära,gold,V,GF
+GF855,learn,lära,gold,V,GF
 GF857,learning,bildning,gold,N,GF
 GF858,lecture,föreläsning,gold,N,GF
 GF0,LED,lysdiod,gold,N,GF
@@ -670,22 +670,22 @@ GF860,level,nivå,gold,N,GF
 GF861,library,bibliotek,gold,N,GF
 GF862,library,programbibliotek,gold,N,GF
 GF863,licence,licens,gold,N,GF
-GF864,license, licensiera,gold,V,GF
+GF864,license,licensiera,gold,V,GF
 GF865,light,ljus,gold,N,GF
 GF866,lightweight,lätt,gold,A,GF
-GF867,limit, begränsa,gold,V,GF
+GF867,limit,begränsa,gold,V,GF
 GF868,limit,gräns,gold,N,GF
 GF869,line,linje,gold,N,GF
 GF870,linear,linjär,gold,A,GF
 GF872,linguistics,språkvetenskap,gold,N,GF
-GF873,link, knyta,gold,V,GF
+GF873,link,knyta,gold,V,GF
 GF874,link,länk,gold,N,GF
 GF877,liquid,flytande,gold,A,GF
 GF878,liquid,vätska,gold,N,GF
-GF879,list, lista,gold,V,GF
+GF879,list,lista,gold,V,GF
 GF880,list,lista,gold,N,GF
 GF881,literature,litteratur,gold,N,GF
-GF883,load, ladda,gold,V,GF
+GF883,load,ladda,gold,V,GF
 GF884,load,laddning,gold,N,GF
 GF885,loader,lastare,gold,N,GF
 GF886,loading,laddning,gold,N,GF
@@ -696,30 +696,30 @@ GF890,logarithm,logaritm,gold,N,GF
 GF892,logic,logik,gold,N,GF
 GF893,logical,logisk,gold,A,GF
 GF894,logo,logga,gold,N,GF
-GF895,look, titta,gold,V,GF
+GF895,look,titta,gold,V,GF
 GF896,loop,loop,gold,N,GF
 GF897,loss,förlust,gold,N,GF
 GF898,lossless,förlustlös,gold,A,GF
 GF901,machine,maskin,gold,N,GF
 GF902,machinery,maskineri,gold,N,GF
 GF903,magnetic,magnetisk,gold,A,GF
-GF904,mail, posta,gold,V,GF
+GF904,mail,posta,gold,V,GF
 GF906,main,huvudsaklig,gold,A,GF
-GF908,maintain, underhålla,gold,V,GF
+GF908,maintain,underhålla,gold,V,GF
 GF909,maintenance,underhåll,gold,N,GF
 GF910,manageable,hanterlig,gold,A,GF
 GF911,management,förvaltning,gold,N,GF
 GF912,manager,manager,gold,N,GF
 GF913,mandatory,obligatorisk,gold,A,GF
 GF915,manipulation,manipulation,gold,N,GF
-GF916,manufacture, tillverka,gold,V,GF
+GF916,manufacture,tillverka,gold,V,GF
 GF917,manufacturer,tillverkare,gold,N,GF
-GF918,map, kartlägga,gold,V,GF
+GF918,map,kartlägga,gold,V,GF
 GF919,map,karta,gold,N,GF
-GF920,mark, markera,gold,V,GF
+GF920,mark,markera,gold,V,GF
 GF921,mark,märke,gold,N,GF
 GF922,markup,påslag,gold,N,GF
-GF923,master, bemästra,gold,V,GF
+GF923,master,bemästra,gold,V,GF
 GF924,master,master,gold,N,GF
 GF925,mathematical,matematisk,gold,A,GF
 GF928,mathematics,matematik,gold,N,GF
@@ -727,7 +727,7 @@ GF929,matrix,matris,gold,N,GF
 GF930,maturity,mognad,gold,N,GF
 GF931,maximum,maximal,gold,A,GF
 GF932,maximum,maximum,gold,N,GF
-GF933,measure, mäta,gold,V,GF
+GF933,measure,mäta,gold,V,GF
 GF934,measurement,mått,gold,N,GF
 GF935,mechanical,mekanisk,gold,A,GF
 GF936,mechanism,mekanism,gold,N,GF
@@ -751,19 +751,19 @@ GF961,million,miljon,gold,N,GF
 GF962,minimum,minimum,gold,N,GF
 GF963,miss,miss,gold,N,GF
 GF964,mode,läge,gold,N,GF
-GF965,model, modellera,gold,V,GF
+GF965,model,modellera,gold,V,GF
 GF966,model,modell,gold,N,GF
 GF967,modeling,modellering,gold,N,GF
 GF969,modelling,modellering,gold,N,GF
 GF970,modem,modem,gold,N,GF
 GF971,modern,modern,gold,A,GF
 GF972,modifier,modifierare,gold,N,GF
-GF973,modify, modifiera,gold,V,GF
+GF973,modify,modifiera,gold,V,GF
 GF974,modular,modulär,gold,A,GF
 GF975,module,modul,gold,N,GF
 GF976,molecular,molekylär,gold,A,GF
 GF977,monad,monad,gold,N,GF
-GF978,monitor, övervaka,gold,V,GF
+GF978,monitor,övervaka,gold,V,GF
 GF979,monitor,bildskärm,gold,N,GF
 GF980,monochrome,enfärgad,gold,A,GF
 GF981,monochrome,monokrom,gold,N,GF
@@ -777,7 +777,7 @@ GF991,multiple,multipel,gold,A,GF
 GF992,multiple,mångfald,gold,N,GF
 GF993,multiplication,multiplikation,gold,N,GF
 GF995,multiprocessor,multiprocessor,gold,N,GF
-GF997,name, namnge,gold,V,GF
+GF997,name,namnge,gold,V,GF
 GF998,national,nationell,gold,A,GF
 GF999,native,inhemsk,gold,A,GF
 GF1000,native,infödd,gold,N,GF
@@ -790,34 +790,34 @@ GF1011,node,nod,gold,N,GF
 GF1013,normal,normal,gold,A,GF
 GF1015,notation,notation,gold,N,GF
 GF1016,notification,meddelande,gold,N,GF
-GF1018,number, omfatta,gold,V,GF
+GF1018,number,omfatta,gold,V,GF
 GF1019,number,tal,gold,N,GF
 GF1020,numerical,numerisk,gold,A,GF
-GF1023,object, invända,gold,V,GF
+GF1023,object,invända,gold,V,GF
 GF1024,object,objekt,gold,N,GF
 GF1026,objective,objektiv,gold,N,GF
-GF1027,obtain, erhålla,gold,V,GF
+GF1027,obtain,erhålla,gold,V,GF
 GF1028,officer,officer,gold,N,GF
 GF1029,open,öppen,gold,A,GF
-GF1030,operate, operera,gold,V,GF
+GF1030,operate,operera,gold,V,GF
 GF1032,operation,verksamhet,gold,N,GF
 GF1034,optical,optisk,gold,A,GF
 GF1037,optimal,optimal,gold,A,GF
 GF1038,optimization,optimering,gold,N,GF
-GF1039,optimize, optimera,gold,V,GF
-GF1040,order, beställa,gold,V,GF
-GF1041,order, ordna,gold,V,GF
+GF1039,optimize,optimera,gold,V,GF
+GF1040,order,beställa,gold,V,GF
+GF1041,order,ordna,gold,V,GF
 GF1042,order,ordning,gold,N,GF
 GF1043,organic,organisk,gold,A,GF
 GF1044,organization,organisation,gold,N,GF
-GF1045,orient, orientera,gold,V,GF
+GF1045,orient,orientera,gold,V,GF
 GF1046,original,ursprunglig,gold,A,GF
 GF1047,original,original,gold,N,GF
 GF1048,orthogonal,ortogonal,gold,A,GF
 GF1049,os,operativsystem,gold,N,GF
 GF1050,outcome,utfall,gold,N,GF
 GF1051,output,utdata,gold,N,GF
-GF1052,overcome, överkomma,gold,V,GF
+GF1052,overcome,överkomma,gold,V,GF
 GF1053,overview,översikt,gold,N,GF
 GF1054,package,paket,gold,N,GF
 GF1055,packet,paket,gold,N,GF
@@ -828,16 +828,16 @@ GF1060,paradigm,paradigm,gold,N,GF
 GF1061,parallel,parallell,gold,A,GF
 GF1063,parallel,parallell,gold,N,GF
 GF1066,parameter,parameter,gold,N,GF
-GF1067,parse, parsa,gold,V,GF
+GF1067,parse,parsa,gold,V,GF
 GF1068,parser,parser,gold,N,GF
 GF1070,part,del,gold,N,GF
-GF1071,partition, dela,gold,V,GF
+GF1071,partition,dela,gold,V,GF
 GF1073,partnership,partnerskap,gold,N,GF
 GF1074,password,lösenord,gold,N,GF
 GF1075,path,väg,gold,N,GF
 GF1076,pattern,mönster,gold,N,GF
 GF1077,penalty,bestraffning,gold,N,GF
-GF1078,perform, utföra,gold,V,GF
+GF1078,perform,utföra,gold,V,GF
 GF1082,performance,prestanda,gold,N,GF
 GF1083,peripheral,yttre,gold,A,GF
 GF1084,peripheral,kringutrustning,gold,N,GF
@@ -848,7 +848,7 @@ GF1089,physics,fysik,gold,N,GF
 GF1090,picture,bild,gold,N,GF
 GF1091,pin,stift,gold,N,GF
 GF1092,pitch,topp,gold,N,GF
-GF1094,plane, plana,gold,V,GF
+GF1094,plane,plana,gold,V,GF
 GF1095,plane,nivå,gold,N,GF
 GF1096,planning,planering,gold,N,GF
 GF1097,platform,plattform,gold,N,GF
@@ -858,15 +858,15 @@ GF1101,polymorph,polymorf,gold,A,GF
 GF1103,port,port,gold,N,GF
 GF1104,portable,bärbar,gold,A,GF
 GF1105,portable,portabel,gold,A,GF
-GF1108,power, driva,gold,V,GF
+GF1108,power,driva,gold,V,GF
 GF1109,power,kraft,gold,N,GF
 GF1110,practical,praktisk,gold,A,GF
 GF1111,practice,praktiken,gold,N,GF
 GF1112,precision,precision,gold,N,GF
 GF1113,precondition,förhandsvillkor,gold,N,GF
-GF1115,predict, förutsäga,gold,V,GF
+GF1115,predict,förutsäga,gold,V,GF
 GF1116,prediction,förutsägelse,gold,N,GF
-GF1117,prepare, förbereda,gold,V,GF
+GF1117,prepare,förbereda,gold,V,GF
 GF1118,prerequisite,förkunskapskrav,gold,N,GF
 GF1119,presence,närvaro,gold,N,GF
 GF1120,presentation,presentation,gold,N,GF
@@ -887,12 +887,12 @@ GF1141,product,produkt,gold,N,GF
 GF1142,productivity,produktivitet,gold,N,GF
 GF1143,professional,professionell,gold,A,GF
 GF1144,proficiency,skicklighet,gold,N,GF
-GF1150,program, programmera,gold,V,GF
+GF1150,program,programmera,gold,V,GF
 GF1151,program,program,gold,N,GF
 GF1153,programmer,programmerare,gold,N,GF
 GF1160,programming,programmering,gold,N,GF
 GF1161,progress,framgång,gold,N,GF
-GF1162,project, framhäva,gold,V,GF
+GF1162,project,framhäva,gold,V,GF
 GF1163,project,projekt,gold,N,GF
 GF1164,proof,bevis,gold,N,GF
 GF1165,property,egenskap,gold,N,GF
@@ -902,25 +902,25 @@ GF1169,prototype,prototyp,gold,N,GF
 GF1170,provider,leverantör,gold,N,GF
 GF1171,public,publik,gold,A,GF
 GF1172,public,allmänhet,gold,N,GF
-GF1173,publish, publicera,gold,V,GF
+GF1173,publish,publicera,gold,V,GF
 GF1174,purpose,syfte,gold,N,GF
 GF1175,quality,kvalitet,gold,N,GF
 GF1178,query,fråga,gold,N,GF
-GF1179,question, ifrågasätter,gold,V,GF
-GF1180,queue, köa,gold,V,GF
+GF1179,question,ifrågasätter,gold,V,GF
+GF1180,queue,köa,gold,V,GF
 GF1181,queue,kö,gold,N,GF
 GF1182,quick,snabb,gold,A,GF
 GF1183,radio,radio,gold,N,GF
 GF1184,random,slumpmässig,gold,A,GF
 GF1185,randomization,randomisering,gold,N,GF
 GF1186,rapid,snabb,gold,A,GF
-GF1187,rate, räkna,gold,V,GF
+GF1187,rate,räkna,gold,V,GF
 GF1188,rate,takt,gold,N,GF
 GF1189,ratio,kvot,gold,N,GF
 GF1190,raw,rå,gold,A,GF
-GF1191,ray, stråla,gold,V,GF
+GF1191,ray,stråla,gold,V,GF
 GF1192,ray,stråle,gold,N,GF
-GF1193,read, läsa,gold,V,GF
+GF1193,read,läsa,gold,V,GF
 GF1194,reader,läsare,gold,N,GF
 GF1195,readiness,beredskap,gold,N,GF
 GF1196,reality,verklighet,gold,N,GF
@@ -932,18 +932,18 @@ GF1201,recording,inspelning,gold,N,GF
 GF1202,recoverable,återhämtningsbar,gold,A,GF
 GF1203,recovery,återhämtning,gold,N,GF
 GF1205,recursive,rekursiv,gold,A,GF
-GF1207,reduce, minska,gold,V,GF
+GF1207,reduce,minska,gold,V,GF
 GF1208,reduction,reduktion,gold,N,GF
 GF1209,redundancy,överskott,gold,N,GF
 GF1210,redundant,överflödig,gold,A,GF
 GF1211,reference,referens,gold,N,GF
 GF1212,reflection,reflektion,gold,N,GF
 GF1213,region,område,gold,N,GF
-GF1214,register, registrera,gold,V,GF
+GF1214,register,registrera,gold,V,GF
 GF1215,register,register,gold,N,GF
 GF1216,regular,regelbunden,gold,A,GF
-GF1218,reinforce, förstärka,gold,V,GF
-GF1219,relate, relatera,gold,V,GF
+GF1218,reinforce,förstärka,gold,V,GF
+GF1219,relate,relatera,gold,V,GF
 GF1220,relation,relation,gold,N,GF
 GF1222,relationship,samband,gold,N,GF
 GF1223,relay,relä,gold,N,GF
@@ -952,13 +952,13 @@ GF1225,remote,avlägsen,gold,A,GF
 GF1226,rendering,rendering,gold,N,GF
 GF1227,replaceable,ersättlig,gold,A,GF
 GF1228,replacement,ersättning,gold,N,GF
-GF1229,report, rapportera,gold,V,GF
+GF1229,report,rapportera,gold,V,GF
 GF1230,report,rapport,gold,N,GF
-GF1231,request, begära,gold,V,GF
+GF1231,request,begära,gold,V,GF
 GF1232,request,begäran,gold,N,GF
-GF1233,require, kräva,gold,V,GF
+GF1233,require,kräva,gold,V,GF
 GF1234,requirement,krav,gold,N,GF
-GF1236,research, efterforska,gold,V,GF
+GF1236,research,efterforska,gold,V,GF
 GF1237,research,forskning,gold,N,GF
 GF1238,reservation,bokning,gold,N,GF
 GF1239,resolution,upplösning,gold,N,GF
@@ -971,47 +971,47 @@ GF1247,role,roll,gold,N,GF
 GF1249,router,router,gold,N,GF
 GF1250,routine,rutin,gold,N,GF
 GF1253,rule,regel,gold,N,GF
-GF1254,run, köra,gold,V,GF
+GF1254,run,köra,gold,V,GF
 GF1257,safety,säkerhet,gold,N,GF
-GF1258,sample, provsmaka,gold,V,GF
+GF1258,sample,provsmaka,gold,V,GF
 GF1259,satisfaction,tillfredsställelse,gold,N,GF
-GF1260,save, spara,gold,V,GF
+GF1260,save,spara,gold,V,GF
 GF1261,scalability,skalbarhet,gold,N,GF
-GF1262,scale, skala,gold,V,GF
+GF1262,scale,skala,gold,V,GF
 GF1263,scale,skala,gold,N,GF
 GF1264,scanner,skanner,gold,N,GF
 GF1265,science,vetenskap,gold,N,GF
 GF1266,scientific,vetenskaplig,gold,A,GF
 GF1267,scope,räckvidd,gold,N,GF
-GF1268,scramble, förvränga,gold,V,GF
-GF1269,scratch, repa,gold,V,GF
+GF1268,scramble,förvränga,gold,V,GF
+GF1269,scratch,repa,gold,V,GF
 GF1270,scratch,repa,gold,N,GF
 GF1271,screen,skärm,gold,N,GF
-GF1274,search, söka,gold,V,GF
+GF1274,search,söka,gold,V,GF
 GF1275,section,sektion,gold,N,GF
 GF1276,sector,sektor,gold,N,GF
-GF1277,secure, säkra,gold,V,GF
+GF1277,secure,säkra,gold,V,GF
 GF1279,security,säkerhet,gold,N,GF
 GF1280,segmentation,segmentering,gold,N,GF
-GF1281,select, välja,gold,V,GF
+GF1281,select,välja,gold,V,GF
 GF1283,selection,urval,gold,N,GF
 GF1284,semantic,semantisk,gold,A,GF
 GF1285,semantics,semantik,gold,N,GF
 GF1286,semaphore,semafor,gold,N,GF
 GF1287,semiconductor,halvledare,gold,N,GF
-GF1288,sense, förstå,gold,V,GF
+GF1288,sense,förstå,gold,V,GF
 GF1289,sense,sinne,gold,N,GF
 GF1290,sensor,sensor,gold,N,GF
-GF1291,separate, åtskilja,gold,V,GF
+GF1291,separate,åtskilja,gold,V,GF
 GF1292,sequence,sekvens,gold,N,GF
 GF1293,sequential,sekventiell,gold,A,GF
 GF1295,service,tjänst,gold,N,GF
 GF1296,session,session,gold,N,GF
-GF1298,set, sätta,gold,V,GF
+GF1298,set,sätta,gold,V,GF
 GF1299,set,uppsättning,gold,N,GF
 GF1300,setting,inställning,gold,N,GF
 GF1301,shadow,skugga,gold,N,GF
-GF1302,share, dela,gold,V,GF
+GF1302,share,dela,gold,V,GF
 GF1304,sharing,fördelning,gold,N,GF
 GF1305,sheet,ark,gold,N,GF
 GF1306,shelf,hylla,gold,N,GF
@@ -1020,18 +1020,18 @@ GF1309,signature,signatur,gold,N,GF
 GF1310,significant,viktig,gold,A,GF
 GF1311,silicon,silikon,gold,N,GF
 GF1312,similar,liknande,gold,A,GF
-GF1313,simulate, simulera,gold,V,GF
+GF1313,simulate,simulera,gold,V,GF
 GF1315,simulation,simulering,gold,N,GF
 GF1318,skill,färdighet,gold,N,GF
 GF1329,software,programvara,gold,N,GF
 GF1330,solid,solid,gold,A,GF
 GF1331,solution,lösning,gold,N,GF
-GF1332,solve, lösa,gold,V,GF
-GF1333,sort, sortera,gold,V,GF
-GF1336,sound, ljuda,gold,V,GF
+GF1332,solve,lösa,gold,V,GF
+GF1333,sort,sortera,gold,V,GF
+GF1336,sound,ljuda,gold,V,GF
 GF1337,sound,ljud,gold,N,GF
 GF1339,source,källa,gold,N,GF
-GF1340,space, fördela,gold,V,GF
+GF1340,space,fördela,gold,V,GF
 GF1341,space,plats,gold,N,GF
 GF1342,spam,skräppost,gold,N,GF
 GF1343,special,särskild,gold,A,GF
@@ -1045,8 +1045,8 @@ GF1352,spreadsheet,kalkylark,gold,N,GF
 GF1353,square,kvadrat,gold,N,GF
 GF1354,stack,stack,gold,N,GF
 GF1358,standard,standard,gold,N,GF
-GF1359,start, börja,gold,V,GF
-GF1360,state, konstatera,gold,V,GF
+GF1359,start,börja,gold,V,GF
+GF1360,state,konstatera,gold,V,GF
 GF1361,state,tillstånd,gold,N,GF
 GF1362,statement,sats,gold,N,GF
 GF1363,static,statisk,gold,A,GF
@@ -1054,18 +1054,18 @@ GF1366,statistical,statistisk,gold,A,GF
 GF1367,statistics,statistik,gold,N,GF
 GF1368,stereo,stereo,gold,N,GF
 GF1370,storage,lagring,gold,N,GF
-GF1371,store, lagra,gold,V,GF
-GF1372,storm, storma,gold,V,GF
+GF1371,store,lagra,gold,V,GF
+GF1372,storm,storma,gold,V,GF
 GF1373,storm,storm,gold,N,GF
 GF1374,strategy,strategi,gold,N,GF
-GF1375,stream, strömma,gold,V,GF
+GF1375,stream,strömma,gold,V,GF
 GF1376,stream,ström,gold,N,GF
 GF1377,strict,strikt,gold,A,GF
 GF1378,string,sträng,gold,N,GF
-GF1379,structure, strukturera,gold,V,GF
+GF1379,structure,strukturera,gold,V,GF
 GF1380,structure,struktur,gold,N,GF
 GF1381,student,student,gold,N,GF
-GF1382,study, studera,gold,V,GF
+GF1382,study,studera,gold,V,GF
 GF1383,style,stil,gold,N,GF
 GF1384,subclass,subklass,gold,N,GF
 GF1385,subjunctive,konjunktiv,gold,N,GF
@@ -1075,11 +1075,11 @@ GF1388,subscriber,prenumerant,gold,N,GF
 GF1389,subset,delmängd,gold,N,GF
 GF1390,subsystem,subsystem,gold,N,GF
 GF1391,suite,svit,gold,N,GF
-GF1392,summarize, summera,gold,V,GF
+GF1392,summarize,summera,gold,V,GF
 GF1393,superclass,superklass,gold,N,GF
 GF1394,supercomputer,superdator,gold,N,GF
 GF1395,supervision,handledning,gold,N,GF
-GF1396,support, stödja,gold,V,GF
+GF1396,support,stödja,gold,V,GF
 GF1397,support,stöd,gold,N,GF
 GF1398,sustainability,hållbarhet,gold,N,GF
 GF1399,sustainable,hållbar,gold,A,GF
@@ -1092,9 +1092,9 @@ GF1411,system,system,gold,N,GF
 GF1412,systematic,systematisk,gold,A,GF
 GF1413,table,tabell,gold,N,GF
 GF1414,tag,tagg,gold,N,GF
-GF1416,tape, banda,gold,V,GF
+GF1416,tape,banda,gold,V,GF
 GF1417,task,arbetsuppgift,gold,N,GF
-GF1419,teach, undervisa,gold,V,GF
+GF1419,teach,undervisa,gold,V,GF
 GF1420,team,lag,gold,N,GF
 GF1421,technical,teknisk,gold,A,GF
 GF1422,technique,teknik,gold,N,GF
@@ -1110,7 +1110,7 @@ GF1431,term,term,gold,N,GF
 GF1432,terminal,terminal,gold,A,GF
 GF1433,terminal,terminal,gold,N,GF
 GF1435,terminology,terminologi,gold,N,GF
-GF1436,test, testa,gold,V,GF
+GF1436,test,testa,gold,V,GF
 GF1437,test,test,gold,N,GF
 GF1439,text,text,gold,N,GF
 GF1440,theorem,sats,gold,N,GF
@@ -1119,7 +1119,7 @@ GF1442,theory,teori,gold,N,GF
 GF1443,thesis,tes,gold,N,GF
 GF1444,thread,tråd,gold,N,GF
 GF1445,throughput,genomströmning,gold,N,GF
-GF1447,time, tajma,gold,V,GF
+GF1447,time,tajma,gold,V,GF
 GF1448,time,tid,gold,N,GF
 GF1449,token,token,gold,N,GF
 GF1450,tolerance,tolerans,gold,N,GF
@@ -1128,11 +1128,11 @@ GF1452,toolbox,verktygslåda,gold,N,GF
 GF1453,topic,ämne,gold,N,GF
 GF1454,topology,topologi,gold,N,GF
 GF1455,touchscreen,pekskärm,gold,N,GF
-GF1456,trace, spåra,gold,V,GF
+GF1456,trace,spåra,gold,V,GF
 GF1458,transaction,transaktion,gold,N,GF
-GF1459,transfer, överföra,gold,V,GF
+GF1459,transfer,överföra,gold,V,GF
 GF1460,transfer,omplacering,gold,N,GF
-GF1461,transform, omvandla,gold,V,GF
+GF1461,transform,omvandla,gold,V,GF
 GF1462,transformation,omvandling,gold,N,GF
 GF1463,transformer,transformator,gold,N,GF
 GF1464,transistor,transistor,gold,N,GF
@@ -1144,36 +1144,36 @@ GF1469,tree,träd,gold,N,GF
 GF1470,triton,triton,gold,N,GF
 GF1471,true,sann,gold,A,GF
 GF1473,tube,tub,gold,N,GF
-GF1475,type, skriva,gold,V,GF
-GF1476,type, typa,gold,V,GF
+GF1475,type,skriva,gold,V,GF
+GF1476,type,typa,gold,V,GF
 GF1477,type,typ,gold,N,GF
 GF1479,uncertainty,osäkerhet,gold,N,GF
 GF1480,underlying,underliggande,gold,A,GF
 GF1481,unification,unifiering,gold,N,GF
 GF1482,uniform,enhetlig,gold,A,GF
 GF1483,uniform,uniform,gold,N,GF
-GF1484,unify, förena,gold,V,GF
+GF1484,unify,förena,gold,V,GF
 GF1485,union,union,gold,N,GF
 GF1486,unique,unik,gold,A,GF
 GF1488,unit,enhet,gold,N,GF
 GF1489,universal,allmän,gold,A,GF
 GF1490,university,universitet,gold,N,GF
 GF1491,unreliable,opålitlig,gold,A,GF
-GF1492,update, uppdatera,gold,V,GF
+GF1492,update,uppdatera,gold,V,GF
 GF1493,update,uppdatering,gold,N,GF
-GF1495,use, använda,gold,V,GF
+GF1495,use,använda,gold,V,GF
 GF1501,user,användare,gold,N,GF
 GF1502,utility,verktyg,gold,N,GF
 GF1503,validation,validering,gold,N,GF
-GF1504,value, värdera,gold,V,GF
+GF1504,value,värdera,gold,V,GF
 GF1505,value,värde,gold,N,GF
 GF1506,variable,variabel,gold,N,GF
 GF1507,variance,varians,gold,N,GF
-GF1508,vary, variera,gold,V,GF
+GF1508,vary,variera,gold,V,GF
 GF1509,vector,vektor,gold,N,GF
 GF1510,vehicle,fordon,gold,N,GF
 GF1511,verification,verifiering,gold,N,GF
-GF1512,verify, verifiera,gold,V,GF
+GF1512,verify,verifiera,gold,V,GF
 GF1513,versatile,allsidig,gold,A,GF
 GF1516,version,version,gold,N,GF
 GF1518,video,video,gold,N,GF
@@ -1191,11 +1191,11 @@ GF1530,warehouse,lager,gold,N,GF
 GF1538,well-grounded,välgrundad,gold,A,GF
 GF1542,window,fönster,gold,N,GF
 GF1543,wireless,trådlös,gold,A,GF
-GF1545,word, uttrycka,gold,V,GF
+GF1545,word,uttrycka,gold,V,GF
 GF1546,work,arbete,gold,N,GF
 GF1547,world,värld,gold,N,GF
 GF1548,worldwide,global,gold,A,GF
-GF1549,write, skriva,gold,V,GF
+GF1549,write,skriva,gold,V,GF
 GF2,abstract data type,abstrakt datatyp,gold,N,GF
 GF3,abstract method,abstrakt metod,gold,N,GF
 GF11,access control,åtkomstkontroll,gold,N,GF
