@@ -1,155 +1,155 @@
 id,eng_lemma,swe_lemma,status,pos,src
-ACM229,Analog computers,Analoga datorer,silver,N?,ACM
-ACM1101,Antialiasing,Antialiasing,silver,N?,ACM
-ACM1070,Architecture and control structures,Arkitektur och kontrollstrukturer,silver,N?,ACM
-ACM18,Automatic synthesis,Automatisk syntes,silver,N?,ACM
-ACM513,Batch processing systems,Satsvisa system,silver,N?,ACM
-ACM107,Built-in tests,Inbyggda tester,silver,N?,ACM
-ACM129,Built-in tests,Inbyggda tester,silver,N?,ACM
-ACM146,Built-in tests,Inbyggda tester,silver,N?,ACM
-ACM177,Built-in tests,Inbyggda tester,silver,N?,ACM
-ACM42,Calculator,Räknare,silver,N?,ACM
-ACM217,Capability architectures,Kapabilitetsarkitekturer,silver,N?,ACM
-ACM238,Centralized networks,Centraliserade nät,silver,N?,ACM
-ACM1457,Codes of good practice,God sed,silver,N?,ACM
-ACM545,Composite structures,Sammansatta strukturer,silver,N?,ACM
-ACM1366,Computer literacy,Datorkunnighet,silver,N?,ACM
-ACM1119,Constructive solid geometry,Konstruktiv rymdgeometri,silver,N?,ACM
-ACM546,Contiguous representations,Angränsande representationer,silver,N?,ACM
-ACM1410,Contracts,Avtal,silver,N?,ACM
-ACM386,Copyrights,Upphovsrätt,silver,N?,ACM
-ACM372,Corrections,Korrigeringar,silver,N?,ACM
-ACM553,Data encryption standard,DES-standarden,silver,N?,ACM
-ACM395,Design,Design,silver,N?,ACM
-ACM1213,Deterministic,Deterministiska,silver,N?,ACM
-ACM1109,Device drivers,Drivrutiner,silver,N?,ACM
-ACM1128,Device independence,Enhetsoberoende,silver,N?,ACM
-ACM108,Diagnostics,Diagnostik,silver,N?,ACM
-ACM22,Diagnostics,Diagnostik,silver,N?,ACM
-ACM50,Diagnostics,Diagnostik,silver,N?,ACM
-ACM78,Diagnostics,Diagnostik,silver,N?,ACM
-ACM33,Direct data manipulation,Direkt datamanipulering,silver,N?,ACM
-ACM360,Dumps,Dumpar,silver,N?,ACM
-ACM374,Enhancement,Förbättringar,silver,N?,ACM
-ACM109,Error-checking,Felkontroll,silver,N?,ACM
-ACM130,Error-checking,Felkontroll,silver,N?,ACM
-ACM147,Error-checking,Felkontroll,silver,N?,ACM
-ACM178,Error-checking,Felkontroll,silver,N?,ACM
-ACM23,Error-checking,Felkontroll,silver,N?,ACM
-ACM51,Error-checking,Felkontroll,silver,N?,ACM
-ACM79,Error-checking,Felkontroll,silver,N?,ACM
-ACM1458,Ethics,Etik,silver,N?,ACM
-ACM1159,Exact coding,Exakt kodning,silver,N?,ACM
-ACM27,Firmware engineering,Konstruktion i fasta program,silver,N?,ACM
-ACM19,Formal models,Formella modeller,silver,N?,ACM
-ACM74,Formal models,Formella modeller,silver,N?,ACM
-ACM1460,Games,Spel,silver,N?,ACM
-ACM1089,Hardcopy devices,Utskriftsenheter,silver,N?,ACM
-ACM1411,Hardware patents,Maskinvarupatent,silver,N?,ACM
-ACM110,Hardware reliability,Tillförlitlighet hos maskinvara,silver,N?,ACM
-ACM14,Hardwired control,Fast kopplad styrning,silver,N?,ACM
-ACM515,Hierarchical design,Hierarkisk design,silver,N?,ACM
-ACM221,High-level language architectures,Arkitekturer för högnivåspråk,silver,N?,ACM
-ACM230,Hybrid systems,Hybridsystem,silver,N?,ACM
-ACM1278,Index Generation,Indexgenerering,silver,N?,ACM
-ACM1440,Insurance,Försäkringfrågor,silver,N?,ACM
-ACM1445,Insurance,Försäkringfrågor,silver,N?,ACM
-ACM67,Interleaved memories,Flätade minnen,silver,N?,ACM
-ACM1168,Inverse filtering,Inversfiltrering,silver,N?,ACM
-ACM1264,Languages,Språk,silver,N?,ACM
-ACM528,Linkers,Länkare,silver,N?,ACM
-ACM529,Loaders,Laddare,silver,N?,ACM
-ACM588,Machine-independent complexity,Maskinoberoende komplexitet,silver,N?,ACM
-ACM29,Machine-independent microcode generation,Maskinoberoende generering av mikrokod,silver,N?,ACM
-ACM492,Maintenance,Underhåll,silver,N?,ACM
-ACM141,Memory control and access,Minneskontroll och åtkomst,silver,N?,ACM
-ACM142,Memory used as logic,Minne använt som logik,silver,N?,ACM
-ACM1112,Meta files,Metafiler,silver,N?,ACM
-ACM1020,Metatheory,Metateori,silver,N?,ACM
-ACM396,Methodologies,Metoder,silver,N?,ACM
-ACM15,Microprogrammed logic arrays,Mikroprogrammerade logiska matriser,silver,N?,ACM
-ACM429,Microprogramming languages,Mikroprogrammeringsspråk,silver,N?,ACM
-ACM290,Minicomputers,Minidatorer,silver,N?,ACM
-ACM1323,Music,Musik,silver,N?,ACM
-ACM431,Nondeterministic languages,Icke-deterministiska språk,silver,N?,ACM
-ACM432,Nonprocedural languages,Icke-procedurorienterade språk,silver,N?,ACM
-ACM990,Nonprocedural languages,Icke-procedurorienterade språk,silver,N?,ACM
-ACM560,Nonsecret encoding schemes,Öppna kodningsscheman,silver,N?,ACM
-ACM563,Optimization,Optimering,silver,N?,ACM
-ACM211,Parallel processors,Parallella processorer,silver,N?,ACM
-ACM36,Peripheral control,Styrning av kringutrustning,silver,N?,ACM
-ACM1442,Physical security,Fysisk säkerhet,silver,N?,ACM
-ACM1114,Picture description languages,Bildbeskrivningsspråk,silver,N?,ACM
-ACM201,Pipeline processors,Pipelineprocessorer,silver,N?,ACM
-ACM550,Primitive data items,Primitiva dataposter,silver,N?,ACM
-ACM86,Processors,Processorer,silver,N?,ACM
-ACM1170,Pseudoinverse restoration,Pseudoinversbaserad restaurering,silver,N?,ACM
-ACM810,Queueing theory,Köteori,silver,N?,ACM
-ACM413,Rapid prototyping,Prototypsystem,silver,N?,ACM
-ACM179,Redundant design,Redundant design,silver,N?,ACM
-ACM111,Redundant design,Redundant konstruktion,silver,N?,ACM
-ACM131,Redundant design,Redundant konstruktion,silver,N?,ACM
-ACM148,Redundant design,Redundant konstruktion,silver,N?,ACM
-ACM24,Redundant design,Redundant konstruktion,silver,N?,ACM
-ACM52,Redundant design,Redundant konstruktion,silver,N?,ACM
-ACM80,Redundant design,Redundant konstruktion,silver,N?,ACM
-ACM584,Relations among modes,Relationer mellan metoder,silver,N?,ACM
-ACM128,Reliability and Testing,Tillförlitlighet och provning,silver,N?,ACM
-ACM145,Reliability and Testing,Tillförlitlighet och provning,silver,N?,ACM
-ACM176,Reliability and Testing,Tillförlitlighet och provning,silver,N?,ACM
-ACM1098,Remote systems,Fjärrsystem,silver,N?,ACM
-ACM397,Representation,Representation,silver,N?,ACM
-ACM414,Reusable software,Återanvändbara program,silver,N?,ACM
-ACM1446,Security,Säkerhet,silver,N?,ACM
-ACM510,Security kernels,Säkerhetskärnor,silver,N?,ACM
-ACM483,Segmentation,Segmentering,silver,N?,ACM
-ACM70,Sequential-access memory,Sekventiellt minne,silver,N?,ACM
-ACM1165,Sharpening and deblurring,Skärpa och suddighet,silver,N?,ACM
-ACM103,Simulation,Simulering,silver,N?,ACM
-ACM20,Simulation,Simulering,silver,N?,ACM
-ACM46,Simulation,Simulering,silver,N?,ACM
-ACM75,Simulation,Simulering,silver,N?,ACM
-ACM533,Software psychology,Programpsykologi,silver,N?,ACM
-ACM37,Special-purpose,Specialändamål,silver,N?,ACM
-ACM992,Special-purpose hardware,Specialinriktad maskinvara,silver,N?,ACM
-ACM1265,Spelling,Stavning,silver,N?,ACM
-ACM224,Stack-oriented processors,Stackorienterade processorer,silver,N?,ACM
-ACM1099,Stand-alone systems,Fristående system,silver,N?,ACM
-ACM168,Standard cells,Standardceller,silver,N?,ACM
-ACM1093,Storage devices,Lagringsenheter,silver,N?,ACM
-ACM334,Structured programming,Strukturerad programmering,silver,N?,ACM
-ACM993,Substitution mechanisms,Substitutionsmekanismer,silver,N?,ACM
-ACM1174,Summation methods,Summationsmetoder,silver,N?,ACM
-ACM485,Swapping,Svappning,silver,N?,ACM
-ACM542,Tables,Tabeller,silver,N?,ACM
-ACM498,Terminal management,Terminalhantering,silver,N?,ACM
-ACM112,Test generation,Testgenerering,silver,N?,ACM
-ACM132,Test generation,Testgenerering,silver,N?,ACM
-ACM149,Test generation,Testgenerering,silver,N?,ACM
-ACM180,Test generation,Testgenerering,silver,N?,ACM
-ACM25,Test generation,Testgenerering,silver,N?,ACM
-ACM53,Test generation,Testgenerering,silver,N?,ACM
-ACM81,Test generation,Testgenerering,silver,N?,ACM
-ACM133,Testability,Testbarhet,silver,N?,ACM
-ACM150,Testability,Testbarhet,silver,N?,ACM
-ACM181,Testability,Testbarhet,silver,N?,ACM
-ACM1094,Three-dimensional displays,Tredimensionella visningsenheter,silver,N?,ACM
-ACM335,Top-down programming,Top-down-programmering,silver,N?,ACM
-ACM1404,Trade secrets,Affärshemligheter,silver,N?,ACM
-ACM88,Transmitters,Sändare,silver,N?,ACM
-ACM1240,Types of simulation,Simuleringstyper,silver,N?,ACM
-ACM1095,Vector display devices,Vektorskärmar,silver,N?,ACM
-ACM104,Verification,Verifiering,silver,N?,ACM
-ACM31,Verification,Verifiering,silver,N?,ACM
-ACM47,Verification,Verifiering,silver,N?,ACM
-ACM511,Verification,Verifiering,silver,N?,ACM
-ACM808,Verification,Verifiering,silver,N?,ACM
-ACM204,Von Neumann architectures,Von Neumann-arkitekturer,silver,N?,ACM
-ACM1171,Wiener filtering,Wienerfiltrering,silver,N?,ACM
-ACM105,Worst-case analysis,Worst case-analys,silver,N?,ACM
-ACM48,Worst-case analysis,Worst case-analys,silver,N?,ACM
-ACM76,Worst-case analysis,Worst case-analys,silver,N?,ACM
-ACM16,Writable control store,Skrivbart styrminne,silver,N?,ACM
+ACM229,analog computers,analoga datorer,silver,N?,ACM
+ACM1101,antialiasing,antialiasing,silver,N?,ACM
+ACM1070,architecture and control structures,arkitektur och kontrollstrukturer,silver,N?,ACM
+ACM18,automatic synthesis,automatisk syntes,silver,N?,ACM
+ACM513,batch processing systems,satsvisa system,silver,N?,ACM
+ACM107,built-in tests,inbyggda tester,silver,N?,ACM
+ACM129,built-in tests,inbyggda tester,silver,N?,ACM
+ACM146,built-in tests,inbyggda tester,silver,N?,ACM
+ACM177,built-in tests,inbyggda tester,silver,N?,ACM
+ACM42,calculator,räknare,silver,N?,ACM
+ACM217,capability architectures,kapabilitetsarkitekturer,silver,N?,ACM
+ACM238,centralized networks,centraliserade nät,silver,N?,ACM
+ACM1457,codes of good practice,god sed,silver,N?,ACM
+ACM545,composite structures,sammansatta strukturer,silver,N?,ACM
+ACM1366,computer literacy,datorkunnighet,silver,N?,ACM
+ACM1119,constructive solid geometry,konstruktiv rymdgeometri,silver,N?,ACM
+ACM546,contiguous representations,angränsande representationer,silver,N?,ACM
+ACM1410,contracts,avtal,silver,N?,ACM
+ACM386,copyrights,upphovsrätt,silver,N?,ACM
+ACM372,corrections,korrigeringar,silver,N?,ACM
+ACM553,data encryption standard,des-standarden,silver,N?,ACM
+ACM395,design,design,silver,N?,ACM
+ACM1213,deterministic,deterministiska,silver,N?,ACM
+ACM1109,device drivers,drivrutiner,silver,N?,ACM
+ACM1128,device independence,enhetsoberoende,silver,N?,ACM
+ACM108,diagnostics,diagnostik,silver,N?,ACM
+ACM22,diagnostics,diagnostik,silver,N?,ACM
+ACM50,diagnostics,diagnostik,silver,N?,ACM
+ACM78,diagnostics,diagnostik,silver,N?,ACM
+ACM33,direct data manipulation,direkt datamanipulering,silver,N?,ACM
+ACM360,dumps,dumpar,silver,N?,ACM
+ACM374,enhancement,förbättringar,silver,N?,ACM
+ACM109,error-checking,felkontroll,silver,N?,ACM
+ACM130,error-checking,felkontroll,silver,N?,ACM
+ACM147,error-checking,felkontroll,silver,N?,ACM
+ACM178,error-checking,felkontroll,silver,N?,ACM
+ACM23,error-checking,felkontroll,silver,N?,ACM
+ACM51,error-checking,felkontroll,silver,N?,ACM
+ACM79,error-checking,felkontroll,silver,N?,ACM
+ACM1458,ethics,etik,silver,N?,ACM
+ACM1159,exact coding,exakt kodning,silver,N?,ACM
+ACM27,firmware engineering,konstruktion i fasta program,silver,N?,ACM
+ACM19,formal models,formella modeller,silver,N?,ACM
+ACM74,formal models,formella modeller,silver,N?,ACM
+ACM1460,games,spel,silver,N?,ACM
+ACM1089,hardcopy devices,utskriftsenheter,silver,N?,ACM
+ACM1411,hardware patents,maskinvarupatent,silver,N?,ACM
+ACM110,hardware reliability,tillförlitlighet hos maskinvara,silver,N?,ACM
+ACM14,hardwired control,fast kopplad styrning,silver,N?,ACM
+ACM515,hierarchical design,hierarkisk design,silver,N?,ACM
+ACM221,high-level language architectures,arkitekturer för högnivåspråk,silver,N?,ACM
+ACM230,hybrid systems,hybridsystem,silver,N?,ACM
+ACM1278,index generation,indexgenerering,silver,N?,ACM
+ACM1440,insurance,försäkringfrågor,silver,N?,ACM
+ACM1445,insurance,försäkringfrågor,silver,N?,ACM
+ACM67,interleaved memories,flätade minnen,silver,N?,ACM
+ACM1168,inverse filtering,inversfiltrering,silver,N?,ACM
+ACM1264,languages,språk,silver,N?,ACM
+ACM528,linkers,länkare,silver,N?,ACM
+ACM529,loaders,laddare,silver,N?,ACM
+ACM588,machine-independent complexity,maskinoberoende komplexitet,silver,N?,ACM
+ACM29,machine-independent microcode generation,maskinoberoende generering av mikrokod,silver,N?,ACM
+ACM492,maintenance,underhåll,silver,N?,ACM
+ACM141,memory control and access,minneskontroll och åtkomst,silver,N?,ACM
+ACM142,memory used as logic,minne använt som logik,silver,N?,ACM
+ACM1112,meta files,metafiler,silver,N?,ACM
+ACM1020,metatheory,metateori,silver,N?,ACM
+ACM396,methodologies,metoder,silver,N?,ACM
+ACM15,microprogrammed logic arrays,mikroprogrammerade logiska matriser,silver,N?,ACM
+ACM429,microprogramming languages,mikroprogrammeringsspråk,silver,N?,ACM
+ACM290,minicomputers,minidatorer,silver,N?,ACM
+ACM1323,music,musik,silver,N?,ACM
+ACM431,nondeterministic languages,icke-deterministiska språk,silver,N?,ACM
+ACM432,nonprocedural languages,icke-procedurorienterade språk,silver,N?,ACM
+ACM990,nonprocedural languages,icke-procedurorienterade språk,silver,N?,ACM
+ACM560,nonsecret encoding schemes,öppna kodningsscheman,silver,N?,ACM
+ACM563,optimization,optimering,silver,N?,ACM
+ACM211,parallel processors,parallella processorer,silver,N?,ACM
+ACM36,peripheral control,styrning av kringutrustning,silver,N?,ACM
+ACM1442,physical security,fysisk säkerhet,silver,N?,ACM
+ACM1114,picture description languages,bildbeskrivningsspråk,silver,N?,ACM
+ACM201,pipeline processors,pipelineprocessorer,silver,N?,ACM
+ACM550,primitive data items,primitiva dataposter,silver,N?,ACM
+ACM86,processors,processorer,silver,N?,ACM
+ACM1170,pseudoinverse restoration,pseudoinversbaserad restaurering,silver,N?,ACM
+ACM810,queueing theory,köteori,silver,N?,ACM
+ACM413,rapid prototyping,prototypsystem,silver,N?,ACM
+ACM179,redundant design,redundant design,silver,N?,ACM
+ACM111,redundant design,redundant konstruktion,silver,N?,ACM
+ACM131,redundant design,redundant konstruktion,silver,N?,ACM
+ACM148,redundant design,redundant konstruktion,silver,N?,ACM
+ACM24,redundant design,redundant konstruktion,silver,N?,ACM
+ACM52,redundant design,redundant konstruktion,silver,N?,ACM
+ACM80,redundant design,redundant konstruktion,silver,N?,ACM
+ACM584,relations among modes,relationer mellan metoder,silver,N?,ACM
+ACM128,reliability and testing,tillförlitlighet och provning,silver,N?,ACM
+ACM145,reliability and testing,tillförlitlighet och provning,silver,N?,ACM
+ACM176,reliability and testing,tillförlitlighet och provning,silver,N?,ACM
+ACM1098,remote systems,fjärrsystem,silver,N?,ACM
+ACM397,representation,representation,silver,N?,ACM
+ACM414,reusable software,återanvändbara program,silver,N?,ACM
+ACM1446,security,säkerhet,silver,N?,ACM
+ACM510,security kernels,säkerhetskärnor,silver,N?,ACM
+ACM483,segmentation,segmentering,silver,N?,ACM
+ACM70,sequential-access memory,sekventiellt minne,silver,N?,ACM
+ACM1165,sharpening and deblurring,skärpa och suddighet,silver,N?,ACM
+ACM103,simulation,simulering,silver,N?,ACM
+ACM20,simulation,simulering,silver,N?,ACM
+ACM46,simulation,simulering,silver,N?,ACM
+ACM75,simulation,simulering,silver,N?,ACM
+ACM533,software psychology,programpsykologi,silver,N?,ACM
+ACM37,special-purpose,specialändamål,silver,N?,ACM
+ACM992,special-purpose hardware,specialinriktad maskinvara,silver,N?,ACM
+ACM1265,spelling,stavning,silver,N?,ACM
+ACM224,stack-oriented processors,stackorienterade processorer,silver,N?,ACM
+ACM1099,stand-alone systems,fristående system,silver,N?,ACM
+ACM168,standard cells,standardceller,silver,N?,ACM
+ACM1093,storage devices,lagringsenheter,silver,N?,ACM
+ACM334,structured programming,strukturerad programmering,silver,N?,ACM
+ACM993,substitution mechanisms,substitutionsmekanismer,silver,N?,ACM
+ACM1174,summation methods,summationsmetoder,silver,N?,ACM
+ACM485,swapping,svappning,silver,N?,ACM
+ACM542,tables,tabeller,silver,N?,ACM
+ACM498,terminal management,terminalhantering,silver,N?,ACM
+ACM112,test generation,testgenerering,silver,N?,ACM
+ACM132,test generation,testgenerering,silver,N?,ACM
+ACM149,test generation,testgenerering,silver,N?,ACM
+ACM180,test generation,testgenerering,silver,N?,ACM
+ACM25,test generation,testgenerering,silver,N?,ACM
+ACM53,test generation,testgenerering,silver,N?,ACM
+ACM81,test generation,testgenerering,silver,N?,ACM
+ACM133,testability,testbarhet,silver,N?,ACM
+ACM150,testability,testbarhet,silver,N?,ACM
+ACM181,testability,testbarhet,silver,N?,ACM
+ACM1094,three-dimensional displays,tredimensionella visningsenheter,silver,N?,ACM
+ACM335,top-down programming,top-down-programmering,silver,N?,ACM
+ACM1404,trade secrets,affärshemligheter,silver,N?,ACM
+ACM88,transmitters,sändare,silver,N?,ACM
+ACM1240,types of simulation,simuleringstyper,silver,N?,ACM
+ACM1095,vector display devices,vektorskärmar,silver,N?,ACM
+ACM104,verification,verifiering,silver,N?,ACM
+ACM31,verification,verifiering,silver,N?,ACM
+ACM47,verification,verifiering,silver,N?,ACM
+ACM511,verification,verifiering,silver,N?,ACM
+ACM808,verification,verifiering,silver,N?,ACM
+ACM204,von neumann architectures,von neumann-arkitekturer,silver,N?,ACM
+ACM1171,wiener filtering,wienerfiltrering,silver,N?,ACM
+ACM105,worst-case analysis,worst case-analys,silver,N?,ACM
+ACM48,worst-case analysis,worst case-analys,silver,N?,ACM
+ACM76,worst-case analysis,worst case-analys,silver,N?,ACM
+ACM16,writable control store,skrivbart styrminne,silver,N?,ACM
 ACM437,abstract data types,abstrakta datatyper,silver,N?,ACM
 ACM505,access controls,åtkomstkontroller,silver,N?,ACM
 ACM488,access methods,åtkomstmetoder,silver,N?,ACM

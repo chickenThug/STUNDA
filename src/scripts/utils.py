@@ -28,14 +28,14 @@ def is_word_in_english(word):
     return len(wordnet.synsets(word)) > 0
 
 def delete_entry_by_id(id, authorization ,verbose = False):
-    url = f"https://ws.spraakbanken.gu.se/ws/karp/v7/entries/stunda/{id}/1.1"
+    url = f"https://ws.spraakbanken.gu.se/ws/karp/v7/entries/stunda/{id}/1"
     
     headers = {
     'Authorization': "Bearer " + authorization,
     'Content-Type': 'application/json',
     }
 
-    response = requests.delete(url, headers)
+    response = requests.delete(url = url, headers = headers)
 
     if verbose:
         if response.status_code == 204:
