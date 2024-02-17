@@ -1,0 +1,568 @@
+id,eng_lemma,swe_lemma,status,pos,src
+ACM1474,,,bronze,N?,ACM
+ICT2078,,,bronze,N?,ICT
+ICT2354,,,bronze,N?,ICT
+ICT2757,,,bronze,N?,ICT
+ICT2,graphical modeling project,,bronze,N?,ICT
+ICT1189,federal information processing standards,,bronze,N?,ICT
+ACM1475,* indicates that the classification is no longer used as of january 1991,,bronze,N?,ACM
+ACM1476,** indicates that the classification is no longer used as of january 1998,,bronze,N?,ACM
+ICT17,3-tier web,,bronze,N?,ICT
+ICT15,3rd generation partnership project,,bronze,N?,ICT
+ICT16,3rd generation partnership project,,bronze,N?,ICT
+ICT19,6lowpan,,bronze,N?,ICT
+ICT3,[fips-201] personal identity verification,,bronze,N?,ICT
+ICT27,abstract syntax notation.one,,bronze,N?,ICT
+ACM871,abstracting methods,,bronze,N?,ACM
+ACM832,access methods,,bronze,N?,ACM
+ICT55,active management technology,,bronze,N?,ICT
+ACM704,adaptive and iterative quadrature,,bronze,N?,ACM
+ICT72,advanced encryption standard,,bronze,N?,ICT
+ICT73,advanced metering infrastructure,,bronze,N?,ICT
+ICT87,aggregator,,bronze,N?,ICT
+ACM655,algebraic language theory,,bronze,N?,ACM
+ACM800,algorithm design and analysis,,bronze,N?,ACM
+ICT104,all digital phase-locked loop,,bronze,N?,ICT
+ACM478,allocation/deallocation strategies,,bronze,N?,ACM
+ICT118,amazon elastic compute cloud application programming interface,,bronze,N?,ICT
+ICT131,analogical reasoning in computer concept,,bronze,N?,ICT
+ACM930,animations,,bronze,N?,ACM
+ACM680,approximation,,bronze,N?,ACM
+ACM681,approximation of surfaces and contours,,bronze,N?,ACM
+ACM966,architectures,,bronze,N?,ACM
+ACM206,array and vector processors,,bronze,N?,ACM
+ICT177,arrayed waveguide grating,,bronze,N?,ICT
+ACM931,artificial,,bronze,N?,ACM
+ACM346,assertion checkers,,bronze,N?,ACM
+ICT196,asymmetric digital subscriber line,,bronze,N?,ICT
+ACM957,asynchronous interaction,,bronze,N?,ACM
+ACM932,audio input/output,,bronze,N?,ACM
+ACM937,auditory  feedback,,bronze,N?,ACM
+ACM705,automatic differentiation,,bronze,N?,ACM
+ICT259,baseboard management controller,,bronze,N?,ICT
+ACM938,benchmarking,,bronze,N?,ACM
+ICT289,big data,,bronze,N?,ICT
+ICT299,bit error rate,,bronze,N?,ICT
+ICT312,boro method,,bronze,N?,ICT
+ICT316,bottom up innovation,,bronze,N?,ICT
+ACM733,boundary value problems,,bronze,N?,ACM
+ICT322,bread,,bronze,N?,ICT
+ICT329,british standard institution,,bronze,N?,ICT
+ICT334,broadband wireless access,,bronze,N?,ICT
+ACM921,bulletin boards,,bronze,N?,ACM
+ICT356,business model canvas,,bronze,N?,ICT
+ICT362,business process modelling notation,,bronze,N?,ICT
+ICT374,cache attack,,bronze,N?,ICT
+ICT375,cacheability,,bronze,N?,ICT
+ICT376,caching gain,,bronze,N?,ICT
+ICT387,call processing language,,bronze,N?,ICT
+ICT411,cascading style sheets,,bronze,N?,ICT
+ACM138,cellular arrays and automata,,bronze,N?,ACM
+ACM801,certification and testing,,bronze,N?,ACM
+ACM734,chaotic systems,,bronze,N?,ACM
+ACM682,chebyshev approximation and theory,,bronze,N?,ACM
+ACM347,class invariants,,bronze,N?,ACM
+ACM656,classes defined by grammars or automata (e.g.,,bronze,N?,ACM
+ACM657,classes defined by resource-bounded automata,,bronze,N?,ACM
+ICT478,cloud data management interface,,bronze,N?,ICT
+ACM958,collaborative computing,,bronze,N?,ACM
+ACM1353,collaborative learning,,bronze,N?,ACM
+ACM901,collection,,bronze,N?,ACM
+ACM766,combinatorial algorithms,,bronze,N?,ACM
+ACM765,combinatorics,,bronze,N?,ACM
+ACM895,commercial services,,bronze,N?,ACM
+ICT519,common gateway interface,,bronze,N?,ICT
+ACM574,computability theory,,bronze,N?,ACM
+ACM637,computability theory,,bronze,N?,ACM
+ACM638,computational logic,,bronze,N?,ACM
+ACM666,computer arithmetic,,bronze,N?,ACM
+ACM922,computer conferencing,,bronze,N?,ACM
+ACM1354,computer-assisted instruction,,bronze,N?,ACM
+ACM1355,computer-managed instruction,,bronze,N?,ACM
+ACM959,computer-supported cooperative work,,bronze,N?,ACM
+ACM694,conditioning,,bronze,N?,ACM
+ACM667,conditioning,,bronze,N?,ACM
+ICT580,conjunction,,bronze,N?,ICT
+ACM208,connection machines,,bronze,N?,ACM
+ICT596,constrained application protocol,,bronze,N?,ICT
+ACM870,content analysis and indexing,,bronze,N?,ACM
+ICT610,content delivery network,,bronze,N?,ICT
+ACM781,contingency table analysis,,bronze,N?,ACM
+ACM713,continuation  methods,,bronze,N?,ACM
+ACM628,control primitives,,bronze,N?,ACM
+ICT637,controller area network,,bronze,N?,ICT
+ICT638,controller area network  to ethernet converter,,bronze,N?,ICT
+ICT639,controller area network bus,,bronze,N?,ICT
+ACM714,convergence,,bronze,N?,ACM
+ACM735,convergence and stability,,bronze,N?,ACM
+ACM721,convex programming,,bronze,N?,ACM
+ACM442,coroutines,,bronze,N?,ACM
+ACM782,correlation and regression analysis,,bronze,N?,ACM
+ACM767,counting problems,,bronze,N?,ACM
+ICT705,cross-site request forgery,,bronze,N?,ICT
+ACM888,current awareness systems,,bronze,N?,ACM
+ACM857,data dictionary/directory,,bronze,N?,ACM
+ACM828,data models,,bronze,N?,ACM
+ACM896,data sharing,,bronze,N?,ACM
+ACM853,data translation,,bronze,N?,ACM
+ACM858,data warehouse and repository,,bronze,N?,ACM
+ICT758,data-parallel,,bronze,N?,ICT
+ACM119,data-path design,,bronze,N?,ACM
+ACM838,database  programming languages,,bronze,N?,ACM
+ACM856,database administration,,bronze,N?,ACM
+ACM855,database machines,,bronze,N?,ACM
+ACM824,database management,,bronze,N?,ACM
+ICT756,datagram congestion control protocol,,bronze,N?,ICT
+ICT762,deadline,,bronze,N?,ICT
+ACM833,deadlock avoidance,,bronze,N?,ACM
+ICT766,decapsulates,,bronze,N?,ICT
+ACM649,decision problems,,bronze,N?,ACM
+ACM658,decision problems,,bronze,N?,ACM
+ACM918,decision support (e.g.,,bronze,N?,ACM
+ACM757,delay equations,,bronze,N?,ACM
+ICT828,destinating,,bronze,N?,ICT
+ACM695,determinants,,bronze,N?,ACM
+ICT847,dial over data,,bronze,N?,ICT
+ACM872,dictionaries,,bronze,N?,ACM
+ACM675,difference formulas,,bronze,N?,ACM
+ACM736,differential-algebraic equations,,bronze,N?,ACM
+ACM900,digital libraries,,bronze,N?,ACM
+ICT858,digital object identifier,,bronze,N?,ICT
+ICT869,direct mode operation,,bronze,N?,ICT
+ACM763,discrete mathematics,,bronze,N?,ACM
+ACM902,dissemination,,bronze,N?,ACM
+ICT898,distinguish,,bronze,N?,ICT
+ACM843,distributed databases,,bronze,N?,ACM
+ACM889,distributed systems,,bronze,N?,ACM
+ACM783,distribution functions,,bronze,N?,ACM
+ICT912,document object model,,bronze,N?,ICT
+ACM802,documentation,,bronze,N?,ACM
+ACM744,domain decomposition methods,,bronze,N?,ACM
+ACM409,domain engineering,,bronze,N?,ACM
+ICT917,domain name system security extensions,,bronze,N?,ICT
+ICT945,dynamic network analysis tool,,bronze,N?,ICT
+ICT960,ediscovery/e-discovery,,bronze,N?,ICT
+ICT965,eeprom,,bronze,N?,ICT
+ACM803,efficiency,,bronze,N?,ACM
+ACM696,eigenvalues and eigenvectors,,bronze,N?,ACM
+ACM923,electronic mail,,bronze,N?,ACM
+ACM683,elementary function approximation,,bronze,N?,ACM
+ACM745,elliptic equations,,bronze,N?,ACM
+ICT1009,emobility,,bronze,N?,ICT
+ICT1050,enhanced data rates for gsm evolution,,bronze,N?,ICT
+ICT1053,enlighted,,bronze,N?,ICT
+ACM706,equal interval integration,,bronze,N?,ACM
+ACM911,equipment,,bronze,N?,ACM
+ACM939,ergonomics,,bronze,N?,ACM
+ICT1087,ericssons business communication suite,,bronze,N?,ICT
+ACM668,error analysis,,bronze,N?,ACM
+ACM697,error analysis,,bronze,N?,ACM
+ACM707,error analysis,,bronze,N?,ACM
+ACM715,error analysis,,bronze,N?,ACM
+ACM737,error analysis,,bronze,N?,ACM
+ACM933,evaluation/methodology,,bronze,N?,ACM
+ACM940,evaluation/methodology,,bronze,N?,ACM
+ACM960,evaluation/methodology,,bronze,N?,ACM
+ICT1121,excreters,,bronze,N?,ICT
+ACM784,experimental design,,bronze,N?,ACM
+ICT1146,extensible markup language,,bronze,N?,ICT
+ICT1147,extensible service protocol,,bronze,N?,ICT
+ICT1154,extract,,bronze,N?,ICT
+ACM676,extrapolation,,bronze,N?,ACM
+ACM684,fast fourier transforms,,bronze,N?,ACM
+ICT1176,fast-flux,,bronze,N?,ICT
+ICT1186,feature extraction,,bronze,N?,ICT
+ICT1205,file carving,,bronze,N?,ICT
+ICT1206,file distribution system,,bronze,N?,ICT
+ICT1208,file fragmentation,,bronze,N?,ICT
+ACM877,file organization,,bronze,N?,ACM
+ICT1222,fingerprinting,,bronze,N?,ICT
+ACM708,finite difference methods,,bronze,N?,ACM
+ACM738,finite difference methods,,bronze,N?,ACM
+ACM746,finite difference methods,,bronze,N?,ACM
+ACM747,finite element methods,,bronze,N?,ACM
+ACM748,finite volume methods,,bronze,N?,ACM
+ICT1226,firefox plugin,,bronze,N?,ICT
+ICT1228,firmware applications,,bronze,N?,ICT
+ICT1234,float,,bronze,N?,ICT
+ACM102,formal models,,bronze,N?,ACM
+ICT1259,forward-time central-space,,bronze,N?,ICT
+ICT1264,fractional fourier transform,,bronze,N?,ICT
+ACM758,fredholm equations,,bronze,N?,ACM
+ICT1274,freeconomics,,bronze,N?,ICT
+ACM629,functional constructs,,bronze,N?,ACM
+ICT1300,fxml,,bronze,N?,ICT
+ACM709,gaussian quadrature,,bronze,N?,ACM
+ICT1307,general packet radio service,,bronze,N?,ICT
+ICT1310,general-purpose graphics processing unit,,bronze,N?,ICT
+ICT0,generalized multi-protocol label switching,,bronze,N?,ICT
+ACM768,generating functions,,bronze,N?,ACM
+ICT1315,generic bootstrapping architecture,,bronze,N?,ICT
+ICT1316,generic bootstrapping architecture  digest,,bronze,N?,ICT
+ICT1317,generic ericsson processor boards,,bronze,N?,ICT
+ICT1319,generic security service application program interface,,bronze,N?,ICT
+ICT1333,geopriv,,bronze,N?,ICT
+ICT1341,glitchless,,bronze,N?,ICT
+ICT1343,global b2b in ict industry,,bronze,N?,ICT
+ICT1344,global positioning system,,bronze,N?,ICT
+ICT1346,gnu radio,,bronze,N?,ICT
+ICT1349,golf swing analysis,,bronze,N?,ICT
+ICT1353,gprs/edge,,bronze,N?,ICT
+ACM723,gradient methods,,bronze,N?,ACM
+ACM650,grammar types (e.g.,,bronze,N?,ACM
+ACM648,grammars and other rewriting systems,,bronze,N?,ACM
+ACM772,graph algorithms,,bronze,N?,ACM
+ACM773,graph labeling,,bronze,N?,ACM
+ACM771,graph theory,,bronze,N?,ACM
+ACM941,graphical user interfaces,,bronze,N?,ACM
+ICT1368,grid computing,,bronze,N?,ICT
+ACM956,group and organization interfaces,,bronze,N?,ACM
+ACM912,groupware,,bronze,N?,ACM
+ICT1376,gsm edge radio access network,,bronze,N?,ICT
+ICT1385,hadoop distributed file system,,bronze,N?,ICT
+ICT1388,handed,,bronze,N?,ICT
+ACM942,haptic i/o,,bronze,N?,ACM
+ICT1408,hashmap,,bronze,N?,ICT
+ACM852,heterogeneous databases,,bronze,N?,ACM
+ICT1431,hibernate query language,,bronze,N?,ICT
+ICT1438,high speed line,,bronze,N?,ICT
+ICT1439,high speed packet access,,bronze,N?,ICT
+ICT1442,high-speed downlink packet access,,bronze,N?,ICT
+ICT1443,high-speed downlink shared channel,,bronze,N?,ICT
+ICT1460,home subscriber server,,bronze,N?,ICT
+ACM820,human factors,,bronze,N?,ACM
+ACM821,human information processing,,bronze,N?,ACM
+ICT1484,human resource management system,,bronze,N?,ICT
+ICT1490,hybrid thickness client application,,bronze,N?,ICT
+ACM749,hyperbolic equations,,bronze,N?,ACM
+ACM774,hypergraphs,,bronze,N?,ACM
+ICT1493,hypertext markup language,,bronze,N?,ICT
+ACM934,hypertext navigation and maps,,bronze,N?,ACM
+ICT1494,hypertext transfer protocol,,bronze,N?,ICT
+ICT1495,hypertext transfer protocol secure,,bronze,N?,ICT
+ACM965,hypertext/hypermedia  (i.7,,bronze,N?,ACM
+ICT1512,image rejection,,bronze,N?,ICT
+ICT1573,in-memory,,bronze,N?,ICT
+ACM873,indexing methods,,bronze,N?,ACM
+ACM924,information browsers,,bronze,N?,ACM
+ACM401,information hiding,,bronze,N?,ACM
+ACM927,information interfaces and presentation (e.g.,,bronze,N?,ACM
+ICT1559,information management system,,bronze,N?,ICT
+ACM890,information networks,,bronze,N?,ACM
+ACM876,information storage,,bronze,N?,ACM
+ACM868,information storage and retrieval,,bronze,N?,ACM
+ACM817,information theory,,bronze,N?,ACM
+ICT1566,information-centric network,,bronze,N?,ICT
+ACM739,initial value problems,,bronze,N?,ACM
+ACM943,input devices and strategies (e.g.,,bronze,N?,ACM
+ACM724,integer programming,,bronze,N?,ACM
+ACM756,integral equations,,bronze,N?,ACM
+ACM759,integro-differential equations,,bronze,N?,ACM
+ICT1605,intelligent network application protocol/intelligent network application part,,bronze,N?,ICT
+ACM209,interconnection architectures (e.g.,,bronze,N?,ACM
+ACM94,interconnections,,bronze,N?,ACM
+ICT1633,internet protocol,,bronze,N?,ICT
+ACM269,internetworking,,bronze,N?,ACM
+ACM674,interpolation (i.3.5,,bronze,N?,ACM
+ACM677,interpolation formulas,,bronze,N?,ACM
+ACM669,interval arithmetic,,bronze,N?,ACM
+ICT1647,intra-domain routing,,bronze,N?,ICT
+ACM750,inverse problems,,bronze,N?,ACM
+ICT1662,ip backbones,,bronze,N?,ICT
+ICT1664,ip multimedia core network subsystem,,bronze,N?,ICT
+ICT1668,ip version 4,,bronze,N?,ICT
+ICT1669,ip version 6,,bronze,N?,ICT
+ICT1671,ipv6 deployment,,bronze,N?,ICT
+ACM710,iterative methods,,bronze,N?,ACM
+ACM716,iterative methods,,bronze,N?,ACM
+ACM751,iterative solution techniques,,bronze,N?,ACM
+ICT1687,java remote method invocation,,bronze,N?,ICT
+ICT1688,javascript object notation,,bronze,N?,ICT
+ACM639,lambda calculus and related systems,,bronze,N?,ACM
+ACM436,language constructs and features,,bronze,N?,ACM
+ACM899,large text archives,,bronze,N?,ACM
+ICT1741,layer 2 tunneling protocol,,bronze,N?,ICT
+ACM685,least squares approximation,,bronze,N?,ACM
+ACM725,least squares methods,,bronze,N?,ACM
+ACM898,library automation,,bronze,N?,ACM
+ICT1775,light weight coated  paper,,bronze,N?,ICT
+ICT1776,lightweight java game library,,bronze,N?,ICT
+ICT1781,line-of-sight,,bronze,N?,ICT
+ACM686,linear approximation,,bronze,N?,ACM
+ACM726,linear programming,,bronze,N?,ACM
+ACM698,linear systems,,bronze,N?,ACM
+ACM874,linguistic processing,,bronze,N?,ACM
+ACM859,logging and recovery,,bronze,N?,ACM
+ACM640,logic and constraint programming,,bronze,N?,ACM
+ACM827,logical design,,bronze,N?,ACM
+ACM919,logistics,,bronze,N?,ACM
+ICT1824,long-term evolution,,bronze,N?,ICT
+ICT1865,management information base,,bronze,N?,ICT
+ACM785,markov processes,,bronze,N?,ACM
+ICT1886,massive data analysis,,bronze,N?,ICT
+ACM636,mathematical logic (1.1,,bronze,N?,ACM
+ACM634,mathematical logic and formal languages,,bronze,N?,ACM
+ACM799,mathematical software,,bronze,N?,ACM
+ACM662,mathematics of computing,,bronze,N?,ACM
+ACM699,matrix inversion,,bronze,N?,ACM
+ACM641,mechanical theorem proving,,bronze,N?,ACM
+ICT1911,mediacenter,,bronze,N?,ICT
+ICT1919,meeting room booking service,,bronze,N?,ICT
+ICT1931,meta-model agent,,bronze,N?,ICT
+ACM752,method of lines,,bronze,N?,ACM
+ACM971,methodologies and techniques,,bronze,N?,ACM
+ACM379,metrics,,bronze,N?,ACM
+ICT1951,midlets,,bronze,N?,ICT
+ICT1953,mikey-ticket,,bronze,N?,ICT
+ACM687,minimax approximation and algorithms,,bronze,N?,ACM
+ICT1961,minimum inter-arrival time,,bronze,N?,ICT
+ICT1994,mobile ip,,bronze,N?,ICT
+ICT2000,mobile opportunistic services for experience sharing  project,,bronze,N?,ICT
+ICT2007,mobile security,,bronze,N?,ICT
+ICT2021,mobility protocols,,bronze,N?,ICT
+ACM642,modal logic,,bronze,N?,ACM
+ACM643,model theory,,bronze,N?,ACM
+ACM972,modeling,,bronze,N?,ACM
+ACM813,models and principles,,bronze,N?,ACM
+ICT2044,msc-s,,bronze,N?,ICT
+ICT2046,multiband ofdm format for uwb,,bronze,N?,ICT
+ICT2049,multiconferencing,,bronze,N?,ICT
+ACM711,multidimensional  quadrature,,bronze,N?,ACM
+ACM753,multigrid and multilevel methods,,bronze,N?,ACM
+ICT2054,multikernel,,bronze,N?,ICT
+ACM844,multimedia databases,,bronze,N?,ACM
+ACM929,multimedia information systems,,bronze,N?,ACM
+ICT2058,multimedia internet keying,,bronze,N?,ICT
+ICT2061,multimedia messaging service  composer,,bronze,N?,ICT
+ICT2062,multimedia messaging service  synchronized multimedia integration language,,bronze,N?,ICT
+ICT2063,multimedia messaging service  viewer,,bronze,N?,ICT
+ICT2065,multipath roofnet routing,,bronze,N?,ICT
+ACM670,multiple precision arithmetic,,bronze,N?,ACM
+ICT2074,multiprocessor system-on-chip,,bronze,N?,ICT
+ICT2076,multiprotocol label switching,,bronze,N?,ICT
+ACM740,multistep and multivalue methods,,bronze,N?,ACM
+ACM786,multivariate statistics,,bronze,N?,ACM
+ICT2096,national marine electronics association  data,,bronze,N?,ICT
+ACM945,natural language,,bronze,N?,ACM
+ACM967,navigation,,bronze,N?,ACM
+ACM243,network communications,,bronze,N?,ACM
+ICT2121,network database  cluster,,bronze,N?,ICT
+ICT2125,network driver interface specification,,bronze,N?,ICT
+ICT2127,network enabled cloud,,bronze,N?,ICT
+ACM775,network problems,,bronze,N?,ACM
+ICT2142,network simulator 2- university of cincinnati bluetooth  [simulator],,bronze,N?,ICT
+ICT2143,network time protocol,,bronze,N?,ICT
+ACM688,nonlinear approximation,,bronze,N?,ACM
+ACM727,nonlinear programming,,bronze,N?,ACM
+ACM787,nonparametric statistics,,bronze,N?,ACM
+ACM829,normal forms,,bronze,N?,ACM
+ICT2197,null message algorithm,,bronze,N?,ICT
+ACM671,numerical algorithms,,bronze,N?,ACM
+ACM664,numerical analysis,,bronze,N?,ACM
+ACM693,numerical linear algebra,,bronze,N?,ACM
+ICT2203,object management group,,bronze,N?,ICT
+ACM630,object-oriented constructs,,bronze,N?,ACM
+ACM845,object-oriented databases,,bronze,N?,ACM
+ACM909,office automation,,bronze,N?,ACM
+ICT2232,on-board diagnostic-ii,,bronze,N?,ICT
+ACM741,one-step  methods,,bronze,N?,ACM
+ACM894,online information services,,bronze,N?,ACM
+ICT2251,open base station architecture initiative,,bronze,N?,ICT
+ICT2255,opensocial api,,bronze,N?,ICT
+ICT2270,optical high speed lines,,bronze,N?,ICT
+ACM732,ordinary differential equations,,bronze,N?,ACM
+ACM961,organizational design,,bronze,N?,ACM
+ICT2291,orthogonal frequency-division multiple access,,bronze,N?,ICT
+ICT2317,over-the-air,,bronze,N?,ICT
+ICT2318,over-the-air programming,,bronze,N?,ICT
+ICT2327,packet classification,,bronze,N?,ICT
+ICT2331,pacts,,bronze,N?,ICT
+ACM754,parabolic equations,,bronze,N?,ACM
+ACM672,parallel algorithms,,bronze,N?,ACM
+ACM804,parallel and vector implementations,,bronze,N?,ACM
+ACM846,parallel databases,,bronze,N?,ACM
+ACM651,parallel rewriting systems (e.g.,,bronze,N?,ACM
+ACM652,parsing,,bronze,N?,ACM
+ACM743,partial differential equations,,bronze,N?,ACM
+ICT2364,parts,,bronze,N?,ICT
+ACM776,path and circuit problems,,bronze,N?,ACM
+ICT2372,path computation client,,bronze,N?,ICT
+ICT2373,path computation element,,bronze,N?,ICT
+ACM1394,payment schemes,,bronze,N?,ACM
+ICT2382,pci extension for instrumentation,,bronze,N?,ICT
+ACM891,performance evaluation,,bronze,N?,ACM
+ACM1324,performing arts (e.g.,,bronze,N?,ACM
+ACM769,permutations and combinations,,bronze,N?,ACM
+ICT2425,php: hypertext preprocessor,,bronze,N?,ICT
+ACM831,physical design,,bronze,N?,ACM
+ICT2439,pipelined,,bronze,N?,ICT
+ACM173,placement and routing,,bronze,N?,ACM
+ICT2459,plug-in,,bronze,N?,ICT
+ACM717,polynomials,,bronze,N?,ACM
+ACM805,portability,,bronze,N?,ACM
+ACM618,pre- and post-conditions,,bronze,N?,ACM
+ACM339,pretty printers,,bronze,N?,ACM
+ACM788,probabilistic algorithms,,bronze,N?,ACM
+ACM780,probability and statistics,,bronze,N?,ACM
+ACM382,process metrics,,bronze,N?,ACM
+ACM383,product metrics,,bronze,N?,ACM
+ACM631,program and recursion schemes,,bronze,N?,ACM
+ACM854,program translation,,bronze,N?,ACM
+ACM370,programmer workbench,,bronze,N?,ACM
+ACM331,programmer workbench,,bronze,N?,ACM
+ACM351,programming by contract,,bronze,N?,ACM
+ACM644,proof theory,,bronze,N?,ACM
+ACM946,prototyping,,bronze,N?,ACM
+ACM700,pseudoinverses,,bronze,N?,ACM
+ICT2637,push method,,bronze,N?,ICT
+ACM728,quadratic programming methods,,bronze,N?,ACM
+ACM703,quadrature and numerical differentiation,,bronze,N?,ACM
+ACM847,query processing,,bronze,N?,ACM
+ACM892,question-answering  systems,,bronze,N?,ACM
+ICT2681,random access memory,,bronze,N?,ICT
+ACM790,random number generation,,bronze,N?,ACM
+ACM689,rational approximation,,bronze,N?,ACM
+ACM878,record classification,,bronze,N?,ACM
+ACM834,recovery and restart,,bronze,N?,ACM
+ACM770,recurrences and difference equations,,bronze,N?,ACM
+ACM645,recursive function theory,,bronze,N?,ACM
+ACM341,reentrant code,,bronze,N?,ACM
+ICT2750,register transfer level  model,,bronze,N?,ICT
+ACM848,relational databases,,bronze,N?,ACM
+ACM883,relevance feedback,,bronze,N?,ACM
+ACM792,renewal theory,,bronze,N?,ACM
+ACM840,report writers,,bronze,N?,ACM
+ICT2804,representational state transfer,,bronze,N?,ICT
+ICT2827,resource location and discovery,,bronze,N?,ICT
+ACM377,restructuring,,bronze,N?,ACM
+ACM884,retrieval models,,bronze,N?,ACM
+ACM793,robust regression,,bronze,N?,ACM
+ACM712,roots of nonlinear equations,,bronze,N?,ACM
+ACM849,rule-based databases,,bronze,N?,ACM
+ICT2911,sc,,bronze,N?,ICT
+ICT2926,scavenging,,bronze,N?,ICT
+ACM830,schema and subschema,,bronze,N?,ACM
+ICT2937,scn space for the user interface development toolkit for html5,,bronze,N?,ICT
+ACM947,screen design (e.g.,,bronze,N?,ACM
+ICT2942,screenwriting,,bronze,N?,ICT
+ICT2961,secure sockets layer,,bronze,N?,ICT
+ACM860,security,,bronze,N?,ACM
+ACM826,security,,bronze,N?,ACM
+ICT3013,serial peripheral interface,,bronze,N?,ICT
+ICT3015,serial presence detect,,bronze,N?,ICT
+ICT3032,service location protocol,,bronze,N?,ICT
+ICT3039,servlet servlets,,bronze,N?,ICT
+ICT3041,session initiation protocol,,bronze,N?,ICT
+ACM646,set theory,,bronze,N?,ACM
+ICT3048,sfr,,bronze,N?,ICT
+ACM973,signal analysis,,bronze,N?,ACM
+ICT3095,simple ajax toolkit,,bronze,N?,ICT
+ICT3096,simple mail transfer protocol,,bronze,N?,ICT
+ICT3097,simple network management protocol,,bronze,N?,ICT
+ACM729,simulated annealing,,bronze,N?,ACM
+ICT3103,single page application,,bronze,N?,ICT
+ACM701,singular value decomposition,,bronze,N?,ACM
+ICT3106,sip express router,,bronze,N?,ICT
+ACM678,smoothing,,bronze,N?,ACM
+ACM391,software configuration management,,bronze,N?,ACM
+ACM822,software psychology,,bronze,N?,ACM
+ACM384,software science,,bronze,N?,ACM
+ACM970,sound and music computing,,bronze,N?,ACM
+ACM702,sparse,,bronze,N?,ACM
+ACM865,spatial databases and gis,,bronze,N?,ACM
+ACM690,special function approximations,,bronze,N?,ACM
+ACM755,spectral methods,,bronze,N?,ACM
+ACM691,spline and piecewise polynomial approximation,,bronze,N?,ACM
+ACM679,spline and piecewise polynomial interpolation,,bronze,N?,ACM
+ACM913,spreadsheets,,bronze,N?,ACM
+ACM673,stability,,bronze,N?,ACM
+ACM948,standardization,,bronze,N?,ACM
+ACM794,statistical computing,,bronze,N?,ACM
+ACM795,statistical software,,bronze,N?,ACM
+ACM742,stiff equations,,bronze,N?,ACM
+ACM796,stochastic processes,,bronze,N?,ACM
+ACM730,stochastic programming,,bronze,N?,ACM
+ACM246,store and forward networks,,bronze,N?,ACM
+ICT3259,structured query language,,bronze,N?,ICT
+ACM627,studies of program constructs (2,,bronze,N?,ACM
+ACM949,style guides,,bronze,N?,ACM
+ACM797,survival analysis,,bronze,N?,ACM
+ICT3323,sustainable human computer interaction,,bronze,N?,ICT
+ACM156,switching theory,,bronze,N?,ACM
+ICT3335,synchronized multimedia integration language,,bronze,N?,ICT
+ACM962,synchronous interaction,,bronze,N?,ACM
+ACM974,systems,,bronze,N?,ACM
+ACM815,systems and information theory,,bronze,N?,ACM
+ACM887,systems and software,,bronze,N?,ACM
+ACM904,systems issues,,bronze,N?,ACM
+ACM718,systems of equations,,bronze,N?,ACM
+ICT3354,tail-f systems’ network control system,,bronze,N?,ICT
+ACM647,temporal logic,,bronze,N?,ACM
+ICT3401,terrestrial trunked radio,,bronze,N?,ICT
+ACM850,textual databases,,bronze,N?,ACM
+ACM0,the acm computing classification system,,bronze,N?,ACM
+ACM968,theory,,bronze,N?,ACM
+ACM950,theory and methods,,bronze,N?,ACM
+ACM963,theory and models,,bronze,N?,ACM
+ACM875,thesauruses,,bronze,N?,ACM
+ACM653,thue systems,,bronze,N?,ACM
+ACM914,time management (e.g.,,bronze,N?,ACM
+ACM798,time series analysis,,bronze,N?,ACM
+ICT3461,time-parallel,,bronze,N?,ICT
+ICT3453,timeout|s,,bronze,N?,ICT
+ICT3469,tl-bacacuo,,bronze,N?,ICT
+ICT3502,train of packet-pairs method,,bronze,N?,ICT
+ACM951,training,,bronze,N?,ACM
+ICT3505,transaction level model,,bronze,N?,ICT
+ACM851,transaction processing,,bronze,N?,ACM
+ACM465,translator writing systems and compiler generators,,bronze,N?,ACM
+ICT3518,transport control protocol,,bronze,N?,ICT
+ICT3519,transport encapsulation security payload,,bronze,N?,ICT
+ACM777,trees,,bronze,N?,ACM
+ICT3533,tromboning,,bronze,N?,ICT
+ICT3544,trusted computing module,,bronze,N?,ICT
+ICT3545,trusted platform module,,bronze,N?,ICT
+ACM632,type structure,,bronze,N?,ACM
+ACM917,types of systems,,bronze,N?,ACM
+ICT3565,ultrawideband,,bronze,N?,ICT
+ICT3583,unified extensible firmware interface,,bronze,N?,ICT
+ICT3584,unified modeling language,,bronze,N?,ICT
+ICT3585,unified modeling language,,bronze,N?,ICT
+ICT3591,universal mobile telecommunications system,,bronze,N?,ICT
+ICT3592,universal plug and play  hack,,bronze,N?,ICT
+ICT3593,universal serial bus,,bronze,N?,ICT
+ICT3595,universal serial radio peripheral,,bronze,N?,ICT
+ICT3617,usability measurements,,bronze,N?,ICT
+ICT3623,user datagram protocol,,bronze,N?,ICT
+ICT3627,user generatedcontent,,bronze,N?,ICT
+ACM953,user interface management systems,,bronze,N?,ACM
+ACM936,user interfaces (2.2,,bronze,N?,ACM
+ACM905,user issues,,bronze,N?,ACM
+ACM969,user issues,,bronze,N?,ACM
+ACM893,user profiles and alert services,,bronze,N?,ACM
+ACM952,user-centered design,,bronze,N?,ACM
+ACM819,user/machine systems,,bronze,N?,ACM
+ACM818,value of information,,bronze,N?,ACM
+ICT3680,vertical-cavity surface-emitting laser,,bronze,N?,ICT
+ICT3681,very high speed integrated circuit hardware description language,,bronze,N?,ICT
+ICT3682,very large scale integrated circuit  implementation,,bronze,N?,ICT
+ACM935,video (e.g.,,bronze,N?,ACM
+ACM925,videotex,,bronze,N?,ACM
+ACM954,voice i/o,,bronze,N?,ACM
+ACM760,volterra equations,,bronze,N?,ACM
+ACM692,wavelets and fractals,,bronze,N?,ACM
+ACM964,web-based interaction,,bronze,N?,ACM
+ACM897,web-based services,,bronze,N?,ACM
+ICT3763,websocket,,bronze,N?,ICT
+ACM955,windowing systems,,bronze,N?,ACM
+ICT3812,wlan in disaster emergency response  project,,bronze,N?,ICT
+ACM915,word processing,,bronze,N?,ACM
+ACM916,workflow management,,bronze,N?,ACM
+ICT3830,worldwide interoperability for microwave access,,bronze,N?,ICT
+ICT3840,xen virtualization,,bronze,N?,ICT
+ICT3841,xml schema definition,,bronze,N?,ICT
+ICT3842,yahoo! cloud service benchmark,,bronze,N?,ICT
+ICT3843,yba2cu3o7-8,,bronze,N?,ICT
+ICT3844,yba2cu3o7-delta,,bronze,N?,ICT
+ICT3846,yet another json library,,bronze,N?,ICT
+ICT3850,zero correlation zone,,bronze,N?,ICT
