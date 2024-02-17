@@ -58,7 +58,7 @@ for id in all_ids:
 
 
 print(f"{unseen} lost terms")
-print(Counter(counts))
+print("Terms that exist in more than file", Counter(counts))
 
 
         
