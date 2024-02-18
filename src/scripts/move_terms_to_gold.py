@@ -7,7 +7,8 @@ from utils import is_word_in_english, english_pos
 pos_mapping = {
     'nn': 'N',
     'jj': 'A',
-    'vb': 'V'
+    'vb': 'V',
+    'ab': 'AB'
 }
 
 # Function to spell-check using Skrutten Stava API
@@ -104,7 +105,7 @@ def pos_tag_terms(df):
                 pos_tag = pos_mapping[swe_pos[0]]
                 correct_pos_tags.append(df[(df["eng_lemma"] == eng_term) & (df["swe_lemma"] == swe_term)].assign(pos=pos_tag))
             except:
-                continue # tag that can't be handled. what is "ab"?
+                continue
     
     try:
         df_correct_pos = pd.concat(correct_pos_tags)

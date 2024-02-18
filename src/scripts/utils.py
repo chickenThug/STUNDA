@@ -24,8 +24,15 @@ def english_pos(word):
     return list(wordtags[word.lower()].items())
 
 # Function to check if a string is a word in WordNet
-def is_word_in_english(word):
-    return len(wordnet.synsets(word)) > 0
+def is_word_in_english(term):
+    words = term.split(" ")
+    correct = True
+
+    for word in words:
+        if len(wordnet.synsets(word)) == 0:
+            correct = False
+
+    return correct
 
 def delete_entry_by_id(id, authorization ,verbose = False):
     url = f"https://ws.spraakbanken.gu.se/ws/karp/v7/entries/stunda/{id}/1"
@@ -102,4 +109,49 @@ def add_entries(authorization, entries, verbose=False):
         results.append(add_entry(authorization, entry, verbose))
     return results
 
+# Function to spell-check using Skrutten Stava API
+def swedish_spell_check(term):
+    url = 'https://skrutten.csc.kth.se/granskaapi/spell/'
+
+    words = term.split(" ")
+
+    if len(words) == 1:
+        response = requests.get(url + 'json/' + term)
+    else:
+        params = {'coding': 'json', 'words': term}
+
+        response = requests.post(url, data=params)
+
+    if response.status_code == 200:
+        result = response.json()
+        correct = True
+
+        for i in result:
+            if not i['correct']:
+                correct = False
+        
+        if len(result) == 0:
+            return False
+        return correct
+    else:
+        return None
+    
+# Function to pos-tag using Skrutten Taggstava API
+def swedish_pos_tagging(term):
+    url = 'https://skrutten.csc.kth.se/granskaapi/taggstava/'
+
+    words = term.split(" ")
+
+    if len(words) == 1:
+        response = requests.get(url + 'json/' + term)
+    else:
+        params = {'coding': 'json', 'words': term}
+
+        response = requests.post(url, data=params)
+
+    if response.status_code == 200:
+        result = response.json()
+        return result
+    else:
+        return None
 
