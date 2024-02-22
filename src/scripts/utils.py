@@ -155,3 +155,23 @@ def swedish_pos_tagging(term):
     else:
         return None
 
+
+def swedish_lemmatizing(term):
+    url = 'https://skrutten.csc.kth.se/granskaapi/lemma/'
+
+    words = term.split(" ")
+
+    if len(words) == 1:
+        response = requests.get(url + 'json/' + term)
+    else:
+        params = {'coding': 'json', 'words': term}
+
+        response = requests.post(url, data=params)
+
+    if response.status_code == 200:
+        result = response.json()
+        return result
+    else:
+        return None
+    
+print(is_word_in_english("network-based"))
