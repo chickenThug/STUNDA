@@ -23,16 +23,24 @@ def english_lemmatizer(word, pos):
 def english_pos(word):
     return list(wordtags[word.lower()].items())
 
-# Function to check if a string is a word in WordNet
+# Function to check if every word in the term exists in the brown corpus
 def is_word_in_english(term):
+    # Split the term into words
     words = term.split(" ")
-    correct = True
 
+    # Iterate over the words checking if exists
     for word in words:
+        # Check for existense
         if len(wordnet.synsets(word)) == 0:
-            correct = False
-
-    return correct
+            # If hyphenated word check the subwords separately
+            if "-" in word:
+                subwords = word.split("-")
+                if len(wordnet.synsets(subwords[0])) == 0 or len(wordnet.synsets(subwords[1])) == 0:
+                    return False
+            else:
+                return False
+    # all words exist
+    return True
 
 def delete_entry_by_id(id, authorization ,verbose = False):
     url = f"https://ws.spraakbanken.gu.se/ws/karp/v7/entries/stunda/{id}/1"
