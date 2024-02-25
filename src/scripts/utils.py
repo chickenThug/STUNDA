@@ -28,10 +28,10 @@ def english_lemmatizer(word, pos):
 def custom_english_lemmatizer(term, pos):
 
     # List of instances where we don't lemmatize
-    do_nothing = ["NN", "JJ", "NN NN", "JJ NN", "JJ NN NN", "NN NN NN", "VBN NN", "VBG NN"]
+    do_nothing = ["NN", "JJ", "NN NN", "JJ NN", "JJ NN NN", "NN NN NN", "VBN NN", "VBG NN", "JJ JJ NN", "NN VBG", "JJ NN NN NN"]
 
     # List of instances where we lemmatize the last word
-    lemmatize_last_word = ["NN NNS", "JJ NNS", "NNS", "JJ NN NNS", "NN NN NNS", "VBN NNS"]
+    lemmatize_last_word = ["NN NNS", "JJ NNS", "NNS", "JJ NN NNS", "NN NN NNS", "VBN NNS", "VBG NNS"]
     
     if pos in do_nothing:
         return term, "ok"
