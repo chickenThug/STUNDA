@@ -1,111 +1,29 @@
 id,eng_lemma,swe_lemma,status,pos,src,incorrect
-GF46,agile,agil,silver,A,GF,swe
-GF72,antivirus,antivirus,silver,N,GF,eng
-GF82,architectural,arkitekturell,silver,A,GF,swe
 GF96,assembly,assembly,silver,N,GF,swe
 GF118,authore, författa,silver,V,GF,eng
 GF139,batch,batch,silver,N,GF,swe
-GF153,bioinformatics,bioinformatik,silver,N,GF,eng
 GF155,bios,bios,silver,N,GF,eng
-GF159,bitrate,bithastighet,silver,N,GF,eng
 GF164,bluetooth,blåtand,silver,N,GF,eng
-GF166,boolean,boolesk,silver,A,GF,swe
-GF190,cache,cache,silver,N,GF,swe
-GF201,captcha,captcha,silver,N,GF,both
-GF221,chat, chatta,silver,V,GF,swe
 GF224,chip,chip,silver,N,GF,swe
-GF320,concatenation,konkatenering,silver,N,GF,swe
-GF350,consumption,konsumption,silver,N,GF,swe
-GF354,context-free,kontextfri,silver,A,GF,both
-GF359,contravariance,kontravarians,silver,N,GF,eng
-GF400,cyberbullying,nätmobbning,silver,N,GF,eng
 GF406,daemon,daemon,silver,N,GF,swe
-GF424,debugger,avlusare,silver,N,GF,swe
-GF471,dimensional,dimensionell,silver,A,GF,swe
-GF562,ethernet,ethernet,silver,N,GF,swe
-GF576,executable,exekverbar,silver,A,GF,swe
 GF623,firmware,firmware,silver,N,GF,swe
 GF699,handler,hanterare,silver,N,GF,swe
-GF713,heapsort,heapsortering,silver,N,GF,both
-GF727,hotkey,snabbvalstangent,silver,N,GF,eng
-GF734,identifier,identifierare,silver,N,GF,swe
 GF737,if-loop,if-loop,silver,N,GF,both
 GF738,if-statement,if-sats,silver,N,GF,both
-GF753,incremental,inkrementell,silver,A,GF,swe
-GF763,inference,inferens,silver,N,GF,swe
-GF771,initialize, initialisera,silver,V,GF,swe
-GF802,interested,interesserad,silver,A,GF,swe
-GF814,internet,internet,silver,N,GF,swe
-GF825,ip-adress,ip-address,silver,N,GF,both
-GF835,kibibyte,kibibyte,silver,N,GF,swe
 GF848,laptop,laptop,silver,N,GF,swe
 GF876,linux,linux,silver,N,GF,swe
 GF905,mail,mail,silver,N,GF,swe
-GF958,microcontroller,mikrokontroller,silver,N,GF,eng
-GF984,motherboard,moderkort,silver,N,GF,eng
 GF994,multiprocessing,multiprocessering,silver,N,GF,swe
 GF996,mutable,muterbar,silver,A,GF,swe
-GF1008,neural,neural,silver,A,GF,swe
-GF1012,nondeterministic,icke-deterministisk,silver,A,GF,eng
-GF1033,operator,operator,silver,N,GF,swe
-GF1064,parallelism,parallelism,silver,N,GF,swe
-GF1065,parallellization,parallellisering,silver,N,GF,eng
 GF1069,parsing,parsning,silver,N,GF,swe
-GF1072,partition,partition,silver,N,GF,swe
-GF1093,pixel,pixel,silver,N,GF,swe
-GF1100,pointer,pekare,silver,N,GF,swe
 GF1102,polymorphism,polymorfi,silver,N,GF,swe
-GF1152,programmable,programerbar,silver,A,GF,both
-GF1176,quantitative,kvantitiv,silver,A,GF,swe
-GF1204,recursion,rekursion,silver,N,GF,swe
-GF1246,robotics,robotik,silver,N,GF,swe
 GF1248,root, roota,silver,V,GF,swe
-GF1256,runtime,körningstid,silver,N,GF,eng
-GF1272,screensaver,skärmsläckare,silver,N,GF,eng
-GF1294,server,server,silver,N,GF,swe
 GF1303,shareware,shareware,silver,N,GF,swe
 GF1316,singleton,singleton,silver,N,GF,swe
-GF1317,site,sajt,silver,N,GF,swe
-GF1346,specify, specifiera,silver,V,GF,swe
 GF1400,switch, switcha,silver,V,GF,swe
-GF1418,taskbar,aktivitetsfält,silver,N,GF,eng
 GF1434,terminator,terminator,silver,N,GF,swe
-GF1457,trackpad,styrplatta,silver,N,GF,eng
-GF1536,webcam,webbkamera,silver,N,GF,swe
-GF1537,website,webbsida,silver,N,GF,swe
 GF1539,while-loop,while-loop,silver,N,GF,both
 GF1540,while-statement,while-sats,silver,N,GF,both
-GF1541,whitelist,vitlista,silver,N,GF,eng
-GF47,agile software development,agil mjukvaruutveckling,silver,N,GF,swe
 GF94,assembly code,assemblykod,silver,N,GF,swe
 GF95,assembly programming,assemblerprogrammering,silver,N,GF,swe
-GF167,boolean data type,boolesk datatyp,silver,N,GF,swe
-GF188,cache memory,cacheminne,silver,N,GF,swe
-GF258,command-line interpreter,kommandotolk,silver,N,GF,eng
-GF291,computability theory,beräkningsteori,silver,N,GF,eng
-GF399,cyber security,cybersäkerhet,silver,N,GF,eng
-GF420,database administator,databasadministratör,silver,N,GF,eng
-GF499,domain-specific language,domänspecifikt språk,silver,N,GF,eng
-GF624,flash memory,flashminne,silver,N,GF,swe
-GF709,hash function,hashfunktion,silver,N,GF,swe
-GF710,hash table,hashtabell,silver,N,GF,swe
-GF730,human-computer interation,människa-datorinteraktion,silver,N,GF,eng
 GF747,implementation problem,implementationsproblem,silver,N,GF,swe
-GF794,inter-process communication,interprocesskommunikation,silver,N,GF,eng
-GF871,linear search,linjärsökning,silver,N,GF,swe
-GF882,litterature study,litteraturstudie,silver,N,GF,eng
-GF927,mathematical modelling,matematiskmodellering,silver,N,GF,swe
-GF956,microarchitecture level,mikroarkitekturnivå,silver,N,GF,eng
-GF988,multi-core processor,flerkärnig processor,silver,N,GF,eng
-GF1009,neural network,neuralt nätverk,silver,N,GF,swe
-GF1025,object-oriented program,objektorienterat program,silver,N,GF,eng
-GF1166,propositional logic,satslogik,silver,N,GF,eng
-GF1251,routing protocol,routingprotokoll,silver,N,GF,swe
-GF1255,runtime error,exekveringsfel,silver,N,GF,eng
-GF1273,scripting language,skriptspråk,silver,N,GF,swe
-GF1365,static random-access memory,statiskt minne,silver,N,GF,eng
-GF1474,two-factor authentication,tvåfaktorautentisering,silver,N,GF,eng
-GF1532,web application,webbapplikation,silver,N,GF,swe
-GF1533,web browser,webbläsare,silver,N,GF,swe
-GF1534,web page,webbsida,silver,N,GF,swe
-GF1535,web server,webbserver,silver,N,GF,swe
