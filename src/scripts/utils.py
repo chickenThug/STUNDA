@@ -180,7 +180,7 @@ def swedish_spell_check(term):
         return None
 
 
-# Function to pos-tag using Skrutten Taggstava API
+# Function to pos-tag using Skrutten Granska API
 def swedish_pos_tagging(term):
     url = "https://skrutten.csc.kth.se/granskaapi/taggstava/"
 
@@ -199,6 +199,20 @@ def swedish_pos_tagging(term):
     else:
         return None
 
+def granska_pos(term):
+    url = "https://skrutten.csc.kth.se/granskaapi/pos.php"
+
+    params = {"coding": "json", "text": term}
+
+    response = requests.post(url, data=params)
+
+    if response.status_code == 200:
+        result = response.json()
+        pos_tags = " ".join([pos_tag["POS"] for pos_tag in result])
+
+        return pos_tags
+    else:
+        return None
 
 def swedish_lemmatizing(term):
     url = "https://skrutten.csc.kth.se/granskaapi/lemma/"
@@ -219,6 +233,9 @@ def swedish_lemmatizing(term):
         return None
 
 
-print(custom_english_lemmatizer("abstract network", "JJ NNS"))
+#print(custom_english_lemmatizer("abstract network", "JJ NNS"))
 
-print(english_lemmatizer("types", "n"))
+#print(english_lemmatizer("types", "n"))
+
+#print(swedish_pos_tagging("katt"))
+print(granska_pos("abstrakta"))
