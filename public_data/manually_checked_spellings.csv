@@ -121,3 +121,18 @@ ICT3607,unsynchronized,osynkroniserad,silver,N?,ICT
 ACM1208,volumetric,volymetrisk,silver,N?,ACM
 ICT3746,web,webb,silver,N?,ICT
 ICT3761,website,webbsida,silver,N?,ICT
+GF96,assembly,assembly,silver,N,GF
+GF139,batch,batch,silver,N,GF
+GF224,chip,chip,silver,N,GF
+GF699,handler,hanterare,silver,N,GF
+GF737,if-loop,if-loop,silver,N,GF
+GF738,if-statement,if-sats,silver,N,GF
+GF848,laptop,laptop,silver,N,GF
+GF905,mail,mail,silver,N,GF
+GF994,multiprocessing,multiprocessering,silver,N,GF
+GF996,mutable,muterbar,silver,A,GF
+GF1069,parsing,parsning,silver,N,GF
+GF1539,while-loop,while-loop,silver,N,GF
+GF1540,while-statement,while-sats,silver,N,GF
+GF94,assembly code,assemblykod,silver,N,GF
+GF747,implementation problem,implementationsproblem,silver,N,GF
