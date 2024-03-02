@@ -1,0 +1,123 @@
+id,eng_lemma,swe_lemma,status,pos,src
+GF46,agile,agil,silver,A,GF
+GF72,antivirus,antivirus,silver,N,GF
+GF82,architectural,arkitekturell,silver,A,GF,swe
+GF153,bioinformatics,bioinformatik,silver,N,GF
+GF159,bitrate,bithastighet,silver,N,GF
+GF166,boolean,boolesk,silver,A,GF
+GF190,cache,cache,silver,N,GF
+GF201,captcha,captcha,silver,N,GF
+GF221,chat,chatta,silver,V,GF
+GF320,concatenation,konkatenering,silver,N,GF
+GF350,consumption,konsumtion,silver,N,GF
+GF354,context-free,kontextfri,silver,A,GF
+GF359,contravariance,kontravarians,silver,N,GF
+GF400,cyberbullying,nätmobbning,silver,N,GF
+GF424,debugger,avlusare,silver,N,GF
+GF471,dimensional,dimensionell,silver,A,GF
+GF562,ethernet,ethernet,silver,N,GF
+GF576,executable,exekverbar,silver,A,GF
+GF713,heapsort,heapsortering,silver,N,GF
+GF727,hotkey,snabbvalstangent,silver,N,GF
+GF734,identifier,identifierare,silver,N,GF
+GF753,incremental,inkrementell,silver,A,GF
+GF763,inference,inferens,silver,N,GF
+GF771,initialize,initialisera,silver,V,GF
+GF802,interested,intresserad,silver,A,GF
+GF814,internet,internet,silver,N,GF
+GF825,ip-address,ip-adress,silver,N,GF
+GF835,kibibyte,kibibyte,silver,N,GF
+GF958,microcontroller,mikrokontroller,silver,N,GF
+GF984,motherboard,moderkort,silver,N,GF
+GF1008,neural,neural,silver,A,GF
+GF1012,nondeterministic,icke-deterministisk,silver,A,GF
+GF1033,operator,operator,silver,N,GF
+GF1064,parallelism,parallellism,silver,N,GF
+GF1065,parallelization,parallellisering,silver,N,GF
+GF1072,partition,partition,silver,N,GF
+GF1093,pixel,pixel,silver,N,GF
+GF1100,pointer,pekare,silver,N,GF
+GF1152,programmable,programmerbar,silver,A,GF
+GF1176,quantitative,kvantitativ,silver,A,GF
+GF1204,recursion,rekursion,silver,N,GF
+GF1246,robotics,robotik,silver,N,GF
+GF1256,runtime,körningstid,silver,N,GF
+GF1272,screensaver,skärmsläckare,silver,N,GF
+GF1294,server,server,silver,N,GF
+GF1317,site,sajt,silver,N,GF
+GF1346,specify,specificera,silver,V,GF
+GF1418,taskbar,aktivitetsfält,silver,N,GF
+GF1457,trackpad,styrplatta,silver,N,GF
+GF1536,webcam,webbkamera,silver,N,GF
+GF1537,website,webbsida,silver,N,GF
+GF1541,whitelist,vitlista,silver,N,GF
+GF47,agile software development,agil mjukvaruutveckling,silver,N,GF
+GF167,boolean data type,boolesk datatyp,silver,N,GF
+GF188,cache memory,cacheminne,silver,N,GF
+GF258,command-line interpreter,kommandotolk,silver,N,GF
+GF291,computability theory,beräkningsteori,silver,N,GF
+GF399,cyber security,cybersäkerhet,silver,N,GF
+GF420,database administrator,databasadministratör,silver,N,GF
+GF499,domain-specific language,domänspecifikt språk,silver,N,GF
+GF624,flash memory,flashminne,silver,N,GF
+GF709,hash function,hashfunktion,silver,N,GF
+GF710,hash table,hashtabell,silver,N,GF
+GF730,human-computer interaction,människa-datorinteraktion,silver,N,GF
+GF794,inter-process communication,interprocesskommunikation,silver,N,GF
+GF871,linear search,linjärsökning,silver,N,GF
+GF882,literature study,litteraturstudie,silver,N,GF
+GF927,mathematical modelling,matematisk modellering,silver,N,GF
+GF956,microarchitecture level,mikroarkitekturnivå,silver,N,GF
+GF988,multi-core processor,flerkärnig processor,silver,N,GF
+GF1009,neural network,neuralt nätverk,silver,N,GF
+GF1025,object-oriented program,objektorienterat program,silver,N,GF
+GF1166,propositional logic,satslogik,silver,N,GF
+GF1251,routing protocol,routingprotokoll,silver,N,GF
+GF1255,runtime error,exekveringsfel,silver,N,GF
+GF1273,scripting language,skriptspråk,silver,N,GF
+GF1365,static random-access memory,statiskt minne,silver,N,GF
+GF1474,two-factor authentication,tvåfaktorautentisering,silver,N,GF
+GF1532,web application,webbapplikation,silver,N,GF
+GF1533,web browser,webbläsare,silver,N,GF
+GF1534,web page,webbsida,silver,N,GF
+GF1535,web server,webbserver,silver,N,GF
+ICT30,accelerometer,accelerometern,silver,N?,ICT
+ICT88,agile,agila,silver,N?,ICT
+ICT148,aperiodic,aperiodisk,silver,N?,ICT
+ICT304,blog,blogg,silver,N?,ICT
+ICT340,browser,webbläsare,silver,N?,ICT
+ACM880,clustering,klustring,silver,N?,ACM
+ACM456,debuggers,avlusare,silver,N?,ACM
+ICT776,decrements,dekrement,silver,N?,ICT
+ICT922,dongles,donglar,silver,N?,ICT
+ICT1016,emulator,emulator,silver,N?,ICT
+ICT1099,europe,europa,silver,N?,ICT
+ICT1161,factoid,faktoid,silver,N?,ICT
+ACM1137,fractals,fraktaler,silver,N?,ACM
+ICT1429,hexadecimal,hexadecimalt,silver,N?,ICT
+ICT1641,interplanetary,interplanetarisk,silver,N?,ICT
+ACM458,interpreters,interpretatorer,silver,N?,ACM
+ICT1845,macro,makro,silver,N?,ICT
+ICT2057,multimedia,multimedia,silver,N?,ICT
+ACM461,parsing,parsning,silver,N?,ACM
+ICT2437,pioneer,pionjär,silver,N?,ICT
+ICT2440,pixels,pixlar,silver,N?,ICT
+ACM450,polymorphism,polymorfism,silver,N?,ACM
+ICT2487,positioning,positionering,silver,N?,ICT
+ICT2559,probabilistic,probabilistiska,silver,N?,ICT
+ICT2609,proprietary,proprietära,silver,N?,ICT
+ACM452,recursion,rekursion,silver,N?,ACM
+ICT2876,roaming,roaming,silver,N?,ICT
+ACM1059,robotics,robotik,silver,N?,ACM
+ACM270,routers,routrar,silver,N?,ACM
+ICT2944,scrum,scrum,silver,N?,ICT
+ICT3016,serialization,serialisering,silver,N?,ICT
+ACM297,servers,servrar,silver,N?,ACM
+ICT3075,sigmoid,sigmoid,silver,N?,ICT
+ICT3339,synthesizer,syntetiserare,silver,N?,ICT
+ICT3568,unassigned,otilldelad,silver,N?,ICT
+ICT3599,unlicensed,olicensierad,silver,N?,ICT
+ICT3607,unsynchronized,osynkroniserad,silver,N?,ICT
+ACM1208,volumetric,volymetrisk,silver,N?,ACM
+ICT3746,web,webb,silver,N?,ICT
+ICT3761,website,webbsida,silver,N?,ICT
