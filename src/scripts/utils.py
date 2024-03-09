@@ -14,36 +14,6 @@ wordtags = nltk.ConditionalFreqDist(
     (w.lower(), t) for w, t in nltk.corpus.brown.tagged_words(tagset="universal")
 )
 
-
-# Lemmatizer for english words
-def english_lemmatizer_help(word, pos):
-    # Noun: 'n'
-    # Verb: 'v'
-    # Adjective: 'a'
-    # Adverb : 'r'
-    return lemmatizer.lemmatize(word, pos)
-
-
-# Custom lemmatizer for english words
-def custom_english_lemmatizer(term, pos):
-
-    # List of instances where we don't lemmatize
-    do_nothing = ["NN", "JJ", "NN NN", "JJ NN", "JJ NN NN", "NN NN NN", "VBN NN", "VBG NN", "JJ JJ NN", "NN VBG", "JJ NN NN NN"]
-
-    # List of instances where we lemmatize the last word
-    lemmatize_last_word = ["NN NNS", "JJ NNS", "NNS", "JJ NN NNS", "NN NN NNS", "VBN NNS", "VBG NNS"]
-    
-    if pos in do_nothing:
-        return term, "ok"
-    elif pos in lemmatize_last_word:
-        words = term.split(" ")
-        lemmatized_word = lemmatizer.lemmatize(words[-1], "n")
-        
-        lemmatized_term = " ".join(words[:-1] + [lemmatized_word])
-
-        return lemmatized_term, "ok"
-    else:
-        return term, "not ok"
     
 def english_lemmatizer(term, pos_tags):
     pos_tags = pos_tags.split(" ")
@@ -51,16 +21,16 @@ def english_lemmatizer(term, pos_tags):
     # Lemmatize single word
     if len(pos_tags) == 1:
         pos_tag = pos_tags[0]
-        if pos_tag in ["NN", "NNS"]:
+        if pos_tag in ["NN", "NNS"]: # Lemmatize noun
             return lemmatizer.lemmatize(term, "n"), "lemmatized"
-        elif pos_tag in ["VBZ", "VBP", "VBN", "VBG", "VBD", "VB"]:
+        elif pos_tag in ["VBZ", "VBP", "VBN", "VBG", "VBD", "VB"]: # Lemmatize verb
             return lemmatizer.lemmatize(term, "v"), "lemmatized"
         elif pos_tag in ["JJR", "JJS", "JJ"]:
-            return lemmatizer.lemmatize(term, "a"), "lemmatized"
+            return lemmatizer.lemmatize(term, "a"), "lemmatized" # Lemmatize adjective
         elif pos_tag in ["RBS", "RB", "RBR"]:
-            return lemmatizer.lemmatize(term, "r"), "lemmatized"
+            return lemmatizer.lemmatize(term, "r"), "lemmatized" # Lemmatize adverb
         else:
-            return term, "unknown single pos tag"
+            return term, "unknown english single pos tag"
     else:
         last_tag = pos_tags[-1]
         words = term.split(" ")

@@ -2,9 +2,9 @@
 import json
 import pandas as pd
 from collections import defaultdict
-from utils import is_word_in_english, swedish_spell_check
+from utils import *
 
-# Reads json object containing english-swedish term pairs
+# Reads json object containing english-swedish term pairs and transform it to pandas dataframe format
 def read_data_and_transform_data(file_path):
     transformed_data = []
     with open(file_path, 'r') as file:
@@ -21,9 +21,11 @@ def read_data_and_transform_data(file_path):
 
     return pd.json_normalize(transformed_data)
 
+# helper function to count words
 def count_words(text):
     return len(text.split())
 
+# helper function to assess if there exist inflecftions in the lemma
 def no_inflections(text):
     words = text.split()
 
@@ -39,6 +41,17 @@ def no_inflections(text):
     return True
 
 def clean_and_simple_checks(df, write_to_file):
+    """
+    Clean and perform simple checks on the DataFrame lemma data.
+
+    Args:
+    - df (DataFrame): DataFrame containing lemma data with columns 'eng_lemma' and 'swe_lemma'.
+    - write_to_file (bool): Flag indicating whether to write parentheses data to file.
+
+    Returns:
+    - DataFrame: Filtered DataFrame containing entries ready for the next processing step.
+
+    """
 
     # Remove excess whitespace and convert to lower case
     df["eng_lemma"] = df["eng_lemma"].str.replace(r"\s+", " ", regex=True).str.lower()
@@ -83,14 +96,27 @@ def clean_and_simple_checks(df, write_to_file):
     # Mark entries with no english or swedish lemma as lacking translation
     df.loc[lemma_exist_cond, "status"] = "no translation"
 
+    if write_to_file:
+        df[df["status"] == "data quality issues"].to_csv("temp/data/data_quality_issues.csv", index=False)
+
     print("Status after first processing step")
     print(df.status.value_counts())
 
     return df[df["status"] == "shallow processed"].copy()
 
 def spell_check(df, write_to_file):
+    """
+    Perform spell check on English and Swedish lemmas using dictionary lookups.
 
-    # spell check english and swedish lemmas with dictionary lookups
+    Args:
+    - df (DataFrame): DataFrame containing lemma data with columns 'eng_lemma' and 'swe_lemma'.
+    - write_to_file (bool): Flag indicating whether to write incorrect spelling data to file.
+
+    Returns:
+    - DataFrame: Filtered DataFrame containing entries with correct spelling.
+
+    """
+
     english_spell_condition = df["eng_lemma"].apply(is_word_in_english)
     swedish_spell_condition = df["swe_lemma"].apply(swedish_spell_check)
 
@@ -110,6 +136,16 @@ def spell_check(df, write_to_file):
         df[df["status"] != "spelling ok"].to_csv("temp/data/incorrect_spelling.csv", index=False)
 
     return df[df["status"] == "spelling ok"].copy()
+ 
+
+def english_pos_and_lemmatizing(df, write_to_file):
+    df["english_pos"] = df["eng_lemma"].apply(english_pos)
+
+    df["eng_lemma"], df["status"] = zip(*df.apply(lambda x: english_lemmatizer(x["eng_lemma"], x["english_pos"]), axis=1))
+
+    print(df.status.value_counts())
+
+    return df
 
 
 
@@ -126,6 +162,8 @@ def main():
 
     shallow_processed_data = clean_and_simple_checks(transformed_data, False)
 
-    spell_check(shallow_processed_data, False)
+    spelling_processed_data = spell_check(shallow_processed_data, False)
+
+    lemmatized_processed_data = english_pos_and_lemmatizing(spelling_processed_data, False)
 
 main()
