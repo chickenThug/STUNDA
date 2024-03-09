@@ -16,7 +16,7 @@ wordtags = nltk.ConditionalFreqDist(
 
 
 # Lemmatizer for english words
-def english_lemmatizer(word, pos):
+def english_lemmatizer_help(word, pos):
     # Noun: 'n'
     # Verb: 'v'
     # Adjective: 'a'
@@ -44,6 +44,33 @@ def custom_english_lemmatizer(term, pos):
         return lemmatized_term, "ok"
     else:
         return term, "not ok"
+    
+def english_lemmatizer(term, pos_tags):
+    pos_tags = pos_tags.split(" ")
+    
+    # Lemmatize single word
+    if len(pos_tags) == 1:
+        pos_tag = pos_tags[0]
+        if pos_tag in ["NN", "NNS"]:
+            return lemmatizer.lemmatize(term, "n"), "lemmatized"
+        elif pos_tag in ["VBZ", "VBP", "VBN", "VBG", "VBD", "VB"]:
+            return lemmatizer.lemmatize(term, "v"), "lemmatized"
+        elif pos_tag in ["JJR", "JJS", "JJ"]:
+            return lemmatizer.lemmatize(term, "a"), "lemmatized"
+        elif pos_tag in ["RBS", "RB", "RBR"]:
+            return lemmatizer.lemmatize(term, "r"), "lemmatized"
+        else:
+            return term, "unknown single pos tag"
+    else:
+        last_tag = pos_tags[-1]
+        words = term.split(" ")
+        if last_tag == "NNS":
+            lemmatized_word = lemmatizer.lemmatize(words[-1], "n")
+            words[-1] = lemmatized_word
+            return " ".join(words), "lemmatized"
+        else:
+            return term, "lemmatized"
+
 
 
 # English part-of-speech tagger
