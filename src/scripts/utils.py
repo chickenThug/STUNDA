@@ -74,6 +74,11 @@ def is_word_in_english(term):
     # all words exist
     return True
 
+def convert_to_simple_pos(terms):
+    terms = terms.split(" ")
+    terms = [term.split(".")[0].upper() for term in terms]
+    return " ".join(terms)
+
 
 def delete_entry_by_id(id, authorization, verbose=False):
     url = f"https://ws.spraakbanken.gu.se/ws/karp/v7/entries/stunda/{id}/1"

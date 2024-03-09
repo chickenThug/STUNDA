@@ -147,6 +147,15 @@ def english_pos_and_lemmatizing(df, write_to_file):
 
     return df
 
+def swedish_pos_and_lemmatizing(df, write_to_file):
+
+
+    df["swedish_pos"] = df["swe_lemma"].apply(granska_pos)
+    df["simple_swedish_pos"] = df["swedish_pos"].apply(convert_to_simple_pos)
+
+    print(df.simple_swedish_pos.value_counts())
+
+
 
 
 
@@ -165,5 +174,7 @@ def main():
     spelling_processed_data = spell_check(shallow_processed_data, False)
 
     lemmatized_processed_data = english_pos_and_lemmatizing(spelling_processed_data, False)
+
+    swedish_pos_and_lemmatizing(lemmatized_processed_data, False)
 
 main()
