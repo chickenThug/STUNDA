@@ -216,6 +216,7 @@ def granska_pos(term):
     else:
         return None
 
+# TODO probably removes
 def swedish_lemmatizing(term):
     url = "https://skrutten.csc.kth.se/granskaapi/lemma/"
 
@@ -233,11 +234,56 @@ def swedish_lemmatizing(term):
         return result
     else:
         return None
+    
+def swedish_lemmatizer_single_term(term):
+    url = "https://skrutten.csc.kth.se/granskaapi/lemma/"
 
+    assert len(term.split(" ")) == 1
 
-#print(custom_english_lemmatizer("abstract network", "JJ NNS"))
+    
+    response = requests.get(url + "json/" + term)
 
-#print(english_lemmatizer("types", "n"))
+    if response.status_code == 200:
+        result = response.json()
+        return result[0]["lemma"]
+    else:
+        return None
+    
+def get_inflections(term, form):
+    url = "https://skrutten.csc.kth.se/granskaapi/inflect.php"
 
-#print(swedish_pos_tagging("katt"))
-print(granska_pos("abstrakta"))
+    params = {"coding" : "json", "word": term, "tag": form}
+
+    response = requests.get(url, params=params)
+
+    # print(response.status_code)
+
+    return response.json()[0]["interpretations"][0]["inflections"]
+
+def lemmatize_adjective(adj, form, genus):
+
+    target_tag = f"jj.pos.{genus}.sin.ind.nom"
+    inflections = get_inflections(adj, form)
+
+    for inflection in inflections:
+        if inflection["tag"].strip("* ") == target_tag:
+            return inflection["word"]
+        
+    # Failed to find desired form of adjective
+    return None
+
+def advanced_swedish_lemmatizer(term, simple_pos, swedish_pos):
+    if not " " in term.strip(" "):
+        return swedish_lemmatizer_single_term(term), "ok"
+    elif simple_pos == "JJ NN":
+        noun = term.split(" ")[1]
+        lemmatized_noun = swedish_lemmatizer_single_term(noun)
+        genus = swedish_pos.split(" ")[1].split(".")[1]
+        adj = lemmatize_adjective(term.split(" ")[0], swedish_pos.split(" ")[0], genus)
+        
+        if adj:
+            return adj + " " + noun, "ok"
+        else:
+            return term, "could not lemmatize adjective"
+    else:
+        return term, "no processing rule for POS sequence"

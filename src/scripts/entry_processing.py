@@ -150,10 +150,22 @@ def english_pos_and_lemmatizing(df, write_to_file):
 def swedish_pos_and_lemmatizing(df, write_to_file):
 
 
+    # get pos of swedish lemmas
     df["swedish_pos"] = df["swe_lemma"].apply(granska_pos)
+
+    # reduce information for easier checks
     df["simple_swedish_pos"] = df["swedish_pos"].apply(convert_to_simple_pos)
 
-    print(df.simple_swedish_pos.value_counts())
+    # condition to check for suspected sarskrivning
+    sarskrivning_condition = df["simple_swedish_pos"].str.contains(r"NNS? NNS?", regex=True)
+
+    # lemmatize swedish lemma 
+    df["swe_lemma"], df["swe_lemmatizer_status"] = zip(*df.apply(lambda x: advanced_swedish_lemmatizer(x["swe_lemma"], x["simple_swedish_pos"], x["swedish_pos"]), axis=1))
+
+    print(df.swe_lemmatizer_status.value_counts())
+    print(len(df[sarskrivning_condition]))
+
+
 
 
 
