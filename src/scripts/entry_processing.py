@@ -30,6 +30,11 @@ def read_data_and_transform_data(file_path):
 
     return pd.json_normalize(transformed_data)
 
+def write_processed_data(processed_data):
+    # write to csv format
+    processed_data["status"] = "automatically verified"
+    processed_data.to_csv("temp/data/processed_data.csv", index=False)
+
 # helper function to count words
 def count_words(text):
     return len(text.split())
@@ -181,7 +186,16 @@ def english_pos_and_lemmatizing(df, write_to_file):
     return df
 
 def swedish_pos_and_lemmatizing(df, write_to_file):
+    """
+    Perform Swedish POS tagging and lemmatization on a DataFrame.
 
+    Parameters:
+    - df (pandas.DataFrame): DataFrame containing columns "swe_lemma" and "simple_swedish_pos".
+    - write_to_file (bool): Indicates whether to write problematic entries to files.
+
+    Returns:
+    - pandas.DataFrame: Filtered DataFrame with successfully lemmatized entries.
+    """
 
     # get pos of swedish lemmas
     df["swedish_pos"] = df["swe_lemma"].apply(granska_pos)
@@ -195,6 +209,8 @@ def swedish_pos_and_lemmatizing(df, write_to_file):
     # lemmatize swedish lemma 
     df["swe_lemma"], df["swe_lemmatizer_status"] = zip(*df.apply(lambda x: advanced_swedish_lemmatizer(x["swe_lemma"], x["simple_swedish_pos"], x["swedish_pos"]), axis=1))
 
+    differing_pos_condition = (df["simple_swedish_pos"] != df["english_pos"]) & (df["eng_lemma"].apply(count_words) == 1) & (df["swe_lemma"].apply(count_words) == 1)
+
     # Write problematic entries to file
     if write_to_file:
         # Write suspected sarskrivning instances to file
@@ -203,22 +219,20 @@ def swedish_pos_and_lemmatizing(df, write_to_file):
         # Write instances where lemmatization failed to file
         df[(~((df["status"] == "lemmatized") & (df["swe_lemmatizer_status"] == "ok"))) & (~sarskrivning_condition)].to_csv("temp/data/unable_to_lemmatize.csv", index=False)
 
+        # Write instances fo differing english and swedish POS for single word terms
+        df[(df["status"] == "lemmatized") & (df["swe_lemmatizer_status"] == "ok") & differing_pos_condition].to_csv("temp/data/differing_pos.csv", index=False)
+
+     
+
 
     print("Swedish POS and lemmatizing completed")
     print("-------------------------------")
     print(df.swe_lemmatizer_status.value_counts())
     print("sarskrivning", len(df[sarskrivning_condition]))
+    print("Differing pos", len(df[differing_pos_condition]))
     print("-------------------------------")
 
-    return df[(df["status"] == "lemmatized") & (df["swe_lemmatizer_status"] == "ok")]
-
-
-
-
-
-
-
-
+    return df[(df["status"] == "lemmatized") & (df["swe_lemmatizer_status"] == "ok") & (~differing_pos_condition)].copy()
 
 
 def main():
@@ -228,14 +242,14 @@ def main():
     # reads and transforms data from json format to a pandas dataframe
     transformed_data = read_data_and_transform_data(path + file)
 
-    shallow_processed_data = clean_and_simple_checks(transformed_data, False)
+    shallow_processed_data = clean_and_simple_checks(transformed_data, True)
 
-    spelling_processed_data = spell_check(shallow_processed_data, False)
+    spelling_processed_data = spell_check(shallow_processed_data, True)
 
-    lemmatized_processed_data = english_pos_and_lemmatizing(spelling_processed_data, False)
+    lemmatized_processed_data = english_pos_and_lemmatizing(spelling_processed_data, True)
 
-    processed_data = swedish_pos_and_lemmatizing(lemmatized_processed_data, False)
+    processed_data = swedish_pos_and_lemmatizing(lemmatized_processed_data, True)
 
-
+    write_processed_data(processed_data)
 
 main()
