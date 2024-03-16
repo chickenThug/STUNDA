@@ -284,6 +284,6 @@ def advanced_swedish_lemmatizer(term, simple_pos, swedish_pos):
         if adj:
             return adj + " " + noun, "ok"
         else:
-            return term, "could not lemmatize adjective"
+            return term, "could not lemmatize swedish adjective"
     else:
-        return term, "no processing rule for POS sequence"
+        return term, "no processing rule for swedish POS sequence"

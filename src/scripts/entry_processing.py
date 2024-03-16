@@ -6,6 +6,15 @@ from utils import *
 
 # Reads json object containing english-swedish term pairs and transform it to pandas dataframe format
 def read_data_and_transform_data(file_path):
+    """
+    Read data from a JSON file and transform it into a DataFrame.
+
+    Parameters:
+    - file_path (str): Path to the JSON file.
+
+    Returns:
+    - pandas.DataFrame: Transformed DataFrame containing columns 'id', 'eng_lemma', 'swe_lemma', 'status', 'pos', and 'src'.
+    """
     transformed_data = []
     with open(file_path, 'r') as file:
         for line in file:
@@ -159,7 +168,7 @@ def english_pos_and_lemmatizing(df, write_to_file):
     Returns:
     - pandas.DataFrame: DataFrame with updated columns "english_pos" and "eng_lemma".
     """
-    
+
     df["english_pos"] = df["eng_lemma"].apply(english_pos)
 
     df["eng_lemma"], df["status"] = zip(*df.apply(lambda x: english_lemmatizer(x["eng_lemma"], x["english_pos"]), axis=1))
@@ -186,8 +195,22 @@ def swedish_pos_and_lemmatizing(df, write_to_file):
     # lemmatize swedish lemma 
     df["swe_lemma"], df["swe_lemmatizer_status"] = zip(*df.apply(lambda x: advanced_swedish_lemmatizer(x["swe_lemma"], x["simple_swedish_pos"], x["swedish_pos"]), axis=1))
 
+    # Write problematic entries to file
+    if write_to_file:
+        # Write suspected sarskrivning instances to file
+        df[sarskrivning_condition].to_csv("temp/data/suspected_sarskrivning.csv", index=False)
+
+        # Write instances where lemmatization failed to file
+        df[(~((df["status"] == "lemmatized") & (df["swe_lemmatizer_status"] == "ok"))) & (~sarskrivning_condition)].to_csv("temp/data/unable_to_lemmatize.csv", index=False)
+
+
+    print("Swedish POS and lemmatizing completed")
+    print("-------------------------------")
     print(df.swe_lemmatizer_status.value_counts())
-    print(len(df[sarskrivning_condition]))
+    print("sarskrivning", len(df[sarskrivning_condition]))
+    print("-------------------------------")
+
+    return df[(df["status"] == "lemmatized") & (df["swe_lemmatizer_status"] == "ok")]
 
 
 
@@ -211,6 +234,8 @@ def main():
 
     lemmatized_processed_data = english_pos_and_lemmatizing(spelling_processed_data, False)
 
-    swedish_pos_and_lemmatizing(lemmatized_processed_data, False)
+    processed_data = swedish_pos_and_lemmatizing(lemmatized_processed_data, False)
+
+
 
 main()
