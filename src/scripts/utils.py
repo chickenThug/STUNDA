@@ -266,7 +266,7 @@ def lemmatize_adjective(adj, form, genus):
     inflections = get_inflections(adj, form)
 
     for inflection in inflections:
-        if inflection["tag"].strip("* ") == target_tag:
+        if inflection.get("tag", "").strip("* ") == target_tag:
             return inflection["word"]
         
     # Failed to find desired form of adjective
