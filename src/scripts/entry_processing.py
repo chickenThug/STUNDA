@@ -209,7 +209,7 @@ def swedish_pos_and_lemmatizing(df, write_to_file):
     # lemmatize swedish lemma 
     df["swe_lemma"], df["swe_lemmatizer_status"] = zip(*df.apply(lambda x: advanced_swedish_lemmatizer(x["swe_lemma"], x["simple_swedish_pos"], x["swedish_pos"]), axis=1))
 
-    differing_pos_condition = (df["simple_swedish_pos"] != df["english_pos"]) & (df["eng_lemma"].apply(count_words) == 1) & (df["swe_lemma"].apply(count_words) == 1)
+    pos_agreement_condition = df.apply(lambda x: pos_agreement(x["simple_swedish_pos"], x["english_pos"]), axis=1)
 
     # Write problematic entries to file
     if write_to_file:
@@ -220,7 +220,7 @@ def swedish_pos_and_lemmatizing(df, write_to_file):
         df[(~((df["status"] == "lemmatized") & (df["swe_lemmatizer_status"] == "ok"))) & (~sarskrivning_condition)].to_csv("temp/data/unable_to_lemmatize.csv", index=False)
 
         # Write instances fo differing english and swedish POS for single word terms
-        df[(df["status"] == "lemmatized") & (df["swe_lemmatizer_status"] == "ok") & differing_pos_condition].to_csv("temp/data/differing_pos.csv", index=False)
+        df[(df["status"] == "lemmatized") & (df["swe_lemmatizer_status"] == "ok") & (~pos_agreement_condition)].to_csv("temp/data/differing_pos.csv", index=False)
 
      
 
@@ -229,10 +229,10 @@ def swedish_pos_and_lemmatizing(df, write_to_file):
     print("-------------------------------")
     print(df.swe_lemmatizer_status.value_counts())
     print("sarskrivning", len(df[sarskrivning_condition]))
-    print("Differing pos", len(df[differing_pos_condition]))
+    print("Differing pos", len(df[(~pos_agreement_condition)]))
     print("-------------------------------")
 
-    return df[(df["status"] == "lemmatized") & (df["swe_lemmatizer_status"] == "ok") & (~differing_pos_condition)].copy()
+    return df[(df["status"] == "lemmatized") & (df["swe_lemmatizer_status"] == "ok") & (pos_agreement_condition)].copy()
 
 
 def main():

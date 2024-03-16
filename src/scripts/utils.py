@@ -287,3 +287,19 @@ def advanced_swedish_lemmatizer(term, simple_pos, swedish_pos):
             return term, "could not lemmatize swedish adjective"
     else:
         return term, "no processing rule for swedish POS sequence"
+
+def pos_agreement(swedish_pos, english_pos):
+    if (len(swedish_pos.split(" ")) > 1) or (len(english_pos.split(" ")) > 1):
+        return True
+    eng_pos_local = "IS THIS A EASTER EGG?"
+    if english_pos in ["NN", "NNS"]: 
+        eng_pos_local = "NN"
+    elif english_pos in ["VBZ", "VBP", "VBN", "VBG", "VBD", "VB"]:
+        eng_pos_local = "VB"
+    elif english_pos in ["JJR", "JJS", "JJ"]:
+        eng_pos_local = "JJ"
+    elif english_pos in ["RBS", "RB", "RBR"]:
+        eng_pos_local = "AB"
+    
+    return eng_pos_local == swedish_pos 
+    
