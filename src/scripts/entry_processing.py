@@ -42,7 +42,7 @@ def no_inflections(text):
 
 def clean_and_simple_checks(df, write_to_file):
     """
-    Clean and perform simple checks on the DataFrame lemma data.
+    Clean and perform simple checks on the DataFrame lemma data to ensure data quality.
 
     Args:
     - df (DataFrame): DataFrame containing lemma data with columns 'eng_lemma' and 'swe_lemma'.
@@ -69,9 +69,10 @@ def clean_and_simple_checks(df, write_to_file):
     df["eng_lemma"] = df["eng_lemma"].str.replace(r"\([^\(]+\)", "", regex=True).str.strip()
     df["swe_lemma"] = df["swe_lemma"].str.replace(r"\([^\(]+\)", "", regex=True).str.strip()
 
-    # save paranthesis data to file
+    # extract paranthesis data
     paranthesis_data = df[(~df["eng_paranthesis"].isna()) | (~df["swe_paranthesis"].isna())]
 
+    # save paranthesis data to file
     if write_to_file:
         paranthesis_data.to_csv("temp/data/parentheis_data.csv", index=False)
 
@@ -96,11 +97,15 @@ def clean_and_simple_checks(df, write_to_file):
     # Mark entries with no english or swedish lemma as lacking translation
     df.loc[lemma_exist_cond, "status"] = "no translation"
 
+
     if write_to_file:
         df[df["status"] == "data quality issues"].to_csv("temp/data/data_quality_issues.csv", index=False)
+        df[df["status"] == "no translation"].to_csv("temp/data/no_translation.csv", index=False)
 
-    print("Status after first processing step")
+    print("First processing step completed")
+    print("-------------------------------")
     print(df.status.value_counts())
+    print("-------------------------------")
 
     return df[df["status"] == "shallow processed"].copy()
 
@@ -117,7 +122,10 @@ def spell_check(df, write_to_file):
 
     """
 
+    # Perform english spell check
     english_spell_condition = df["eng_lemma"].apply(is_word_in_english)
+
+    # Perform swedish spell check
     swedish_spell_condition = df["swe_lemma"].apply(swedish_spell_check)
 
     # mark entries
@@ -129,9 +137,12 @@ def spell_check(df, write_to_file):
 
     df.loc[~english_spell_condition & ~swedish_spell_condition, "status"] = "both misspelt"
 
-    print("Status after first processing step")
+    print("Spell/'term existense' check completed")
+    print("-------------------------------")
     print(df.status.value_counts())
+    print("-------------------------------")
 
+    # Write entries where term could not be found using dictionary lookup to file
     if write_to_file:
         df[df["status"] != "spelling ok"].to_csv("temp/data/incorrect_spelling.csv", index=False)
 
@@ -139,11 +150,24 @@ def spell_check(df, write_to_file):
  
 
 def english_pos_and_lemmatizing(df, write_to_file):
+    """
+    Apply English POS tagging and lemmatization to a DataFrame.
+
+    Parameters:
+    - df (pandas.DataFrame): DataFrame containing columns "eng_lemma" and "english_pos".
+
+    Returns:
+    - pandas.DataFrame: DataFrame with updated columns "english_pos" and "eng_lemma".
+    """
+    
     df["english_pos"] = df["eng_lemma"].apply(english_pos)
 
     df["eng_lemma"], df["status"] = zip(*df.apply(lambda x: english_lemmatizer(x["eng_lemma"], x["english_pos"]), axis=1))
 
+    print("English POS and lemmatizing completed")
+    print("-------------------------------")
     print(df.status.value_counts())
+    print("-------------------------------")
 
     return df
 
