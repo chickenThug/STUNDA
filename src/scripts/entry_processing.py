@@ -174,7 +174,7 @@ def english_pos_and_lemmatizing(df, write_to_file):
     - pandas.DataFrame: DataFrame with updated columns "english_pos" and "eng_lemma".
     """
 
-    df["english_pos"] = df["eng_lemma"].apply(english_pos)
+    
 
     df["eng_lemma"], df["status"] = zip(*df.apply(lambda x: english_lemmatizer(x["eng_lemma"], x["english_pos"]), axis=1))
 
@@ -185,7 +185,7 @@ def english_pos_and_lemmatizing(df, write_to_file):
 
     return df
 
-def swedish_pos_and_lemmatizing(df, write_to_file):
+def pos_and_lemmatizing(df, write_to_file):
     """
     Perform Swedish POS tagging and lemmatization on a DataFrame.
 
@@ -196,6 +196,9 @@ def swedish_pos_and_lemmatizing(df, write_to_file):
     Returns:
     - pandas.DataFrame: Filtered DataFrame with successfully lemmatized entries.
     """
+
+    # get pos of english lemmas
+    df["english_pos"] = df["eng_lemma"].apply(english_pos)
 
     # get pos of swedish lemmas
     df["swedish_pos"] = df["swe_lemma"].apply(granska_pos)

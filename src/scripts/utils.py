@@ -4,10 +4,10 @@ from nltk.stem import WordNetLemmatizer
 from nltk.tokenize import word_tokenize
 import requests
 
-nltk.download("wordnet")
-nltk.download("brown")
-nltk.download("universal_tagset")
-nltk.download("averaged_perceptron_tagger")
+# nltk.download("wordnet")
+# nltk.download("brown")
+# nltk.download("universal_tagset")
+# nltk.download("averaged_perceptron_tagger")
 
 lemmatizer = WordNetLemmatizer()
 wordtags = nltk.ConditionalFreqDist(
@@ -40,6 +40,23 @@ def english_lemmatizer(term, pos_tags):
             return " ".join(words), "lemmatized"
         else:
             return term, "lemmatized"
+
+def english_lemmatizer_v2(term, single_pos, long_pos):
+    if len(term.split(" ")) == 1:
+        pos = single_pos.lower()
+        if pos == 'ab':
+            pos = 'r'
+        return lemmatizer.lemmatize(term, pos)
+    else:
+        last_tag = long_pos.split(" ")[-1]
+        words = term.split(" ")
+        if last_tag == "NNS":
+            lemmatized_word = lemmatizer.lemmatize(words[-1], "n")
+            words[-1] = lemmatized_word
+            return " ".join(words)
+        else:
+            return term
+
 
 
 
@@ -282,7 +299,7 @@ def advanced_swedish_lemmatizer(term, simple_pos, swedish_pos):
         adj = lemmatize_adjective(term.split(" ")[0], swedish_pos.split(" ")[0], genus)
         
         if adj:
-            return adj + " " + noun, "ok"
+            return adj + " " + lemmatized_noun, "ok"
         else:
             return term, "could not lemmatize swedish adjective"
     else:
@@ -301,5 +318,44 @@ def pos_agreement(swedish_pos, english_pos):
     elif english_pos in ["RBS", "RB", "RBR"]:
         eng_pos_local = "AB"
     
-    return eng_pos_local == swedish_pos 
-    
+    if eng_pos_local == swedish_pos:
+        return True
+    else:
+        return False
+
+def english_pos_single_word(word):
+    return list(wordtags[word.lower()].items())
+
+def pos_agreement_term_based(swedish_term, english_term):
+    if (len(english_term.split(" ")) > 1) or (len(swedish_term.split(" ")) > 1):
+        return 'N'
+    swedish_mapping = {
+        "nn": "N",
+        "vb": "V",
+        "jj": "A",
+        "ab": "Ab",
+        "pc": "P"
+    }
+
+    english_mapping = {
+        "NOUN" : "N",
+        "VERB" : "V",
+        "ADJ" : "A",
+        "X" : "X",
+        "ADV": "Ab",
+        "PRT": "P",
+        "NUM": "NUM"
+    }
+
+    swedish_pos_tags = set([swedish_mapping.get(tag.split(".")[0], "?") for tag in swedish_pos_tagging(swedish_term)[0]["tags"]])
+    english_pos_tags = set([english_mapping.get(tag[0], "?") for tag in english_pos_single_word(english_term)])
+
+    tag = swedish_pos_tags.intersection(english_pos_tags)
+
+    if len(tag) == 1:
+        return tag.pop()
+    elif len(tag) == 0:
+        return "no pos found"
+    else:
+        tags_as_string = " ".join(list(tag))
+        return f"too many possible pos tags: {tags_as_string}"
