@@ -99,6 +99,9 @@ def pos_and_lemmatizing(df):
 
     df.loc[~agreed_pos_exist, "status"] = df.loc[~agreed_pos_exist, "agreed_pos"]
 
+    if len(df.loc[agreed_pos_exist]) == 0:
+        return df
+
     # get pos of english lemmas
     df.loc[agreed_pos_exist, 'english_pos'] = df.loc[agreed_pos_exist]["eng_lemma"].apply(english_pos)
 
@@ -108,14 +111,13 @@ def pos_and_lemmatizing(df):
     # reduce information for easier checks
     df.loc[agreed_pos_exist, 'simple_swedish_pos']= df.loc[agreed_pos_exist]["swedish_pos"].apply(convert_to_simple_pos)
 
-
     # condition to check for suspected sarskrivning
     sarskrivning_condition = df.loc[agreed_pos_exist]["simple_swedish_pos"].str.contains(r"NNS? NNS?", regex=True)
 
     df.loc[sarskrivning_condition, "status"] = "suspected särskriving"
 
     # lemmatize swedish lemma 
-    df.loc[agreed_pos_exist, 'swe_lemma'], df.loc[agreed_pos_exist]["swe_lemmatizer_status"] = zip(*df.loc[agreed_pos_exist].apply(lambda x: advanced_swedish_lemmatizer(x["swe_lemma"], x["simple_swedish_pos"], x["swedish_pos"]), axis=1))
+    df.loc[agreed_pos_exist, 'swe_lemma'], df.loc[agreed_pos_exist, 'swe_lemmatizer_status'] = zip(*df.loc[agreed_pos_exist].apply(lambda x: advanced_swedish_lemmatizer(x["swe_lemma"], x["simple_swedish_pos"], x["swedish_pos"]), axis=1))
 
     df.loc[agreed_pos_exist, 'eng_lemma'] = df.loc[agreed_pos_exist].apply(lambda x: english_lemmatizer_v2(x["eng_lemma"], x["agreed_pos"], x["english_pos"]), axis=1)
 
@@ -164,7 +166,25 @@ def main():
 
     df = pos_and_lemmatizing(df[df["status"] == "spelling ok"].copy())
 
-    print(df)
+    if len(df[df["status"] == "spelling ok"]) == 1:
+        if len(df[df["swe_lemmatizer_status"] == "ok"]) == 1:
+            if single_input:
+                print("Successfully automatically verified term pair :)")
+                print("English lemma:", df.at[0, "eng_lemma"])
+                print("Swedish lemma:", df.at[0, "swe_lemma"])
+            return 
+        else:
+            if single_input:
+                print("English lemma:", df.at[0, "eng_lemma"])
+                print("Swedish lemma:", df.at[0, "swe_lemma"])
+                print("Error        :", df.at[0, "swe_lemmatizer_status"])
+            return 
+    else:
+        if single_input:
+            print("English lemma:", df.at[0, "eng_lemma"])
+            print("Swedish lemma:", df.at[0, "swe_lemma"])
+            print("Error        :", df.at[0, "status"])
+        return 
 
 main()
 
