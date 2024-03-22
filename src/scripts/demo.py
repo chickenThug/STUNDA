@@ -62,6 +62,8 @@ def spell_check(df):
     - DataFrame: Filtered DataFrame containing entries with correct spelling.
 
     """
+    if len(df) == 0:
+        return df
 
     # Perform english spell check
     english_spell_condition = df["eng_lemma"].apply(is_word_in_english)
@@ -80,7 +82,19 @@ def spell_check(df):
 
     return df
 
-def pos_and_lemmatizing(df):
+def pos(df):
+    if len(df) == 0:
+        return df
+    # Find agreed pos
+    df['agreed_pos'] = df.apply(lambda x: pos_agreement_term_based(x["swe_lemma"], x["eng_lemma"]), axis=1)
+
+    df.loc[~df["agreed_pos"].isin(["N", "V", "A", "Ab", "P"]), "status"] = df.loc[~df["agreed_pos"].isin(["N", "V", "A", "Ab", "P"]), "agreed_pos"]
+
+    df.loc[df["agreed_pos"].isin(["N", "V", "A", "Ab", "P"]), "status"] = 'found pos'
+
+    return df
+
+def lemmatize(df):
     """
     Perform Swedish POS tagging and lemmatization on a DataFrame.
 
@@ -92,35 +106,41 @@ def pos_and_lemmatizing(df):
     - pandas.DataFrame: Filtered DataFrame with successfully lemmatized entries.
     """
 
-    # Find agreed pos
-    df['agreed_pos'] = df.apply(lambda x: pos_agreement_term_based(x["swe_lemma"], x["eng_lemma"]), axis=1)
-
-    agreed_pos_exist = df["agreed_pos"].isin(["N", "V", "A", "Ab", "P"])
-
-    df.loc[~agreed_pos_exist, "status"] = df.loc[~agreed_pos_exist, "agreed_pos"]
-
-    if len(df.loc[agreed_pos_exist]) == 0:
+    if len(df) == 0:
         return df
-
     # get pos of english lemmas
-    df.loc[agreed_pos_exist, 'english_pos'] = df.loc[agreed_pos_exist]["eng_lemma"].apply(english_pos)
+    df['english_pos'] = df["eng_lemma"].apply(english_pos)
 
     # get pos of swedish lemmas
-    df.loc[agreed_pos_exist, 'swedish_pos'] = df.loc[agreed_pos_exist]["swe_lemma"].apply(granska_pos)
+    df['swedish_pos'] = df["swe_lemma"].apply(granska_pos)
 
     # reduce information for easier checks
-    df.loc[agreed_pos_exist, 'simple_swedish_pos']= df.loc[agreed_pos_exist]["swedish_pos"].apply(convert_to_simple_pos)
+    df['simple_swedish_pos']= df["swedish_pos"].apply(convert_to_simple_pos)
 
     # condition to check for suspected sarskrivning
-    sarskrivning_condition = df.loc[agreed_pos_exist]["simple_swedish_pos"].str.contains(r"NNS? NNS?", regex=True)
+    sarskrivning_condition = df["simple_swedish_pos"].str.contains(r"NNS? NNS?", regex=True)
 
     df.loc[sarskrivning_condition, "status"] = "suspected särskriving"
 
     # lemmatize swedish lemma 
-    df.loc[agreed_pos_exist, 'swe_lemma'], df.loc[agreed_pos_exist, 'swe_lemmatizer_status'] = zip(*df.loc[agreed_pos_exist].apply(lambda x: advanced_swedish_lemmatizer(x["swe_lemma"], x["simple_swedish_pos"], x["swedish_pos"]), axis=1))
+    df['swe_lemma'], df['swe_lemmatizer_status'] = zip(*df.apply(lambda x: advanced_swedish_lemmatizer(x["swe_lemma"], x["simple_swedish_pos"], x["swedish_pos"]), axis=1))
 
-    df.loc[agreed_pos_exist, 'eng_lemma'] = df.loc[agreed_pos_exist].apply(lambda x: english_lemmatizer_v2(x["eng_lemma"], x["agreed_pos"], x["english_pos"]), axis=1)
+    df['eng_lemma'] = df.apply(lambda x: english_lemmatizer_v2(x["eng_lemma"], x["agreed_pos"], x["english_pos"]), axis=1)
 
+    df.loc[~sarskrivning_condition & (df['swe_lemmatizer_status'] == 'ok'), 'status'] = "automatically verified"
+    df.loc[~sarskrivning_condition & (df['swe_lemmatizer_status'] != 'ok'), 'status'] = df.loc[~sarskrivning_condition & (df['swe_lemmatizer_status'] != 'ok'), 'swe_lemmatizer_status']
+
+    return df
+
+def clean_pos(df):
+    df.fillna('', inplace=True)
+    df.loc[df['POS'] == 'no pos found', 'POS'] = ''
+
+    def has_multiple_words(row):
+        return ' ' in row['Swedish lemma'] or ' ' in row['English lemma']
+
+    # Apply the function to update 'POS' column
+    df.loc[df.apply(has_multiple_words, axis=1) & (df['POS'] != ''), 'POS'] = 'NP'
     return df
 
 def main():
@@ -139,7 +159,8 @@ def main():
         single_input = True
     elif args.file:
         with open(args.file, 'r') as file:
-            return file.read()
+            term_pairs = file.readlines()
+            term_pairs = [{'eng_lemma' : term_pair.rstrip().split(',')[0], 'swe_lemma': term_pair.rstrip().split(',')[1]} for term_pair in term_pairs]
     else:
         print("Please provide either two strings with -s/--strings or a file with -f/--file flag.")
         exit(1)
@@ -147,44 +168,37 @@ def main():
     df = pd.DataFrame(term_pairs)
 
     df = clean_and_simple_checks(df)
-
-    if len(df[df["status"] == "shallow processed"]) == 0:
-        if single_input:
-            print("English lemma:", df.at[0, "eng_lemma"])
-            print("Swedish lemma:", df.at[0, "swe_lemma"])
-            print("Error        :", df.at[0, "status"])
-        return 
     
-    df = spell_check(df[df["status"] == "shallow processed"].copy())
+    df_stop1 = df[df["status"] != "shallow processed"]
+    df_cont = df[df["status"] == "shallow processed"]
 
-    if len(df[df["status"] == "spelling ok"]) == 0:
-        if single_input:
-            print("English lemma:", df.at[0, "eng_lemma"])
-            print("Swedish lemma:", df.at[0, "swe_lemma"])
-            print("Error        :", df.at[0, "status"])
-        return 
+    df = spell_check(df_cont)
 
-    df = pos_and_lemmatizing(df[df["status"] == "spelling ok"].copy())
+    df_stop2 = df[df["status"] != "spelling ok"]
+    df_cont = df[df["status"] == "spelling ok"]
 
-    if len(df[df["status"] == "spelling ok"]) == 1:
-        if len(df[df["swe_lemmatizer_status"] == "ok"]) == 1:
-            if single_input:
-                print("Successfully automatically verified term pair :)")
-                print("English lemma:", df.at[0, "eng_lemma"])
-                print("Swedish lemma:", df.at[0, "swe_lemma"])
-            return 
-        else:
-            if single_input:
-                print("English lemma:", df.at[0, "eng_lemma"])
-                print("Swedish lemma:", df.at[0, "swe_lemma"])
-                print("Error        :", df.at[0, "swe_lemmatizer_status"])
-            return 
+    df = pos(df_cont.copy())
+
+    df_stop3 = df[df['status'] != 'found pos']
+    df_cont = df[df['status'] == 'found pos']
+
+    df = lemmatize(df_cont.copy())
+
+    output_df = pd.concat([df_stop1, df_stop2, df_stop3, df])
+
+    if single_input:
+        print("English lemma:", output_df.at[0, "eng_lemma"])
+        print("Swedish lemma:", output_df.at[0, "swe_lemma"])
+        print("Status       :", output_df.at[0, "status"])
+        if 'agreed_pos' in output_df.columns and len(output_df.at[0, "eng_lemma"].split(" ")) == 1 and len(output_df.at[0, "swe_lemma"].split(" ")) == 1:
+            print("POS          :", output_df.at[0, "agreed_pos"])
     else:
-        if single_input:
-            print("English lemma:", df.at[0, "eng_lemma"])
-            print("Swedish lemma:", df.at[0, "swe_lemma"])
-            print("Error        :", df.at[0, "status"])
-        return 
+        from tabulate import tabulate
+        output_df.rename(columns={'eng_lemma': 'English lemma', 'swe_lemma': 'Swedish lemma', 'agreed_pos': 'POS' }, inplace=True)
+        output_df = output_df[["English lemma", 'Swedish lemma', 'POS', 'status']]
+        output_df = clean_pos(output_df)
+        print(tabulate(output_df, headers='keys', tablefmt='psql', showindex=False))
+
 
 main()
 
