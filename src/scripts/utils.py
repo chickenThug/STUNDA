@@ -234,7 +234,23 @@ def granska_pos(term):
         return pos_tags
     else:
         return None
+    
+def split_swedish_word(term): # Fix for term consisting of multiple words?
+    url = "https://skrutten.csc.kth.se/granskaapi/compound/"
 
+    params = {"coding": "json", "words": term}
+
+    response = requests.post(url, data=params)
+
+    if response.status_code == 200:
+        result = response.json()
+        print(result)
+        if result[0]['parts']:
+            last_part = result[0]['parts'][0].split("|")[-1]
+            return last_part
+        return None
+    else:
+        return None
 
 # TODO probably removes
 def swedish_lemmatizing(term):
