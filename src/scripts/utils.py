@@ -3,6 +3,7 @@ from nltk.corpus import wordnet
 from nltk.stem import WordNetLemmatizer
 from nltk.tokenize import word_tokenize
 import requests
+import pandas as pd
 
 # nltk.download("wordnet")
 # nltk.download("brown")
@@ -14,21 +15,21 @@ wordtags = nltk.ConditionalFreqDist(
     (w.lower(), t) for w, t in nltk.corpus.brown.tagged_words(tagset="universal")
 )
 
-    
+
 def english_lemmatizer(term, pos_tags):
     pos_tags = pos_tags.split(" ")
-    
+
     # Lemmatize single word
     if len(pos_tags) == 1:
         pos_tag = pos_tags[0]
-        if pos_tag in ["NN", "NNS"]: # Lemmatize noun
+        if pos_tag in ["NN", "NNS"]:  # Lemmatize noun
             return lemmatizer.lemmatize(term, "n"), "lemmatized"
-        elif pos_tag in ["VBZ", "VBP", "VBN", "VBG", "VBD", "VB"]: # Lemmatize verb
+        elif pos_tag in ["VBZ", "VBP", "VBN", "VBG", "VBD", "VB"]:  # Lemmatize verb
             return lemmatizer.lemmatize(term, "v"), "lemmatized"
         elif pos_tag in ["JJR", "JJS", "JJ"]:
-            return lemmatizer.lemmatize(term, "a"), "lemmatized" # Lemmatize adjective
+            return lemmatizer.lemmatize(term, "a"), "lemmatized"  # Lemmatize adjective
         elif pos_tag in ["RBS", "RB", "RBR"]:
-            return lemmatizer.lemmatize(term, "r"), "lemmatized" # Lemmatize adverb
+            return lemmatizer.lemmatize(term, "r"), "lemmatized"  # Lemmatize adverb
         else:
             return term, "unknown english single pos tag"
     else:
@@ -41,11 +42,12 @@ def english_lemmatizer(term, pos_tags):
         else:
             return term, "lemmatized"
 
+
 def english_lemmatizer_v2(term, single_pos, long_pos):
     if len(term.split(" ")) == 1:
         pos = single_pos.lower()
-        if pos == 'ab':
-            pos = 'r'
+        if pos == "ab":
+            pos = "r"
         return lemmatizer.lemmatize(term, pos)
     else:
         last_tag = long_pos.split(" ")[-1]
@@ -56,8 +58,6 @@ def english_lemmatizer_v2(term, single_pos, long_pos):
             return " ".join(words)
         else:
             return term
-
-
 
 
 # English part-of-speech tagger
@@ -90,6 +90,7 @@ def is_word_in_english(term):
                 return False
     # all words exist
     return True
+
 
 def convert_to_simple_pos(terms):
     terms = terms.split(" ")
@@ -218,6 +219,7 @@ def swedish_pos_tagging(term):
     else:
         return None
 
+
 def granska_pos(term):
     url = "https://skrutten.csc.kth.se/granskaapi/pos.php"
 
@@ -232,6 +234,7 @@ def granska_pos(term):
         return pos_tags
     else:
         return None
+
 
 # TODO probably removes
 def swedish_lemmatizing(term):
@@ -251,13 +254,13 @@ def swedish_lemmatizing(term):
         return result
     else:
         return None
-    
+
+
 def swedish_lemmatizer_single_term(term):
     url = "https://skrutten.csc.kth.se/granskaapi/lemma/"
 
     assert len(term.split(" ")) == 1
 
-    
     response = requests.get(url + "json/" + term)
 
     if response.status_code == 200:
@@ -265,17 +268,19 @@ def swedish_lemmatizer_single_term(term):
         return result[0]["lemma"]
     else:
         return None
-    
+
+
 def get_inflections(term, form):
     url = "https://skrutten.csc.kth.se/granskaapi/inflect.php"
 
-    params = {"coding" : "json", "word": term, "tag": form}
+    params = {"coding": "json", "word": term, "tag": form}
 
     response = requests.get(url, params=params)
 
     # print(response.status_code)
 
     return response.json()[0]["interpretations"][0]["inflections"]
+
 
 def lemmatize_adjective(adj, form, genus):
 
@@ -285,9 +290,10 @@ def lemmatize_adjective(adj, form, genus):
     for inflection in inflections:
         if inflection.get("tag", "").strip("* ") == target_tag:
             return inflection["word"]
-        
+
     # Failed to find desired form of adjective
     return None
+
 
 def advanced_swedish_lemmatizer(term, simple_pos, swedish_pos):
     if not " " in term.strip(" "):
@@ -297,7 +303,7 @@ def advanced_swedish_lemmatizer(term, simple_pos, swedish_pos):
         lemmatized_noun = swedish_lemmatizer_single_term(noun)
         genus = swedish_pos.split(" ")[1].split(".")[1]
         adj = lemmatize_adjective(term.split(" ")[0], swedish_pos.split(" ")[0], genus)
-        
+
         if adj:
             return adj + " " + lemmatized_noun, "ok"
         else:
@@ -305,11 +311,12 @@ def advanced_swedish_lemmatizer(term, simple_pos, swedish_pos):
     else:
         return term, "no processing rule for swedish POS sequence"
 
+
 def pos_agreement(swedish_pos, english_pos):
     if (len(swedish_pos.split(" ")) > 1) or (len(english_pos.split(" ")) > 1):
         return True
     eng_pos_local = "IS THIS A EASTER EGG?"
-    if english_pos in ["NN", "NNS"]: 
+    if english_pos in ["NN", "NNS"]:
         eng_pos_local = "NN"
     elif english_pos in ["VBZ", "VBP", "VBN", "VBG", "VBD", "VB"]:
         eng_pos_local = "VB"
@@ -317,38 +324,44 @@ def pos_agreement(swedish_pos, english_pos):
         eng_pos_local = "JJ"
     elif english_pos in ["RBS", "RB", "RBR"]:
         eng_pos_local = "AB"
-    
+
     if eng_pos_local == swedish_pos:
         return True
     else:
         return False
 
+
 def english_pos_single_word(word):
     return list(wordtags[word.lower()].items())
 
+
 def pos_agreement_term_based(swedish_term, english_term):
     if (len(english_term.split(" ")) > 1) or (len(swedish_term.split(" ")) > 1):
-        return 'N'
-    swedish_mapping = {
-        "nn": "N",
-        "vb": "V",
-        "jj": "A",
-        "ab": "Ab",
-        "pc": "P"
-    }
+        return "N"
+    swedish_mapping = {"nn": "N", "vb": "V", "jj": "A", "ab": "Ab", "pc": "P"}
 
     english_mapping = {
-        "NOUN" : "N",
-        "VERB" : "V",
-        "ADJ" : "A",
-        "X" : "X",
+        "NOUN": "N",
+        "VERB": "V",
+        "ADJ": "A",
+        "X": "X",
         "ADV": "Ab",
         "PRT": "P",
-        "NUM": "NUM"
+        "NUM": "NUM",
     }
 
-    swedish_pos_tags = set([swedish_mapping.get(tag.split(".")[0], "?") for tag in swedish_pos_tagging(swedish_term)[0]["tags"]])
-    english_pos_tags = set([english_mapping.get(tag[0], "?") for tag in english_pos_single_word(english_term)])
+    swedish_pos_tags = set(
+        [
+            swedish_mapping.get(tag.split(".")[0], "?")
+            for tag in swedish_pos_tagging(swedish_term)[0]["tags"]
+        ]
+    )
+    english_pos_tags = set(
+        [
+            english_mapping.get(tag[0], "?")
+            for tag in english_pos_single_word(english_term)
+        ]
+    )
 
     tag = swedish_pos_tags.intersection(english_pos_tags)
 
@@ -359,3 +372,38 @@ def pos_agreement_term_based(swedish_term, english_term):
     else:
         tags_as_string = " ".join(list(tag))
         return f"too many possible pos tags: {tags_as_string}"
+
+
+def get_karp_terms():
+    """
+    Retrieve terms from Karp, extracting English lemma, Swedish lemma, and POS.
+
+    Returns:
+    - pandas.DataFrame: DataFrame containing English lemma, Swedish lemma, and POS for each term.
+    """
+
+    json_data = get_all()
+
+    entries = json_data["hits"]
+
+    terms = []
+    for entry in entries:
+
+        english_lemma = entry["entry"]["eng"]["lemma"]
+
+        pos = entry["entry"]["pos"]
+
+        swedish_lemma = entry["entry"]["swe"]["lemma"]
+
+        terms.append(
+            {"English lemma": english_lemma, "Swedish lemma": swedish_lemma, "POS": pos}
+        )
+
+        synonyms = entry["entry"].get("synonyms", [])
+
+        for synonym in synonyms:
+            terms.append(
+                {"English lemma": english_lemma, "Swedish lemma": synonym, "POS": pos}
+            )
+
+    return pd.DataFrame(terms)
