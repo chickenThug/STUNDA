@@ -125,7 +125,7 @@ def delete_entries_by_ids(ids, authorization, verbose=False):
 
 
 def get_all():
-    url = f"https://ws.spraakbanken.gu.se/ws/karp/v7/query/split/stunda?q="
+    url = f"https://ws.spraakbanken.gu.se/ws/karp/v7/query/stunda?q="
 
     params = {"size": 10000}
 

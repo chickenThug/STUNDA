@@ -3,6 +3,7 @@ import argparse
 import pandas as pd
 from collections import defaultdict
 from utils import *
+import json
 
 def clean_and_simple_checks(df):
     """
@@ -146,7 +147,10 @@ def clean_pos(df):
 def main():
     parser = argparse.ArgumentParser(description="Automatically process english-swedish computer science term pairs")
     parser.add_argument("-s", "--strings", nargs=2, help="Two term pairs")
-    parser.add_argument("-f", "--file", help="Input file")
+    parser.add_argument("-f", "--file", help="Input txt file")
+    parser.add_argument("-jf", "--jsonfile", help="Input json file")
+    parser.add_argument("-jfl", "--jsonlfile", help="Input jsonl file")
+
 
     args = parser.parse_args()
 
@@ -161,6 +165,20 @@ def main():
         with open(args.file, 'r') as file:
             term_pairs = file.readlines()
             term_pairs = [{'eng_lemma' : term_pair.rstrip().split(',')[0], 'swe_lemma': term_pair.rstrip().split(',')[1]} for term_pair in term_pairs]
+    elif args.jsonfile:
+        with open(args.jsonfile, 'r') as file:
+            # Load JSON data from the file
+            data = json.load(file)
+            for key, value in data.items():
+                for swe_term in value:
+                    term_pairs.append({"eng_lemma": key, "swe_lemma": swe_term})
+    elif args.jsonlfile:
+        with open(args.jsonlfile, 'r') as file:
+            # Iterate through each line in the file
+            for line in file:
+                # Load the JSON object from the line
+                data = json.loads(line)
+                term_pairs.append({"eng_lemma": data["eng"]["lemma"], "swe_lemma":data["swe"]["lemma"]})
     else:
         print("Please provide either two strings with -s/--strings or a file with -f/--file flag.")
         exit(1)
@@ -168,21 +186,29 @@ def main():
     df = pd.DataFrame(term_pairs)
 
     df = clean_and_simple_checks(df)
+
+    print("finished simple checks")
     
     df_stop1 = df[df["status"] != "shallow processed"]
     df_cont = df[df["status"] == "shallow processed"]
 
     df = spell_check(df_cont)
 
+    print("finished spell check")
+
     df_stop2 = df[df["status"] != "spelling ok"]
     df_cont = df[df["status"] == "spelling ok"]
 
     df = pos(df_cont.copy())
 
+    print("finished part-of-speech tagging")
+
     df_stop3 = df[df['status'] != 'found pos']
     df_cont = df[df['status'] == 'found pos']
 
     df = lemmatize(df_cont.copy())
+
+    print("finished lemmatization")
 
     output_df = pd.concat([df_stop1, df_stop2, df_stop3, df])
 
@@ -197,6 +223,7 @@ def main():
         output_df.rename(columns={'eng_lemma': 'English lemma', 'swe_lemma': 'Swedish lemma', 'agreed_pos': 'POS' }, inplace=True)
         output_df = output_df[["English lemma", 'Swedish lemma', 'POS', 'status']]
         output_df = clean_pos(output_df)
+        output_df.to_csv("ready_for_karp_v2.csv", index=False)
         print(tabulate(output_df, headers='keys', tablefmt='psql', showindex=False))
 
 
