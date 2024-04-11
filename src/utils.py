@@ -4,6 +4,7 @@ from nltk.stem import WordNetLemmatizer
 from nltk.tokenize import word_tokenize
 import requests
 import pandas as pd
+from lemminflect import getAllInflections, getInflection
 
 # nltk.download("wordnet")
 # nltk.download("brown")
@@ -252,6 +253,36 @@ def split_swedish_word(term): # Fix for term consisting of multiple words?
         return None, None
     else:
         return None
+
+def get_swe_inflections(swe_lemma, tag = False):
+    url = f"https://ws.spraakbanken.gu.se/ws/karp/v4/query?q=extended||and|wf|equals|{swe_lemma}&resource=saldom"
+
+    response = requests.get(url)
+
+    if response.status_code == 200:
+        result = response.json()
+
+        if not result['hits']['hits'] and not tag:
+            # time to split the word and try with the last past
+            first_part, last_part = split_swedish_word(swe_lemma)
+            if last_part:
+                inflections = get_swe_inflections(last_part, True)
+                # here i was thinking i could do some concatenation but i dont know if that will work?? 
+                for inflection in inflections:
+                    inflection['writtenForm'] = first_part + inflection['writtenForm']
+                return inflections
+            return f"No inflections for {swe_lemma}"
+        elif not result['hits']['hits'] and tag:
+            return f"No inflections for {swe_lemma}"
+        
+        return result['hits']['hits'][0]['_source']['WordForms']
+    
+    else:
+        return None
+
+def get_eng_inflections(eng_lemma, tag):
+    # print(getInflection('be', tag='VBD'))
+    return getInflection(eng_lemma, tag = tag)
 
 # TODO probably removes
 def swedish_lemmatizing(term):
