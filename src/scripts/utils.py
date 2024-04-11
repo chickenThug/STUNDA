@@ -244,11 +244,12 @@ def split_swedish_word(term): # Fix for term consisting of multiple words?
 
     if response.status_code == 200:
         result = response.json()
-        print(result)
         if result[0]['parts']:
             last_part = result[0]['parts'][0].split("|")[-1]
-            return last_part
-        return None
+            beginning_list = result[0]['parts'][0].split("|")[:-1]
+            beginning_part = "".join(beginning_list)
+            return beginning_part, last_part
+        return None, None
     else:
         return None
 
