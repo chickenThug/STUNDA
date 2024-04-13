@@ -5,6 +5,7 @@ from nltk.tokenize import word_tokenize
 import requests
 import pandas as pd
 from lemminflect import getAllInflections, getInflection
+import json
 
 # nltk.download("wordnet")
 # nltk.download("brown")
@@ -157,6 +158,28 @@ def add_entry(authorization, entry, verbose=False):
     response = requests.put(url, headers=headers, json=data)
 
     if response.status_code == 201:
+        if verbose:
+            print("successfull add")
+        return response.json()["newID"]
+    else:
+        if verbose:
+            print("unsuccessfull add", response.status_code, response)
+        return None
+    
+def add_inflections(id, authorization, entry, verbose=False):
+    url = f"https://spraakbanken4.it.gu.se/karp/v7/entries/stunda/{id}"
+
+    headers = {
+        "Authorization": "Bearer " + authorization,
+        "Content-Type": "application/json",
+    }
+
+    data = {"entry": entry, "message": ""}
+
+    response = requests.post(url, headers=headers, data=data)
+    print(response)
+
+    if response.status_code == 200:
         if verbose:
             print("successfull add")
         return response.json()["newID"]
