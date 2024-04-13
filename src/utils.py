@@ -174,9 +174,9 @@ def add_inflections(id, authorization, entry, verbose=False):
         "Content-Type": "application/json",
     }
 
-    data = {"entry": entry, "message": ""}
+    data = {"entry": entry, "message": "", "version": 1}
 
-    response = requests.post(url, headers=headers, data=data)
+    response = requests.post(url, headers=headers, data=json.dumps(data))
     print(response)
 
     if response.status_code == 200:

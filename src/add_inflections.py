@@ -9,7 +9,7 @@ for s in t:
     entry = s['entry']
     swe_lemma = entry['swe']['lemma'].split()
     pos = entry['pos']
-    aut = 'eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJpc3MiOiJodHRwczovL3NwLnNwcmFha2Jhbmtlbi5ndS5zZS9hdXRoL2p3dCIsImlhdCI6MTcxMjg0MjUwMSwiZXhwIjoxNzEyODg1NzAxLCJqdGkiOiJkZjFhMjVlZGMzM2Y0MGQxYTI4ZTQ4OTFhNzM1YWIxNSIsImlkcCI6Imh0dHBzOi8vbG9naW4uaWRwLmVkdWlkLnNlL2lkcC54bWwiLCJzdWIiOiJtdXB1Zy1iaWphdEBlZHVpZC5zZSIsImVtYWlsIjoiZWxvZmdAa3RoLnNlIiwic2NvcGUiOnsibGV4aWNhIjp7InN0dW5kYSI6MTB9fSwibGV2ZWxzIjp7IlJFQUQiOjEsIldSSVRFIjoxMCwiQURNSU4iOjEwMH19.eZE9sS8162ZQ6_v-peBwPUB-zxMdDYVxdZ7oLdsZrFmirl0CUPiFRwiaMFK_IaW1wmQuAk9_jTFrjmL_k7ZkosGC9Ly-MazaJmt-XaAZ72XftAUB5Yqw1xqDS-OSNE48pwnt4_p0Ule7afyChTnysSaTwDlP-lRoKtYnZO-41duuFaQc6sp2_7NKYofUhjQ51fgADqzBoI2TuAOGjIEBFWH8qSMoDAFhWcDCCtLJaU18hpTIFujTuQ2gbKqPqjYVMckGrHqOK_XGFYd4F21G8vVxNsXBAjBl-i_xx0OdhSeqs_X-h06B3-aH4LI8E6nqMXHBpkNYNfVdIe6k7uh4Zw'
+    aut = 'eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJpc3MiOiJodHRwczovL3NwLnNwcmFha2Jhbmtlbi5ndS5zZS9hdXRoL2p3dCIsImlhdCI6MTcxMzAxNDg5OSwiZXhwIjoxNzEzMDU4MDk5LCJqdGkiOiJkY2E2NDU4MDRhNGY0MDBkYTE5ZDkxZDhhY2Q0OTQ5NCIsImlkcCI6Imh0dHBzOi8vbG9naW4uaWRwLmVkdWlkLnNlL2lkcC54bWwiLCJzdWIiOiJtdXB1Zy1iaWphdEBlZHVpZC5zZSIsImVtYWlsIjoiZWxvZmdAa3RoLnNlIiwic2NvcGUiOnsibGV4aWNhIjp7InN0dW5kYSI6MTB9fSwibGV2ZWxzIjp7IlJFQUQiOjEsIldSSVRFIjoxMCwiQURNSU4iOjEwMH19.t0SEZgoW1ybYw1gEdytkK5W3C6EurSbr0MPz3llQDW4F4zWK4MCuoUHRa6w1Z6JvsFfAGcSsdTchCYYIp5iLYnUbI_p1mCQrW_gZTM4EQNhULg2WIqWEVs3qSXVhbmMkFwrJmE9C3Q-GZHbx0OgRfHmEekr6RG7T3GAx3Nd2Uf25O43wifZPFOj2r_SMhoWQ2p93do9AQI9Z58qdrfkz9BgNmWeoJNxVUjTfX1GAe9-YMnzCKHM96mwzSnn9egPd47-KdiQOg0Qsx2TZVyOuoRK9k7EiaGvY7mtqwBMzhhNJYzthiv_8KProOHHYE7GzGFNnE4FIP20zBOUDk5QeTw'
     if len(swe_lemma) == 1 and pos == 'N':
         inflections = get_swe_inflections(swe_lemma)
         for element in inflections:
@@ -17,5 +17,6 @@ for s in t:
                 entry['swe']['inflection'] = [element['writtenForm'] + 'ty']
         
         print(entry)
+        print(current_id, " id")
         add_inflections(current_id, aut, entry)
         break
