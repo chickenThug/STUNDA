@@ -176,13 +176,13 @@ def add_inflections(id, authorization, entry, verbose=False):
 
     data = {"entry": entry, "message": "", "version": 1}
 
-    response = requests.post(url, headers=headers, data=json.dumps(data))
+    response = requests.post(url, headers=headers, data=data)
     print(response)
 
     if response.status_code == 200:
         if verbose:
             print("successfull add")
-        return response.json()["newID"]
+        return response.json()
     else:
         if verbose:
             print("unsuccessfull add", response.status_code, response)
