@@ -1,20 +1,17 @@
-import java.io.IOException;
-import javax.servlet.ServletException;
-import javax.servlet.annotation.WebServlet;
-import javax.servlet.http.HttpServlet;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
+import java.io.*;
+import javax.servlet.*;
+import javax.servlet.http.*;
 
-@WebServlet("/search")
 public class SearchServlet extends HttpServlet {
-    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        // Get the search query from the request
+    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String query = request.getParameter("query");
-        
-        // Perform search processing here (not implemented in this example)
-        
-        // For demonstration purposes, let's just forward to a search results page
-        request.setAttribute("query", query);
-        request.getRequestDispatcher("/searchResults.jsp").forward(request, response);
+        // Perform search based on the query
+        // For demonstration, let's just echo back the search query
+        response.setContentType("text/html");
+        PrintWriter out = response.getWriter();
+        out.println("<html><head><title>Search Result</title></head><body>");
+        out.println("<h1>Search Result</h1>");
+        out.println("<p>You searched for: " + query + "</p>");
+        out.println("</body></html>");
     }
 }
