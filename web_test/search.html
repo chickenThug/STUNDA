@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Search Page</title>
+    <link rel="stylesheet" type="text/css" href="style.css" />
+    <link href='https://fonts.googleapis.com/css?family=Inter' rel='stylesheet'>
+    <script src="search.js"></script>
+</head>
+<body>
+
+<div class="container">
+    <div class="header">
+        <div class="logo">
+            <span class="logo-main">STUNDA - </span>
+            <span class="logo-sub">Sveriges tekniska universitets nätverk för datatermer</span>
+        </div>
+    </div>
+
+    <div class="search-bar">
+        <input type="text" class="search-input" id="search-input" placeholder="Svensk eller engelsk dataterm">
+        <button class="search-button" onclick="getResults(document.getElementById('search-input').value);">Sök</button>
+    </div>
+
+    <div class="search-output">
+        <div id="search-results">
+        </div>
+        <div id="best-search-result">
+        </div>
+    </div>
+    <div class="info-text">
+        <p>
+            Stunda är ett nätverk för...
+        </p>
+    </div>
+</div>
+
+</body>
+</html>
