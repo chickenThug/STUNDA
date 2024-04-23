@@ -1,6 +1,3 @@
-
-
-
 function getTermsFromKarp(language, query_mode, searchString) {
     // Format the search string into the URL
     const apiUrl = `https://spraakbanken4.it.gu.se/karp/v7/query/stunda?q=and(or(${query_mode}|${language}.lemma|"${searchString}"))&from=0&size=25`;
@@ -20,6 +17,7 @@ function getTermsFromKarp(language, query_mode, searchString) {
         data.hits.forEach(hit => {
 
             const new_entry = {
+                id: hit.id,
                 swedishLemma: hit.entry.swe.lemma,
                 englishLemma: hit.entry.eng.lemma,
                 source: [hit.entry.src],
