@@ -12,6 +12,7 @@ body {
 }
 
 .header {
+    position: relative;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -21,6 +22,7 @@ body {
 
 /* CSS for the logo */
 .logo {
+    position: relative;
     font-family: 'Inter';
     text-align: center;
 }
@@ -36,6 +38,31 @@ body {
 .logo-sub {
     font-size: 15px;
     /* Font size for the sub part */
+}
+
+#language-toggle {
+    width: 40px;
+    /* Adjust the width as needed */
+    height: 40px;
+    /* Adjust the height as needed */
+    cursor: pointer;
+    position: relative;
+    z-index: 2;
+    padding: 0;
+    /* Remove default button padding */
+    border: none;
+    /* Remove default button border */
+    background: none;
+    /* Remove default button background */
+}
+
+#language-toggle img {
+    width: 100%;
+    /* Ensure the image fills the button */
+    height: 100%;
+    /* Ensure the image fills the button */
+    object-fit: contain;
+    /* Maintain aspect ratio and fit within the button */
 }
 
 .search-bar {
