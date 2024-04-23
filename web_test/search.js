@@ -96,15 +96,16 @@ const display_best_result = (data) => {
     create_paragraph("Engelskt lemma", data.englishLemma, rightSection);
     create_paragraph("Engelska böjningar", data.englishInflections, rightSection);
 
-    // Paragraphs for bottom section
+    create_paragraph("Ordklass", data.pos, bottomSection);
+    create_paragraph("Alternativa översättningar", data.alternativeTranslations, bottomSection);
+
+     // Paragraphs for bottom section
     // Logic for switching between källor and källa
     if (data.source.length === 1) {
         create_paragraph("Källa", data.source, bottomSection)
     } else {
         create_paragraph("Källor", data.source, bottomSection)
     }
-    create_paragraph("POS", data.pos, bottomSection);
-    create_paragraph("Alternativa översättningar", data.alternativeTranslations, bottomSection);
 
     // Append sections to container
     best_word_container.appendChild(leftSection);
@@ -139,7 +140,17 @@ const display_similar_results = () => {
 
 const create_paragraph = (title, value, container) => {
     const paragraph = document.createElement("p");
-    paragraph.innerHTML = `<strong>${title}:</strong> ${value}`; 
+    let displayValue = value;
+
+    // logic for displaying multiple vs single values
+    if (Array.isArray(value)){
+        if (value.length === 1) {
+            displayValue = value[0];
+        } else {
+            displayValue = value.join(", ")
+        }
+    }
+    paragraph.innerHTML = `<strong>${title}:</strong> ${displayValue}`; 
     container.appendChild(paragraph);
 }
 

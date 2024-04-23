@@ -50,15 +50,18 @@ body {
 .search-input {
     padding: 10px;
     border: 1px solid #007bff;
-    border-radius: 5px 0 0 5px;
-    width: 300px;
+    border-radius: 5px 5px 5px 5px;
+    /* 5px 0 0 5px and delete margin-right for together look */
+    width: 400px;
+    margin-right: 10px;
 }
 
 .search-button {
     padding: 10px 20px;
     background-color: #007bff;
     border: none;
-    border-radius: 0 5px 5px 0;
+    border-radius: 5px 5px 5px 5px;
+    /* 0 5px 5px 0 for together look */
     color: #fff;
     cursor: pointer;
 }
@@ -72,15 +75,10 @@ body {
 .info-text {
     font-size: 15px;
     position: fixed;
-    /* Position the element relative to the viewport */
     bottom: 20px;
-    /* Adjust as needed to control the distance from the bottom */
     left: 50%;
-    /* Position the element at the center horizontally */
     transform: translateX(-50%);
-    /* Center the element horizontally */
     text-align: center;
-    /* Center the text within the element */
 }
 
 #search-results {
@@ -91,16 +89,19 @@ body {
     border: 1px solid #ccc;
     border-radius: 5px;
     margin-right: 20px;
+    margin-top: 50px;
     display: none;
 }
 
 /* Styles for buttons within search-results */
 #search-results button {
-    margin: 5px;
+    margin: 8px;
+    padding: 7px 15px;
+    font-size: 10px;
 }
 
 #best-search-result {
-    flex: 2.5;
+    flex: 3;
     height: 400px;
     padding: 20px;
     display: none;
