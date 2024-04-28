@@ -1,53 +1,94 @@
-const best_word = {
-    swedishLemma: "swedish_word1",
-    englishLemma: "english_word1",
-    source: ["source1", "source2"],
-    pos: ["N"],
-    swedishInflections: ["swedish_inflection1", "swedish_inflection2"],
-    englishInflections: ["english_inflection1", "english_inflection2"],
-    alternativeTranslations: ["hej", "hejsan"]
+function getTermsFromKarp(field, query_mode, searchString) {
+    // Format the search string into the URL
+    const apiUrl = `https://spraakbanken4.it.gu.se/karp/v7/query/stunda?q=and(or(${query_mode}|${field}|"${searchString}"))&from=0&size=25`;
+
+    // Make the GET request using fetch()
+    return fetch(apiUrl)
+      .then(response => {
+        // Check if the response is OK (status code 200)
+        if (!response.ok) {
+          throw new Error('Network response was not ok');
+        }
+        // Parse the JSON response
+        return response.json();
+      })
+      .then(data => {
+        const dataList = [];
+        data.hits.forEach(hit => {
+
+            const new_entry = {
+                id: hit.id,
+                swedishLemma: hit.entry.swe.lemma,
+                englishLemma: hit.entry.eng.lemma,
+                source: [hit.entry.src],
+                pos: [hit.entry.pos],
+                swedishInflections: hit.entry.swe.inflection ?? [],
+                englishInflections: hit.entry.eng.inflection ?? [],
+                alternativeTranslations: hit.entry.synonyms ?? []
+            }
+
+            dataList.push(new_entry);
+          });
+        return dataList;
+      })
+      .catch(error => {
+        // Handle any errors that occur during the fetch
+        console.error('There was a problem with the fetch operation:', error);
+        return [];
+      });
+  }
+
+function getLemmaByLanguageExactMatch(language, searchString) {
+  const field = `${language}.lemma`
+  return getTermsFromKarp(field, "equals", searchString)
+}
+
+function getLemmaByLanguageBeginsWith(language, searchString) {
+  const field = `${language}.lemma`
+  return getTermsFromKarp(field, "startswith", searchString)
+}
+
+function mergeResults(firstResultList, secondResultList) {
+  const uniqueResults = new Map();
+
+    // Add each item from the first result list to the Map
+    firstResultList.forEach(item => {
+        uniqueResults.set(item.id, item);
+    });
+
+    // Add each item from the second result list to the Map
+    // This will automatically overwrite any duplicate ids from the first list
+    secondResultList.forEach(item => {
+        uniqueResults.set(item.id, item);
+    });
+
+    // Convert the Map values back to an array and return
+    return Array.from(uniqueResults.values());
+}
+
+async function tryMerge() {
+  let language = "swe";
+  let searchString = "test";
+  let query_mode = "startswith";
+  let result1 = null;
+  let result2 = null;
+  try {
+        result1 = await getLemmaByLanguageExactMatch(language, searchString);
+        // You can now use 'result' here for further processing or return it
+    } catch (error) {
+        console.error('Error fetching data:', error);
+    }
+
+    try {
+      result2 = await getLemmaByLanguageBeginsWith(language, searchString);
+      // You can now use 'result' here for further processing or return it
+  } catch (error) {
+      console.error('Error fetching data:', error);
+  }
+  console.log(mergeResults(result1, result2));
 }
 
 let last_get_request_result = {}
-
-const similar_words = {
-    word1: {
-        swedishLemma: "swedish_word2",
-        englishLemma: "english_word2",
-        source: ["source2"],
-        pos: ["N"],
-        swedishInflections: ["swedish_inflection3", "swedish_inflection4"],
-        englishInflections: ["english_inflection3", "english_inflection4"],
-        alternativeTranslations: ["hej", "hejsan"]
-    },
-    word2: {
-        swedishLemma: "swedish_word3",
-        englishLemma: "english_word3",
-        source: ["source4", "source5", "source7"],
-        pos: ["V"],
-        swedishInflections: ["swedish_inflection5", "swedish_inflection6"],
-        englishInflections: ["english_inflection5", "english_inflection6"],
-        alternativeTranslations: ["hej2", "hejsan2"]
-    },
-    word3: {
-        swedishLemma: "swedish_word4",
-        englishLemma: "english_word4",
-        source: ["source7"],
-        pos: ["Adj"],
-        swedishInflections: ["swedish_inflection7", "swedish_inflection8"],
-        englishInflections: ["english_inflection7", "english_inflection8"],
-        alternativeTranslations: ["hej3", "hejsan3"]
-    },
-    word4: {
-        swedishLemma: "swedish_word5",
-        englishLemma: "english_word5",
-        source: ["source8", "source9"],
-        pos: ["Adv"],
-        swedishInflections: ["swedish_inflection9", "swedish_inflection10"],
-        englishInflections: ["english_inflection9", "english_inflection10"],
-        alternativeTranslations: ["hej4", "hejsan4"]
-    },
-};
 
 let last_get_similar_words_result = {};
 
@@ -76,9 +117,14 @@ const getResults = (word) => {
     }
 };
 
-const get_best_result = (word) => {
+async function get_best_result (word) {
     // TODO: replace below with get request stuff for best word
-    best_word_result = best_word; // make get request for best word
+    best_word_result = await getLemmaByLanguageExactMatch('swe', word);
+    best_word_result = best_word_result[0];
+
+    console.log("GET BEST RESULT");
+    console.log(best_word_result);
+
     last_get_request_result = best_word_result; // update global variable for further use
 
     display_best_result(last_get_request_result);
@@ -95,6 +141,9 @@ const display_best_result = (data) => {
     best_word_container = document.getElementById("best-search-result");
     // Clear the container so we don't append the same results multiple times
     best_word_container.innerHTML = "";
+
+    console.log("DATA");
+    console.log(data);
 
     // Create divs to contain different sections
     const leftSection = document.createElement("div");
@@ -119,6 +168,10 @@ const display_best_result = (data) => {
 
         // Paragraphs for bottom section
         // Logic for switching between källor and källa
+
+        console.log("data source");
+        console.log(data.source);
+
         if (data.source.length === 1) {
             create_paragraph("Källa", data.source, bottomSection)
         } else {
@@ -151,16 +204,21 @@ const display_best_result = (data) => {
     best_word_container.appendChild(bottomSection);
 }
 
-const get_similar_results = () => {
+async function get_similar_results(word) {
     // TODO: replace below with get request stuff for similar words
-    similar_words_result = similar_words; // make get request for similar words
+    similar_words_result = await getLemmaByLanguageBeginsWith('swe', word);
     last_get_similar_words_result = similar_words_result;
+
+    console.log("similar words result");
+    console.log(similar_words_result);
 
     display_similar_results();
 }
 
 const display_similar_results = () => {
     similar_words_result = last_get_similar_words_result;
+    console.log("FEL HÄR??")
+    console.log(similar_words_result);
     similar_words_container = document.getElementById("search-results");
     // Clear the container so we don't append the same results multiple times
     similar_words_container.innerHTML = "";
@@ -172,6 +230,8 @@ const display_similar_results = () => {
     create_button("sv", last_get_request_result, similar_words_container);
 
     for (word in similar_words_result) {
+        console.log("WOOOOOOORD");
+        console.log(word);
         create_button("sv", similar_words_result[word], similar_words_container);
     }
 }
@@ -273,7 +333,7 @@ const switchToEnglish = () => {
 const switchToSwedish = () => {
     // Change logo text
     document.querySelector('.logo-main').textContent = 'STUNDA - ';
-    document.querySelector('.logo-sub').textContent = 'Sveriges tekniska universitets nätverk för datatermer';
+    document.querySelector('.logo-sub').textContent = 'Sveriges Tekniska Universitets Nätverk för Datatermer';
 
     // Change info text
     document.querySelector('.info-text p').textContent = 'Stunda är ett nätverk för Sveriges tekniska universitet med syfte att verka för effektiv fackspråklig kommunikation på svenska inom högre utbildning, främst genom att arbeta med disciplinspecifik terminologi.';

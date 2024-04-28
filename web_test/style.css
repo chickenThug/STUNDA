@@ -118,6 +118,9 @@ body {
     margin-right: 20px;
     margin-top: 50px;
     display: none;
+    /* Enable vertical scrolling ??? check if it works */
+    overflow-y: auto;
+    max-height: 300px;
 }
 
 /* Styles for buttons within search-results */
