@@ -22,8 +22,15 @@
     </div>
 
     <div class="search-bar">
-        <input type="text" class="search-input" id="search-input" placeholder="Svensk eller engelsk dataterm">
-        <button class="search-button" onclick="getResults(document.getElementById('search-input').value);">Sök</button>
+        <div class="search-options">
+            <select id="search-language">
+                <option class="both" value="both">Båda</option>
+                <option class="swe" value="swe">Svenska</option>
+                <option class="eng" value="eng">Engelska</option>
+            </select>
+        </div>
+        <input type="text" class="search-input" id="search-input" placeholder="Dataterm...">
+        <button class="search-button" onclick="getResults(document.getElementById('search-input').value, document.getElementById('search-language').value);">Sök</button>
     </div>
 
     <div class="search-output">
@@ -35,6 +42,7 @@
     <div class="info-text">
         <p>
             Stunda är ett nätverk för Sveriges tekniska universitet med syfte att verka för effektiv fackspråklig kommunikation på svenska inom högre utbildning, främst genom att arbeta med disciplinspecifik terminologi.
+            Läs mer <a href="https://writing.chalmers.se/stunda/" target="blank">här</a>. För avancerad sökning, se <a href="https://spraakbanken.gu.se/karp/tng/?mode=stunda&lexicon=stunda&show=stunda:01GX3DS1AKX7YZVYR6F5V8VZS6">KARP</a>.
         </p>
     </div>
 </div>

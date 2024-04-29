@@ -100,7 +100,22 @@ let done_search = 'no';
 
 let new_best_result = last_get_request_result;
 
-const getResults = (word) => {
+const displayNoResultsMessage = () => {
+    const searchResultsContainer = document.getElementById("best-search-result");
+    // Clear the container
+    searchResultsContainer.innerHTML = "";
+
+    // Create a new paragraph element
+    const messageParagraph = document.createElement("p");
+    messageParagraph.textContent = "We don't have that word, make a new search";
+
+    // Append the message paragraph to the search results container
+    searchResultsContainer.appendChild(messageParagraph);
+};
+
+
+const getResults = (word, search_language) => {
+    // search_language is either "both", "eng" or "swe"
     done_search = 'yes';
     get_best_result(word);
     get_similar_results(word);
@@ -122,9 +137,6 @@ async function get_best_result (word) {
     best_word_result = await getLemmaByLanguageExactMatch('swe', word);
     best_word_result = best_word_result[0];
 
-    console.log("GET BEST RESULT");
-    console.log(best_word_result);
-
     last_get_request_result = best_word_result; // update global variable for further use
 
     display_best_result(last_get_request_result);
@@ -142,9 +154,6 @@ const display_best_result = (data) => {
     // Clear the container so we don't append the same results multiple times
     best_word_container.innerHTML = "";
 
-    console.log("DATA");
-    console.log(data);
-
     // Create divs to contain different sections
     const leftSection = document.createElement("div");
     leftSection.classList.add("left-section");
@@ -156,21 +165,18 @@ const display_best_result = (data) => {
     bottomSection.classList.add("bottom-section");
     if (language === 'swe') {
         // Paragraphs for left section
-        create_paragraph("Svenskt lemma", data.swedishLemma, leftSection);
-        create_paragraph("Svenska böjningar", data.swedishInflections, leftSection);
+        create_paragraph("Sve", data.swedishLemma, leftSection, true);
+        create_paragraph("Böjningar", data.swedishInflections, leftSection);
 
         // Paragraphs for right section
-        create_paragraph("Engelskt lemma", data.englishLemma, rightSection);
-        create_paragraph("Engelska böjningar", data.englishInflections, rightSection);
+        create_paragraph("Eng", data.englishLemma, rightSection, true);
+        create_paragraph("Böjningar", data.englishInflections, rightSection);
 
         create_paragraph("Ordklass", data.pos, bottomSection);
         create_paragraph("Alternativa översättningar", data.alternativeTranslations, bottomSection);
 
         // Paragraphs for bottom section
         // Logic for switching between källor and källa
-
-        console.log("data source");
-        console.log(data.source);
 
         if (data.source.length === 1) {
             create_paragraph("Källa", data.source, bottomSection)
@@ -179,12 +185,12 @@ const display_best_result = (data) => {
         }
     } else {
         // Paragraphs for left section
-        create_paragraph("Swedish lemma", data.swedishLemma, leftSection);
-        create_paragraph("Swedish inflections", data.swedishInflections, leftSection);
+        create_paragraph("Swe", data.swedishLemma, leftSection, true);
+        create_paragraph("Inflections", data.swedishInflections, leftSection);
 
         // Paragraphs for right section
-        create_paragraph("English lemma", data.englishLemma, rightSection);
-        create_paragraph("English inflections", data.englishInflections, rightSection);
+        create_paragraph("Eng", data.englishLemma, rightSection, true);
+        create_paragraph("Inflections", data.englishInflections, rightSection);
 
         create_paragraph("Part-of-speech", data.pos, bottomSection);
         create_paragraph("Alternative translations", data.alternativeTranslations, bottomSection);
@@ -209,16 +215,11 @@ async function get_similar_results(word) {
     similar_words_result = await getLemmaByLanguageBeginsWith('swe', word);
     last_get_similar_words_result = similar_words_result;
 
-    console.log("similar words result");
-    console.log(similar_words_result);
-
     display_similar_results();
 }
 
 const display_similar_results = () => {
     similar_words_result = last_get_similar_words_result;
-    console.log("FEL HÄR??")
-    console.log(similar_words_result);
     similar_words_container = document.getElementById("search-results");
     // Clear the container so we don't append the same results multiple times
     similar_words_container.innerHTML = "";
@@ -230,13 +231,11 @@ const display_similar_results = () => {
     create_button("sv", last_get_request_result, similar_words_container);
 
     for (word in similar_words_result) {
-        console.log("WOOOOOOORD");
-        console.log(word);
         create_button("sv", similar_words_result[word], similar_words_container);
     }
 }
 
-const create_paragraph = (title, value, container) => {
+const create_paragraph = (title, value, container, bigFont) => {
     const paragraph = document.createElement("p");
     let displayValue = value;
 
@@ -249,6 +248,12 @@ const create_paragraph = (title, value, container) => {
         }
     }
     paragraph.innerHTML = `<strong>${title}:</strong> ${displayValue}`; 
+
+    // Add a class for bigger font if specified
+    if (bigFont) {
+        paragraph.classList.add("bigfont");
+    }
+
     container.appendChild(paragraph);
 }
 
@@ -288,11 +293,19 @@ const switchToEnglish = () => {
     document.querySelector('.search-button').textContent = 'Search';
 
     // Change placeholder text
-    document.getElementById('search-input').setAttribute('placeholder', 'Swedish or English data term');
+    document.getElementById('search-input').setAttribute('placeholder', 'Data term...');
+
+    // Change dropdown text
+    document.querySelector('.both').textContent = 'Both';
+    document.querySelector('.swe').textContent = 'Swedish';
+    document.querySelector('.eng').textContent = 'English';
 
     if (done_search === 'yes') {
         // Change header text
-        document.querySelector('#search-results h2').textContent = 'Search results:';
+        const searchResultsHeader = document.querySelector('#search-results h2');
+        if (searchResultsHeader) {
+            searchResultsHeader.textContent = 'Search results:';
+        }
 
         // Translate content within best-search-result
         const bestSearchResult = document.getElementById('best-search-result');
@@ -305,14 +318,14 @@ const switchToEnglish = () => {
         }
         paragraphs.forEach(paragraph => {
             // Translate each paragraph content
-            if (paragraph.textContent.includes('Svenskt lemma')) {
-                paragraph.innerHTML = '<strong>Swedish lemma:</strong> ' + show.swedishLemma;
-            } else if (paragraph.textContent.includes('Svenska böjningar')) {
-                paragraph.innerHTML = '<strong>Swedish inflections:</strong> ' + show.swedishInflections.join(', ');
-            } else if (paragraph.textContent.includes('Engelskt lemma')) {
-                paragraph.innerHTML = '<strong>English lemma:</strong> ' + show.englishLemma;
-            } else if (paragraph.textContent.includes('Engelska böjningar')) {
-                paragraph.innerHTML = '<strong>English inflections:</strong> ' + show.englishInflections.join(', ');
+            if (paragraph.textContent.includes('Sve')) {
+                paragraph.innerHTML = '<strong>Swe:</strong> ' + show.swedishLemma;
+            } else if (paragraph.textContent.includes('Böjningar')) {
+                paragraph.innerHTML = '<strong>Inflections:</strong> ' + show.swedishInflections.join(', ');
+            } else if (paragraph.textContent.includes('Eng')) {
+                paragraph.innerHTML = '<strong>Eng:</strong> ' + show.englishLemma;
+            } else if (paragraph.textContent.includes('Böjningar')) {
+                paragraph.innerHTML = '<strong>Inflections:</strong> ' + show.englishInflections.join(', ');
             } else if (paragraph.textContent.includes('Ordklass')) {
                 paragraph.innerHTML = '<strong>Part-of-speech:</strong> ' + show.pos;
             } else if (paragraph.textContent.includes('Alternativa översättningar')) {
@@ -342,11 +355,19 @@ const switchToSwedish = () => {
     document.querySelector('.search-button').textContent = 'Sök';
 
     // Change placeholder text
-    document.getElementById('search-input').setAttribute('placeholder', 'Svensk eller engelsk dataterm');
+    document.getElementById('search-input').setAttribute('placeholder', 'Dataterm...');
+
+    // Change dropdown text
+    document.querySelector('.both').textContent = 'Båda';
+    document.querySelector('.swe').textContent = 'Svenska';
+    document.querySelector('.eng').textContent = 'Engelska';
 
     if (done_search === 'yes'){
         // Change header text
-        document.querySelector('#search-results h2').textContent = 'Sökträffar:';
+        const searchResultsHeader = document.querySelector('#search-results h2');
+        if (searchResultsHeader) {
+            searchResultsHeader.textContent = 'Sökträffar:';
+        }
 
         // Translate content within best-search-result
         const bestSearchResult = document.getElementById('best-search-result');
@@ -359,14 +380,14 @@ const switchToSwedish = () => {
         }
         paragraphs.forEach(paragraph => {
             // Translate each paragraph content
-            if (paragraph.textContent.includes('Swedish lemma')) {
-                paragraph.innerHTML = '<strong>Svenskt lemma:</strong> ' + show.swedishLemma;
-            } else if (paragraph.textContent.includes('Swedish inflections')) {
-                paragraph.innerHTML = '<strong>Svenska böjningar:</strong> ' + show.swedishInflections.join(', ');
-            } else if (paragraph.textContent.includes('English lemma')) {
-                paragraph.innerHTML = '<strong>Engelskt lemma:</strong> ' + show.englishLemma;
-            } else if (paragraph.textContent.includes('English inflections')) {
-                paragraph.innerHTML = '<strong>Engelska böjningar:</strong> ' + show.englishInflections.join(', ');
+            if (paragraph.textContent.includes('Swe')) {
+                paragraph.innerHTML = '<strong>Sve:</strong> ' + show.swedishLemma;
+            } else if (paragraph.textContent.includes('Inflections')) {
+                paragraph.innerHTML = '<strong>Böjningar:</strong> ' + show.swedishInflections.join(', ');
+            } else if (paragraph.textContent.includes('Eng')) {
+                paragraph.innerHTML = '<strong>Eng:</strong> ' + show.englishLemma;
+            } else if (paragraph.textContent.includes('Inflections')) {
+                paragraph.innerHTML = '<strong>Böjningar:</strong> ' + show.englishInflections.join(', ');
             } else if (paragraph.textContent.includes('Part-of-speech')) {
                 paragraph.innerHTML = '<strong>Ordklass:</strong> ' + show.pos;
             } else if (paragraph.textContent.includes('Alternative translations')) {

@@ -118,7 +118,6 @@ body {
     margin-right: 20px;
     margin-top: 50px;
     display: none;
-    /* Enable vertical scrolling ??? check if it works */
     overflow-y: auto;
     max-height: 300px;
 }
@@ -165,4 +164,27 @@ body {
 .right-section p,
 .bottom-section p {
     margin: 10px 0;
+}
+
+/* Styles for bigger font for lemmas */
+.bigfont {
+    font-size: 1.3em;
+}
+
+.search-options {
+    margin-right: 10px;
+}
+
+/* Styles for the dropdown menu */
+#search-language {
+    padding: 4px;
+    border: 1px solid #007bff;
+    border-radius: 4px;
+    background-color: #fff;
+    color: #007bff;
+    font-size: 14px;
+    cursor: pointer;
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
 }
