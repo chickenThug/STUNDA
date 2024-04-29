@@ -4,6 +4,7 @@ import pandas as pd
 from collections import defaultdict
 from utils import *
 import json
+import time
 
 def clean_and_simple_checks(df):
     """
@@ -162,55 +163,65 @@ def main():
         term_pairs.append({"eng_lemma" : args.strings[0], "swe_lemma": args.strings[1]})
         single_input = True
     elif args.file:
-        with open(args.file, 'r') as file:
+        with open(args.file, 'r', encoding='utf-8') as file:
             term_pairs = file.readlines()
             term_pairs = [{'eng_lemma' : term_pair.rstrip().split(',')[0], 'swe_lemma': term_pair.rstrip().split(',')[1]} for term_pair in term_pairs]
     elif args.jsonfile:
-        with open(args.jsonfile, 'r') as file:
+        with open(args.jsonfile, 'r', encoding='utf-8') as file:
             # Load JSON data from the file
             data = json.load(file)
             for key, value in data.items():
                 for swe_term in value:
-                    term_pairs.append({"eng_lemma": key, "swe_lemma": swe_term})
+                    term_pairs.append({"eng_lemma": key, "swe_lemma": swe_term, "src":"paired keywords"})
     elif args.jsonlfile:
-        with open(args.jsonlfile, 'r') as file:
+        with open(args.jsonlfile, 'r', encoding='utf-8') as file:
             # Iterate through each line in the file
             for line in file:
                 # Load the JSON object from the line
                 data = json.loads(line)
-                term_pairs.append({"eng_lemma": data["eng"]["lemma"], "swe_lemma":data["swe"]["lemma"]})
+                term_pairs.append({"eng_lemma": data["eng"]["lemma"], "swe_lemma":data["swe"]["lemma"], "src": data["src"]})
     else:
         print("Please provide either two strings with -s/--strings or a file with -f/--file flag.")
         exit(1)
 
+    t0 = time.time()
     df = pd.DataFrame(term_pairs)
 
+    # Time the cleaning and simple checks
+    start_time = time.time()
     df = clean_and_simple_checks(df)
+    print("finished simple checks in {:.2f} seconds".format(time.time() - start_time))
 
-    print("finished simple checks")
-    
     df_stop1 = df[df["status"] != "shallow processed"]
     df_cont = df[df["status"] == "shallow processed"]
 
-    df = spell_check(df_cont)
-
-    print("finished spell check")
+    # Time the spell check
+    start_time = time.time()
+    df = spell_check(df_cont.copy())
+    print("finished spell check in {:.2f} minutes".format((time.time() - start_time)/60))
 
     df_stop2 = df[df["status"] != "spelling ok"]
     df_cont = df[df["status"] == "spelling ok"]
 
+    # Time the part-of-speech tagging
+    start_time = time.time()
     df = pos(df_cont.copy())
-
-    print("finished part-of-speech tagging")
+    print("finished part-of-speech tagging in {:.2f} minutes".format((time.time() - start_time)/60))
 
     df_stop3 = df[df['status'] != 'found pos']
     df_cont = df[df['status'] == 'found pos']
 
+    # Time the lemmatization
+    start_time = time.time()
     df = lemmatize(df_cont.copy())
+    print("finished lemmatization in {:.2f} minutes".format((time.time() - start_time)/60))
 
-    print("finished lemmatization")
-
+    # Concatenate all parts and calculate total processing time
     output_df = pd.concat([df_stop1, df_stop2, df_stop3, df])
+
+    total_time = time.time() - t0
+    print("Total processing time: {:.2f} minutes".format(total_time/60))
+
 
     if single_input:
         print("English lemma:", output_df.at[0, "eng_lemma"])
@@ -219,12 +230,14 @@ def main():
         if 'agreed_pos' in output_df.columns and len(output_df.at[0, "eng_lemma"].split(" ")) == 1 and len(output_df.at[0, "swe_lemma"].split(" ")) == 1:
             print("POS          :", output_df.at[0, "agreed_pos"])
     else:
-        from tabulate import tabulate
+        # from tabulate import tabulate
         output_df.rename(columns={'eng_lemma': 'English lemma', 'swe_lemma': 'Swedish lemma', 'agreed_pos': 'POS' }, inplace=True)
-        output_df = output_df[["English lemma", 'Swedish lemma', 'POS', 'status']]
         output_df = clean_pos(output_df)
         output_df.to_csv("ready_for_karp_v2.csv", index=False)
-        print(tabulate(output_df, headers='keys', tablefmt='psql', showindex=False))
+        # output_df = output_df[["English lemma", 'Swedish lemma', 'POS', 'status']]
+        # 
+        # output_df.to_csv("ready_for_karp_v2.csv", index=False)
+        # print(tabulate(output_df, headers='keys', tablefmt='psql', showindex=False))
 
 
 main()

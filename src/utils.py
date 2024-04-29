@@ -4,13 +4,13 @@ from nltk.stem import WordNetLemmatizer
 from nltk.tokenize import word_tokenize
 import requests
 import pandas as pd
-from lemminflect import getAllInflections, getInflection
 import json
 
-# nltk.download("wordnet")
-# nltk.download("brown")
-# nltk.download("universal_tagset")
-# nltk.download("averaged_perceptron_tagger")
+nltk.download("wordnet")
+nltk.download("brown")
+nltk.download("universal_tagset")
+nltk.download("averaged_perceptron_tagger")
+nltk.download('omw-1.4')
 
 lemmatizer = WordNetLemmatizer()
 wordtags = nltk.ConditionalFreqDist(
@@ -101,7 +101,7 @@ def convert_to_simple_pos(terms):
 
 
 def delete_entry_by_id(id, authorization, verbose=False):
-    url = f"https://ws.spraakbanken.gu.se/ws/karp/v7/entries/stunda/{id}/1"
+    url = f"https://spraakbanken4.it.gu.se/karp/v7/entries/stunda/{id}/1"
 
     headers = {
         "Authorization": "Bearer " + authorization,
@@ -109,6 +109,8 @@ def delete_entry_by_id(id, authorization, verbose=False):
     }
 
     response = requests.delete(url=url, headers=headers)
+
+    print(response)
 
     if verbose:
         if response.status_code == 204:
@@ -146,7 +148,7 @@ def get_all():
 
 
 def add_entry(authorization, entry, verbose=False):
-    url = "https://ws.spraakbanken.gu.se/ws/karp/v7/entries/stunda"
+    url = "https://spraakbanken4.it.gu.se/karp/v7/entries/stunda"
 
     headers = {
         "Authorization": "Bearer " + authorization,
@@ -155,7 +157,11 @@ def add_entry(authorization, entry, verbose=False):
 
     data = {"entry": entry, "message": ""}
 
+    print(data)
+
     response = requests.put(url, headers=headers, json=data)
+
+    print(response)
 
     if response.status_code == 201:
         if verbose:
