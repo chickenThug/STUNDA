@@ -124,9 +124,13 @@ body {
 
 /* Styles for buttons within search-results */
 #search-results button {
-    margin: 8px;
+    margin: 12px;
     padding: 7px 15px;
     font-size: 10px;
+    display: block;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 5px 5px 5px 5px;
 }
 
 #best-search-result {

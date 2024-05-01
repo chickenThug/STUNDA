@@ -53,8 +53,6 @@ async function swedishSearch(searchString) {
         }
         return 0;
     });
-    console.log("search matches");
-    console.log(sortedEntries);
     return sortedEntries;
 }
 
@@ -86,71 +84,46 @@ const displayNoResultsMessage = () => {
 
 
 const getResults = async (word, search_language) => {
-    // search_language is either "both", "eng" or "swe"
     done_search = 'yes';
 
     if (search_language === "swe") {
         let result = await swedishSearch(word);
-        console.log("results_gotten");
-        console.log(result);
 
         let best = result.shift();
 
         last_get_request_result = best;
 
-        console.log("before_best_result");
-
         display_best_result(last_get_request_result);
-
-        console.log("displayed_best_result");
 
         last_get_similar_words_result = result;
 
         display_similar_results();
-
-        console.log("displayed_similar_result");
     }
     else if (search_language === "eng") {
         let result = await swedishSearch(word);
-        console.log("results_gotten");
-        console.log(result);
 
         let best = result.shift();
 
         last_get_request_result = best;
 
-        console.log("before_best_result");
-
         display_best_result(last_get_request_result);
-
-        console.log("displayed_best_result");
 
         last_get_similar_words_result = result;
 
         display_similar_results();
-
-        console.log("displayed_similar_result");
     }
     else {
         let result = await swedishSearch(word);
-        console.log("results_gotten");
-        console.log(result);
 
         let best = result.shift();
 
         last_get_request_result = best;
 
-        console.log("before_best_result");
-
         display_best_result(last_get_request_result);
-
-        console.log("displayed_best_result");
 
         last_get_similar_words_result = result;
 
         display_similar_results();
-
-        console.log("displayed_similar_result");
     }
 
     // Show the search result containers
@@ -183,7 +156,6 @@ const handle_button_parsing = (string_data) => {
 }
 
 const display_best_result = (data) => {
-    console.log(data);
     best_word_container = document.getElementById("best-search-result");
     // Clear the container so we don't append the same results multiple times
     best_word_container.innerHTML = "";
@@ -262,10 +234,10 @@ const display_similar_results = () => {
     header.innerHTML = language === 'swe' ? "Sökträffar:" : "Search results:";
     similar_words_container.appendChild(header);
 
-    create_button("sv", last_get_request_result, similar_words_container);
+    create_button(last_get_request_result, similar_words_container);
 
     for (word in similar_words_result) {
-        create_button("sv", similar_words_result[word], similar_words_container);
+        create_button(similar_words_result[word], similar_words_container);
     }
 }
 
@@ -291,9 +263,9 @@ const create_paragraph = (title, value, container, bigFont) => {
     container.appendChild(paragraph);
 }
 
-const create_button = (language, data, container) => {
+const create_button = (data, container) => {
     const button = document.createElement("button");
-    button.innerHTML = `${language}: ${data.swedishLemma} (${data.pos})`;
+    button.innerHTML = `${data.swedishLemma} (${data.pos})`;
     button.setAttribute("onclick", `handle_button_parsing('${JSON.stringify(data)}')`);
     container.appendChild(button);
 }
@@ -321,7 +293,7 @@ const switchToEnglish = () => {
     document.querySelector('.logo-sub').textContent = 'Swedish Technical University Network for Data Terms';
     
     // Change info text
-    document.querySelector('.info-text p').textContent = 'Stunda is a network for Sweden\'s technical universities aimed at promoting efficient technical communication in Swedish within higher education, primarily by working with discipline-specific terminology.';
+    document.querySelector('.info-text p').innerHTML = 'Stunda is a network for Sweden\'s technical universities aimed at promoting efficient technical communication in Swedish within higher education, primarily by working with discipline-specific terminology. Read more <a href="https://writing.chalmers.se/stunda/" target="blank">here</a>. For advanced search, see <a href="https://spraakbanken.gu.se/karp/tng/?mode=stunda&lexicon=stunda&show=stunda:01GX3DS1AKX7YZVYR6F5V8VZS6">KARP</a>.';
     
     // Change button text
     document.querySelector('.search-button').textContent = 'Search';
@@ -330,7 +302,6 @@ const switchToEnglish = () => {
     document.getElementById('search-input').setAttribute('placeholder', 'Data term...');
 
     // Change dropdown text
-    document.querySelector('.both').textContent = 'Both';
     document.querySelector('.swe').textContent = 'Swedish';
     document.querySelector('.eng').textContent = 'English';
 
@@ -383,7 +354,7 @@ const switchToSwedish = () => {
     document.querySelector('.logo-sub').textContent = 'Sveriges Tekniska Universitets Nätverk för Datatermer';
 
     // Change info text
-    document.querySelector('.info-text p').textContent = 'Stunda är ett nätverk för Sveriges tekniska universitet med syfte att verka för effektiv fackspråklig kommunikation på svenska inom högre utbildning, främst genom att arbeta med disciplinspecifik terminologi.';
+    document.querySelector('.info-text p').innerHTML = 'Stunda är ett nätverk för Sveriges tekniska universitet med syfte att verka för effektiv fackspråklig kommunikation på svenska inom högre utbildning, främst genom att arbeta med disciplinspecifik terminologi. Läs mer <a href="https://writing.chalmers.se/stunda/" target="blank">här</a>. För avancerad sökning, se <a href="https://spraakbanken.gu.se/karp/tng/?mode=stunda&lexicon=stunda&show=stunda:01GX3DS1AKX7YZVYR6F5V8VZS6">KARP</a>.';
     
     // Change button text
     document.querySelector('.search-button').textContent = 'Sök';
@@ -392,7 +363,6 @@ const switchToSwedish = () => {
     document.getElementById('search-input').setAttribute('placeholder', 'Dataterm...');
 
     // Change dropdown text
-    document.querySelector('.both').textContent = 'Båda';
     document.querySelector('.swe').textContent = 'Svenska';
     document.querySelector('.eng').textContent = 'Engelska';
 
