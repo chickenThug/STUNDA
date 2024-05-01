@@ -99,9 +99,13 @@ const getResults = (word, search_language) => {
 
         display_best_result(last_get_request_result);
 
+        console.log("displayed_best_result");
+
         last_get_similar_words_result = result;
 
         display_similar_results();
+
+        console.log("displayed_similar_result");
     }
     else if (search_language === "eng") {
         // do something else
