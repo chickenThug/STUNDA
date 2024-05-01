@@ -132,8 +132,8 @@ const getResults = (word, search_language) => {
     else {
         let result = swedishSearch(word);
         console.log("results_gotten");
-        let best = result[0];
-        result.shift();
+        
+        let best = result.shift();
 
         last_get_request_result = best;
 
