@@ -1,7 +1,6 @@
 function getTermsFromKarp(field, query_mode, searchString) {
     // Format the search string into the URL
-    const apiUrl = `https://spraakbanken4.it.gu.se/karp/v7/query/stunda?q=and(or(${query_mode}|${field}|"${searchString}"))&from=0&size=25`;
-
+    const apiUrl = `https://spraakbanken4.it.gu.se/karp/v7/query/stunda?q=and(or(${query_mode}|${field}|"${searchString}"))&from=0&size=100`;
     // Make the GET request using fetch()
     return fetch(apiUrl)
       .then(response => {
@@ -9,84 +8,55 @@ function getTermsFromKarp(field, query_mode, searchString) {
         if (!response.ok) {
           throw new Error('Network response was not ok');
         }
-        // Parse the JSON response
         return response.json();
-      })
-      .then(data => {
-        const dataList = [];
-        data.hits.forEach(hit => {
-
-            const new_entry = {
-                id: hit.id,
-                swedishLemma: hit.entry.swe.lemma,
-                englishLemma: hit.entry.eng.lemma,
-                source: [hit.entry.src],
-                pos: [hit.entry.pos],
-                swedishInflections: hit.entry.swe.inflection ?? [],
-                englishInflections: hit.entry.eng.inflection ?? [],
-                alternativeTranslations: hit.entry.synonyms ?? []
-            }
-
-            dataList.push(new_entry);
-          });
-        return dataList;
       })
       .catch(error => {
         // Handle any errors that occur during the fetch
         console.error('There was a problem with the fetch operation:', error);
         return [];
       });
-  }
-
-function getLemmaByLanguageExactMatch(language, searchString) {
-  const field = `${language}.lemma`
-  return getTermsFromKarp(field, "equals", searchString)
 }
 
-function getLemmaByLanguageBeginsWith(language, searchString) {
-  const field = `${language}.lemma`
-  return getTermsFromKarp(field, "startswith", searchString)
-}
+async function swedishSearch(searchString) {
+  let matches = await getTermsFromKarp("swe.lemma", "startswith", searchString);
+  
+  const entries = {};
 
-function mergeResults(firstResultList, secondResultList) {
-  const uniqueResults = new Map();
-
-    // Add each item from the first result list to the Map
-    firstResultList.forEach(item => {
-        uniqueResults.set(item.id, item);
+  matches.hits.forEach(hit => {
+      const key = hit.entry.swe.lemma + ";" + hit.entry.pos;
+      if (!entries[key]) {
+          // If the lemma doesn't exist in entries, create a new entry
+          entries[key] = {
+              id: hit.id,
+              swedishLemma: hit.entry.swe.lemma,
+              englishLemma: hit.entry.eng.lemma,
+              source: hit.entry.src.split(", "),
+              pos: [hit.entry.pos],
+              swedishInflections: hit.entry.swe.inflection ?? [],
+              englishInflections: hit.entry.eng.inflection ?? [],
+              alternativeTranslations: hit.entry.synonyms ?? []
+          };
+      } else {
+          entries[key].alternativeTranslations.push(hit.entry.eng.lemma);
+      }
     });
 
-    // Add each item from the second result list to the Map
-    // This will automatically overwrite any duplicate ids from the first list
-    secondResultList.forEach(item => {
-        uniqueResults.set(item.id, item);
+    // Convert the object back to an array
+    let sortedEntries = Object.values(entries);
+
+    // Sort to prioritize the exact match
+    sortedEntries.sort((a, b) => {
+        if (a.swedishLemma === searchString && b.swedishLemma !== searchString) {
+            return -1;
+        } else if (a.swedishLemma !== searchString && b.swedishLemma === searchString) {
+            return 1;
+        }
+        return 0;
     });
-
-    // Convert the Map values back to an array and return
-    return Array.from(uniqueResults.values());
+    console.log(sortedEntries);
+    return sortedEntries;
 }
 
-async function tryMerge() {
-  let language = "swe";
-  let searchString = "test";
-  let query_mode = "startswith";
-  let result1 = null;
-  let result2 = null;
-  try {
-        result1 = await getLemmaByLanguageExactMatch(language, searchString);
-        // You can now use 'result' here for further processing or return it
-    } catch (error) {
-        console.error('Error fetching data:', error);
-    }
-
-    try {
-      result2 = await getLemmaByLanguageBeginsWith(language, searchString);
-      // You can now use 'result' here for further processing or return it
-  } catch (error) {
-      console.error('Error fetching data:', error);
-  }
-  console.log(mergeResults(result1, result2));
-}
 
 let last_get_request_result = {}
 
@@ -117,8 +87,27 @@ const displayNoResultsMessage = () => {
 const getResults = (word, search_language) => {
     // search_language is either "both", "eng" or "swe"
     done_search = 'yes';
-    get_best_result(word);
-    get_similar_results(word);
+
+    if (search_language === "swe") {
+        let result = swedishSearch(word);
+
+        let best = result[0];
+        result.shift();
+
+        last_get_request_result = best;
+
+        display_best_result(last_get_request_result);
+
+        last_get_similar_words_result = result;
+
+        display_similar_results();
+    }
+    else if (search_language === "eng") {
+        // do something else
+    }
+    else {
+
+    }
 
     // Show the search result containers
     document.getElementById("search-results").style.display = "block";
