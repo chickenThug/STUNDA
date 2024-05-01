@@ -85,17 +85,16 @@ const displayNoResultsMessage = () => {
 };
 
 
-const getResults = (word, search_language) => {
+const getResults = async (word, search_language) => {
     // search_language is either "both", "eng" or "swe"
     done_search = 'yes';
 
     if (search_language === "swe") {
-        let result = swedishSearch(word);
+        let result = await swedishSearch(word);
         console.log("results_gotten");
         console.log(result);
-        
-        let best = result[0];
-        result.shift();
+
+        let best = result.shift();
 
         last_get_request_result = best;
 
@@ -112,10 +111,11 @@ const getResults = (word, search_language) => {
         console.log("displayed_similar_result");
     }
     else if (search_language === "eng") {
-        let result = swedishSearch(word);
+        let result = await swedishSearch(word);
         console.log("results_gotten");
-        let best = result[0];
-        result.shift();
+        console.log(result);
+
+        let best = result.shift();
 
         last_get_request_result = best;
 
@@ -132,8 +132,9 @@ const getResults = (word, search_language) => {
         console.log("displayed_similar_result");
     }
     else {
-        let result = swedishSearch(word);
+        let result = await swedishSearch(word);
         console.log("results_gotten");
+        console.log(result);
 
         let best = result.shift();
 
