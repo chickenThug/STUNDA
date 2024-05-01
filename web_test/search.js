@@ -92,6 +92,8 @@ const getResults = (word, search_language) => {
     if (search_language === "swe") {
         let result = swedishSearch(word);
         console.log("results_gotten");
+        console.log(result);
+        
         let best = result[0];
         result.shift();
 
@@ -132,7 +134,7 @@ const getResults = (word, search_language) => {
     else {
         let result = swedishSearch(word);
         console.log("results_gotten");
-        
+
         let best = result.shift();
 
         last_get_request_result = best;
