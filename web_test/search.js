@@ -110,10 +110,44 @@ const getResults = (word, search_language) => {
         console.log("displayed_similar_result");
     }
     else if (search_language === "eng") {
-        // do something else
+        let result = swedishSearch(word);
+        console.log("results_gotten");
+        let best = result[0];
+        result.shift();
+
+        last_get_request_result = best;
+
+        console.log("before_best_result");
+
+        display_best_result(last_get_request_result);
+
+        console.log("displayed_best_result");
+
+        last_get_similar_words_result = result;
+
+        display_similar_results();
+
+        console.log("displayed_similar_result");
     }
     else {
+        let result = swedishSearch(word);
+        console.log("results_gotten");
+        let best = result[0];
+        result.shift();
 
+        last_get_request_result = best;
+
+        console.log("before_best_result");
+
+        display_best_result(last_get_request_result);
+
+        console.log("displayed_best_result");
+
+        last_get_similar_words_result = result;
+
+        display_similar_results();
+
+        console.log("displayed_similar_result");
     }
 
     // Show the search result containers
