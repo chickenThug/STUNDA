@@ -53,6 +53,7 @@ async function swedishSearch(searchString) {
         }
         return 0;
     });
+    console.log("search matches");
     console.log(sortedEntries);
     return sortedEntries;
 }
@@ -216,8 +217,6 @@ const display_similar_results = () => {
     const header = document.createElement("h2");
     header.innerHTML = language === 'swe' ? "Sökträffar:" : "Search results:";
     similar_words_container.appendChild(header);
-
-    create_button("sv", last_get_request_result, similar_words_container);
 
     for (word in similar_words_result) {
         create_button("sv", similar_words_result[word], similar_words_container);
