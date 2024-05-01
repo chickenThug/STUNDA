@@ -97,6 +97,8 @@ const getResults = (word, search_language) => {
 
         last_get_request_result = best;
 
+        console.log("before_best_result");
+
         display_best_result(last_get_request_result);
 
         console.log("displayed_best_result");
@@ -144,6 +146,7 @@ const handle_button_parsing = (string_data) => {
 }
 
 const display_best_result = (data) => {
+    console.log(data);
     best_word_container = document.getElementById("best-search-result");
     // Clear the container so we don't append the same results multiple times
     best_word_container.innerHTML = "";
