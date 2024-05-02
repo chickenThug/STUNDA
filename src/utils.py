@@ -172,18 +172,22 @@ def add_entry(authorization, entry, verbose=False):
             print("unsuccessfull add", response.status_code, response)
         return None
     
-def add_inflections(id, authorization, entry, verbose=False):
+def add_inflections(id, authorization, entry, version, verbose=False):
     url = f"https://spraakbanken4.it.gu.se/karp/v7/entries/stunda/{id}"
 
     headers = {
         "Authorization": "Bearer " + authorization,
         "Content-Type": "application/json",
+        "Accept" : "*/*",
+        "Connection" : "keep-alive"
     }
 
-    data = {"entry": entry, "message": "", "version": 1}
+    print(headers)
 
+    data = {"entry": entry, "message": "", "version": version}
+
+    print(data)
     response = requests.post(url, headers=headers, json=data) # changed data=data to json=data
-    print(response)
 
     if response.status_code == 200:
         if verbose:
@@ -297,6 +301,7 @@ def get_swe_inflections(swe_lemma, tag = False):
             if last_part:
                 inflections = get_swe_inflections(last_part, True)
                 # here i was thinking i could do some concatenation but i dont know if that will work?? 
+                # TODO: below code crashes, I think we just need to type check the inflection: it should be a list but I think it sometimes is a string 
                 for inflection in inflections:
                     inflection['writtenForm'] = first_part + inflection['writtenForm']
                 return inflections
