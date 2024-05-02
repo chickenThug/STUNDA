@@ -17,44 +17,60 @@ function getTermsFromKarp(field, query_mode, searchString) {
       });
 }
 
-async function swedishSearch(searchString) {
-  let matches = await getTermsFromKarp("swe.lemma", "startswith", searchString);
+async function search(language, searchString) {
+
+    let languageLemma = "";
+    let oppositeLang = "";
+    if (language === "swe") {
+        languageLemma = "swedishLemma";
+        oppositeLang = "eng";
+    }
+    else if (language === "eng") {
+        languageLemma = "englishLemma";
+        oppositeLang = "swe";
+    }
+    else {
+        throw new Error(`Unknown language '${language}': can only accept 'swe' or 'eng'.`);
+    }
+
+    let matches = await getTermsFromKarp(`${language}.lemma`, "startswith", searchString);
+
+    const entries = {};
   
-  const entries = {};
-
-  matches.hits.forEach(hit => {
-      const key = hit.entry.swe.lemma + ";" + hit.entry.pos;
-      if (!entries[key]) {
-          // If the lemma doesn't exist in entries, create a new entry
-          entries[key] = {
-              id: hit.id,
-              swedishLemma: hit.entry.swe.lemma,
-              englishLemma: hit.entry.eng.lemma,
-              source: hit.entry.src.split(", "),
-              pos: [hit.entry.pos],
-              swedishInflections: hit.entry.swe.inflection ?? [],
-              englishInflections: hit.entry.eng.inflection ?? [],
-              alternativeTranslations: hit.entry.synonyms ?? []
-          };
-      } else {
-          entries[key].alternativeTranslations.push(hit.entry.eng.lemma);
-      }
-    });
-
-    // Convert the object back to an array
-    let sortedEntries = Object.values(entries);
-
-    // Sort to prioritize the exact match
-    sortedEntries.sort((a, b) => {
-        if (a.swedishLemma === searchString && b.swedishLemma !== searchString) {
-            return -1;
-        } else if (a.swedishLemma !== searchString && b.swedishLemma === searchString) {
-            return 1;
+    matches.hits.forEach(hit => {
+        const key = hit.entry[language].lemma + ";" + hit.entry.pos;
+        if (!entries[key]) {
+            // If the lemma doesn't exist in entries, create a new entry
+            entries[key] = {
+                id: hit.id,
+                swedishLemma: hit.entry.swe.lemma,
+                englishLemma: hit.entry.eng.lemma,
+                source: hit.entry.src.split(", "),
+                pos: [hit.entry.pos],
+                swedishInflections: hit.entry.swe.inflection ?? [],
+                englishInflections: hit.entry.eng.inflection ?? [],
+                alternativeTranslations: hit.entry.synonyms ?? []
+            };
+        } else {
+            entries[key].alternativeTranslations.push(`${hit.entry[oppositeLang].lemma} (${hit.entry.src})`);
         }
-        return 0;
-    });
-    return sortedEntries;
-}
+      });
+  
+      // Convert the object back to an array
+      let sortedEntries = Object.values(entries);
+  
+      // Sort to prioritize the exact match
+      sortedEntries.sort((a, b) => {
+          if (a[languageLemma] === searchString && b[languageLemma] !== searchString) {
+              return -1;
+          } else if (a[languageLemma] !== searchString && b[languageLemma] === searchString) {
+              return 1;
+          }
+          return 0;
+      });
+      console.log(sortedEntries);
+      return sortedEntries;
+  }
 
 
 let last_get_request_result = {}
@@ -86,45 +102,17 @@ const displayNoResultsMessage = () => {
 const getResults = async (word, search_language) => {
     done_search = 'yes';
 
-    if (search_language === "swe") {
-        let result = await swedishSearch(word);
+    let result = await search(search_language, word);
 
-        let best = result.shift();
+    let best = result.shift();
 
-        last_get_request_result = best;
+    last_get_request_result = best;
 
-        display_best_result(last_get_request_result);
+    display_best_result(last_get_request_result);
 
-        last_get_similar_words_result = result;
+    last_get_similar_words_result = result;
 
-        display_similar_results();
-    }
-    else if (search_language === "eng") {
-        let result = await swedishSearch(word);
-
-        let best = result.shift();
-
-        last_get_request_result = best;
-
-        display_best_result(last_get_request_result);
-
-        last_get_similar_words_result = result;
-
-        display_similar_results();
-    }
-    else {
-        let result = await swedishSearch(word);
-
-        let best = result.shift();
-
-        last_get_request_result = best;
-
-        display_best_result(last_get_request_result);
-
-        last_get_similar_words_result = result;
-
-        display_similar_results();
-    }
+    display_similar_results();
 
     // Show the search result containers
     document.getElementById("search-results").style.display = "block";
