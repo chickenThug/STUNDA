@@ -301,7 +301,8 @@ def get_swe_inflections(swe_lemma, tag = False):
             if last_part:
                 inflections = get_swe_inflections(last_part, True)
                 # here i was thinking i could do some concatenation but i dont know if that will work?? 
-                # TODO: below code crashes, I think we just need to type check the inflection: it should be a list but I think it sometimes is a string 
+                if not type(inflections) == list:
+                    return  f"No inflections for {swe_lemma}"
                 for inflection in inflections:
                     inflection['writtenForm'] = first_part + inflection['writtenForm']
                 return inflections
