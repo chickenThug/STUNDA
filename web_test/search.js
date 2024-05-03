@@ -21,12 +21,15 @@ async function search(language, searchString) {
 
     let languageLemma = "";
     let oppositeLang = "";
+    let oppositeLemma = "";
     if (language === "swe") {
         languageLemma = "swedishLemma";
+        oppositeLemma = "englishLemma";
         oppositeLang = "eng";
     }
     else if (language === "eng") {
         languageLemma = "englishLemma";
+        oppositeLemma = "swedishLemma";
         oppositeLang = "swe";
     }
     else {
@@ -36,7 +39,7 @@ async function search(language, searchString) {
     let matches = await getTermsFromKarp(`${language}.lemma`, "startswith", searchString);
 
     const entries = {};
-  
+    console.log("before");
     matches.hits.forEach(hit => {
         const key = hit.entry[language].lemma + ";" + hit.entry.pos;
         if (!entries[key]) {
@@ -52,7 +55,30 @@ async function search(language, searchString) {
                 alternativeTranslations: hit.entry.synonyms ?? []
             };
         } else {
-            entries[key].alternativeTranslations.push(`${hit.entry[oppositeLang].lemma} (${hit.entry.src})`);
+            let sources_old = entries[key].source;
+            let sources_new = hit.entry.src.split(", ");
+
+            if (sources_old.length < sources_new.length) {
+                let opposite_lemma = entries[key][oppositeLemma];
+                let old_translations = entries[key].alternativeTranslations;
+                entries[key] = {
+                    id: hit.id,
+                    swedishLemma: hit.entry.swe.lemma,
+                    englishLemma: hit.entry.eng.lemma,
+                    source: hit.entry.src.split(", "),
+                    pos: [hit.entry.pos],
+                    swedishInflections: hit.entry.swe.inflection ?? [],
+                    englishInflections: hit.entry.eng.inflection ?? [],
+                    alternativeTranslations: hit.entry.synonyms ?? []
+                };
+                for (const synonym in old_translations) {
+                    entries[key].alternativeTranslations.push(synonym)
+                }
+                entries[key].alternativeTranslations.push(`${opposite_lemma} (${sources_old})`);
+            }
+            else {
+                entries[key].alternativeTranslations.push(`${hit.entry[oppositeLang].lemma} (${hit.entry.src})`);
+            }
         }
       });
   
