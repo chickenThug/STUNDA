@@ -85,20 +85,6 @@ let done_search = 'no';
 
 let new_best_result = last_get_request_result;
 
-const displayNoResultsMessage = () => {
-    const searchResultsContainer = document.getElementById("best-search-result");
-    // Clear the container
-    searchResultsContainer.innerHTML = "";
-
-    // Create a new paragraph element
-    const messageParagraph = document.createElement("p");
-    messageParagraph.textContent = "We don't have that word, make a new search";
-
-    // Append the message paragraph to the search results container
-    searchResultsContainer.appendChild(messageParagraph);
-};
-
-
 const getResults = async (word, search_language) => {
     done_search = 'yes';
 
@@ -160,14 +146,20 @@ const display_best_result = (data) => {
     if (language === 'swe') {
         // Paragraphs for left section
         create_paragraph("Sve", data.swedishLemma, leftSection, true);
-        create_paragraph("Böjningar", data.swedishInflections, leftSection);
+        if (data.swedishInflections.length !== 0){
+            create_paragraph("Böjningar", data.swedishInflections, leftSection);
+        }
 
         // Paragraphs for right section
         create_paragraph("Eng", data.englishLemma, rightSection, true);
-        create_paragraph("Böjningar", data.englishInflections, rightSection);
+        if (data.englishInflections.length !== 0){
+            create_paragraph("Böjningar", data.englishInflections, rightSection);
+        }
 
         create_paragraph("Ordklass", data.pos, bottomSection);
-        create_paragraph("Alternativa översättningar", data.alternativeTranslations, bottomSection);
+        if (data.alternativeTranslations.length !== 0){
+            create_paragraph("Alternativa översättningar", data.alternativeTranslations, bottomSection);
+        }
 
         // Paragraphs for bottom section
         // Logic for switching between källor and källa
@@ -180,14 +172,20 @@ const display_best_result = (data) => {
     } else {
         // Paragraphs for left section
         create_paragraph("Swe", data.swedishLemma, leftSection, true);
-        create_paragraph("Inflections", data.swedishInflections, leftSection);
+        if (data.swedishInflections.length !== 0){
+            create_paragraph("Inflections", data.swedishInflections, leftSection);
+        }
 
         // Paragraphs for right section
         create_paragraph("Eng", data.englishLemma, rightSection, true);
-        create_paragraph("Inflections", data.englishInflections, rightSection);
+        if (data.englishInflections.length !== 0){
+            create_paragraph("Inflections", data.englishInflections, rightSection);
+        }
 
         create_paragraph("Part-of-speech", data.pos, bottomSection);
-        create_paragraph("Alternative translations", data.alternativeTranslations, bottomSection);
+        if (data.alternativeTranslations.length !== 0){
+            create_paragraph("Alternative translations", data.alternativeTranslations, bottomSection);
+        }
 
         // Paragraphs for bottom section
         // Logic for switching between källor and källa
@@ -257,6 +255,7 @@ const create_button = (data, container, language) => {
 // Logic for enter on the keyboard and not just pressing "sök"
 document.addEventListener("DOMContentLoaded", function() {
     const searchInput = document.getElementById("search-input");
+    const searchLanguage = document.getElementById("search-language")
 
     // Add event listener for the "keydown" event on the input field
     searchInput.addEventListener("keydown", function(event) {
@@ -265,7 +264,7 @@ document.addEventListener("DOMContentLoaded", function() {
             // Prevent the default action of the "Enter" key (form submission)
             event.preventDefault();
             // Call the getResults function with the input value
-            getResults(searchInput.value);
+            getResults(searchInput.value, searchLanguage.value);
         }
     });
 });
