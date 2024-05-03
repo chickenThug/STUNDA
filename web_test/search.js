@@ -116,6 +116,11 @@ const getResults = async (word, search_language) => {
 
     let result = await search(search_language, word);
 
+    if (result.length == 0) {
+        display_no_result();
+        return
+    }
+
     let best = result.shift();
 
     last_get_request_result = best;
@@ -153,6 +158,30 @@ const handle_button_parsing = (string_data) => {
     new_best_result = data;
     switched_view = 'yes';
     display_best_result(data);
+}
+
+function display_no_result() {
+    // Clear results
+    document.getElementById("search-results").style.display = "none";
+
+    best_word_container = document.getElementById("best-search-result");
+    // Clear the container so we don't append the same results multiple times
+    best_word_container.innerHTML = "";
+
+    const rightSection = document.createElement("div");
+    rightSection.classList.add("bottom-section");
+    const paragraph = document.createElement("p");
+
+    if (language === "swe") {
+        paragraph.innerHTML = "<strong>Inga sökresultat!</strong>";
+    }
+    else {
+        paragraph.innerHTML = "<strong>No search results found!</strong>";
+    }
+    paragraph.classList.add("nores");
+    best_word_container.appendChild(paragraph);
+
+    document.getElementById("best-search-result").style.display = "block";
 }
 
 const display_best_result = (data) => {
@@ -229,6 +258,7 @@ const display_best_result = (data) => {
 }
 
 const display_similar_results = (search_language) => {
+    console.log("do we get here");
     similar_words_result = last_get_similar_words_result;
     similar_words_container = document.getElementById("search-results");
     // Clear the container so we don't append the same results multiple times
@@ -349,6 +379,9 @@ const switchToEnglish = () => {
             }else if (paragraph.textContent.includes('Källa')) {
                 paragraph.innerHTML = '<strong>Source:</strong> ' + show.source;
             }
+            else if (paragraph.textContent.includes('Inga sökresultat!')) {
+                paragraph.innerHTML = '<strong>No search results found!</strong>';
+            }
         });
         const similarSearchHeader = document.getElementById('search-results');
         const header = similarSearchHeader.querySelectorAll('h2');
@@ -409,6 +442,8 @@ const switchToSwedish = () => {
                 paragraph.innerHTML = '<strong>Källor:</strong> ' + show.source.join(', ');
             }else if (paragraph.textContent.includes('Source')) {
                 paragraph.innerHTML = '<strong>Källa:</strong> ' + show.source;
+            }else if (paragraph.textContent.includes('No search results found!')) {
+                paragraph.innerHTML = '<strong>Inga sökresultat!</strong>';
             }
         });
         const similarSearchHeader = document.getElementById('search-results');

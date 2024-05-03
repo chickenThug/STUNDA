@@ -188,6 +188,12 @@ body {
     font-size: 1.3em;
 }
 
+.nores {
+    font-size: 24px; /* Example size */
+    color: #333;     /* Example color */
+    text-align: center; /* Centering text inside the paragraph */
+}
+
 .search-options {
     margin-right: 10px;
     display: flex;
