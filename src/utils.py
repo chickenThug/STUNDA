@@ -5,6 +5,7 @@ from nltk.tokenize import word_tokenize
 import requests
 import pandas as pd
 import json
+from lemminflect import getInflection, getAllInflections
 
 nltk.download("wordnet")
 nltk.download("brown")
@@ -182,11 +183,8 @@ def add_inflections(id, authorization, entry, version, verbose=False):
         "Connection" : "keep-alive"
     }
 
-    print(headers)
-
     data = {"entry": entry, "message": "", "version": version}
 
-    print(data)
     response = requests.post(url, headers=headers, json=data) # changed data=data to json=data
 
     if response.status_code == 200:
@@ -490,3 +488,12 @@ def get_karp_terms():
             )
 
     return pd.DataFrame(terms)
+
+def get_eng_inflections(eng_lemma, tag):
+    # print(getInflection('be', tag='VBD'))
+    # Nouns: NNS
+    # Verbs: VBG, VBN, VBD
+    # Adjective: 
+    return getAllInflections(eng_lemma, upos = tag)
+
+print(get_eng_inflections("objecteqoigfheqo", "VERB"))
