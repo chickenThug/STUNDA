@@ -112,7 +112,7 @@ const getResults = async (word, search_language) => {
 
     last_get_similar_words_result = result;
 
-    display_similar_results();
+    display_similar_results(search_language);
 
     // Show the search result containers
     document.getElementById("search-results").style.display = "block";
@@ -204,15 +204,7 @@ const display_best_result = (data) => {
     best_word_container.appendChild(bottomSection);
 }
 
-async function get_similar_results(word) {
-    // TODO: replace below with get request stuff for similar words
-    similar_words_result = await getLemmaByLanguageBeginsWith('swe', word);
-    last_get_similar_words_result = similar_words_result;
-
-    display_similar_results();
-}
-
-const display_similar_results = () => {
+const display_similar_results = (search_language) => {
     similar_words_result = last_get_similar_words_result;
     similar_words_container = document.getElementById("search-results");
     // Clear the container so we don't append the same results multiple times
@@ -222,10 +214,10 @@ const display_similar_results = () => {
     header.innerHTML = language === 'swe' ? "Sökträffar:" : "Search results:";
     similar_words_container.appendChild(header);
 
-    create_button(last_get_request_result, similar_words_container);
+    create_button(last_get_request_result, similar_words_container, search_language);
 
     for (word in similar_words_result) {
-        create_button(similar_words_result[word], similar_words_container);
+        create_button(similar_words_result[word], similar_words_container, search_language);
     }
 }
 
@@ -251,9 +243,13 @@ const create_paragraph = (title, value, container, bigFont) => {
     container.appendChild(paragraph);
 }
 
-const create_button = (data, container) => {
+const create_button = (data, container, language) => {
     const button = document.createElement("button");
-    button.innerHTML = `${data.swedishLemma} (${data.pos})`;
+    if (language === "swe"){
+        button.innerHTML = `${data.swedishLemma} (${data.pos})`;
+    } else {
+        button.innerHTML = `${data.englishLemma} (${data.pos})`;
+    }
     button.setAttribute("onclick", `handle_button_parsing('${JSON.stringify(data)}')`);
     container.appendChild(button);
 }
