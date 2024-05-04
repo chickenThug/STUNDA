@@ -328,7 +328,7 @@ document.addEventListener("DOMContentLoaded", function() {
 // Function to change text content to English
 const switchToEnglish = () => {
     // Change logo text
-    document.querySelector('.logo-main').textContent = 'STUNDA - ';
+    document.querySelector('.logo-main').textContent = 'STUNDA';
     document.querySelector('.logo-sub').textContent = 'Swedish Technical University Network for Data Terms';
     
     // Change info text
@@ -339,6 +339,9 @@ const switchToEnglish = () => {
 
     // Change placeholder text
     document.getElementById('search-input').setAttribute('placeholder', 'Data term...');
+
+    // Change dropdown label text
+    document.querySelector('.search-options label').textContent = "Search language:";
 
     // Change dropdown text
     document.querySelector('.swe').textContent = 'Swedish';
@@ -392,7 +395,7 @@ const switchToEnglish = () => {
 // Function to change text content to Swedish
 const switchToSwedish = () => {
     // Change logo text
-    document.querySelector('.logo-main').textContent = 'STUNDA - ';
+    document.querySelector('.logo-main').textContent = 'STUNDA';
     document.querySelector('.logo-sub').textContent = 'Sveriges Tekniska Universitets Nätverk för Datatermer';
 
     // Change info text
@@ -403,6 +406,9 @@ const switchToSwedish = () => {
 
     // Change placeholder text
     document.getElementById('search-input').setAttribute('placeholder', 'Dataterm...');
+
+    // Change dropdown label text
+    document.querySelector('.search-options label').textContent = "Sökspråk:";
 
     // Change dropdown text
     document.querySelector('.swe').textContent = 'Svenska';
