@@ -99,7 +99,7 @@ async function search(language, searchString) {
   }
 
 
-let last_get_request_result = {}
+let display_entry = {}
 
 let last_get_similar_words_result = {};
 
@@ -109,7 +109,7 @@ let switched_view = 'no';
 
 let done_search = 'no';
 
-let new_best_result = last_get_request_result;
+let new_best_result = display_entry;
 
 const getResults = async (word, search_language) => {
     done_search = 'yes';
@@ -123,9 +123,9 @@ const getResults = async (word, search_language) => {
 
     let best = result.shift();
 
-    last_get_request_result = best;
+    display_entry = best;
 
-    display_best_result(last_get_request_result);
+    display_best_result(display_entry);
 
     last_get_similar_words_result = result;
 
@@ -143,21 +143,10 @@ const getResults = async (word, search_language) => {
     }
 };
 
-async function get_best_result (word) {
-    // TODO: replace below with get request stuff for best word
-    best_word_result = await getLemmaByLanguageExactMatch('swe', word);
-    best_word_result = best_word_result[0];
-
-    last_get_request_result = best_word_result; // update global variable for further use
-
-    display_best_result(last_get_request_result);
-}
-
 const handle_button_parsing = (string_data) => {
     const data = JSON.parse(string_data);
-    new_best_result = data;
-    switched_view = 'yes';
-    display_best_result(data);
+    display_entry = data;
+    display_best_result(display_entry);
 }
 
 function display_no_result() {
@@ -198,7 +187,11 @@ const display_best_result = (data) => {
 
     const bottomSection = document.createElement("div");
     bottomSection.classList.add("bottom-section");
+
+    console.log("data");
+    console.log(data);
     if (language === 'swe') {
+        
         // Paragraphs for left section
         create_paragraph("Sve", data.swedishLemma, leftSection, true);
         if (data.swedishInflections.length !== 0){
@@ -258,7 +251,6 @@ const display_best_result = (data) => {
 }
 
 const display_similar_results = (search_language) => {
-    console.log("do we get here");
     similar_words_result = last_get_similar_words_result;
     similar_words_container = document.getElementById("search-results");
     // Clear the container so we don't append the same results multiple times
@@ -268,7 +260,7 @@ const display_similar_results = (search_language) => {
     header.innerHTML = language === 'swe' ? "Sökträffar:" : "Search results:";
     similar_words_container.appendChild(header);
 
-    create_button(last_get_request_result, similar_words_container, search_language);
+    create_button(display_entry, similar_words_container, search_language);
 
     for (word in similar_words_result) {
         create_button(similar_words_result[word], similar_words_container, search_language);
@@ -358,29 +350,24 @@ const switchToEnglish = () => {
         const bestSearchResult = document.getElementById('best-search-result');
         const paragraphs = bestSearchResult.querySelectorAll('p');
 
-        if (switched_view === 'yes') {
-            show = new_best_result;
-        } else {
-            show = last_get_request_result;
-        }
         paragraphs.forEach(paragraph => {
             // Translate each paragraph content
             if (paragraph.textContent.includes('Sve')) {
-                paragraph.innerHTML = '<strong>Swe:</strong> ' + show.swedishLemma;
+                paragraph.innerHTML = '<strong>Swe:</strong> ' + display_entry.swedishLemma;
             } else if (paragraph.textContent.includes('Böjningar')) {
-                paragraph.innerHTML = '<strong>Inflections:</strong> ' + show.swedishInflections.join(', ');
+                paragraph.innerHTML = '<strong>Inflections:</strong> ' + display_entry.swedishInflections.join(', ');
             } else if (paragraph.textContent.includes('Eng')) {
-                paragraph.innerHTML = '<strong>Eng:</strong> ' + show.englishLemma;
+                paragraph.innerHTML = '<strong>Eng:</strong> ' + display_entry.englishLemma;
             } else if (paragraph.textContent.includes('Böjningar')) {
-                paragraph.innerHTML = '<strong>Inflections:</strong> ' + show.englishInflections.join(', ');
+                paragraph.innerHTML = '<strong>Inflections:</strong> ' + display_entry.englishInflections.join(', ');
             } else if (paragraph.textContent.includes('Ordklass')) {
-                paragraph.innerHTML = '<strong>Part-of-speech:</strong> ' + show.pos;
+                paragraph.innerHTML = '<strong>Part-of-speech:</strong> ' + display_entry.pos;
             } else if (paragraph.textContent.includes('Alternativa översättningar')) {
-                paragraph.innerHTML = '<strong>Alternative translations:</strong> ' + show.alternativeTranslations.join(', ');
+                paragraph.innerHTML = '<strong>Alternative translations:</strong> ' + display_entry.alternativeTranslations.join(', ');
             } else if (paragraph.textContent.includes('Källor')) {
-                paragraph.innerHTML = '<strong>Sources:</strong> ' + show.source.join(', ');
+                paragraph.innerHTML = '<strong>Sources:</strong> ' + display_entry.source.join(', ');
             }else if (paragraph.textContent.includes('Källa')) {
-                paragraph.innerHTML = '<strong>Source:</strong> ' + show.source;
+                paragraph.innerHTML = '<strong>Source:</strong> ' + display_entry.source;
             }
             else if (paragraph.textContent.includes('Inga sökresultat!')) {
                 paragraph.innerHTML = '<strong>No search results found!</strong>';
@@ -425,29 +412,24 @@ const switchToSwedish = () => {
         const bestSearchResult = document.getElementById('best-search-result');
         const paragraphs = bestSearchResult.querySelectorAll('p');
         
-        if (switched_view === 'yes') {
-            show = new_best_result;
-        } else {
-            show = last_get_request_result;
-        }
         paragraphs.forEach(paragraph => {
             // Translate each paragraph content
             if (paragraph.textContent.includes('Swe')) {
-                paragraph.innerHTML = '<strong>Sve:</strong> ' + show.swedishLemma;
+                paragraph.innerHTML = '<strong>Sve:</strong> ' + display_entry.swedishLemma;
             } else if (paragraph.textContent.includes('Inflections')) {
-                paragraph.innerHTML = '<strong>Böjningar:</strong> ' + show.swedishInflections.join(', ');
+                paragraph.innerHTML = '<strong>Böjningar:</strong> ' + display_entry.swedishInflections.join(', ');
             } else if (paragraph.textContent.includes('Eng')) {
-                paragraph.innerHTML = '<strong>Eng:</strong> ' + show.englishLemma;
+                paragraph.innerHTML = '<strong>Eng:</strong> ' + display_entry.englishLemma;
             } else if (paragraph.textContent.includes('Inflections')) {
-                paragraph.innerHTML = '<strong>Böjningar:</strong> ' + show.englishInflections.join(', ');
+                paragraph.innerHTML = '<strong>Böjningar:</strong> ' + display_entry.englishInflections.join(', ');
             } else if (paragraph.textContent.includes('Part-of-speech')) {
-                paragraph.innerHTML = '<strong>Ordklass:</strong> ' + show.pos;
+                paragraph.innerHTML = '<strong>Ordklass:</strong> ' + display_entry.pos;
             } else if (paragraph.textContent.includes('Alternative translations')) {
-                paragraph.innerHTML = '<strong>Alternativa översättningar:</strong> ' + show.alternativeTranslations.join(', ');
+                paragraph.innerHTML = '<strong>Alternativa översättningar:</strong> ' + display_entry.alternativeTranslations.join(', ');
             } else if (paragraph.textContent.includes('Sources')) {
-                paragraph.innerHTML = '<strong>Källor:</strong> ' + show.source.join(', ');
+                paragraph.innerHTML = '<strong>Källor:</strong> ' + display_entry.source.join(', ');
             }else if (paragraph.textContent.includes('Source')) {
-                paragraph.innerHTML = '<strong>Källa:</strong> ' + show.source;
+                paragraph.innerHTML = '<strong>Källa:</strong> ' + display_entry.source;
             }else if (paragraph.textContent.includes('No search results found!')) {
                 paragraph.innerHTML = '<strong>Inga sökresultat!</strong>';
             }
