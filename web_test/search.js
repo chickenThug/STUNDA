@@ -38,18 +38,36 @@ async function search(language, searchString) {
 
     let matches = await getTermsFromKarp(`${language}.lemma`, "startswith", searchString);
 
+    // Dictionary for keeping track of unique entries
     const entries = {};
+    // Dictionary for keeping track of seen lemmas
+    const seen_lemmas = {};
     console.log("before");
     matches.hits.forEach(hit => {
-        const key = hit.entry[language].lemma + ";" + hit.entry.pos;
-        if (!entries[key]) {
-            // If the lemma doesn't exist in entries, create a new entry
+        const lemma = hit.entry[language].lemma;
+        const pos = hit.entry.pos;
+        // Define key for unique entry as the searrch language lemma + part-of-speech
+        const key = lemma + ";" + pos;
+        if (!entries[key]) { // new lemma
+            let display_pos = false; // boolean indicating weather or not to display the part of speech in the response list
+            if (seen_lemmas[lemma]) {
+                const seen_key = seen_lemmas[lemma];
+                entries[seen_key].display_pos = true;
+                // append key for the given lemma
+                seen_lemmas[lemma] = key;
+                display_pos = true;
+            }
+            else {
+                seen_lemmas[lemma] = key;
+            }
+            
             entries[key] = {
                 id: hit.id,
                 swedishLemma: hit.entry.swe.lemma,
                 englishLemma: hit.entry.eng.lemma,
                 source: hit.entry.src.split(", "),
                 pos: [hit.entry.pos],
+                display_pos: display_pos,
                 swedishInflections: hit.entry.swe.inflection ?? [],
                 englishInflections: hit.entry.eng.inflection ?? [],
                 alternativeTranslations: hit.entry.synonyms ?? []
@@ -67,6 +85,7 @@ async function search(language, searchString) {
                     englishLemma: hit.entry.eng.lemma,
                     source: hit.entry.src.split(", "),
                     pos: [hit.entry.pos],
+                    display_pos: entries[key].display_pos,
                     swedishInflections: hit.entry.swe.inflection ?? [],
                     englishInflections: hit.entry.eng.inflection ?? [],
                     alternativeTranslations: hit.entry.synonyms ?? []
@@ -291,11 +310,8 @@ const create_paragraph = (title, value, container, bigFont) => {
 
 const create_button = (data, container, language) => {
     const button = document.createElement("button");
-    if (language === "swe"){
-        button.innerHTML = `${data.swedishLemma} (${data.pos})`;
-    } else {
-        button.innerHTML = `${data.englishLemma} (${data.pos})`;
-    }
+    let lemma = language === "swe" ? data.swedishLemma : data.englishLemma;
+    button.innerHTML = data.display_pos ? `${lemma} (${data.pos})` : `${lemma}`;
     button.setAttribute("onclick", `handle_button_parsing('${JSON.stringify(data)}')`);
     container.appendChild(button);
 }
