@@ -45,6 +45,14 @@ body {
     /* Font size for the sub part */
 }
 
+/* CSS for the header image */
+.header-image {
+    height: 120px; /* Set the height of the image */
+    width: auto;  /* Maintain aspect ratio */
+    float: left;  /* Align the image to the left */
+    margin-right: 10px; /* Add some space between the image and the text/logo */
+}
+
 #language-toggle {
     width: 40px;
     /* Adjust the width as needed */
