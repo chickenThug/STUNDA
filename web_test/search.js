@@ -13,7 +13,7 @@ function getTermsFromKarp(field, query_mode, searchString) {
       .catch(error => {
         // Handle any errors that occur during the fetch
         console.error('There was a problem with the fetch operation:', error);
-        return [];
+        return "error";
       });
 }
 
@@ -38,11 +38,15 @@ async function search(language, searchString) {
 
     let matches = await getTermsFromKarp(`${language}.lemma`, "startswith", searchString);
 
+    if (matches === "error") {
+        return "error"
+    }
+
     // Dictionary for keeping track of unique entries
     const entries = {};
     // Dictionary for keeping track of seen lemmas
     const seen_lemmas = {};
-    console.log("before");
+
     matches.hits.forEach(hit => {
         const lemma = hit.entry[language].lemma;
         const pos = hit.entry.pos;
@@ -135,7 +139,11 @@ const getResults = async (word, search_language) => {
 
     let result = await search(search_language, word);
 
-    if (result.length == 0) {
+    if (result === "error") {
+        display_error_result();
+        return
+    }
+    else if (result.length == 0) {
         display_no_result();
         return
     }
@@ -185,6 +193,30 @@ function display_no_result() {
     }
     else {
         paragraph.innerHTML = "<strong>No search results found!</strong>";
+    }
+    paragraph.classList.add("nores");
+    best_word_container.appendChild(paragraph);
+
+    document.getElementById("best-search-result").style.display = "block";
+}
+
+function display_error_result() {
+    // Clear results
+    document.getElementById("search-results").style.display = "none";
+
+    best_word_container = document.getElementById("best-search-result");
+    // Clear the container so we don't append the same results multiple times
+    best_word_container.innerHTML = "";
+
+    const rightSection = document.createElement("div");
+    rightSection.classList.add("bottom-section");
+    const paragraph = document.createElement("p");
+
+    if (language === "swe") {
+        paragraph.innerHTML = "<strong>Kunde inte nå KARP!</strong>";
+    }
+    else {
+        paragraph.innerHTML = "<strong>Could not reach KARP!</strong>";
     }
     paragraph.classList.add("nores");
     best_word_container.appendChild(paragraph);
@@ -387,6 +419,8 @@ const switchToEnglish = () => {
             }
             else if (paragraph.textContent.includes('Inga sökresultat!')) {
                 paragraph.innerHTML = '<strong>No search results found!</strong>';
+            }else if (paragraph.textContent.includes('Kunde inte nå KARP!')) {
+                paragraph.innerHTML = '<strong>Could not reach KARP!</strong>';
             }
         });
         const similarSearchHeader = document.getElementById('search-results');
@@ -448,6 +482,8 @@ const switchToSwedish = () => {
                 paragraph.innerHTML = '<strong>Källa:</strong> ' + display_entry.source;
             }else if (paragraph.textContent.includes('No search results found!')) {
                 paragraph.innerHTML = '<strong>Inga sökresultat!</strong>';
+            }else if (paragraph.textContent.includes('Could not reach KARP!')) {
+                paragraph.innerHTML = '<strong>Kunde inte nå KARP!</strong>';
             }
         });
         const similarSearchHeader = document.getElementById('search-results');
