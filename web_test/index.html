@@ -41,13 +41,39 @@
         <div id="best-search-result">
         </div>
     </div>
-    <div class="info-text">
+    <!-- <div class="info-text">
         <p>
             Stunda är ett nätverk för Sveriges tekniska universitet med syfte att verka för effektiv fackspråklig kommunikation på svenska inom högre utbildning, främst genom att arbeta med disciplinspecifik terminologi.
             Läs mer <a href="https://writing.chalmers.se/stunda/" target="blank">här</a>. För avancerad sökning, se <a href="https://spraakbanken.gu.se/karp/tng/?mode=stunda&lexicon=stunda&show=stunda:01GX3DS1AKX7YZVYR6F5V8VZS6">KARP</a>.
         </p>
+    </div> -->
+    <div class="overlay">
+        <div class="info-text">
+            <p>
+                Stunda är ett nätverk för Sveriges tekniska universitet med syfte att verka för effektiv fackspråklig kommunikation på svenska inom högre utbildning, främst genom att arbeta med disciplinspecifik terminologi.
+                Läs mer <a href="https://writing.chalmers.se/stunda/" target="blank">här</a>. För avancerad sökning, se <a href="https://spraakbanken.gu.se/karp/tng/?mode=stunda&lexicon=stunda&show=stunda:01GX3DS1AKX7YZVYR6F5V8VZS6">KARP</a>.
+            </p>
+        </div>
     </div>
 </div>
+<script>
+    window.addEventListener('resize', function() {
+        console.log("resize");
+        const overlayHeight = window.innerHeight; // Get the current viewport height
+        const bottomContent = document.querySelector('.info-text');
+        const containerHeight = document.querySelector('.container').offsetHeight;
 
+        
+
+        if (overlayHeight < containerHeight + 75) {
+            bottomContent.style.display = 'none'; // Hide bottom content if overlay height > 1000px
+        } else {
+            bottomContent.style.display = 'block'; // Show bottom content otherwise
+        }
+    });
+
+    // Run the check also when the page loads
+    window.dispatchEvent(new Event('resize'));
+</script>
 </body>
 </html>
