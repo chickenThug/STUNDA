@@ -124,6 +124,40 @@ async function search(language, searchString) {
 
 let display_entry = {}
 
+const sourceExplanationEnglish = {
+    "PK" :"paired keyword explanation",
+    "ACM" : "ACM explanation",
+    "ICT" : "ICT explanation",
+    "GF" : "GF explanation"
+}
+
+const sourceExplanationSwedish = {
+    "PK" :"paired keyword förklaring",
+    "ACM" : "ACM förklaring",
+    "ICT" : "ICT förklaring",
+    "GF" : "GF förklaring"
+}
+
+// Function to create a bilingual map
+function createBilingualMap(englishMap, swedishMap) {
+    let bilingualMap = {};
+
+    // Populate the bilingual map with entries for both languages
+    for (const key in englishMap) {
+        if (englishMap.hasOwnProperty(key) && swedishMap.hasOwnProperty(key)) {
+            const engExplanation = englishMap[key];
+            const sweExplanation = swedishMap[key];
+            bilingualMap[engExplanation] = sweExplanation;
+            bilingualMap[sweExplanation] = engExplanation;
+        }
+    }
+
+    return bilingualMap;
+}
+
+// Create the map
+const bilingualExplanationMap = createBilingualMap(sourceExplanationEnglish, sourceExplanationSwedish);
+
 let last_get_similar_words_result = {};
 
 let language = 'swe';
@@ -161,13 +195,6 @@ const getResults = async (word, search_language) => {
     // Show the search result containers
     document.getElementById("search-results").style.display = "block";
     document.getElementById("best-search-result").style.display = "block";
-
-    // Update display language if the toggle button has been clicked
-    if (language === 'eng') {
-        switchToEnglish();
-    } else {
-        switchToSwedish();
-    }
 };
 
 const handle_button_parsing = (string_data) => {
@@ -264,9 +291,11 @@ const display_best_result = (data) => {
         // Logic for switching between källor and källa
 
         if (data.source.length === 1) {
-            create_paragraph("Källa", data.source, bottomSection)
+            // create_paragraph("Källa", data.source, bottomSection)
+            create_source_paragraph("Källa", data.source, bottomSection, language)
         } else {
-            create_paragraph("Källor", data.source, bottomSection)
+            // create_paragraph("Källor", data.source, bottomSection)
+            create_source_paragraph("Källor", data.source, bottomSection, language)
         }
     } else {
         // Paragraphs for left section
@@ -289,9 +318,9 @@ const display_best_result = (data) => {
         // Paragraphs for bottom section
         // Logic for switching between källor and källa
         if (data.source.length === 1) {
-            create_paragraph("Source", data.source, bottomSection)
+            create_source_paragraph("Source", data.source, bottomSection, language)
         } else {
-            create_paragraph("Sources", data.source, bottomSection)
+            create_source_paragraph("Sources", data.source, bottomSection, language)
         }
     }
 
@@ -338,6 +367,38 @@ const create_paragraph = (title, value, container, bigFont) => {
     }
 
     container.appendChild(paragraph);
+}
+
+const create_source_paragraph = (title, sources, container, language) => {
+    const label = document.createElement('span');
+    label.id = 'label-text';
+    label.innerHTML = `<strong>${title}: </strong>`;
+    container.appendChild(label);
+    // Create a span for each source with a tooltip
+    sources.forEach(source => {
+        const wordSpan = document.createElement('span');
+        wordSpan.classList.add('tooltip');
+        wordSpan.textContent = source;
+
+        const tooltipSpan = document.createElement('span');
+        tooltipSpan.classList.add('info');
+        if (language === "swe") {
+            tooltipSpan.textContent = sourceExplanationSwedish[source];
+        }
+        else {
+            tooltipSpan.textContent = sourceExplanationEnglish[source];
+        }
+        
+
+        wordSpan.appendChild(tooltipSpan);
+        container.appendChild(wordSpan);
+        container.appendChild(document.createTextNode(', ')); // Add comma
+    });
+
+    // Remove the last comma
+    if (container.lastChild) {
+        container.removeChild(container.lastChild);
+    }
 }
 
 const create_button = (data, container, language) => {
@@ -398,6 +459,22 @@ const switchToEnglish = () => {
         const bestSearchResult = document.getElementById('best-search-result');
         const paragraphs = bestSearchResult.querySelectorAll('p');
 
+        // Translate sources and tooltip
+        const tooltips = bestSearchResult.getElementsByClassName('info');
+        const source_label = document.getElementById('label-text');
+        
+        if (source_label.innerHTML.includes("Källor")){
+            source_label.innerHTML = `<strong>Sources: </strong>`;
+        }
+        else if (source_label.innerHTML.includes("Källa")) {
+            source_label.innerHTML = `<strong>Source: </strong>`;
+        }
+
+        for (let tooltip of tooltips) {
+            const swedish_text = tooltip.textContent;
+            tooltip.textContent = bilingualExplanationMap[swedish_text];
+        }
+
         paragraphs.forEach(paragraph => {
             // Translate each paragraph content
             if (paragraph.textContent.includes('Sve')) {
@@ -412,12 +489,7 @@ const switchToEnglish = () => {
                 paragraph.innerHTML = '<strong>Part-of-speech:</strong> ' + display_entry.pos;
             } else if (paragraph.textContent.includes('Alternativa översättningar')) {
                 paragraph.innerHTML = '<strong>Alternative translations:</strong> ' + display_entry.alternativeTranslations.join(', ');
-            } else if (paragraph.textContent.includes('Källor')) {
-                paragraph.innerHTML = '<strong>Sources:</strong> ' + display_entry.source.join(', ');
-            }else if (paragraph.textContent.includes('Källa')) {
-                paragraph.innerHTML = '<strong>Source:</strong> ' + display_entry.source;
-            }
-            else if (paragraph.textContent.includes('Inga sökresultat!')) {
+            }else if (paragraph.textContent.includes('Inga sökresultat!')) {
                 paragraph.innerHTML = '<strong>No search results found!</strong>';
             }else if (paragraph.textContent.includes('Kunde inte nå KARP!')) {
                 paragraph.innerHTML = '<strong>Could not reach KARP!</strong>';
@@ -461,6 +533,22 @@ const switchToSwedish = () => {
         // Translate content within best-search-result
         const bestSearchResult = document.getElementById('best-search-result');
         const paragraphs = bestSearchResult.querySelectorAll('p');
+
+        // Translate sources tooltips
+        const tooltips = bestSearchResult.getElementsByClassName('info');
+        const source_label = document.getElementById('label-text');
+
+        if (source_label.innerHTML.includes("Sources")) {
+            source_label.innerHTML = `<strong>Källor: </strong>`;
+        }
+        else if (source_label.innerHTML.includes("Source")) {
+            source_label.innerHTML = `<strong>Källa: </strong>`;
+        }
+        
+        for (let tooltip of tooltips) {
+            const english_text = tooltip.textContent;
+            tooltip.textContent = bilingualExplanationMap[english_text];
+        }
         
         paragraphs.forEach(paragraph => {
             // Translate each paragraph content
@@ -476,10 +564,6 @@ const switchToSwedish = () => {
                 paragraph.innerHTML = '<strong>Ordklass:</strong> ' + display_entry.pos;
             } else if (paragraph.textContent.includes('Alternative translations')) {
                 paragraph.innerHTML = '<strong>Alternativa översättningar:</strong> ' + display_entry.alternativeTranslations.join(', ');
-            } else if (paragraph.textContent.includes('Sources')) {
-                paragraph.innerHTML = '<strong>Källor:</strong> ' + display_entry.source.join(', ');
-            }else if (paragraph.textContent.includes('Source')) {
-                paragraph.innerHTML = '<strong>Källa:</strong> ' + display_entry.source;
             }else if (paragraph.textContent.includes('No search results found!')) {
                 paragraph.innerHTML = '<strong>Inga sökresultat!</strong>';
             }else if (paragraph.textContent.includes('Could not reach KARP!')) {
