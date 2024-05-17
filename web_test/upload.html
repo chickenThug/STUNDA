@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Upload Page</title>
+    <link rel="icon" type="image/x-icon" href="images/icon_stunda.ico">
+    <link rel="stylesheet" type="text/css" href="style.css" />
+    <link href='https://fonts.googleapis.com/css?family=Inter' rel='stylesheet'>
+    <script src="upload.js"></script>
+</head>
+<body>
+
+    <div class="container">
+        <div class="header">
+            <img src="images/icon_stunda.png" alt="Descriptive Text" class="header-image">
+            <div class="logo">
+                <span class="logo-main">STUNDA</span>
+                <span class="logo-sub">Sveriges Tekniska Universitets Nätverk för Datatermer</span>
+            </div>
+            <button id="language-toggle" onclick="language_toggle()" alt="swe">
+                <img src="images/language-icon.png">
+            </button>
+        </div>
+
+        <div class="info-container">
+            <p>Info om uppladdning:</p>
+            <p>Tack för ditt bidrag!</p>
+            <p>Du kan välja att antingen ladda upp ett enskilt termpar direkt (ett åt gången) i nedan fält, eller ladda upp en txt-fil på följande format:</p>
+            <p>engelsk_term1,svensk_term1<br>
+               engelsk_term2,svensk_term2<br>
+               ....</p>
+        </div>
+
+        <div class="upload-container">
+            <p>Ladda upp ett enskilt termpar:</p>
+            <input type="text" class="upload-input" placeholder="Svensk term...">
+            <input type="text" class="upload-input" placeholder="Engelsk term...">
+            <p>Ladda upp fil:</p>
+            <input type="file" class="upload-file">
+            <button class="submit-button" onclick="someFunc()">Ladda upp</button>
+        </div>
+    </div>
+
+</script>
+</body>
+</html>

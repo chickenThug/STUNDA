@@ -47,10 +47,14 @@ body {
 
 /* CSS for the header image */
 .header-image {
-    height: 120px; /* Set the height of the image */
-    width: auto;  /* Maintain aspect ratio */
-    float: left;  /* Align the image to the left */
-    margin-right: 10px; /* Add some space between the image and the text/logo */
+    height: 120px;
+    /* Set the height of the image */
+    width: auto;
+    /* Maintain aspect ratio */
+    float: left;
+    /* Align the image to the left */
+    margin-right: 10px;
+    /* Add some space between the image and the text/logo */
 }
 
 #language-toggle {
@@ -119,10 +123,14 @@ body {
     position: fixed;
     top: 0;
     left: 0;
-    width: 100%; /* Make it full width */
-    height: 100vh; /* Same height as the viewport */
-    z-index: 10; /* Make sure it overlays on top of other content */
-    pointer-events: none; /* Allows click events to pass through to elements below */
+    width: 100%;
+    /* Make it full width */
+    height: 100vh;
+    /* Same height as the viewport */
+    z-index: 10;
+    /* Make sure it overlays on top of other content */
+    pointer-events: none;
+    /* Allows click events to pass through to elements below */
 }
 
 .info-text {
@@ -132,9 +140,11 @@ body {
     left: 50%;
     transform: translateX(-50%);
     padding: 0px;
-    background-color: white; /* Visible against the overlay */
+    background-color: white;
+    /* Visible against the overlay */
     text-align: center;
-    pointer-events: auto; /* Enable interactions with this content */
+    pointer-events: auto;
+    /* Enable interactions with this content */
 }
 
 #search-results {
@@ -270,5 +280,55 @@ body {
     display: inline-block;
     cursor: pointer;
     border-bottom: 1px dotted black;
-    margin-right: 5px; /* Add space between items */
+    margin-right: 5px;
+    /* Add space between items */
+}
+
+/* Styles for the info container */
+.info-container {
+    background-color: #fff8e1;
+    border: 1px solid #ccc;
+    padding: 20px;
+    font-size: 14px;
+    border-radius: 10px;
+    text-align: left;
+    margin: 10px auto;
+    /* Center horizontally with margin on top and bottom */
+    max-width: 80%;
+}
+
+/* Styles for the upload container */
+.upload-container {
+    font-size: 14px;
+    padding: 20px;
+    text-align: left;
+    margin: 10px auto;
+    /* Center horizontally with margin on top and bottom */
+    max-width: 80%;
+}
+
+/* Styles for upload inputs */
+.upload-input {
+    display: block;
+    width: calc(100% - 600px);
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #007bff;
+    border-radius: 5px;
+}
+
+/* Styles for file input */
+.upload-file {
+    display: block;
+    margin-bottom: 20px;
+}
+
+/* Styles for submit button */
+.submit-button {
+    padding: 11px 25px;
+    background-color: #007bff;
+    border: none;
+    border-radius: 5px;
+    color: #fff;
+    cursor: pointer;
 }
