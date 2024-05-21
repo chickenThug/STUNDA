@@ -19,27 +19,20 @@ const language_toggle = () => {
 
 const switchToEnglish = () => {
     // Change logo text
-    document.querySelector('.logo-main').textContent = 'STUNDA';
     document.querySelector('.logo-sub').textContent = 'Swedish Technical University Network for Computing Terms';
     
     // Change info text
-    document.querySelector('.info-container').innerHTML = '<p>Info on uploading:</p><p>Thank you for your contribution!</p><p>You can choose to either upload a single term pair directly (one at a time) in the field below, or upload a txt-file on the following format:</p><p>english_term1,swedish_term1<br>english_term2,swedish_term2<br>....</p>';
+    document.querySelector('.info-container').innerHTML = '<p>Info about uploading:</p><p>Thank you for your contribution!</p><p>You can choose to either upload a single term pair directly (one at a time) in the field below, or upload a txt-file on the following format:</p><p>english_term1,swedish_term1<br>english_term2,swedish_term2<br>....</p>';
 
-    // Change placeholder text
-    document.getElementById('search-input').setAttribute('placeholder', 'Data term...');
+    document.querySelector('.upload-container').innerHTML = '<p>Upload single term pair:</p><input type="text" class="upload-input" id="swe_term" placeholder="Swedish term..."><input type="text" class="upload-input" id="eng_term" placeholder="English term..."><p>Upload file:</p><input type="file" class="upload-file"><button class="submit-button" onclick="someFunc()">Upload</button>';
 }
 
 const switchToSwedish = () => {
     // Change logo text
-    document.querySelector('.logo-main').textContent = 'STUNDA';
-    document.querySelector('.logo-sub').textContent = 'Swedish Technical University Network for Computing Terms';
+    document.querySelector('.logo-sub').textContent = 'Sveriges Tekniska Universitets Nätverk för Datatermer';
     
     // Change info text
-    document.querySelector('.info-text p').innerHTML = 'Stunda is a network for Sweden\'s technical universities aimed at promoting efficient technical communication in Swedish within higher education, primarily by working with discipline-specific terminology. Read more <a href="https://writing.chalmers.se/stunda/" target="blank">here</a>. For advanced search, see <a href="https://spraakbanken.gu.se/karp/tng/?mode=stunda&lexicon=stunda&show=stunda:01GX3DS1AKX7YZVYR6F5V8VZS6">KARP</a>.';
-    
-    // Change button text
-    document.querySelector('.search-button').textContent = 'Search';
+    document.querySelector('.info-container').innerHTML = '<p>Info om uppladdning:</p><p>Tack för ditt bidrag!</p><p>Du kan välja att antingen ladda upp ett enskilt termpar direkt (ett åt gången) i nedan fält, eller ladda upp en txt-fil på följande format:</p><p>engelsk_term1,svensk_term1<br>engelsk_term2,svensk_term2<br>....</p>';
 
-    // Change placeholder text
-    document.getElementById('search-input').setAttribute('placeholder', 'Data term...');
+    document.querySelector('.upload-container').innerHTML = '<p>Ladda upp ett enskilt termpar:</p><input type="text" class="upload-input" id="swe_term" placeholder="Svensk term..."><input type="text" class="upload-input" id="eng_term" placeholder="Engelsk term..."><p>Ladda upp fil:</p><input type="file" class="upload-file"><button class="submit-button" onclick="someFunc()">Ladda upp</button>';
 }
