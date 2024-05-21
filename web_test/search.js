@@ -271,13 +271,13 @@ const display_best_result = (data) => {
     if (language === 'swe') {
         
         // Paragraphs for left section
-        create_paragraph("Sve", data.swedishLemma, leftSection, true);
+        create_paragraph("Svenska", data.swedishLemma, leftSection, true);
         if (data.swedishInflections.length !== 0){
             create_paragraph("Böjningar", data.swedishInflections, leftSection);
         }
 
         // Paragraphs for right section
-        create_paragraph("Eng", data.englishLemma, rightSection, true);
+        create_paragraph("Engelska", data.englishLemma, rightSection, true);
         if (data.englishInflections.length !== 0){
             create_paragraph("Böjningar", data.englishInflections, rightSection);
         }
@@ -299,13 +299,13 @@ const display_best_result = (data) => {
         }
     } else {
         // Paragraphs for left section
-        create_paragraph("Swe", data.swedishLemma, leftSection, true);
+        create_paragraph("Swedish", data.swedishLemma, leftSection, true);
         if (data.swedishInflections.length !== 0){
             create_paragraph("Inflections", data.swedishInflections, leftSection);
         }
 
         // Paragraphs for right section
-        create_paragraph("Eng", data.englishLemma, rightSection, true);
+        create_paragraph("English", data.englishLemma, rightSection, true);
         if (data.englishInflections.length !== 0){
             create_paragraph("Inflections", data.englishInflections, rightSection);
         }
@@ -430,7 +430,7 @@ document.addEventListener("DOMContentLoaded", function() {
 const switchToEnglish = () => {
     // Change logo text
     document.querySelector('.logo-main').textContent = 'STUNDA';
-    document.querySelector('.logo-sub').textContent = 'Swedish Technical University Network for Data Terms';
+    document.querySelector('.logo-sub').textContent = 'Swedish Technical University Network for Computing Terms';
     
     // Change info text
     document.querySelector('.info-text p').innerHTML = 'Stunda is a network for Sweden\'s technical universities aimed at promoting efficient technical communication in Swedish within higher education, primarily by working with discipline-specific terminology. Read more <a href="https://writing.chalmers.se/stunda/" target="blank">here</a>. For advanced search, see <a href="https://spraakbanken.gu.se/karp/tng/?mode=stunda&lexicon=stunda&show=stunda:01GX3DS1AKX7YZVYR6F5V8VZS6">KARP</a>.';
@@ -477,12 +477,12 @@ const switchToEnglish = () => {
 
         paragraphs.forEach(paragraph => {
             // Translate each paragraph content
-            if (paragraph.textContent.includes('Sve')) {
-                paragraph.innerHTML = '<strong>Swe:</strong> ' + display_entry.swedishLemma;
+            if (paragraph.textContent.includes('Svenska')) {
+                paragraph.innerHTML = '<strong>Swedish:</strong> ' + display_entry.swedishLemma;
             } else if (paragraph.textContent.includes('Böjningar')) {
                 paragraph.innerHTML = '<strong>Inflections:</strong> ' + display_entry.swedishInflections.join(', ');
-            } else if (paragraph.textContent.includes('Eng')) {
-                paragraph.innerHTML = '<strong>Eng:</strong> ' + display_entry.englishLemma;
+            } else if (paragraph.textContent.includes('Engelska')) {
+                paragraph.innerHTML = '<strong>English:</strong> ' + display_entry.englishLemma;
             } else if (paragraph.textContent.includes('Böjningar')) {
                 paragraph.innerHTML = '<strong>Inflections:</strong> ' + display_entry.englishInflections.join(', ');
             } else if (paragraph.textContent.includes('Ordklass')) {
@@ -508,7 +508,7 @@ const switchToSwedish = () => {
     document.querySelector('.logo-sub').textContent = 'Sveriges Tekniska Universitets Nätverk för Datatermer';
 
     // Change info text
-    document.querySelector('.info-text p').innerHTML = 'Stunda är ett nätverk för Sveriges tekniska universitet med syfte att verka för effektiv fackspråklig kommunikation på svenska inom högre utbildning, främst genom att arbeta med disciplinspecifik terminologi. Läs mer <a href="https://writing.chalmers.se/stunda/" target="blank">här</a>. För avancerad sökning, se <a href="https://spraakbanken.gu.se/karp/tng/?mode=stunda&lexicon=stunda&show=stunda:01GX3DS1AKX7YZVYR6F5V8VZS6">KARP</a>.';
+    document.querySelector('.info-text p').innerHTML = 'Stunda är ett nätverk för sveriges tekniska universitet med syfte att verka för effektiv fackspråklig kommunikation på svenska inom högre utbildning, främst genom att arbeta med disciplinspecifik terminologi. Läs mer <a href="https://writing.chalmers.se/stunda/" target="blank">här</a>. För avancerad sökning, se <a href="https://spraakbanken.gu.se/karp/tng/?mode=stunda&lexicon=stunda&show=stunda:01GX3DS1AKX7YZVYR6F5V8VZS6">KARP</a>.';
     
     // Change button text
     document.querySelector('.search-button').textContent = 'Sök';
@@ -552,12 +552,12 @@ const switchToSwedish = () => {
         
         paragraphs.forEach(paragraph => {
             // Translate each paragraph content
-            if (paragraph.textContent.includes('Swe')) {
-                paragraph.innerHTML = '<strong>Sve:</strong> ' + display_entry.swedishLemma;
+            if (paragraph.textContent.includes('Swedish')) {
+                paragraph.innerHTML = '<strong>Svenska:</strong> ' + display_entry.swedishLemma;
             } else if (paragraph.textContent.includes('Inflections')) {
                 paragraph.innerHTML = '<strong>Böjningar:</strong> ' + display_entry.swedishInflections.join(', ');
-            } else if (paragraph.textContent.includes('Eng')) {
-                paragraph.innerHTML = '<strong>Eng:</strong> ' + display_entry.englishLemma;
+            } else if (paragraph.textContent.includes('English')) {
+                paragraph.innerHTML = '<strong>Engelska:</strong> ' + display_entry.englishLemma;
             } else if (paragraph.textContent.includes('Inflections')) {
                 paragraph.innerHTML = '<strong>Böjningar:</strong> ' + display_entry.englishInflections.join(', ');
             } else if (paragraph.textContent.includes('Part-of-speech')) {
