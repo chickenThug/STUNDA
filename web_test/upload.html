@@ -24,12 +24,14 @@
         </div>
 
         <div class="info-container">
-            <p>Info om uppladdning:</p>
             <p>Tack för ditt bidrag!</p>
-            <p>Du kan välja att antingen ladda upp ett enskilt termpar direkt (ett åt gången) i nedan fält, eller ladda upp en txt-fil på följande format:</p>
+            <p>Du kan välja att antingen ladda upp ett enskilt termpar i nedan fält, eller ladda upp en csv-fil på följande format:</p>
             <p>engelsk_term1,svensk_term1<br>
                engelsk_term2,svensk_term2<br>
                ....</p>
+            <p>För att underlätta kan du ladda ner en mall för csv-filen här:</p>
+            <a href="files/outline.csv" download="outline.csv">Ladda ner mall (outline.csv)</a>
+            <p>I formuläret finns två fält för källa och kontaktuppgifter. Källa är ett obligatoriskt fält, där det ska anges var termparet är hämtat från. Kontaktuppgifter är frivilligt, och kan exempelvis vara en mailadress.</p>
         </div>
 
         <div class="upload-container">
@@ -37,8 +39,11 @@
             <input type="text" class="upload-input" id="swe_term" placeholder="Svensk term...">
             <input type="text" class="upload-input" id="eng_term" placeholder="Engelsk term...">
             <p>Ladda upp fil:</p>
-            <input type="file" class="upload-file">
-            <button class="submit-button" onclick="someFunc()">Ladda upp</button>
+            <input type="file" class="upload-file" id="term_file">
+            <span id="src-error" class="error-message" style="color: red; display: none;">Källa är obligatoriskt</span>
+            <input type="text" class="upload-input" id="src" placeholder="Källa..." required>
+            <input type="text" class="upload-input" id="contact" placeholder="Kontaktuppgifter...">
+            <button class="submit-button" onclick="validateAndUpload()">Ladda upp</button>
         </div>
     </div>
 
