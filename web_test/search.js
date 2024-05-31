@@ -230,14 +230,24 @@ function display_no_result() {
     rightSection.classList.add("bottom-section");
     const paragraph = document.createElement("p");
 
+     // Create the button element
+     var button = document.createElement("button");
+     button.className = 'redirect-button';
+ 
+     // Add click event listener to the button
+     button.addEventListener("click", function() {window.location.href = 'upload.html'; });
+
     if (language === "swe") {
         paragraph.innerHTML = "<strong>Inga sökresultat!</strong>";
+        button.innerHTML = "Vill du ladda up en term?";
     }
     else {
         paragraph.innerHTML = "<strong>No search results found!</strong>";
+        button.innerHTML = "Want to upload a term?";
     }
     paragraph.classList.add("nores");
     best_word_container.appendChild(paragraph);
+    best_word_container.appendChild(button);
 
     document.getElementById("best-search-result").style.display = "block";
 }

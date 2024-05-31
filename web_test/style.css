@@ -112,6 +112,22 @@ body {
     cursor: pointer;
 }
 
+.redirect-button {
+    margin: 0 auto;
+    padding: 7px 15px;
+    font-size: 16px;
+    display: block;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 5px 5px 5px 5px;
+    transition: background-color 0.3s ease;
+}
+
+.redirect-button:hover {
+    background-color: #f5f5f5;
+    /* Change background color on hover */
+}
+
 .search-output {
     position: relative;
     display: flex;
