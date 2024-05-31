@@ -138,6 +138,22 @@ const sourceExplanationSwedish = {
     "GF" : "GF förklaring"
 }
 
+const posMapEnglish = {
+    "N" :"Noun",
+    "V" : "Verb",
+    "A" : "Adjective",
+    "Ab" : "Adverb",
+    "NP" : "Noun phrase"
+}
+
+const posMapSwedish = {
+    "N" :"Substantiv",
+    "V" : "Verb",
+    "A" : "Adjektiv",
+    "Ab" : "Adverb",
+    "NP" : "Substantivfras"
+}
+
 // Function to create a bilingual map
 function createBilingualMap(englishMap, swedishMap) {
     let bilingualMap = {};
@@ -155,7 +171,6 @@ function createBilingualMap(englishMap, swedishMap) {
     return bilingualMap;
 }
 
-// Create the map
 const bilingualExplanationMap = createBilingualMap(sourceExplanationEnglish, sourceExplanationSwedish);
 
 let last_get_similar_words_result = {};
@@ -282,7 +297,7 @@ const display_best_result = (data) => {
             create_paragraph("Böjningar", data.englishInflections, rightSection);
         }
 
-        create_paragraph("Ordklass", data.pos, bottomSection);
+        create_paragraph("Ordklass", posMapSwedish[data.pos], bottomSection);
         if (data.alternativeTranslations.length !== 0){
             create_paragraph("Alternativa översättningar", data.alternativeTranslations, bottomSection);
         }
@@ -310,7 +325,7 @@ const display_best_result = (data) => {
             create_paragraph("Inflections", data.englishInflections, rightSection);
         }
 
-        create_paragraph("Part-of-speech", data.pos, bottomSection);
+        create_paragraph("Part-of-speech", posMapEnglish[data.pos], bottomSection);
         if (data.alternativeTranslations.length !== 0){
             create_paragraph("Alternative translations", data.alternativeTranslations, bottomSection);
         }
@@ -486,7 +501,7 @@ const switchToEnglish = () => {
             } else if (paragraph.textContent.includes('Böjningar')) {
                 paragraph.innerHTML = '<strong>Inflections:</strong> ' + display_entry.englishInflections.join(', ');
             } else if (paragraph.textContent.includes('Ordklass')) {
-                paragraph.innerHTML = '<strong>Part-of-speech:</strong> ' + display_entry.pos;
+                paragraph.innerHTML = '<strong>Part-of-speech:</strong> ' + posMapEnglish[display_entry.pos];
             } else if (paragraph.textContent.includes('Alternativa översättningar')) {
                 paragraph.innerHTML = '<strong>Alternative translations:</strong> ' + display_entry.alternativeTranslations.join(', ');
             }else if (paragraph.textContent.includes('Inga sökresultat!')) {
@@ -561,7 +576,7 @@ const switchToSwedish = () => {
             } else if (paragraph.textContent.includes('Inflections')) {
                 paragraph.innerHTML = '<strong>Böjningar:</strong> ' + display_entry.englishInflections.join(', ');
             } else if (paragraph.textContent.includes('Part-of-speech')) {
-                paragraph.innerHTML = '<strong>Ordklass:</strong> ' + display_entry.pos;
+                paragraph.innerHTML = '<strong>Ordklass:</strong> ' + posMapSwedish[display_entry.pos];
             } else if (paragraph.textContent.includes('Alternative translations')) {
                 paragraph.innerHTML = '<strong>Alternativa översättningar:</strong> ' + display_entry.alternativeTranslations.join(', ');
             }else if (paragraph.textContent.includes('No search results found!')) {
