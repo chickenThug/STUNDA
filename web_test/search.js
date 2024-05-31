@@ -484,16 +484,18 @@ const switchToEnglish = () => {
         const bestSearchResult = document.getElementById('best-search-result');
         const paragraphs = bestSearchResult.querySelectorAll('p');
 
-        // Translate sources and tooltip
+        // Translate sources and tooltip TODO: add null check for label-text
         const tooltips = bestSearchResult.getElementsByClassName('info');
         const source_label = document.getElementById('label-text');
+        if (!(source_label == null)){
+            if (source_label.innerHTML.includes("Källor")){
+                source_label.innerHTML = `<strong>Sources: </strong>`;
+            }
+            else if (source_label.innerHTML.includes("Källa")) {
+                source_label.innerHTML = `<strong>Source: </strong>`;
+            }
+        }
         
-        if (source_label.innerHTML.includes("Källor")){
-            source_label.innerHTML = `<strong>Sources: </strong>`;
-        }
-        else if (source_label.innerHTML.includes("Källa")) {
-            source_label.innerHTML = `<strong>Source: </strong>`;
-        }
 
         for (let tooltip of tooltips) {
             const swedish_text = tooltip.textContent;
@@ -563,11 +565,13 @@ const switchToSwedish = () => {
         const tooltips = bestSearchResult.getElementsByClassName('info');
         const source_label = document.getElementById('label-text');
 
-        if (source_label.innerHTML.includes("Sources")) {
-            source_label.innerHTML = `<strong>Källor: </strong>`;
-        }
-        else if (source_label.innerHTML.includes("Source")) {
-            source_label.innerHTML = `<strong>Källa: </strong>`;
+        if (!(source_label == null)){
+            if (source_label.innerHTML.includes("Sources")) {
+                source_label.innerHTML = `<strong>Källor: </strong>`;
+            }
+            else if (source_label.innerHTML.includes("Source")) {
+                source_label.innerHTML = `<strong>Källa: </strong>`;
+            }
         }
         
         for (let tooltip of tooltips) {
