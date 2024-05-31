@@ -179,14 +179,16 @@ body {
 }
 
 #search-results {
-    flex: 0 1 16%; /* Do not grow, can shrink, initial width is 20% */
+    flex: 0 1 16%;
+    /* Do not grow, can shrink, initial width is 20% */
     padding: 20px;
     background-color: #fff;
     border: 1px solid #ccc;
     border-radius: 5px;
     margin-right: 20px;
     margin-top: 0px;
-    display: none; /* Ensure it's always visible */
+    display: none;
+    /* Ensure it's always visible */
     overflow-y: auto;
     max-height: 400px;
 }
@@ -217,18 +219,24 @@ body {
 }
 
 #best-search-result {
-    position: absolute;  /* Positioned absolutely */
-    left: 50%;           /* Move to 50% of the outer context (viewport if parent is relatively positioned to viewport) */
-    transform: translateX(-50%); /* Shift it back 50% of its own width */
-    width: calc(58% - 40px); /* Adjust width as needed, assuming padding */
-    flex: none;           /* Remove flex if not needed due to absolute positioning */
+    position: absolute;
+    /* Positioned absolutely */
+    left: 50%;
+    /* Move to 50% of the outer context (viewport if parent is relatively positioned to viewport) */
+    transform: translateX(-50%);
+    /* Shift it back 50% of its own width */
+    width: calc(58% - 40px);
+    /* Adjust width as needed, assuming padding */
+    flex: none;
+    /* Remove flex if not needed due to absolute positioning */
     height: 400px;
     padding: 20px;
     display: none;
     border: 1px solid #ccc;
     border-radius: 5px;
-    background-color: #f7f7f7; /* Light grey background for slight contrast */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);   
+    background-color: #f7f7f7;
+    /* Light grey background for slight contrast */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 /* Styles for left section */
@@ -374,6 +382,7 @@ body {
     background-color: #007bff;
     border: none;
     border-radius: 5px;
+    margin-top: 10px;
     color: #fff;
     cursor: pointer;
 }

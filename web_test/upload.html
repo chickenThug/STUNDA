@@ -32,6 +32,7 @@
             <p>För att underlätta kan du ladda ner en mall för csv-filen här:</p>
             <a href="files/outline.csv" download="outline.csv">Ladda ner mall (outline.csv)</a>
             <p>I formuläret finns två fält för källa och kontaktuppgifter. Källa är ett obligatoriskt fält, där det ska anges var termparet är hämtat från. Kontaktuppgifter är frivilligt, och kan exempelvis vara en mailadress.</p>
+            <p>Om du vill söka efter termer kan du göra det på <a href="https://folkets-lexikon.csc.kth.se/stunda/" target="blank">söksidan</a>. Det går också att läsa mer om projektet <a href="https://writing.chalmers.se/stunda/" target="blank">här</a>.</p>
         </div>
 
         <div class="upload-container">
@@ -43,6 +44,11 @@
             <span id="src-error" class="error-message" style="color: red; display: none;">Källa är obligatoriskt</span>
             <input type="text" class="upload-input" id="src" placeholder="Källa..." required>
             <input type="text" class="upload-input" id="contact" placeholder="Kontaktuppgifter...">
+            <span id="rights-error" class="error-message" style="color: red; display: none;">Du måste godkänna rättigheterna innan uppladdning</span>
+            <div>
+                <input type="checkbox" id="terms_checkbox">
+                <label for="terms_checkbox">Jag ger rättigheter till att angivna termer laddas upp</label>
+            </div>
             <button class="submit-button" onclick="validateAndUpload()">Ladda upp</button>
         </div>
     </div>
