@@ -6,11 +6,11 @@
         <welcome-file>index.html</welcome-file>
     </welcome-file-list>
     <servlet>
-        <servlet-name>logSearchServlet</servlet-name>
-        <servlet-class>logSearchServlet</servlet-class>
+        <servlet-name>LogSearchServlet</servlet-name>
+        <servlet-class>LogSearchServlet</servlet-class>
     </servlet>
     <servlet-mapping>
-        <servlet-name>logSearchServlet</servlet-name>
+        <servlet-name>LogSearchServlet</servlet-name>
         <url-pattern>/log-search</url-pattern>
     </servlet-mapping>
 </web-app>
