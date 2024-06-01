@@ -5,4 +5,12 @@
     <welcome-file-list>
         <welcome-file>index.html</welcome-file>
     </welcome-file-list>
+    <servlet>
+        <servlet-name>logSearchServlet</servlet-name>
+        <servlet-class>logSearchServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>logSearchServlet</servlet-name>
+        <url-pattern>/log-search</url-pattern>
+    </servlet-mapping>
 </web-app>

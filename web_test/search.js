@@ -188,6 +188,8 @@ const getResults = async (word, search_language) => {
 
     let result = await search(search_language, word);
 
+    fetch('/log-search', { method: 'POST' }).then(response => response.text()).then(data => console.log(data)).catch(error => console.error('Error logging action:', error));
+
     if (result === "error") {
         display_error_result();
         return
