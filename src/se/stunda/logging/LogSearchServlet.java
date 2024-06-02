@@ -24,7 +24,7 @@ public class LogSearchServlet extends HttpServlet {
             // Send back an error response
             response.setStatus(HttpServletResponse.SC_INTERNAL_SERVER_ERROR);
             response.setContentType("text/plain");
-            response.getWriter().write(e.getMessage());
+            response.getWriter().write("error:" + e.getMessage());
         }
     }
 }
