@@ -211,7 +211,7 @@ const getResults = async (word, search_language) => {
         return
     }
     else {
-        const data = { searchString: word, searchHits: result.length, successfull: true, timestamp: dateString, searchLanguage: search_language }
+        const data = { searchString: word, searchHits: result.length, successful: true, timestamp: dateString, searchLanguage: search_language }
         fetch('/stunda/log-search', {
             method: 'POST',
             headers: {
