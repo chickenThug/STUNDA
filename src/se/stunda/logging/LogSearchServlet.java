@@ -21,10 +21,17 @@ public class LogSearchServlet extends HttpServlet {
             response.setContentType("text/plain");
             response.getWriter().write("Search Logged Successfully");
         } catch (Exception e) {
-            // Send back an error response
+            // Capture the stack trace
+            StringWriter sw = new StringWriter();
+            PrintWriter pw = new PrintWriter(sw);
+            e.printStackTrace(pw);
+            String stackTrace = sw.toString();
+
+            // Send back an error response with the stack trace
             response.setStatus(HttpServletResponse.SC_INTERNAL_SERVER_ERROR);
             response.setContentType("text/plain");
-            response.getWriter().write("error:" + e.getMessage());
+            response.getWriter().write("error: " + e.getMessage() + "\n" + stackTrace);
         }
     }
 }
+
