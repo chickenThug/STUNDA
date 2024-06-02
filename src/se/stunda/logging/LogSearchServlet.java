@@ -1,3 +1,5 @@
+package se.stunda.logging;
+
 import javax.servlet.*;
 import javax.servlet.http.*;
 import java.io.*;
