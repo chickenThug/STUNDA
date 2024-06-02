@@ -7,7 +7,7 @@
     </welcome-file-list>
     <servlet>
         <servlet-name>LogSearchServlet</servlet-name>
-        <servlet-class>LogSearchServlet</servlet-class>
+        <servlet-class>se.stunda.logging.LogSearchServlet</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>LogSearchServlet</servlet-name>
