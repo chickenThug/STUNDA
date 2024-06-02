@@ -195,12 +195,14 @@ const getResults = async (word, search_language) => {
     let dateString = now.toString();
 
     if (result === "error") {
+        const data = { searchString: word, searchHits: 0, successfull: false, timestamp: dateString, searchLanguage: search_language }
+
         fetch('/stunda/log-search', {
             method: 'POST',
             headers: {
-                'Content-Type': 'application/json',
+                'Content-Type': 'application/x-www-form-urlencoded',
             },
-            body: JSON.stringify({ searchString: word, searchHits: 0, successfull: false, timestamp: dateString, searchLanguage: search_language })
+            body: new URLSearchParams(data)
         })
         .then(response => response.text())
         .then(data => console.log(data))
@@ -209,12 +211,13 @@ const getResults = async (word, search_language) => {
         return
     }
     else {
+        const data = { searchString: word, searchHits: result.length, successfull: true, timestamp: dateString, searchLanguage: search_language }
         fetch('/stunda/log-search', {
             method: 'POST',
             headers: {
-                'Content-Type': 'application/json',
+                'Content-Type': 'application/x-www-form-urlencoded',
             },
-            body: JSON.stringify({ searchString: word, searchHits: result.length, successfull: true, timestamp: dateString, searchLanguage: search_language })
+            body: new URLSearchParams(data)
         })
         .then(response => response.text())
         .then(data => console.log(data))
