@@ -188,15 +188,42 @@ const getResults = async (word, search_language) => {
 
     let result = await search(search_language, word);
 
-    fetch('/stunda/log-search', { method: 'POST' }).then(response => response.text()).then(data => console.log(data)).catch(error => console.error('Error logging action:', error));
+    // Create a new Date object
+    let now = new Date();
+
+    // Get the current date and time as a string
+    let dateString = now.toString();
 
     if (result === "error") {
+        fetch('/stunda/log-search', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({ searchString: word, searchHits: 0, successfull: false, timestamp: dateString, searchLanguage: search_language })
+        })
+        .then(response => response.text())
+        .then(data => console.log(data))
+        .catch(error => console.error('Error logging search:', error));
         display_error_result();
         return
     }
-    else if (result.length == 0) {
-        display_no_result();
-        return
+    else {
+        fetch('/stunda/log-search', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({ searchString: word, searchHits: result.length, successfull: true, timestamp: dateString, searchLanguage: search_language })
+        })
+        .then(response => response.text())
+        .then(data => console.log(data))
+        .catch(error => console.error('Error logging search:', error));
+
+        if (result.length == 0) {
+            display_no_result();
+            return
+        }
     }
 
     let best = result.shift();
