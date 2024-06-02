@@ -9,7 +9,6 @@ import java.nio.file.StandardOpenOption;
 
 public class LogSearchServlet extends HttpServlet {
     private static final String LOG_FILE_PATH = "/var/log/stunda/log_search.txt";
-    private static final ObjectMapper mapper = new ObjectMapper();
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         try {
