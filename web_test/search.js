@@ -265,6 +265,7 @@ function display_no_result() {
      // Create the button element
      var button = document.createElement("button");
      button.className = 'redirect-button';
+     button.id = 'redirect_button_id';
  
      // Add click event listener to the button
      button.addEventListener("click", function() {window.location.href = 'upload.html'; });
@@ -516,9 +517,16 @@ const switchToEnglish = () => {
         const bestSearchResult = document.getElementById('best-search-result');
         const paragraphs = bestSearchResult.querySelectorAll('p');
 
+        //Translate upload term button
+        const redirect_button = document.getElementById('redirect_button_id');
+        if (!(redirect_button == null)) {
+            redirect_button.textContent = "Want to upload a term?";
+        }
+
         // Translate sources and tooltip TODO: add null check for label-text
         const tooltips = bestSearchResult.getElementsByClassName('info');
         const source_label = document.getElementById('label-text');
+
         if (!(source_label == null)){
             if (source_label.innerHTML.includes("Källor")){
                 source_label.innerHTML = `<strong>Sources: </strong>`;
@@ -596,6 +604,12 @@ const switchToSwedish = () => {
         // Translate sources tooltips
         const tooltips = bestSearchResult.getElementsByClassName('info');
         const source_label = document.getElementById('label-text');
+
+        //Translate upload term button
+        const redirect_button = document.getElementById('redirect_button_id');
+        if (!(redirect_button == null)) {
+            redirect_button.textContent = "Vill du ladda up en term?";
+        }
 
         if (!(source_label == null)){
             if (source_label.innerHTML.includes("Sources")) {
