@@ -56,14 +56,18 @@
 </div>
 <script>
     window.addEventListener('resize', function() {
-        console.log("resize");
         const overlayHeight = window.innerHeight; // Get the current viewport height
         const bottomContent = document.querySelector('.info-text');
         const containerHeight = document.querySelector('.container').offsetHeight;
+        const bestSearchResult = document.getElementById("best-search-result");
+        const bestSearchResultHeight = bestSearchResult ? bestSearchResult.offsetHeight : 0;
 
+        const hegiht = containerHeight;
+        if (containerHeight<500) {
+            height = containerHeight + bestSearchResultHeight;
+        }
         
-
-        if (overlayHeight < containerHeight + 75) {
+        if (overlayHeight < height + 75) {
             bottomContent.style.display = 'none'; // Hide bottom content if overlay height > 1000px
         } else {
             bottomContent.style.display = 'block'; // Show bottom content otherwise

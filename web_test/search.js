@@ -324,8 +324,6 @@ const display_best_result = (data) => {
     const bottomSection = document.createElement("div");
     bottomSection.classList.add("bottom-section");
 
-    console.log("data");
-    console.log(data);
     if (language === 'swe') {
         
         // Paragraphs for left section
