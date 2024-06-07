@@ -248,6 +248,98 @@ body {
     margin: 10px 0;
 }
 
+.icon-button {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    cursor: pointer;
+    width: 30px;
+    height: 30px;
+}
+
+/* Modal styles */
+#report-modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.4);
+}
+
+#report-modal-content {
+    background-color: #fefefe;
+    margin: 10% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 60%;
+    max-width: 500px;
+    max-height: 600px;
+    border-radius: 5px;
+    position: relative;
+}
+
+#close-modal {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+}
+
+#close-modal img {
+    width: 20px;
+    height: 20px;
+}
+
+#report-modal-content p {
+    margin-bottom: 10px;
+}
+
+.checkbox-container {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+    margin-top: 10px;
+}
+
+#report-modal-content label {
+    display: inline-flex;
+    align-items: center;
+    margin-bottom: 5px;
+}
+
+#report-modal-content input[type="text"] {
+    width: 90%;
+    margin-bottom: 5px;
+    padding: 8px;
+}
+
+#report-modal-content input[type="checkbox"] {
+    margin-right: 10px;
+}
+
+#send-button {
+    display: block;
+    margin-top: 10px;
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+#send-button:hover {
+    background-color: #005CAA;
+}
+
+
 /* Styles for bigger font for lemmas */
 .bigfont {
     font-size: 1.3em;

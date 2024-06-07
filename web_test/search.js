@@ -272,7 +272,7 @@ function display_no_result() {
 
     if (language === "swe") {
         paragraph.innerHTML = "<strong>Inga sökresultat!</strong>";
-        button.innerHTML = "Vill du ladda up en term?";
+        button.innerHTML = "Vill du ladda upp en term?";
     }
     else {
         paragraph.innerHTML = "<strong>No search results found!</strong>";
@@ -323,6 +323,18 @@ const display_best_result = (data) => {
 
     const bottomSection = document.createElement("div");
     bottomSection.classList.add("bottom-section");
+
+    // Report button
+    const iconButton = document.createElement("img");
+    iconButton.src = "images/flag_icon.png";
+    iconButton.alt = "Report Icon";
+    iconButton.classList.add("icon-button");
+    iconButton.onclick = () => {
+        showModal();
+    };
+
+    // Append the icon button to the best_word_container
+    best_word_container.appendChild(iconButton);
 
     if (language === 'swe') {
         
@@ -465,6 +477,33 @@ const create_button = (data, container, language) => {
     container.appendChild(button);
 }
 
+// Function to show the modal
+const showModal = () => {
+    const modal = document.getElementById("report-modal");
+    modal.style.display = "block";
+    // Add event listener to the form
+    const reportForm = document.getElementById("report-form");
+    if (reportForm) {
+        reportForm.addEventListener("submit", handleFormSubmit);
+    }
+};
+
+// Function to hide the modal
+const hideModal = () => {
+    const modal = document.getElementById("report-modal");
+    modal.style.display = "none";
+};
+
+// Function to handle form submission
+const handleFormSubmit = () => {
+    const dataterm_error = document.getElementById("dataterm-checkbox").checked;
+    const translation_error = document.getElementById("translation-checkbox").checked;
+    const inappropriate_error = document.getElementById("inappropriate-checkbox").checked;
+    const own_reason = document.getElementById("own-reason").value;
+    console.log(`DTC: ${dataterm_error}, TEC: ${translation_error}, inappr: ${inappropriate_error}, OWN: ${own_reason}`);
+    hideModal(); // Hide the modal after submission
+};
+
 // Logic for enter on the keyboard and not just pressing "sök"
 document.addEventListener("DOMContentLoaded", function() {
     const searchInput = document.getElementById("search-input");
@@ -606,7 +645,7 @@ const switchToSwedish = () => {
         //Translate upload term button
         const redirect_button = document.getElementById('redirect_button_id');
         if (!(redirect_button == null)) {
-            redirect_button.textContent = "Vill du ladda up en term?";
+            redirect_button.textContent = "Vill du ladda upp en term?";
         }
 
         if (!(source_label == null)){

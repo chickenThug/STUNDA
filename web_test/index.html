@@ -39,6 +39,33 @@
         <div id="best-search-result">
         </div>
     </div>
+    <div id="report-modal">
+        <div id="report-modal-content">
+            <button id="close-modal" onclick="hideModal()">
+                <img src="images/close-button.png" alt="Close">
+            </button>
+            <div id="report-form">
+                <p>Du väljer nu att rapportera denna term. Vänligen tryck i ett av alternativen eller ange egen anledning till rapporteringen:</p>
+                <div class="checkbox-container">
+                    <input type="checkbox" id="dataterm-checkbox" name="dataterm" value="Dataterm">
+                    <label for="dataterm-checkbox">Ingen dataterm</label>
+                </div>
+                <div class="checkbox-container">
+                    <input type="checkbox" id="translation-checkbox" name="translation" value="Translation">
+                    <label for="translation-checkbox">Felaktig översättning</label>
+                </div>
+                <div class="checkbox-container">
+                    <input type="checkbox" id="inappropriate-checkbox" name="inappropriate" value="Inappropriate">
+                    <label for="inappropriate-checkbox">Olämplig term</label>
+                </div>
+                <label for="own-reason">Annan anledning:</label>
+                <input type="text" id="own-reason" name="reason">
+                <button id="send-button" type="submit" onclick="handleFormSubmit()">Send</button>
+            </div>
+        </div>
+    </div>
+    
+    
     <!-- <div class="info-text">
         <p>
             Stunda är ett nätverk för Sveriges tekniska universitet med syfte att verka för effektiv fackspråklig kommunikation på svenska inom högre utbildning, främst genom att arbeta med disciplinspecifik terminologi.
@@ -62,12 +89,12 @@
         const bestSearchResult = document.getElementById("best-search-result");
         const bestSearchResultHeight = bestSearchResult ? bestSearchResult.offsetHeight : 0;
 
-        const hegiht = containerHeight;
+        let height = containerHeight;
         if (containerHeight<500) {
             height = containerHeight + bestSearchResultHeight;
         }
         
-        if (overlayHeight < height + 75) {
+        if (overlayHeight < height + 110) {
             bottomContent.style.display = 'none'; // Hide bottom content if overlay height > 1000px
         } else {
             bottomContent.style.display = 'block'; // Show bottom content otherwise
