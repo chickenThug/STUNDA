@@ -6,6 +6,7 @@ body {
 }
 
 .container {
+    position: relative;
     max-width: 1000px;
     margin: 0 auto;
     padding: 20px;
@@ -25,6 +26,10 @@ body {
     position: relative;
     font-family: 'Inter';
     text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    /* Vertically center the content */
 }
 
 /* CSS for the main part of the logo */
@@ -38,6 +43,18 @@ body {
 .logo-sub {
     font-size: 15px;
     /* Font size for the sub part */
+}
+
+/* CSS for the header image */
+.header-image {
+    height: 120px;
+    /* Set the height of the image */
+    width: auto;
+    /* Maintain aspect ratio */
+    float: left;
+    /* Align the image to the left */
+    margin-right: 10px;
+    /* Add some space between the image and the text/logo */
 }
 
 #language-toggle {
@@ -68,8 +85,9 @@ body {
 .search-bar {
     display: flex;
     justify-content: center;
-    align-items: center;
-    margin-top: 50px;
+    align-items: flex-end;
+    /* center */
+    margin-top: 30px;
     /* Adjusted margin */
     margin-bottom: 20px;
 }
@@ -84,7 +102,8 @@ body {
 }
 
 .search-button {
-    padding: 10px 20px;
+    /*10 px before*/
+    padding: 11px 25px;
     background-color: #007bff;
     border: none;
     border-radius: 5px 5px 5px 5px;
@@ -93,48 +112,110 @@ body {
     cursor: pointer;
 }
 
+.redirect-button {
+    margin: 0 auto;
+    padding: 7px 15px;
+    font-size: 16px;
+    display: block;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 5px 5px 5px 5px;
+    transition: background-color 0.3s ease;
+}
+
+.redirect-button:hover {
+    background-color: #f5f5f5;
+    /* Change background color on hover */
+}
+
 .search-output {
+    position: relative;
     display: flex;
-    justify-content: space-between;
+    width: 100%;
+    justify-content: flex-start;
     align-items: flex-start;
 }
 
-.info-text {
-    font-size: 15px;
+.overlay {
     position: fixed;
-    bottom: 20px;
+    top: 0;
+    left: 0;
+    width: 100%;
+    /* Make it full width */
+    height: 100vh;
+    /* Same height as the viewport */
+    z-index: 10;
+    /* Make sure it overlays on top of other content */
+    pointer-events: none;
+    /* Allows click events to pass through to elements below */
+}
+
+.info-text {
+    position: absolute;
+    bottom: 0;
+    width: 40%;
     left: 50%;
     transform: translateX(-50%);
+    padding: 0px;
+    background-color: white;
+    /* Visible against the overlay */
     text-align: center;
+    pointer-events: auto;
+    /* Enable interactions with this content */
 }
 
 #search-results {
-    flex: 1;
-    width: 20%;
+    flex: 0 1 16%;
+    /* Do not grow, can shrink, initial width is 20% */
     padding: 20px;
     background-color: #fff;
     border: 1px solid #ccc;
     border-radius: 5px;
     margin-right: 20px;
-    margin-top: 50px;
+    margin-top: 0px;
     display: none;
-    /* Enable vertical scrolling ??? check if it works */
+    /* Ensure it's always visible */
     overflow-y: auto;
-    max-height: 300px;
+    max-height: 320px;
 }
 
 /* Styles for buttons within search-results */
 #search-results button {
-    margin: 8px;
+    margin: 12px;
     padding: 7px 15px;
     font-size: 10px;
+    display: block;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 5px 5px 5px 5px;
+    transition: background-color 0.3s ease;
+    /* Smooth transition effect */
+}
+
+#search-results button:hover {
+    background-color: #f5f5f5;
+    /* Change background color on hover */
 }
 
 #best-search-result {
-    flex: 3;
-    height: 400px;
+    position: absolute;
+    /* Positioned absolutely */
+    left: 50%;
+    /* Move to 50% of the outer context (viewport if parent is relatively positioned to viewport) */
+    transform: translateX(-50%);
+    /* Shift it back 50% of its own width */
+    width: calc(58% - 40px);
+    /* Adjust width as needed, assuming padding */
+    flex: none;
+    /* Remove flex if not needed due to absolute positioning */
+    height: 320px;
     padding: 20px;
     display: none;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #f7f7f7;
+    /* Light grey background for slight contrast */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 /* Styles for left section */
@@ -155,7 +236,7 @@ body {
 .bottom-section {
     clear: both;
     width: 100%;
-    text-align: center;
+    /* text-align: center; */
     margin-top: 200px;
     /* Adjust as needed */
 }
@@ -165,4 +246,214 @@ body {
 .right-section p,
 .bottom-section p {
     margin: 10px 0;
+}
+
+.icon-button {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    cursor: pointer;
+    width: 30px;
+    height: 30px;
+}
+
+/* Modal styles */
+#report-modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.4);
+}
+
+#report-modal-content {
+    background-color: #fefefe;
+    margin: 10% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 60%;
+    max-width: 500px;
+    max-height: 600px;
+    border-radius: 5px;
+    position: relative;
+}
+
+#close-modal {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+}
+
+#close-modal img {
+    width: 20px;
+    height: 20px;
+}
+
+#report-modal-content p {
+    margin-bottom: 10px;
+}
+
+.checkbox-container {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+    margin-top: 10px;
+}
+
+#report-modal-content label {
+    display: inline-flex;
+    align-items: center;
+    margin-bottom: 5px;
+}
+
+#report-modal-content input[type="text"] {
+    width: 90%;
+    margin-bottom: 5px;
+    padding: 8px;
+}
+
+#report-modal-content input[type="checkbox"] {
+    margin-right: 10px;
+}
+
+#send-button {
+    display: block;
+    margin-top: 10px;
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+#send-button:hover {
+    background-color: #005CAA;
+}
+
+
+/* Styles for bigger font for lemmas */
+.bigfont {
+    font-size: 1.3em;
+}
+
+.nores {
+    font-size: 24px;
+    /* Example size */
+    color: #333;
+    /* Example color */
+    text-align: center;
+    /* Centering text inside the paragraph */
+}
+
+.search-options {
+    margin-right: 10px;
+    display: flex;
+    flex-direction: column;
+}
+
+.search-options label {
+    font-size: 13px;
+    margin-bottom: 5px;
+}
+
+/* Styles for the dropdown menu */
+#search-language {
+    padding: 4px;
+    border: 1px solid #007bff;
+    border-radius: 4px;
+    background-color: #fff;
+    color: #007bff;
+    font-size: 14px;
+    cursor: pointer;
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+}
+
+.tooltip .info {
+    visibility: hidden;
+    width: 160px;
+    background-color: black;
+    color: white;
+    text-align: center;
+    border-radius: 6px;
+    padding: 5px 0;
+    position: absolute;
+    z-index: 1;
+    bottom: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    margin-bottom: 5px;
+}
+
+.tooltip:hover .info {
+    visibility: visible;
+}
+
+.tooltip {
+    position: relative;
+    display: inline-block;
+    cursor: pointer;
+    border-bottom: 1px dotted black;
+    margin-right: 5px;
+    /* Add space between items */
+}
+
+/* Styles for the info container */
+.info-container {
+    background-color: #fff8e1;
+    border: 1px solid #ccc;
+    padding: 20px;
+    font-size: 14px;
+    border-radius: 10px;
+    text-align: left;
+    margin: 10px auto;
+    /* Center horizontally with margin on top and bottom */
+    max-width: 80%;
+}
+
+/* Styles for the upload container */
+.upload-container {
+    font-size: 14px;
+    padding: 20px;
+    text-align: left;
+    margin: 10px auto;
+    /* Center horizontally with margin on top and bottom */
+    max-width: 80%;
+}
+
+/* Styles for upload inputs */
+.upload-input {
+    display: block;
+    width: calc(100% - 600px);
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #007bff;
+    border-radius: 5px;
+}
+
+/* Styles for file input */
+.upload-file {
+    display: block;
+    margin-bottom: 20px;
+}
+
+/* Styles for submit button */
+.submit-button {
+    padding: 11px 25px;
+    background-color: #007bff;
+    border: none;
+    border-radius: 5px;
+    margin-top: 10px;
+    color: #fff;
+    cursor: pointer;
 }

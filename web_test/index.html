@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Search Page</title>
+    <link rel="stylesheet" type="text/css" href="style.css" />
+    <link href='https://fonts.googleapis.com/css?family=Inter' rel='stylesheet'>
+    <script src="search.js"></script>
+</head>
+<body>
+
+<div class="container">
+    <div class="header">
+        <div class="logo">
+            <span class="logo-main">STUNDA</span>
+            <span class="logo-sub">Sveriges Tekniska Universitets Nätverk för Datatermer</span>
+        </div>
+        <button id="language-toggle" onclick="language_toggle()" alt="swe">
+            <img src="images/language-icon.png">
+        </button>
+    </div>
+
+    <div class="search-bar">
+        <div class="search-options">
+            <label for="search-language">Sökspråk:</label>
+            <select id="search-language">
+                <option class="swe" value="swe">Svenska</option>
+                <option class="eng" value="eng">Engelska</option>
+            </select>
+        </div>
+        <input type="text" class="search-input" id="search-input" placeholder="Dataterm...">
+        <button class="search-button" onclick="getResults(document.getElementById('search-input').value, document.getElementById('search-language').value);">Sök</button>
+    </div>
+
+    <div class="search-output">
+        <div id="search-results">
+        </div>
+        <div id="best-search-result">
+        </div>
+    </div>
+    <div id="report-modal">
+        <div id="report-modal-content">
+            <button id="close-modal" onclick="hideModal()">
+                <img src="images/close-button.png" alt="Close">
+            </button>
+            <div id="report-form">
+                <p>Du väljer nu att rapportera denna term. Vänligen tryck i ett av alternativen eller ange egen anledning till rapporteringen:</p>
+                <div class="checkbox-container">
+                    <input type="checkbox" id="dataterm-checkbox" name="dataterm" value="Dataterm">
+                    <label for="dataterm-checkbox">Ingen dataterm</label>
+                </div>
+                <div class="checkbox-container">
+                    <input type="checkbox" id="translation-checkbox" name="translation" value="Translation">
+                    <label for="translation-checkbox">Felaktig översättning</label>
+                </div>
+                <div class="checkbox-container">
+                    <input type="checkbox" id="inappropriate-checkbox" name="inappropriate" value="Inappropriate">
+                    <label for="inappropriate-checkbox">Olämplig term</label>
+                </div>
+                <label for="own-reason">Annan anledning:</label>
+                <input type="text" id="own-reason" name="reason">
+                <button id="send-button" type="submit" onclick="handleFormSubmit()">Send</button>
+            </div>
+        </div>
+    </div>
+    
+    
+    <!-- <div class="info-text">
+        <p>
+            Stunda är ett nätverk för Sveriges tekniska universitet med syfte att verka för effektiv fackspråklig kommunikation på svenska inom högre utbildning, främst genom att arbeta med disciplinspecifik terminologi.
+            Läs mer <a href="https://writing.chalmers.se/stunda/" target="blank">här</a>. För avancerad sökning, se <a href="https://spraakbanken.gu.se/karp/tng/?mode=stunda&lexicon=stunda&show=stunda:01GX3DS1AKX7YZVYR6F5V8VZS6">KARP</a>.
+        </p>
+    </div> -->
+    <div class="overlay">
+        <div class="info-text">
+            <p>
+                Stunda är ett nätverk för Sveriges tekniska universitet med syfte att verka för effektiv fackspråklig kommunikation på svenska inom högre utbildning, främst genom att arbeta med disciplinspecifik terminologi.
+                Läs mer <a href="https://writing.chalmers.se/stunda/" target="blank">här</a>. För avancerad sökning, se <a href="https://spraakbanken.gu.se/karp/tng/?mode=stunda&lexicon=stunda&show=stunda:01GX3DS1AKX7YZVYR6F5V8VZS6">KARP</a>.
+            </p>
+        </div>
+    </div>
+</div>
+<script>
+    window.addEventListener('resize', function() {
+        const overlayHeight = window.innerHeight; // Get the current viewport height
+        const bottomContent = document.querySelector('.info-text');
+        const containerHeight = document.querySelector('.container').offsetHeight;
+        const bestSearchResult = document.getElementById("best-search-result");
+        const bestSearchResultHeight = bestSearchResult ? bestSearchResult.offsetHeight : 0;
+
+        let height = containerHeight;
+        if (containerHeight<500) {
+            height = containerHeight + bestSearchResultHeight;
+        }
+        
+        if (overlayHeight < height + 110) {
+            bottomContent.style.display = 'none'; // Hide bottom content if overlay height > 1000px
+        } else {
+            bottomContent.style.display = 'block'; // Show bottom content otherwise
+        }
+    });
+
+    // Run the check also when the page loads
+    window.dispatchEvent(new Event('resize'));
+</script>
+</body>
+</html>

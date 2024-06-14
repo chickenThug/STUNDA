@@ -4,13 +4,14 @@ from nltk.stem import WordNetLemmatizer
 from nltk.tokenize import word_tokenize
 import requests
 import pandas as pd
-from lemminflect import getAllInflections, getInflection
 import json
+from lemminflect import getInflection, getAllInflections
 
-# nltk.download("wordnet")
-# nltk.download("brown")
-# nltk.download("universal_tagset")
-# nltk.download("averaged_perceptron_tagger")
+nltk.download("wordnet")
+nltk.download("brown")
+nltk.download("universal_tagset")
+nltk.download("averaged_perceptron_tagger")
+nltk.download('omw-1.4')
 
 lemmatizer = WordNetLemmatizer()
 wordtags = nltk.ConditionalFreqDist(
@@ -101,7 +102,7 @@ def convert_to_simple_pos(terms):
 
 
 def delete_entry_by_id(id, authorization, verbose=False):
-    url = f"https://ws.spraakbanken.gu.se/ws/karp/v7/entries/stunda/{id}/1"
+    url = f"https://spraakbanken4.it.gu.se/karp/v7/entries/stunda/{id}/1"
 
     headers = {
         "Authorization": "Bearer " + authorization,
@@ -109,6 +110,8 @@ def delete_entry_by_id(id, authorization, verbose=False):
     }
 
     response = requests.delete(url=url, headers=headers)
+
+    print(response)
 
     if verbose:
         if response.status_code == 204:
@@ -146,7 +149,7 @@ def get_all():
 
 
 def add_entry(authorization, entry, verbose=False):
-    url = "https://ws.spraakbanken.gu.se/ws/karp/v7/entries/stunda"
+    url = "https://spraakbanken4.it.gu.se/karp/v7/entries/stunda"
 
     headers = {
         "Authorization": "Bearer " + authorization,
@@ -155,7 +158,11 @@ def add_entry(authorization, entry, verbose=False):
 
     data = {"entry": entry, "message": ""}
 
+    print(data)
+
     response = requests.put(url, headers=headers, json=data)
+
+    print(response)
 
     if response.status_code == 201:
         if verbose:
@@ -166,18 +173,19 @@ def add_entry(authorization, entry, verbose=False):
             print("unsuccessfull add", response.status_code, response)
         return None
     
-def add_inflections(id, authorization, entry, verbose=False):
+def add_inflections(id, authorization, entry, version, verbose=False):
     url = f"https://spraakbanken4.it.gu.se/karp/v7/entries/stunda/{id}"
 
     headers = {
         "Authorization": "Bearer " + authorization,
         "Content-Type": "application/json",
+        "Accept" : "*/*",
+        "Connection" : "keep-alive"
     }
 
-    data = {"entry": entry, "message": "", "version": 1}
+    data = {"entry": entry, "message": "", "version": version}
 
     response = requests.post(url, headers=headers, json=data) # changed data=data to json=data
-    print(response)
 
     if response.status_code == 200:
         if verbose:
@@ -291,6 +299,8 @@ def get_swe_inflections(swe_lemma, tag = False):
             if last_part:
                 inflections = get_swe_inflections(last_part, True)
                 # here i was thinking i could do some concatenation but i dont know if that will work?? 
+                if not type(inflections) == list:
+                    return  f"No inflections for {swe_lemma}"
                 for inflection in inflections:
                     inflection['writtenForm'] = first_part + inflection['writtenForm']
                 return inflections
@@ -478,3 +488,12 @@ def get_karp_terms():
             )
 
     return pd.DataFrame(terms)
+
+def get_eng_inflections(eng_lemma, tag):
+    # print(getInflection('be', tag='VBD'))
+    # Nouns: NNS
+    # Verbs: VBG, VBN, VBD
+    # Adjective: 
+    return getAllInflections(eng_lemma, upos = tag)
+
+print(get_eng_inflections("objecteqoigfheqo", "VERB"))
