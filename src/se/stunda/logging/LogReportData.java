@@ -1,0 +1,50 @@
+package se.stunda.logging;
+
+import javax.servlet.*;
+import javax.servlet.http.*;
+import java.io.*;
+import java.nio.file.Files;
+import java.nio.file.Paths;
+import java.nio.file.StandardOpenOption;
+
+public class LogReportData extends HttpServlet {
+    private static final String LOG_FILE_PATH = "/var/log/stunda/report_data/report_data.txt";
+
+    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        try {
+
+            // Get the data from the request
+            String sweLemma          = request.getParameter("sweLemma");
+            String engLemma          = request.getParameter("engLemma");
+            boolean nonComputingTerm = Boolean.parseBoolean(request.getParameter("nonComputingTerm"));
+            boolean wrongTranslation = Boolean.parseBoolean(request.getParameter("wrongTranslation"));
+            boolean inappropiate     = Boolean.parseBoolean(request.getParameter("inappropiate"));
+            String other             = request.getParameter("other");
+            String timestamp         = request.getParameter("timestamp");
+
+            String logMessage = String.format("Swedish Lemma: %s, English Lemma: %s, Non-Computing Term: %b, Wrong Translation: %b, Inappropriate: %b, Other: %s, Timestamp: %s",
+                sweLemma,
+                engLemma,
+                nonComputingTerm,
+                wrongTranslation,
+                inappropiate,
+                other,
+                timestamp
+            );
+
+            // Using Java NIO to append text to a file in a thread-safe manner
+            Files.write(Paths.get(LOG_FILE_PATH), logMessage.getBytes(), StandardOpenOption.CREATE, StandardOpenOption.APPEND);
+
+            // Send back a response
+            response.setContentType("text/plain");
+            response.getWriter().write("Report Successful");
+        } catch (Exception e) {
+            // Send back an error response with the error message
+            response.setStatus(HttpServletResponse.SC_INTERNAL_SERVER_ERROR);
+            response.setContentType("text/plain");
+            response.getWriter().write("error: " + e.getMessage());
+        }
+
+    }
+}
+
