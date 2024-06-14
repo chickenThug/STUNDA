@@ -32,6 +32,13 @@ public class LogReportData extends HttpServlet {
                 timestamp
             );
 
+            // Ensure the directory exists
+            Path logFilePath = Paths.get(LOG_FILE_PATH);
+            Path parentDir = logFilePath.getParent();
+            if (!Files.exists(parentDir)) {
+                Files.createDirectories(parentDir);
+            }
+
             // Using Java NIO to append text to a file in a thread-safe manner
             Files.write(Paths.get(LOG_FILE_PATH), logMessage.getBytes(), StandardOpenOption.CREATE, StandardOpenOption.APPEND);
 
