@@ -536,17 +536,13 @@ const handleFormSubmit = () => {
         timestamp: dateString
     };;
     log_search(data);
-<<<<<<< HEAD
     log_report_data(report_data);
-    hideModal(); // Hide the modal after submission
-=======
 
     // Show the feedback message
     const feedbackMessage = document.getElementById("feedback-message");
     feedbackMessage.style.display = 'block';
 
     setTimeout(hideModal, 2000); // Hide modal after 2 seconds
->>>>>>> 04aabc3ed0ce8eb6feb27588ceea88feacbc0aa4
 };
 
 // Logic for enter on the keyboard and not just pressing "sök"
