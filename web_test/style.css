@@ -339,6 +339,13 @@ body {
     background-color: #005CAA;
 }
 
+#feedback-message {
+    margin-top: 10px;
+}
+
+#feedback-message-bad {
+    margin-top: 10px;
+}
 
 /* Styles for bigger font for lemmas */
 .bigfont {

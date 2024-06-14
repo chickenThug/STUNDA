@@ -451,7 +451,6 @@ const create_source_paragraph = (title, sources, container, language) => {
             tooltipSpan.textContent = sourceExplanationEnglish[source];
         }
 
-
         wordSpan.appendChild(tooltipSpan);
         container.appendChild(wordSpan);
         container.appendChild(document.createTextNode(', ')); // Add comma
@@ -486,6 +485,22 @@ const showModal = () => {
 const hideModal = () => {
     const modal = document.getElementById("report-modal");
     modal.style.display = "none";
+
+    // Reset checkboxes
+    const checkboxes = modal.querySelectorAll("input[type='checkbox']");
+    checkboxes.forEach(checkbox => {
+        checkbox.checked = false;
+    });
+
+    // Clear the text input
+    const textInput = modal.querySelector("input[type='text']");
+    if (textInput) {
+        textInput.value = '';
+    }
+
+    // Hide the feedback message
+    const feedbackMessage = modal.querySelector("#feedback-message");
+    feedbackMessage.style.display = 'none';
 };
 
 // Function to handle form submission
@@ -495,10 +510,16 @@ const handleFormSubmit = () => {
     const inappropriate_error = document.getElementById("inappropriate-checkbox").checked;
     const own_reason = document.getElementById("own-reason").value;
     console.log(`DTC: ${dataterm_error}, TEC: ${translation_error}, inappr: ${inappropriate_error}, OWN: ${own_reason}`);
+    let now = new Date();
     let dateString = now.toString();
     const data = { searchString: "user report", searchHits: 0, successful: true, timestamp: dateString, searchLanguage: "none" };
     log_search(data);
-    hideModal(); // Hide the modal after submission
+
+    // Show the feedback message
+    const feedbackMessage = document.getElementById("feedback-message");
+    feedbackMessage.style.display = 'block';
+
+    setTimeout(hideModal, 2000); // Hide modal after 2 seconds
 };
 
 // Logic for enter on the keyboard and not just pressing "sök"
@@ -540,6 +561,15 @@ const switchToEnglish = () => {
     document.querySelector('.swe').textContent = 'Swedish';
     document.querySelector('.eng').textContent = 'English';
 
+    // Change report modal text
+    document.querySelector('#report-modal-content p').textContent = 'You are now choosing to report this term. Please check one of the options or provide your own reason for the report:';
+    document.querySelector('label[for="dataterm-checkbox"]').textContent = 'Not a data term';
+    document.querySelector('label[for="translation-checkbox"]').textContent = 'Incorrect translation';
+    document.querySelector('label[for="inappropriate-checkbox"]').textContent = 'Inappropriate term';
+    document.querySelector('label[for="own-reason"]').textContent = 'Other reason:';
+    document.querySelector('#send-button').textContent = 'Send';
+    document.querySelector('#feedback-message').textContent = 'The report has been sent!';
+
     if (done_search === 'yes') {
         // Change header text
         const searchResultsHeader = document.querySelector('#search-results h2');
@@ -569,7 +599,6 @@ const switchToEnglish = () => {
                 source_label.innerHTML = `<strong>Source: </strong>`;
             }
         }
-
 
         for (let tooltip of tooltips) {
             const swedish_text = tooltip.textContent;
@@ -623,6 +652,15 @@ const switchToSwedish = () => {
     // Change dropdown text
     document.querySelector('.swe').textContent = 'Svenska';
     document.querySelector('.eng').textContent = 'Engelska';
+
+    // Change report modal text
+    document.querySelector('#report-modal-content p').textContent = 'Du väljer nu att rapportera denna term. Vänligen tryck i ett av alternativen eller ange egen anledning till rapporteringen:';
+    document.querySelector('label[for="dataterm-checkbox"]').textContent = 'Ingen dataterm';
+    document.querySelector('label[for="translation-checkbox"]').textContent = 'Felaktig översättning';
+    document.querySelector('label[for="inappropriate-checkbox"]').textContent = 'Olämplig term';
+    document.querySelector('label[for="own-reason"]').textContent = 'Annan anledning:';
+    document.querySelector('#send-button').textContent = 'Skicka';
+    document.querySelector('#feedback-message').textContent = 'Rapporten har skickats!';
 
     if (done_search === 'yes'){
         // Change header text
