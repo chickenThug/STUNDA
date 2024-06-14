@@ -279,6 +279,19 @@ function log_search(data) {
     .catch(error => console.error('Error logging search:', error));
 }
 
+function log_report_data(data) {
+    fetch('/stunda/log-report-data', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/x-www-form-urlencoded',
+        },
+        body: new URLSearchParams(data)
+    })
+    .then(response => response.text())
+    .then(data => console.log(data))
+    .catch(error => console.error('Error logging search:', error));
+}
+
 function display_error_result() {
     // Clear results
     document.getElementById("search-results").style.display = "none";
@@ -497,7 +510,17 @@ const handleFormSubmit = () => {
     console.log(`DTC: ${dataterm_error}, TEC: ${translation_error}, inappr: ${inappropriate_error}, OWN: ${own_reason}`);
     let dateString = now.toString();
     const data = { searchString: "user report", searchHits: 0, successful: true, timestamp: dateString, searchLanguage: "none" };
+    const report_data = {
+        sweLemma: display_entry.swedishLemma,
+        engLemma: display_entry.englishLemma,
+        nonComputingTerm: dataterm_error,
+        wrongTranslation: translation_error,
+        inappropiate: inappropriate_error,
+        other: own_reason,
+        timestamp: dateString
+    };;
     log_search(data);
+    log_report_data(report_data);
     hideModal(); // Hide the modal after submission
 };
 
