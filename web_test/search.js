@@ -495,6 +495,9 @@ const handleFormSubmit = () => {
     const inappropriate_error = document.getElementById("inappropriate-checkbox").checked;
     const own_reason = document.getElementById("own-reason").value;
     console.log(`DTC: ${dataterm_error}, TEC: ${translation_error}, inappr: ${inappropriate_error}, OWN: ${own_reason}`);
+    let dateString = now.toString();
+    const data = { searchString: "user report", searchHits: 0, successful: true, timestamp: dateString, searchLanguage: "none" };
+    log_search(data);
     hideModal(); // Hide the modal after submission
 };
 
