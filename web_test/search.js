@@ -64,7 +64,7 @@ async function search(language, searchString) {
             else {
                 seen_lemmas[lemma] = key;
             }
-            
+
             entries[key] = {
                 id: hit.id,
                 swedishLemma: hit.entry.swe.lemma,
@@ -104,10 +104,10 @@ async function search(language, searchString) {
             }
         }
       });
-  
+
       // Convert the object back to an array
       let sortedEntries = Object.values(entries);
-  
+
       // Sort to prioritize the exact match
       sortedEntries.sort((a, b) => {
           if (a[languageLemma] === searchString && b[languageLemma] !== searchString) {
@@ -196,32 +196,13 @@ const getResults = async (word, search_language) => {
 
     if (result === "error") {
         const data = { searchString: word, searchHits: 0, successful: false, timestamp: dateString, searchLanguage: search_language }
-
-        fetch('/stunda/log-search', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/x-www-form-urlencoded',
-            },
-            body: new URLSearchParams(data)
-        })
-        .then(response => response.text())
-        .then(data => console.log(data))
-        .catch(error => console.error('Error logging search:', error));
+        log_search(data);
         display_error_result();
         return
     }
     else {
         const data = { searchString: word, searchHits: result.length, successful: true, timestamp: dateString, searchLanguage: search_language }
-        fetch('/stunda/log-search', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/x-www-form-urlencoded',
-            },
-            body: new URLSearchParams(data)
-        })
-        .then(response => response.text())
-        .then(data => console.log(data))
-        .catch(error => console.error('Error logging search:', error));
+        log_search(data);
 
         if (result.length == 0) {
             display_no_result();
@@ -266,7 +247,7 @@ function display_no_result() {
      var button = document.createElement("button");
      button.className = 'redirect-button';
      button.id = 'redirect_button_id';
- 
+
      // Add click event listener to the button
      button.addEventListener("click", function() {window.location.href = 'upload.html'; });
 
@@ -283,6 +264,19 @@ function display_no_result() {
     best_word_container.appendChild(button);
 
     document.getElementById("best-search-result").style.display = "block";
+}
+
+function log_search(data) {
+    fetch('/stunda/log-search', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/x-www-form-urlencoded',
+        },
+        body: new URLSearchParams(data)
+    })
+    .then(response => response.text())
+    .then(data => console.log(data))
+    .catch(error => console.error('Error logging search:', error));
 }
 
 function display_error_result() {
@@ -337,7 +331,7 @@ const display_best_result = (data) => {
     best_word_container.appendChild(iconButton);
 
     if (language === 'swe') {
-        
+
         // Paragraphs for left section
         create_paragraph("Svenska", data.swedishLemma, leftSection, true);
         if (data.swedishInflections.length !== 0){
@@ -427,7 +421,7 @@ const create_paragraph = (title, value, container, bigFont) => {
             displayValue = value.join(", ")
         }
     }
-    paragraph.innerHTML = `<strong>${title}:</strong> ${displayValue}`; 
+    paragraph.innerHTML = `<strong>${title}:</strong> ${displayValue}`;
 
     // Add a class for bigger font if specified
     if (bigFont) {
@@ -456,7 +450,7 @@ const create_source_paragraph = (title, sources, container, language) => {
         else {
             tooltipSpan.textContent = sourceExplanationEnglish[source];
         }
-        
+
 
         wordSpan.appendChild(tooltipSpan);
         container.appendChild(wordSpan);
@@ -526,10 +520,10 @@ const switchToEnglish = () => {
     // Change logo text
     document.querySelector('.logo-main').textContent = 'STUNDA';
     document.querySelector('.logo-sub').textContent = 'Swedish Technical University Network for Computing Terms';
-    
+
     // Change info text
     document.querySelector('.info-text p').innerHTML = 'Stunda is a network for Sweden\'s technical universities aimed at promoting efficient technical communication in Swedish within higher education, primarily by working with discipline-specific terminology. Read more <a href="https://writing.chalmers.se/stunda/" target="blank">here</a>. For advanced search, see <a href="https://spraakbanken.gu.se/karp/tng/?mode=stunda&lexicon=stunda&show=stunda:01GX3DS1AKX7YZVYR6F5V8VZS6">KARP</a>.';
-    
+
     // Change button text
     document.querySelector('.search-button').textContent = 'Search';
 
@@ -572,7 +566,7 @@ const switchToEnglish = () => {
                 source_label.innerHTML = `<strong>Source: </strong>`;
             }
         }
-        
+
 
         for (let tooltip of tooltips) {
             const swedish_text = tooltip.textContent;
@@ -613,7 +607,7 @@ const switchToSwedish = () => {
 
     // Change info text
     document.querySelector('.info-text p').innerHTML = 'Stunda är ett nätverk för sveriges tekniska universitet med syfte att verka för effektiv fackspråklig kommunikation på svenska inom högre utbildning, främst genom att arbeta med disciplinspecifik terminologi. Läs mer <a href="https://writing.chalmers.se/stunda/" target="blank">här</a>. För avancerad sökning, se <a href="https://spraakbanken.gu.se/karp/tng/?mode=stunda&lexicon=stunda&show=stunda:01GX3DS1AKX7YZVYR6F5V8VZS6">KARP</a>.';
-    
+
     // Change button text
     document.querySelector('.search-button').textContent = 'Sök';
 
@@ -656,12 +650,12 @@ const switchToSwedish = () => {
                 source_label.innerHTML = `<strong>Källa: </strong>`;
             }
         }
-        
+
         for (let tooltip of tooltips) {
             const english_text = tooltip.textContent;
             tooltip.textContent = bilingualExplanationMap[english_text];
         }
-        
+
         paragraphs.forEach(paragraph => {
             // Translate each paragraph content
             if (paragraph.textContent.includes('Swedish')) {
