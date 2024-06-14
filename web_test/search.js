@@ -534,7 +534,7 @@ const handleFormSubmit = () => {
         inappropiate: inappropriate_error,
         other: own_reason,
         timestamp: dateString
-    };;
+    };
     log_search(data);
     log_report_data(report_data);
 
