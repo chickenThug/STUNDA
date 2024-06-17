@@ -10,7 +10,6 @@
     <script src="verify.js"></script>
 </head>
 <body>
-
     <div class="container">
         <div class="header">
             <div class="logo">
@@ -22,7 +21,12 @@
             <!-- Checkboxes will be appended here -->
         </div>
         <button class="submit-button" onclick="verifyTerms()">Godkänn termer</button>
+        <div id="feedback-message" style="display: none; color: green;">
+            Termer uppladdade!
+        </div>
+        <div id="feedback-message-bad" style="display: none; color: red;">
+            Det gick inte att ladda upp termer.
+        </div>
     </div>
-
 </body>
 </html>
