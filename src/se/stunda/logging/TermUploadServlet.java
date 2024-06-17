@@ -15,25 +15,34 @@ public class TermUploadServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        response.setContentType("text/html;charset=UTF-8");
 
-        // Check if we have a file upload request
-        if (request.getContentType() != null && request.getContentType().toLowerCase().contains("multipart/form-data")) {
-            // Get the part of the request that contains the file
-            Part filePart = request.getPart("csvfile");
+        try {
+            response.setContentType("text/html;charset=UTF-8");
 
-            if (filePart != null) {
-                try (BufferedReader reader = new BufferedReader(new InputStreamReader(filePart.getInputStream()))) {
-                    String line;
-                    while ((line = reader.readLine()) != null) {
-                        response.getWriter().println(line + "<br>");
+            // Check if we have a file upload request
+            if (request.getContentType() != null && request.getContentType().toLowerCase().contains("multipart/form-data")) {
+                // Get the part of the request that contains the file
+                Part filePart = request.getPart("csvfile");
+
+                if (filePart != null) {
+                    try (BufferedReader reader = new BufferedReader(new InputStreamReader(filePart.getInputStream()))) {
+                        String line;
+                        while ((line = reader.readLine()) != null) {
+                            response.getWriter().println(line + "<br>");
+                        }
                     }
+                } else {
+                    response.getWriter().println("No file uploaded!");
                 }
             } else {
-                response.getWriter().println("No file uploaded!");
+                response.getWriter().println("Invalid request content type!");
             }
-        } else {
-            response.getWriter().println("Invalid request content type!");
         }
+        catch (Exception e) {
+            response.setStatus(HttpServletResponse.SC_INTERNAL_SERVER_ERROR);
+            response.setContentType("text/plain");
+            response.getWriter().write("error: " + e.getMessage());
+        }
+        
     }
 }
