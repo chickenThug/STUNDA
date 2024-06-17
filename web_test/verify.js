@@ -1,13 +1,31 @@
 const verifyTerms = () => {
     console.log("verified");
+
+    const checkboxes = document.querySelectorAll('#term-verification input[type="checkbox"]');
+    const approvedTerms = [];
+    const notApprovedTerms = [];
+
+    checkboxes.forEach(checkbox => {
+      const termData = JSON.parse(checkbox.value);
+      if (checkbox.checked) {
+        approvedTerms.push(termData);
+      } else {
+        notApprovedTerms.push(termData);
+      }
+    });
+
+    console.log("appr terms");
+    console.log(approvedTerms);
+    console.log("not appr terms");
+    console.log(notApprovedTerms);
 };
 
 data = [
     {
       swe: "test",
       eng: "test",
-      swe_inf: "testböj",
-      eng_inf: "testinfl",
+      swe_inf: ["testböj", "jfjfj", "jfjfj"],
+      eng_inf: ["testinfl", "hah"],
       pos: "N",
       at: "teast",
       src: "emelie"
@@ -57,24 +75,20 @@ window.onload = function() {
 function generateCheckboxes(data) {
     const container = document.getElementById('term-verification');
     data.forEach((row, index) => {
-        // Create a div for each checkbox
         const checkboxContainer = document.createElement('div');
         checkboxContainer.className = 'checkbox-container';
 
-        // Create the checkbox
         const checkbox = document.createElement('input');
         checkbox.type = 'checkbox';
         checkbox.id = `term${index}`;
         checkbox.name = `term${index}`;
-        checkbox.value = row.swe;
+        checkbox.value = JSON.stringify(row);
         checkbox.checked = true;
 
-        // Create the label
         const label = document.createElement('label');
         label.htmlFor = `term${index}`;
-        label.textContent = `${row.swe}, ${row.eng}, ${row.swe_inf}, ${row.eng_inf}, ${row.pos}, ${row.at}, ${row.src}`;
+        label.textContent = `${row.swe} (${row.swe_inf}), ${row.eng} (${row.eng_inf}), ${row.at}, ${row.pos}, ${row.src}`;
 
-        // Append the checkbox and label to the container
         checkboxContainer.appendChild(checkbox);
         checkboxContainer.appendChild(label);
 
