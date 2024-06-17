@@ -15,7 +15,7 @@
     </servlet-mapping>
     <servlet>
         <servlet-name>UploadReportServlet</servlet-name>
-        <servlet-class>se.stunda.logging.UploadReport</servlet-class>
+        <servlet-class>se.stunda.logging.UploadReportServlet</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>UploadReportServlet</servlet-name>

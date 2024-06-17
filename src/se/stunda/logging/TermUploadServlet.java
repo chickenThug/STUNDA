@@ -35,7 +35,7 @@ public class TermUploadServlet extends HttpServlet {
                         Files.write(Paths.get(FILE_PATH), new byte[0], StandardOpenOption.TRUNCATE_EXISTING, StandardOpenOption.CREATE);
                         while ((line = reader.readLine()) != null) {
                             String writeString = line + "\n";
-                            Files.write(Paths.get(FILE_PATH), line.getBytes(), StandardOpenOption.CREATE, StandardOpenOption.APPEND);
+                            Files.write(Paths.get(FILE_PATH), writeString.getBytes(), StandardOpenOption.CREATE, StandardOpenOption.APPEND);
                         }
                     }
                 } else {
