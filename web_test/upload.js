@@ -14,6 +14,23 @@ const uploadFunction = (swe_term, eng_term, file, src, contact) => {
     console.log("contact");
     console.log(contact);
 
+    const formData = new FormData();
+    formData.append('csvfile', file);
+
+    const xhr = new XMLHttpRequest();
+    xhr.open('POST', '/stunda/term-upload', true);
+
+    xhr.onload = function() {
+        if (xhr.status === 200) {
+            document.getElementById('response').innerHTML = xhr.responseText;
+            console.log(xhr.responseText);
+        } else {
+            alert('An error occurred!');
+        }
+    };
+
+    xhr.send(formData);
+
     // Show the feedback message
     const feedbackMessage = document.getElementById("feedback-message");
     feedbackMessage.style.display = 'block';

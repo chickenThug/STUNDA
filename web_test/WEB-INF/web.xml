@@ -14,11 +14,19 @@
         <url-pattern>/log-search</url-pattern>
     </servlet-mapping>
     <servlet>
-        <servlet-name>LogReportData</servlet-name>
-        <servlet-class>se.stunda.logging.LogReportData</servlet-class>
+        <servlet-name>UploadReportServlet</servlet-name>
+        <servlet-class>se.stunda.logging.UploadReport</servlet-class>
     </servlet>
     <servlet-mapping>
-        <servlet-name>LogReportData</servlet-name>
+        <servlet-name>UploadReportServlet</servlet-name>
         <url-pattern>/log-report-data</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>TermUploadServlet</servlet-name>
+        <servlet-class>se.stunda.logging.TermUploadServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>TermUploadServlet</servlet-name>
+        <url-pattern>/term-upload</url-pattern>
     </servlet-mapping>
 </web-app>
