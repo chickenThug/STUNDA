@@ -25,6 +25,7 @@ const uploadFunction = (swe_term, eng_term, file, src, contact) => {
             document.getElementById('response').innerHTML = xhr.responseText;
             console.log(xhr.responseText);
         } else {
+            console.log(xhr.responseText);
             alert('An error occurred!');
         }
     };
