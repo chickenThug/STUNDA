@@ -22,7 +22,6 @@ const uploadFunction = (swe_term, eng_term, file, src, contact) => {
 
     xhr.onload = function() {
         if (xhr.status === 200) {
-            document.getElementById('response').innerHTML = xhr.responseText;
             console.log(xhr.responseText);
         } else {
             console.log(xhr.responseText);

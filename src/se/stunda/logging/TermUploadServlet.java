@@ -13,13 +13,19 @@ import javax.servlet.http.Part;
 
 @MultipartConfig
 public class TermUploadServlet extends HttpServlet {
-
+    private static final String FILE_PATH = "/var/lib/stunda/terms/unprocessed.csv";
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
 
         try {
             response.setContentType("text/html;charset=UTF-8");
+
+            Path logFilePath = Paths.get(FILE_PATH);
+            Path parentDir = logFilePath.getParent();
+            if (!Files.exists(parentDir)) {
+                Files.createDirectories(parentDir);
+            }
 
             // Check if we have a file upload request
             if (request.getContentType() != null && request.getContentType().toLowerCase().contains("multipart/form-data")) {
@@ -30,7 +36,7 @@ public class TermUploadServlet extends HttpServlet {
                     try (BufferedReader reader = new BufferedReader(new InputStreamReader(filePart.getInputStream()))) {
                         String line;
                         while ((line = reader.readLine()) != null) {
-                            response.getWriter().println(line + "<br>");
+                            Files.write(Paths.get(FILE_PATH), line.getBytes(), StandardOpenOption.CREATE, StandardOpenOption.APPEND);
                         }
                     }
                 } else {
