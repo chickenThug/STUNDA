@@ -146,6 +146,7 @@ def clean_pos(df):
     return df
 
 def main():
+    # CHANGE : Ändra inläsning --> läsa in från var/lib/stunda/terms/unprocessed
     parser = argparse.ArgumentParser(description="Automatically process english-swedish computer science term pairs")
     parser.add_argument("-s", "--strings", nargs=2, help="Two term pairs")
     parser.add_argument("-f", "--file", help="Input txt file")
@@ -216,13 +217,19 @@ def main():
     df = lemmatize(df_cont.copy())
     print("finished lemmatization in {:.2f} minutes".format((time.time() - start_time)/60))
 
+    # CHANGE : Generera böjningsformer
+
+    # CHANGE : Lägg till bannade ord att tas bort, (kolla termer, källa, kontakt) lägg in dessa poster i var/lib/stunda/terms/banned
+
     # Concatenate all parts and calculate total processing time
     output_df = pd.concat([df_stop1, df_stop2, df_stop3, df])
 
     total_time = time.time() - t0
     print("Total processing time: {:.2f} minutes".format(total_time/60))
 
+    # CHANGE: Kolla dubletter, om dublett --> lägg till källan till posten, flagga automatiskt OK och lägg i var/lib/stunda/terms/approved
 
+    # CHANGE : Lägg behandlade ord i var/lib/stunda/terms/processed
     if single_input:
         print("English lemma:", output_df.at[0, "eng_lemma"])
         print("Swedish lemma:", output_df.at[0, "swe_lemma"])

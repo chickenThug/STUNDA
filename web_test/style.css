@@ -464,3 +464,17 @@ body {
     color: #fff;
     cursor: pointer;
 }
+
+.submit-button:hover {
+    background-color: #005CAA;
+}
+
+#term-verification {
+    display: flex;
+    flex-direction: column;
+    /* Stack items vertically */
+    align-items: center;
+    /* Optional: Center items vertically */
+    margin-top: 30px;
+    margin-bottom: 20px;
+}
