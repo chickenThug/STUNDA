@@ -22,22 +22,21 @@ const uploadFunction = (swe_term, eng_term, file, src, contact) => {
 
     xhr.onload = function() {
         if (xhr.status === 200) {
-            console.log(xhr.responseText);
+            const feedbackMessage = document.getElementById("feedback-message");
+            feedbackMessage.style.display = 'block';
         } else {
-            console.log(xhr.responseText);
-            alert('An error occurred!');
+            // For when it is a bad search:
+            const badfeedbackMessage = document.getElementById("feedback-message-bad");
+            badfeedbackMessage.style.display = 'block';
         }
     };
 
     xhr.send(formData);
 
     // Show the feedback message
-    const feedbackMessage = document.getElementById("feedback-message");
-    feedbackMessage.style.display = 'block';
+    
 
-    // For when it is a bad search:
-    const badfeedbackMessage = document.getElementById("feedback-message-bad");
-    badfeedbackMessage.style.display = 'block';
+    
 
 }
 
