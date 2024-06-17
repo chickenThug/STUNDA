@@ -32,12 +32,6 @@ const uploadFunction = (swe_term, eng_term, file, src, contact) => {
     };
 
     xhr.send(formData);
-
-    // Show the feedback message
-    
-
-    
-
 }
 
 const validateAndUpload = () => {
