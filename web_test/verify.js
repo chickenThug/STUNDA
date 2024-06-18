@@ -61,21 +61,47 @@ function checkLoginStatus() {
   }
 }
 
+function handleCSVContent(csvContent) {
+  // Parse CSV content here and handle it as needed
+  console.log(csvContent);
+  // Example: Parse CSV lines into array of objects
+  const lines = csvContent.split('\n');
+  const termsList = [];
+  const headers = lines[0].split(',');
+  
+  for (let i = 1; i < lines.length; i++) {
+      const values = lines[i].split(',');
+      if (values.length === headers.length) {
+          const termData = {};
+          for (let j = 0; j < headers.length; j++) {
+              termData[headers[j]] = values[j];
+          }
+          termsList.push(termData);
+      }
+  }
+
+  // Example: Log termsList or use it to generate checkboxes
+  console.log(termsList);
+  generateCheckboxes(termsList);
+}
+
+// Fetch CSV file from server
+function fetchCSV() {
+  fetch('/stunda/term-verification', {
+      method: 'GET',
+      headers: {
+          'Content-Type': 'text/csv'
+      }
+  })
+  .then(response => response.text())
+  .then(data => handleCSVContent(data))
+  .catch(error => {
+      console.error('Error fetching CSV:', error);
+  });
+}
+
 // Run on page load
 window.onload = function() {
   checkLoginStatus();
-  
-  fetch('/stunda/term-verification', {
-    method: 'GET',
-    headers: {
-      'Content-Type': 'application/json'
-    }
-  })
-  .then(response => response.json())
-  .then(data => {
-    generateCheckboxes(data);
-  })
-  .catch(error => {
-    console.error('Error fetching term data:', error);
-  });
+  fetchCSV();
 };
