@@ -138,9 +138,10 @@ def generate_inflections(df):
     if len(df) == 0:
         return df
 
-    df["swedish_inflections"] = df["swe_lemma"].apply(get_swe_inflections)
-    df["english_inflections"] = 
+    df["swedish_inflections"] = df.apply(lambda x: swe_inflections(x.swe_lemma, x.agreed_pos), axis=1)
+    df["english_inflections"] = df.apply(lambda x: eng_inflections(x.eng_lemma, x.agreed_pos), axis=1)
 
+    return df
 def clean_pos(df):
     df.fillna('', inplace=True)
     df.loc[df['POS'] == 'no pos found', 'POS'] = ''
@@ -224,7 +225,8 @@ def main():
     df = lemmatize(df_cont.copy())
     print("finished lemmatization in {:.2f} minutes".format((time.time() - start_time)/60))
 
-    # CHANGE : Generera böjningsformer
+    # Generera böjningsformer
+    df = generate_inflections(df)
 
     # CHANGE : Lägg till bannade ord att tas bort, (kolla termer, källa, kontakt) lägg in dessa poster i var/lib/stunda/terms/banned
 
@@ -243,6 +245,7 @@ def main():
         print("Status       :", output_df.at[0, "status"])
         if 'agreed_pos' in output_df.columns and len(output_df.at[0, "eng_lemma"].split(" ")) == 1 and len(output_df.at[0, "swe_lemma"].split(" ")) == 1:
             print("POS          :", output_df.at[0, "agreed_pos"])
+        print(df)
     else:
         # from tabulate import tabulate
         output_df.rename(columns={'eng_lemma': 'English lemma', 'swe_lemma': 'Swedish lemma', 'agreed_pos': 'POS' }, inplace=True)

@@ -12,6 +12,7 @@ nltk.download("brown")
 nltk.download("universal_tagset")
 nltk.download("averaged_perceptron_tagger")
 nltk.download('omw-1.4')
+nltk.download("punkt")
 
 lemmatizer = WordNetLemmatizer()
 wordtags = nltk.ConditionalFreqDist(
@@ -341,6 +342,22 @@ def swe_inflections(swe_lemma, pos):
 def get_eng_inflections(eng_lemma, tag):
     # print(getInflection('be', tag='VBD'))
     return getInflection(eng_lemma, tag = tag)
+
+def eng_inflections(eng_lemma, pos):
+    verified_inflections = []
+    if pos == "N":
+        inflections = get_eng_inflections(eng_lemma, "NOUN")
+        if "NNS" in inflections:
+            verified_inflections.append(inflections.get("NNS", "")[0])
+    elif pos == "V":
+        inflections = get_eng_inflections(eng_lemma, "VERB")
+        if "VBG" in inflections:
+            verified_inflections.append(inflections.get("VBG", "")[0])
+        if "VBN" in inflections:
+            verified_inflections.append(inflections.get("VBN", "")[0])
+        if "VBD" in inflections:
+            verified_inflections.append(inflections.get("VBD", "")[0])
+    return verified_inflections
 
 # TODO probably removes
 def swedish_lemmatizing(term):
