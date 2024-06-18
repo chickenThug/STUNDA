@@ -313,6 +313,31 @@ def get_swe_inflections(swe_lemma, tag = False):
     else:
         return None
 
+def swe_inflections(swe_lemma, pos):
+    verified_inflections = []
+    inflections = get_swe_inflections(swe_lemma)
+    if not type(inflections) == list:
+            return []
+    if pos == "N":
+        for inflection in inflections:
+            if inflection.get("msd", "") == "pl indef nom":
+                verified_inflections.append(inflection.get("writtenForm", ""))
+    elif pos == "V":
+        for inflection in inflections:
+            if inflection.get("msd", "") in ["pres ind aktiv", "pret ind aktiv", "sup aktiv"]:
+                verified_inflections.append(inflection.get("writtenForm", ""))
+    elif pos in  ["A", "Ab"]:
+        if inflection.get("msd", "") in ["pos indef sg u nom", "pos indef sg n nom", "pos indef pl nom"]:
+            verified_inflections.append(inflection.get("writtenForm", ""))
+
+    for inflection in verified_inflections:
+        if "-" in inflection and not "-" in swe_lemma:
+            inflection = inflection.split("-")[1]
+
+    verified_inflections = [inflection.split("-")[1] if ("-" in inflection and not "-" in swe_lemma) else inflection for inflection in verified_inflections]
+    print(verified_inflections)
+    return verified_inflections
+
 def get_eng_inflections(eng_lemma, tag):
     # print(getInflection('be', tag='VBD'))
     return getInflection(eng_lemma, tag = tag)
@@ -496,4 +521,4 @@ def get_eng_inflections(eng_lemma, tag):
     # Adjective: 
     return getAllInflections(eng_lemma, upos = tag)
 
-print(get_eng_inflections("objecteqoigfheqo", "VERB"))
+swe_inflections("testa", "V")

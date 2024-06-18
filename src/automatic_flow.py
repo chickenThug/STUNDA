@@ -134,6 +134,13 @@ def lemmatize(df):
 
     return df
 
+def generate_inflections(df):
+    if len(df) == 0:
+        return df
+
+    df["swedish_inflections"] = df["swe_lemma"].apply(get_swe_inflections)
+    df["english_inflections"] = 
+
 def clean_pos(df):
     df.fillna('', inplace=True)
     df.loc[df['POS'] == 'no pos found', 'POS'] = ''
