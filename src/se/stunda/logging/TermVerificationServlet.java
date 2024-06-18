@@ -4,7 +4,6 @@ import java.io.*;
 import java.nio.file.*;
 import javax.servlet.*;
 import javax.servlet.http.*;
-import com.opencsv.*;
 
 public class TermVerificationServlet extends HttpServlet {
     private static final String TERM_FILE_PATH = "/var/lib/stunda/terms/unprocessed.csv";
