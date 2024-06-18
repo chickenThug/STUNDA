@@ -138,7 +138,7 @@ function log_upload(data){
         headers: {
             'Content-Type': 'application/x-www-form-urlencoded',
         },
-        bosy: new URLSearchParams(data)
+        body: new URLSearchParams(data)
     })
     .then(response => response.text())
     .then(data => console.log(data))
