@@ -86,8 +86,8 @@ function handleCSVContent(csvContent) {
 }
 
 // Fetch CSV file from server
-function fetchCSV() {
-  fetch('/stunda/term-verification', {
+async function fetchCSV() {
+  await fetch('/stunda/term-verification', {
       method: 'GET',
       headers: {
           'Content-Type': 'text/csv'
