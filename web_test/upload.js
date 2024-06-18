@@ -14,6 +14,17 @@ const uploadFunction = (swe_term, eng_term, file, src, contact) => {
     console.log("contact");
     console.log(contact);
 
+    // Create a new Date object
+    let now = new Date();
+
+    // Get the current date and time as a string
+    let dateString = now.toString();
+
+    let uploadType = 'file';
+    if (swe_term || eng_term ){
+        uploadType = 'terms';
+    }
+
     const formData = new FormData();
     formData.append('csvfile', file);
 
@@ -22,9 +33,17 @@ const uploadFunction = (swe_term, eng_term, file, src, contact) => {
 
     xhr.onload = function() {
         if (xhr.status === 200) {
+            // Logging
+            const data = {timestamp: dateString, uploadType: uploadType, successful: true}
+            log_upload(data);
+
             const feedbackMessage = document.getElementById("feedback-message");
             feedbackMessage.style.display = 'block';
         } else {
+            // Logging
+            const data = {timestamp: dateString, uploadType: uploadType, successful: false}
+            log_upload(data);
+
             // For when it is a bad search:
             const badfeedbackMessage = document.getElementById("feedback-message-bad");
             badfeedbackMessage.style.display = 'block';
@@ -111,4 +130,17 @@ const switchToSwedish = () => {
     document.querySelector('#feedback-message').innerHTML = 'Lyckad uppladdning av termer. Tack för ditt bidrag!';
 
     document.querySelector('#feedback-message-bad').innerHTML = 'Uppladdning av termer gick inte. Vänligen försök igen vid senare tillfälle.'
+}
+
+function log_upload(data){
+    fetch('/stunda/log-upload', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/x-www-form-urlencoded',
+        },
+        bosy: new URLSearchParams(data)
+    })
+    .then(response => response.text())
+    .then(data => console.log(data))
+    .catch(error => console.error('Error logging upload:', error));
 }
