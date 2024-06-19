@@ -132,7 +132,7 @@ def delete_entries_by_ids(ids, authorization, verbose=False):
 
 
 def get_all():
-    url = f"https://ws.spraakbanken.gu.se/ws/karp/v7/query/stunda?q="
+    url = f"https://spraakbanken4.it.gu.se/karp/v7/query/stunda?q="
 
     params = {"size": 10000}
 
@@ -187,6 +187,30 @@ def add_inflections(id, authorization, entry, version, verbose=False):
     data = {"entry": entry, "message": "", "version": version}
 
     response = requests.post(url, headers=headers, json=data) # changed data=data to json=data
+
+    if response.status_code == 200:
+        if verbose:
+            print("successfull update")
+        return response.json()
+    else:
+        if verbose:
+            print("unsuccessfull update", response.status_code, response)
+        return None
+
+def update_posts_via_api_key(id, entry, version, api_key, verbose=False):
+    url = f"https://spraakbanken4.it.gu.se/karp/v7/entries/stunda/{id}"
+
+    headers = {
+        "Content-Type": "application/json",
+        "Accept" : "*/*",
+        "Connection" : "keep-alive"
+    }
+
+    data = {"entry": entry, "message": "", "version": version}
+
+    params = {"api_key" : api_key}
+
+    response = requests.post(url, headers=headers, json=data, params=params)
 
     if response.status_code == 200:
         if verbose:

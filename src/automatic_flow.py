@@ -5,6 +5,11 @@ from collections import defaultdict
 from utils import *
 import json
 import time
+from dotenv import load_dotenv
+import os
+
+# Load environment variables from .env file
+load_dotenv()
 
 banned_words = {
     "en": [
@@ -455,10 +460,24 @@ def check_for_banned_words(df):
 
     return df
 
+def term_already_exists(existing_terms, new_term):
+    term = (new_term["eng_lemma"], new_term["swe_lemma"], new_term["agreed_pos"], new_term["src"])
+    for existing_term in existing_terms:
+        compare_term = (existing_term["entry"]["eng"]["lemma"], existing_term["entry"]["swe"]["lemma"], existing_term["entry"]["pos"])
+        if term[:3] == compare_term:
+            sources = existing_term["entry"]["src"].split(", ")
+            if term[3] not in sources:
+                existing_term["entry"]["src"] = existing_term["entry"]["src"] + ", " + new_term["src"]
+                key = os.getenv('KARP_API_KEY')
+                update_posts_via_api_key(existing_term["id"], existing_term["entry"], existing_term["version"], key, verbose=True)
+
+        
+
+
 def main():
     # CHANGE : Ändra inläsning --> läsa in från var/lib/stunda/terms/unprocessed
     parser = argparse.ArgumentParser(description="Automatically process english-swedish computer science term pairs")
-    parser.add_argument("-s", "--strings", nargs=2, help="Two term pairs")
+    parser.add_argument("-s", "--strings", nargs=3, help="Two term pairs")
     parser.add_argument("-f", "--file", help="Input txt file")
     parser.add_argument("-jf", "--jsonfile", help="Input json file")
     parser.add_argument("-jfl", "--jsonlfile", help="Input jsonl file")
@@ -471,7 +490,7 @@ def main():
     term_pairs = []
 
     if args.strings:
-        term_pairs.append({"eng_lemma" : args.strings[0], "swe_lemma": args.strings[1]})
+        term_pairs.append({"eng_lemma" : args.strings[0], "swe_lemma": args.strings[1], "src": args.strings[2]})
         single_input = True
     elif args.file:
         with open(args.file, 'r', encoding='utf-8') as file:
@@ -540,6 +559,10 @@ def main():
     print("Total processing time: {:.2f} minutes".format(total_time/60))
 
     # CHANGE: Kolla dubletter, om dublett --> lägg till källan till posten, flagga automatiskt OK och lägg i var/lib/stunda/terms/approved
+    existing_terms = get_all()["hits"]
+
+    df.apply(lambda x: term_already_exists(existing_terms, x), axis=1)
+    # print(existing_terms)
 
     # CHANGE : Lägg behandlade ord i var/lib/stunda/terms/processed
     if single_input:
