@@ -37,4 +37,12 @@
         <servlet-name>LogUploadServlet</servlet-name>
         <url-pattern>/log-upload</url-pattern>
     </servlet-mapping>
+    <servlet>
+        <servlet-name>TermVerificationServlet</servlet-name>
+        <servlet-class>se.stunda.logging.TermVerificationServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>TermVerificationServlet</servlet-name>
+        <url-pattern>/term-verification</url-pattern>
+    </servlet-mapping>
 </web-app>

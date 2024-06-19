@@ -28,15 +28,6 @@ const verifyTerms = () => {
   badfeedbackMessage.style.display = 'block';
 };
 
-// Sample data
-const data = [
-  { swe: "test", eng: "test", swe_inf: ["testböj", "jfjfj", "jfjfj"], eng_inf: ["testinfl", "hah"], pos: "N", at: "teast", src: "emelie" },
-  { swe: "test2", eng: "test2", swe_inf: "testböj2", eng_inf: "testinfl2", pos: "N2", at: "teast2", src: "emelie2" },
-  { swe: "test3", eng: "test3", swe_inf: "testböj3", eng_inf: "testinfl3", pos: "N3", at: "teast3", src: "emelie3" },
-  { swe: "test4", eng: "test4", swe_inf: "testböj4", eng_inf: "testinfl4", pos: "N4", at: "teast4", src: "emelie4" },
-  { swe: "test5", eng: "test5", swe_inf: "testböj5", eng_inf: "testinfl5", pos: "N5", at: "teast5", src: "emelie5" }
-];
-
 function generateCheckboxes(data) {
   const container = document.getElementById('term-verification');
   data.forEach((row, index) => {
@@ -70,8 +61,47 @@ function checkLoginStatus() {
   }
 }
 
+function handleCSVContent(csvContent) {
+  // Parse CSV content here and handle it as needed
+  console.log(csvContent);
+  // Example: Parse CSV lines into array of objects
+  const lines = csvContent.split('\n');
+  const termsList = [];
+  const headers = lines[0].split(',');
+  
+  for (let i = 1; i < lines.length; i++) {
+      const values = lines[i].split(',');
+      if (values.length === headers.length) {
+          const termData = {};
+          for (let j = 0; j < headers.length; j++) {
+              termData[headers[j]] = values[j];
+          }
+          termsList.push(termData);
+      }
+  }
+
+  // Example: Log termsList or use it to generate checkboxes
+  console.log(termsList);
+  generateCheckboxes(termsList);
+}
+
+// Fetch CSV file from server
+async function fetchCSV() {
+  await fetch('/stunda/term-verification', {
+      method: 'GET',
+      headers: {
+          'Content-Type': 'text/csv'
+      }
+  })
+  .then(response => response.text())
+  .then(data => handleCSVContent(data))
+  .catch(error => {
+      console.error('Error fetching CSV:', error);
+  });
+}
+
 // Run on page load
 window.onload = function() {
   checkLoginStatus();
-  generateCheckboxes(data);
+  fetchCSV();
 };
