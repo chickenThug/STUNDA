@@ -458,6 +458,8 @@ def check_for_banned_words(df):
 
     df.loc[~df['contains_banned'], "contains_banned"] = df['swe_lemma'].apply(lambda x: contains_banned_word(x, banned_words["sv"]))
 
+    df.loc[~df['contains_banned'], "contains_banned"] = df['src'].apply(lambda x: contains_banned_word(x, banned_words["en"] + banned_words["sv"]))
+
     return df
 
 def term_already_exists(existing_terms, new_term):
@@ -546,10 +548,13 @@ def main():
     df = lemmatize(df_cont.copy())
     print("finished lemmatization in {:.2f} minutes".format((time.time() - start_time)/60))
 
+    # Drop duplicate entries over swedish lemma, engish lemma, pos and source
+    df = df.drop_duplicates(subset=["eng_lemma", "swe_lemma", "agreed_pos", "src"]) 
+
     # Generera böjningsformer
     df = generate_inflections(df)
 
-    # CHANGE : Lägg till bannade ord att tas bort, (kolla termer, källa, kontakt) lägg in dessa poster i var/lib/stunda/terms/banned
+    # CHANGE : Lägg till bannade ord att tas bort, (kolla termer, källa) lägg in dessa poster i var/lib/stunda/terms/banned
     df = check_for_banned_words(df)
 
     # Concatenate all parts and calculate total processing time
