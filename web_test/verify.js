@@ -19,6 +19,8 @@ const verifyTerms = () => {
   console.log("not appr terms");
   console.log(notApprovedTerms);
 
+  // FIX THE FEEDBACK MESSAGES APPROPRIATELY
+
   // Show the feedback message
   const feedbackMessage = document.getElementById("feedback-message");
   feedbackMessage.style.display = 'block';
@@ -29,7 +31,17 @@ const verifyTerms = () => {
 };
 
 function generateCheckboxes(data) {
+  console.log("data");
+  console.log(data);
   const container = document.getElementById('term-verification');
+
+  if (data.length === 0) {
+    // Display message if no terms to check
+    const noTermsMessage = document.getElementById('no-action-message');
+    noTermsMessage.style.display = 'block';
+    return;
+  }
+
   data.forEach((row, index) => {
       const checkboxContainer = document.createElement('div');
       checkboxContainer.className = 'checkbox-container';
@@ -43,7 +55,14 @@ function generateCheckboxes(data) {
 
       const label = document.createElement('label');
       label.htmlFor = `term${index}`;
-      label.textContent = `${row.swe} (${row.swe_inf}), ${row.eng} (${row.eng_inf}), ${row.at}, ${row.pos}, ${row.src}`;
+      // Use an array of conditions and filter out any that result in empty strings or falsy values
+      label.textContent = [
+        row.swe_term ? `${row.swe_term}${row.swe_inf ? ` (${row.swe_inf})` : ''}` : '',
+        row.eng_term ? `${row.eng_term}${row.eng_inf ? ` (${row.eng_inf})` : ''}` : '',
+        row.at || '',
+        row.pos || '',
+        row.src || ''
+      ].filter(Boolean).join(', ');
 
       checkboxContainer.appendChild(checkbox);
       checkboxContainer.appendChild(label);
@@ -80,10 +99,9 @@ function handleCSVContent(csvContent) {
       }
   }
 
-  // Example: Log termsList or use it to generate checkboxes
-  console.log(termsList);
   generateCheckboxes(termsList);
 }
+
 
 // Fetch CSV file from server
 async function fetchCSV() {
