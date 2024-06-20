@@ -30,7 +30,7 @@
         <url-pattern>/term-upload</url-pattern>
     </servlet-mapping>
     <servlet>
-        <servlet-name>SingleUploadServlet</servlet-name>
+        <servlet-name>SingleTermUploadServlet</servlet-name>
         <servlet-class>se.stunda.logging.SingleTermUploadServlet</servlet-class>
     </servlet>
     <servlet-mapping>
