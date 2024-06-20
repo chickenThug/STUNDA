@@ -53,4 +53,12 @@
         <servlet-name>TermVerificationServlet</servlet-name>
         <url-pattern>/term-verification</url-pattern>
     </servlet-mapping>
+    <servlet>
+    <servlet-name>CheckLoginServlet</servlet-name>
+    <servlet-class>se.stunda.logging.CheckLoginServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>CheckLoginServlet</servlet-name>
+        <url-pattern>/check-login</url-pattern>
+    </servlet-mapping>
 </web-app>
