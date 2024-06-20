@@ -97,6 +97,14 @@ function handleCSVContent(csvContent) {
           }
           termsList.push(termData);
       }
+      // TODO: remove in future
+      else {
+        const termData = {};
+          for (let j = 0; j < headers.length; j++) {
+              termData[headers[j]] = values[j];
+          }
+          termsList.push(termData);
+      }
   }
 
   generateCheckboxes(termsList);
