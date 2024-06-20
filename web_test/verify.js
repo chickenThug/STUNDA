@@ -88,7 +88,7 @@ function handleCSVContent(csvContent) {
   const termsList = [];
   const headers = lines[0].split(',');
   
-  for (let i = 1; i < lines.length; i++) {
+  for (let i = 1; i < lines.length -1; i++) {
       const values = lines[i].split(',');
       if (values.length === headers.length) {
           const termData = {};
