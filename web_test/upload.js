@@ -1,23 +1,5 @@
 const uploadFunction = (swe_term, eng_term, file, src, contact) => {
-    console.log("swe term");
-    console.log(swe_term);
-
-    console.log("eng term");
-    console.log(eng_term);
-
-    console.log("file");
-    console.log(file);
-
-    console.log("source");
-    console.log(src);
-
-    console.log("contact");
-    console.log(contact);
-
-    // Create a new Date object
     let now = new Date();
-
-    // Get the current date and time as a string
     let dateString = now.toString();
 
     let uploadType = 'file';
@@ -25,7 +7,13 @@ const uploadFunction = (swe_term, eng_term, file, src, contact) => {
         uploadType = 'terms';
     }
 
+    if (swe_term && eng_term){
+        const termData = {engTerm: eng_term, sweTerm: swe_term, source: src}
+        single_term_upload(termData);
+    }
+
     const formData = new FormData();
+
     formData.append('csvfile', file);
 
     const xhr = new XMLHttpRequest();
@@ -143,4 +131,17 @@ function log_upload(data){
     .then(response => response.text())
     .then(data => console.log(data))
     .catch(error => console.error('Error logging upload:', error));
+}
+
+function single_term_upload(data){
+    fetch('/stunda/single-term-upload', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/x-www-form-urlencoded',
+        },
+        body: new URLSearchParams(data)
+    })
+    .then(response => response.text())
+    .then(data => console.log(data))
+    .catch(error => console.error('Error uploading single terms:', error));
 }
