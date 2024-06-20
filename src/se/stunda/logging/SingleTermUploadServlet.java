@@ -18,7 +18,7 @@ public class SingleTermUploadServlet extends HttpServlet {
         try {
             String swedishTerm = request.getParameter("sweTerm");
             String englishTerm = request.getParameter("engTerm");
-            String source = Integer.parseInt(request.getParameter("source"));
+            String source =      request.getParameter("source");
             
 
             String logMessage = String.format("%s,%s,%s\n",
