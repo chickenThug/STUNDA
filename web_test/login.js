@@ -21,7 +21,7 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 
     async function checkLogin(username, password) {
-        const response = await fetch('/check-login', {
+        const response = await fetch('/stunda/check-login', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/x-www-form-urlencoded',
