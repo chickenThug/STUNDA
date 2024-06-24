@@ -1,4 +1,48 @@
-const verifyTerms = () => {
+async function addEntry(authorization, entry, verbose = false) {
+  const url = "https://spraakbanken4.it.gu.se/karp/v7/entries/stunda";
+
+  const headers = {
+    "Authorization": "Bearer " + authorization,
+    "Content-Type": "application/json"
+  };
+
+  const data = {
+    entry: entry,
+    message: ""
+  };
+
+  try {
+    const response = await fetch(url, {
+      method: "PUT",
+      headers: headers,
+      body: JSON.stringify(data)
+    });
+
+    console.log(response);
+
+    if(response.status === 201) {
+      if (verbose){
+        console.log("successful add");
+      }
+      const responseData = await response.json();
+      return responseData.newID;
+    } else{
+      if (verbose){
+        console.log("unsuccessful add", response.status, response);
+      }
+      return null;
+    }
+  } catch (error) {
+    if (verbose) {
+      console.error("Request failed", error);
+    }
+    return null
+  }
+}
+
+// below comment for database update
+// const verifyTerms = async () => {} 
+const verifyTerms =  () => {
   console.log("verified");
 
   const checkboxes = document.querySelectorAll('#term-verification input[type="checkbox"]');
@@ -13,26 +57,34 @@ const verifyTerms = () => {
       notApprovedTerms.push(termData);
     }
   });
+  // BELOW FUNCTIONALITY FOR UPDATING KARP
 
-  console.log("appr terms");
-  console.log(approvedTerms);
-  console.log("not appr terms");
-  console.log(notApprovedTerms);
-
-  // FIX THE FEEDBACK MESSAGES APPROPRIATELY
-
+  /*
   // Show the feedback message
   const feedbackMessage = document.getElementById("feedback-message");
-  feedbackMessage.style.display = 'block';
-
-  // For when it is a bad search:
   const badfeedbackMessage = document.getElementById("feedback-message-bad");
-  badfeedbackMessage.style.display = 'block';
+  let allSuccess = true;
+
+  // get aut token
+
+  for (const term of approvedTerms) {
+    const newID = await addEntry(authorization, term, true);
+    if (!newID) {
+      allSuccess = false;
+      break;
+    }
+  }
+
+  if (allSuccess){
+    feedbackMessage.style.display = 'block';
+  } else {
+    badfeedbackMessage.style.display = 'block';
+  }
+    */
+   console.log("verification otw");
 };
 
 function generateCheckboxes(data) {
-  console.log("data");
-  console.log(data);
   const container = document.getElementById('term-verification');
 
   if (data.length === 0) {
@@ -81,9 +133,6 @@ function checkLoginStatus() {
 }
 
 function handleCSVContent(csvContent) {
-  // Parse CSV content here and handle it as needed
-  console.log(csvContent);
-  // Example: Parse CSV lines into array of objects
   const lines = csvContent.split('\n');
   const termsList = [];
   const headers = lines[0].split(',');
