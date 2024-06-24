@@ -20,8 +20,6 @@ public class HandleVerifiedTermsServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         try {
-            response.setContentType("application/json;charset=UTF-8");
-
             // Ensure directories exist
             createDirectoriesIfNeeded(UNAPPROVED_FILE_PATH);
             createDirectoriesIfNeeded(APPROVED_FILE_PATH);
@@ -34,8 +32,6 @@ public class HandleVerifiedTermsServlet extends HttpServlet {
                 sb.append(line);
             }
 
-            System.out.println("Received JSON data: " + sb.toString());
-
             // Convert JSON string to Java objects
             VerificationData verificationData = objectMapper.readValue(sb.toString(), VerificationData.class);
 
@@ -46,6 +42,7 @@ public class HandleVerifiedTermsServlet extends HttpServlet {
             writeTermsToJsonl(UNAPPROVED_FILE_PATH, verificationData.notApprovedTerms);
 
             response.setStatus(HttpServletResponse.SC_OK);
+            response.setContentType("application/json");
             response.getWriter().write("{\"status\":\"success\"}");
         } catch (Exception e) {
             response.setStatus(HttpServletResponse.SC_INTERNAL_SERVER_ERROR);
@@ -79,6 +76,5 @@ public class HandleVerifiedTermsServlet extends HttpServlet {
     private static class Term {
         String eng_term;
         String swe_term;
-        String src;
     }
 }
