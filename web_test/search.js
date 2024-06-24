@@ -128,7 +128,7 @@ const sourceExplanationEnglish = {
     "PK" :"paired keyword explanation",
     "ACM" : "ACM explanation",
     "ICT" : "ICT explanation",
-    "GF" : "GF explanation"
+    "GF" : "GF explanation eeeeee"
 }
 
 const sourceExplanationSwedish = {
