@@ -16,6 +16,8 @@ const uploadFunction = (swe_term, eng_term, file, src, contact) => {
 
     formData.append('csvfile', file);
 
+    formData.append('source', src);
+
     const xhr = new XMLHttpRequest();
     xhr.open('POST', '/stunda/term-upload', true);
 
