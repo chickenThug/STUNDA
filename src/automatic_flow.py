@@ -483,6 +483,7 @@ def main():
     parser.add_argument("-f", "--file", help="Input txt file")
     parser.add_argument("-jf", "--jsonfile", help="Input json file")
     parser.add_argument("-jfl", "--jsonlfile", help="Input jsonl file")
+    parser.add_argument("-srv", "--server", help="flag for indicatig the file is being run on the server")
 
 
     args = parser.parse_args()
@@ -491,13 +492,17 @@ def main():
 
     term_pairs = []
 
+    df = None
+
     if args.strings:
         term_pairs.append({"eng_lemma" : args.strings[0], "swe_lemma": args.strings[1], "src": args.strings[2]})
         single_input = True
+        df = pd.DataFrame(term_pairs)
     elif args.file:
         with open(args.file, 'r', encoding='utf-8') as file:
             term_pairs = file.readlines()
-            term_pairs = [{'eng_lemma' : term_pair.rstrip().split(',')[0], 'swe_lemma': term_pair.rstrip().split(',')[1]} for term_pair in term_pairs]
+            term_pairs = [{'eng_lemma' : term_pair.rstrip().split(',')[0], 'swe_lemma': term_pair.rstrip().split(',')[1], "src": term_pair.rstrip().split(',')[2]} for term_pair in term_pairs]
+        df = pd.DataFrame(term_pairs)
     elif args.jsonfile:
         with open(args.jsonfile, 'r', encoding='utf-8') as file:
             # Load JSON data from the file
@@ -505,6 +510,7 @@ def main():
             for key, value in data.items():
                 for swe_term in value:
                     term_pairs.append({"eng_lemma": key, "swe_lemma": swe_term, "src":"paired keywords"})
+        df = pd.DataFrame(term_pairs)
     elif args.jsonlfile:
         with open(args.jsonlfile, 'r', encoding='utf-8') as file:
             # Iterate through each line in the file
@@ -512,12 +518,16 @@ def main():
                 # Load the JSON object from the line
                 data = json.loads(line)
                 term_pairs.append({"eng_lemma": data["eng"]["lemma"], "swe_lemma":data["swe"]["lemma"], "src": data["src"]})
+            df = pd.DataFrame(term_pairs)
+    elif args.server:
+        df = pd.read_csv("/var/lib/stunda/terms/unprocessed.csv")
     else:
-        print("Please provide either two strings with -s/--strings or a file with -f/--file flag.")
+        print("Missing or incorrect arguments")
         exit(1)
 
     t0 = time.time()
-    df = pd.DataFrame(term_pairs)
+
+    print(df)
 
     # Time the cleaning and simple checks
     start_time = time.time()
@@ -549,8 +559,14 @@ def main():
     print("finished lemmatization in {:.2f} minutes".format((time.time() - start_time)/60))
 
     # Drop duplicate entries over swedish lemma, engish lemma, pos and source
-    df = df.drop_duplicates(subset=["eng_lemma", "swe_lemma", "agreed_pos", "src"]) 
+    df = df.drop_duplicates(subset=["eng_lemma", "swe_lemma", "agreed_pos", "src"])
 
+    # Aggregate the sources
+    aggregated_sources_df = df.groupby(["swe_lemma", "eng_lemma", "agreed_pos"])["src"].apply(lambda x: ", ".join(x)).reset_index()  
+    df = df.drop(columns="src").drop_duplicates() 
+    df = df.merge(aggregated_sources_df, on=["swe_lemma", "eng_lemma", "agreed_pos"])
+
+    print(df)
     # Generera böjningsformer
     df = generate_inflections(df)
 
@@ -559,6 +575,8 @@ def main():
 
     # Concatenate all parts and calculate total processing time
     output_df = pd.concat([df_stop1, df_stop2, df_stop3, df])
+
+    print(output_df)
 
     total_time = time.time() - t0
     print("Total processing time: {:.2f} minutes".format(total_time/60))

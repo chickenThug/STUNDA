@@ -1,0 +1,3 @@
+English lemma,Swedish lemma,src,eng_paranthesis,swe_paranthesis,status,POS,english_pos,swedish_pos,simple_swedish_pos,swe_lemmatizer_status,swedish_inflections,english_inflections,contains_banned
+leaf,löv,"test1, test2",,,automatically verified,N,NN,nn.neu.sin.ind.nom,NN,ok,['löv'],['leaves'],False
+fuck,knulla,test,,,automatically verified,V,NN,vb.inf.akt,VB,ok,"['knullar', 'knullade', 'knullat']",[],True
