@@ -14,6 +14,8 @@ const verifyTerms =  () => {
     }
   });
    console.log("verification otw");
+   console.log(approvedTerms);
+   console.log(notApprovedTerms)
 
    // FIX SERVLET CALL HERE
    // Send approved and not approved terms to the servlet
@@ -29,6 +31,7 @@ const verifyTerms =  () => {
   })
   .then(response => response.json())
   .then(data => {
+    console.log("Received data:", data);
       if (data.status === "success") {
           console.log("Terms processed successfully");
       } else {

@@ -34,6 +34,8 @@ public class HandleVerifiedTermsServlet extends HttpServlet {
                 sb.append(line);
             }
 
+            System.out.println("Received JSON data: " + sb.toString());
+
             // Convert JSON string to Java objects
             VerificationData verificationData = objectMapper.readValue(sb.toString(), VerificationData.class);
 
