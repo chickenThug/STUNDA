@@ -333,7 +333,7 @@ const display_best_result = (data) => {
 
     // Report button
     const iconButton = document.createElement("img");
-    iconButton.src = "images/flag_icon.png";
+    iconButton.src = "images/interrobang.png"; // flag_icon.png
     iconButton.alt = "Report Icon";
     iconButton.classList.add("icon-button");
     iconButton.onclick = () => {
