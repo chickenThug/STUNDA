@@ -26,18 +26,18 @@ const verifyTerms =  () => {
         approvedTerms: approvedTerms,
         notApprovedTerms: notApprovedTerms
     })
-})
-.then(response => response.json())
-.then(data => {
-    if (data.status === "success") {
-        console.log("Terms processed successfully");
-    } else {
-        console.error("Error processing terms");
-    }
-})
-.catch(error => {
-    console.error("Error: ", error);
-});
+  })
+  .then(response => response.json())
+  .then(data => {
+      if (data.status === "success") {
+          console.log("Terms processed successfully");
+      } else {
+          console.error("Error processing terms");
+      }
+  })
+  .catch(error => {
+      console.error("Error: ", error);
+  });
 };
 
 function generateCheckboxes(data) {
