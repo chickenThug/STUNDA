@@ -14,6 +14,33 @@ const verifyTerms =  () => {
     }
   });
    console.log("verification otw");
+   console.log(approvedTerms);
+   console.log(notApprovedTerms)
+
+   // FIX SERVLET CALL HERE
+   // Send approved and not approved terms to the servlet
+   fetch('/stunda/handle-verified', {
+      method: 'POST',
+      headers: {
+          'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({
+          approvedTerms: approvedTerms,
+          notApprovedTerms: notApprovedTerms
+      })
+    })
+    .then(response => response.json())
+    .then(data => {
+      console.log("Received data:", data);
+        if (data.status === "success") {
+            console.log("Terms processed successfully");
+        } else {
+            console.error("Error processing terms");
+        }
+    })
+    .catch(error => {
+        console.error("Error: ", error);
+    });
 };
 
 function generateCheckboxes(data) {
