@@ -526,7 +526,7 @@ def main():
             df = pd.DataFrame(term_pairs)
     elif args.server:
         load_dotenv(dotenv_path="/var/lib/stunda/data/.env")
-        df = pd.read_csv("/var/lib/stunda/terms/unprocessed.csv")
+        df = pd.read_csv("/var/lib/stunda/terms_test/unprocessed.csv")
     else:
         print("Missing or incorrect arguments")
         exit(1)
@@ -611,7 +611,7 @@ def main():
         # Converting the selected DataFrame to a list of JSON objects
         jsonl_banned = df_banned[columns_to_save].to_json(orient="records", force_ascii=False)
 
-        with open("/var/lib/stunda/terms/banned.jsonl", 'a', encoding='utf-8') as file:
+        with open("/var/lib/stunda/terms_test/banned.jsonl", 'a', encoding='utf-8') as file:
             for item in jsonl_banned:
                 json_line = json.dumps(item, ensure_ascii=False) + '\n'
                 file.write(json_line)
@@ -619,7 +619,7 @@ def main():
         # Converting the selected DataFrame to a list of JSON objects
         jsonl_new_terms = df_new_terms[columns_to_save].to_json(orient="records", force_ascii=False)
 
-        with open("/var/lib/stunda/terms/processed.jsonl", 'a', encoding='utf-8') as file:
+        with open("/var/lib/stunda/terms_test/processed.jsonl", 'a', encoding='utf-8') as file:
             for item in jsonl_new_terms:
                 json_line = json.dumps(item, ensure_ascii=False) + '\n'
                 file.write(json_line)
@@ -627,7 +627,7 @@ def main():
         # Converting the selected DataFrame to a list of JSON objects
         jsonl_existing_terms = df_exist_already[columns_to_save].to_json(orient="records", force_ascii=False)
 
-        with open("/var/lib/stunda/terms/approved.jsonl", 'a', encoding='utf-8') as file:
+        with open("/var/lib/stunda/terms_test/approved.jsonl", 'a', encoding='utf-8') as file:
             for item in jsonl_existing_terms:
                 json_line = json.dumps(item, ensure_ascii=False) + '\n'
                 file.write(json_line)
