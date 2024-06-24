@@ -360,7 +360,6 @@ def swe_inflections(swe_lemma, pos):
             inflection = inflection.split("-")[1]
 
     verified_inflections = [inflection.split("-")[1] if ("-" in inflection and not "-" in swe_lemma) else inflection for inflection in verified_inflections]
-    print(verified_inflections)
     return verified_inflections
 
 def get_eng_inflections(eng_lemma, tag):
@@ -561,5 +560,3 @@ def get_eng_inflections(eng_lemma, tag):
     # Verbs: VBG, VBN, VBD
     # Adjective: 
     return getAllInflections(eng_lemma, upos = tag)
-
-swe_inflections("testa", "V")
