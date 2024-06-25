@@ -112,6 +112,10 @@ body {
     cursor: pointer;
 }
 
+.search-button:hover {
+    background-color: #005CAA;
+}
+
 .redirect-button {
     margin: 0 auto;
     padding: 7px 15px;
