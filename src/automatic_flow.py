@@ -498,6 +498,7 @@ def main():
     term_pairs = []
 
     df = None
+    og_df = None
 
     if args.strings:
         load_dotenv()
@@ -531,6 +532,16 @@ def main():
     elif args.server:
         load_dotenv(dotenv_path="/var/lib/stunda/data/.env")
         df = pd.read_csv("/var/lib/stunda/terms_test/unprocessed.csv", encoding='utf-8')
+        og_df = df.copy()
+        from datetime import datetime
+
+        # Get the current date and time
+        now = datetime.now()
+
+        # Format as a string
+        datetime_string = now.strftime('%Y-%m-%d %H:%M:%S')
+
+        df.to_csv(f"/var/lib/stunda/historical_processed/unprocessed_{datetime_string}.csv", index=False, encoding="utf-8")
     else:
         print("Missing or incorrect arguments")
         exit(1)
@@ -635,6 +646,8 @@ def main():
             for item in jsonl_existing_terms:
                 json_line = json.dumps(item, ensure_ascii=False) + '\n'
                 file.write(json_line)
+
+        og_df.head(0).to_csv("/var/lib/stunda/terms_test/unprocessed.csv", index=False, encoding='utf-8')
     else:
         if single_input:
             print("English lemma:", output_df.at[0, "eng_lemma"])
