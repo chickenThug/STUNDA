@@ -3,8 +3,6 @@ import os
 
 import sys
 sys.path.insert(0, 'lib')
-print("PYTHONPATH:", os.environ.get('PYTHONPATH'))
-print("PATH:", os.environ.get('PATH'))
 import argparse
 import pandas as pd
 from collections import defaultdict
@@ -490,7 +488,7 @@ def main():
     parser.add_argument("-f", "--file", help="Input txt file")
     parser.add_argument("-jf", "--jsonfile", help="Input json file")
     parser.add_argument("-jfl", "--jsonlfile", help="Input jsonl file")
-    parser.add_argument("-srv", "--server", help="flag for indicatig the file is being run on the server")
+    parser.add_argument("-srv", "--server",action="store_true", help="flag for indicatig the file is being run on the server")
 
 
     args = parser.parse_args()
