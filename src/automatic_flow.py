@@ -622,6 +622,7 @@ def main():
 
         # Converting the selected DataFrame to a list of JSON objects
         jsonl_new_terms = df_new_terms[columns_to_save].to_json(orient="records", force_ascii=False)
+        jsonl_new_terms = json.loads(jsonl_new_terms)
         print(type(jsonl_new_terms))
         print(jsonl_new_terms)
         with open("/var/lib/stunda/terms_test/processed.jsonl", 'a', encoding='utf-8') as file:
