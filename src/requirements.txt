@@ -1,5 +1,6 @@
-pandas==2.2.2
-lemminflect==0.2.3
-python-dotenv==1.0.1
-requests==2.32.3
-nltk==3.8.1
+pandas
+numpy
+lemminflect
+python-dotenv
+requests
+nltk
