@@ -1,4 +1,6 @@
 
+import sys
+sys.path.insert(0, 'lib')
 import argparse
 import pandas as pd
 from collections import defaultdict
