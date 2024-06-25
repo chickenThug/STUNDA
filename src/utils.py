@@ -6,7 +6,7 @@ import requests
 import pandas as pd
 import json
 from lemminflect import getInflection, getAllInflections
-
+nltk.data.path.append("nltk_data")
 nltk.download("wordnet")
 nltk.download("brown")
 nltk.download("universal_tagset")
