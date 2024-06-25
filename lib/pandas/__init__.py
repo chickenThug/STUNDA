@@ -1,5 +1,6 @@
 from __future__ import annotations
-
+import sys
+sys.path.insert(0, 'lib')
 __docformat__ = "restructuredtext"
 
 # Let users know if they're missing any of our hard dependencies
