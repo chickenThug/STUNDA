@@ -526,7 +526,7 @@ def main():
             df = pd.DataFrame(term_pairs)
     elif args.server:
         load_dotenv(dotenv_path="/var/lib/stunda/data/.env")
-        df = pd.read_csv("/var/lib/stunda/terms_test/unprocessed.csv")
+        df = pd.read_csv("/var/lib/stunda/terms_test/unprocessed.csv", encoding='utf-8')
     else:
         print("Missing or incorrect arguments")
         exit(1)

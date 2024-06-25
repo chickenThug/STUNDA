@@ -61,12 +61,4 @@
         <servlet-name>CheckLoginServlet</servlet-name>
         <url-pattern>/check-login</url-pattern>
     </servlet-mapping>
-    <servlet>
-        <servlet-name>HandleVerifiedTermsServlet</servlet-name>
-        <servlet-class>se.stunda.logging.HandleVerifiedTermsServlet</servlet-class>
-    </servlet>
-    <servlet-mapping>
-        <servlet-name>HandleVerifiedTermsServlet</servlet-name>
-        <url-pattern>/handle-verified</url-pattern>
-    </servlet-mapping>
 </web-app>
