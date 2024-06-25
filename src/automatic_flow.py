@@ -613,7 +613,7 @@ def main():
         columns_to_save = ["eng_lemma", "swe_lemma", "src", "status", "agreed_pos", "swedish_inflections", "english_inflections", "reason"]
 
         # Converting the selected DataFrame to a list of JSON objects
-        jsonl_banned = df_banned[columns_to_save].to_json(orient="records", force_ascii=False)
+        jsonl_banned = json.loads(df_banned[columns_to_save].to_json(orient="records", force_ascii=False))
 
         with open("/var/lib/stunda/terms_test/banned.jsonl", 'a', encoding='utf-8') as file:
             for item in jsonl_banned:
@@ -621,17 +621,15 @@ def main():
                 file.write(json_line)
 
         # Converting the selected DataFrame to a list of JSON objects
-        jsonl_new_terms = df_new_terms[columns_to_save].to_json(orient="records", force_ascii=False)
-        jsonl_new_terms = json.loads(jsonl_new_terms)
-        print(type(jsonl_new_terms))
-        print(jsonl_new_terms)
+        jsonl_new_terms = json.loads(df_new_terms[columns_to_save].to_json(orient="records", force_ascii=False))
+        
         with open("/var/lib/stunda/terms_test/processed.jsonl", 'a', encoding='utf-8') as file:
             for item in jsonl_new_terms:
                 json_line = json.dumps(item, ensure_ascii=False) + '\n'
                 file.write(json_line)
 
         # Converting the selected DataFrame to a list of JSON objects
-        jsonl_existing_terms = df_exist_already[columns_to_save].to_json(orient="records", force_ascii=False)
+        jsonl_existing_terms = json.loads(df_exist_already[columns_to_save].to_json(orient="records", force_ascii=False))
 
         with open("/var/lib/stunda/terms_test/approved.jsonl", 'a', encoding='utf-8') as file:
             for item in jsonl_existing_terms:
