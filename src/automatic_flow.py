@@ -1,4 +1,7 @@
 
+import os
+print("PYTHONPATH:", os.environ.get('PYTHONPATH'))
+print("PATH:", os.environ.get('PATH'))
 import sys
 sys.path.insert(0, 'lib')
 import argparse
@@ -8,7 +11,7 @@ from utils import *
 import json
 import time
 from dotenv import load_dotenv
-import os
+
 
 # Load environment variables from .env file
 # Fix loading of correct .env file when on serer
