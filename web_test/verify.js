@@ -65,10 +65,9 @@ function generateCheckboxes(data) {
       label.htmlFor = `term${index}`;
       // Use an array of conditions and filter out any that result in empty strings or falsy values
       label.textContent = [
-        row.swe_term ? `${row.swe_term}${row.swe_inf ? ` (${row.swe_inf})` : ''}` : '',
-        row.eng_term ? `${row.eng_term}${row.eng_inf ? ` (${row.eng_inf})` : ''}` : '',
-        row.at || '',
-        row.pos || '',
+        row.swe_lemma ? `${row.swe_lemma}${row.swedish_inflections ? ` (${row.swedish_inflections})` : ''}` : '',
+        row.eng_lemma ? `${row.eng_lemma}${row.english_inflections ? ` (${row.english_inflections})` : ''}` : '',
+        row.agreed_pos || '',
         row.src || ''
       ].filter(Boolean).join(', ');
 
