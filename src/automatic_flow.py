@@ -1,17 +1,17 @@
 
 import os
-print("PYTHONPATH:", os.environ.get('PYTHONPATH'))
-print("PATH:", os.environ.get('PATH'))
+
 import sys
 sys.path.insert(0, 'lib')
+print("PYTHONPATH:", os.environ.get('PYTHONPATH'))
+print("PATH:", os.environ.get('PATH'))
 import argparse
-from dotenv import load_dotenv
 import pandas as pd
 from collections import defaultdict
 from utils import *
 import json
 import time
-
+from dotenv import load_dotenv
 
 
 # Load environment variables from .env file
