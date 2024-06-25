@@ -33,4 +33,12 @@ public class HandleVerifiedTermsServlet extends HttpServlet {
             response.getWriter().write(jsonArray.toString());
         } catch (JSONException e) {
             // Handle JSON parsing errors or other JSON related issues
-            response.setStatus(HttpServletR
+            response.setStatus(HttpServletResponse.SC_BAD_REQUEST);
+            response.getWriter().write("Invalid JSON data provided");
+        } catch (Exception e) {
+            // Handle general errors
+            response.setStatus(HttpServletResponse.SC_INTERNAL_SERVER_ERROR);
+            response.getWriter().write("Internal server error occurred");
+        }
+    }
+}

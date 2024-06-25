@@ -2,32 +2,29 @@ const verifyTerms =  () => {
   console.log("verified");
 
   const checkboxes = document.querySelectorAll('#term-verification input[type="checkbox"]');
-  const approvedTerms = [];
-  const notApprovedTerms = [];
+  const terms = [];
 
   checkboxes.forEach(checkbox => {
     const termData = JSON.parse(checkbox.value);
     if (checkbox.checked) {
-      approvedTerms.push(termData);
+      termData["approved"] = true
     } else {
-      notApprovedTerms.push(termData);
+      termData["approved"] = false
     }
+    terms.push(termData);
   });
+
    console.log("verification otw");
-   console.log(approvedTerms);
-   console.log(notApprovedTerms)
+   console.log(terms);
 
    // FIX SERVLET CALL HERE
    // Send approved and not approved terms to the servlet
-   fetch('/stunda/handle-verified', {
+   fetch('/stunda/handle-verify', {
       method: 'POST',
       headers: {
           'Content-Type': 'application/json'
       },
-      body: JSON.stringify({
-          approvedTerms: approvedTerms,
-          notApprovedTerms: notApprovedTerms
-      })
+      body: JSON.stringify(terms)
     })
     .then(response => response.json())
     .then(data => {
