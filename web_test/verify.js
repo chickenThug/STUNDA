@@ -88,51 +88,30 @@ function checkLoginStatus() {
   }
 }
 
-function handleCSVContent(csvContent) {
-  const lines = csvContent.split('\n');
-  const termsList = [];
-  const headers = lines[0].split(',');
-  
-  for (let i = 1; i < lines.length -1; i++) {
-      const values = lines[i].split(',');
-      if (values.length === headers.length) {
-          const termData = {};
-          for (let j = 0; j < headers.length; j++) {
-              termData[headers[j]] = values[j];
-          }
-          termsList.push(termData);
-      }
-      // TODO: remove in future
-      else {
-        const termData = {};
-          for (let j = 0; j < headers.length; j++) {
-              termData[headers[j]] = values[j];
-          }
-          termsList.push(termData);
-      }
-  }
+function handleJSONLContent(jsonlContent) {
+  const lines = jsonlContent.trim().split('\n');
+  const termsList = lines.map(line => JSON.parse(line));
 
   generateCheckboxes(termsList);
 }
 
-
-// Fetch CSV file from server
-async function fetchCSV() {
+// Fetch JSONL file from server
+async function fetchJSONL() {
   await fetch('/stunda/term-verification', {
       method: 'GET',
       headers: {
-          'Content-Type': 'text/csv'
+          'Content-Type': 'application/json'
       }
   })
   .then(response => response.text())
-  .then(data => handleCSVContent(data))
+  .then(data => handleJSONLContent(data))
   .catch(error => {
-      console.error('Error fetching CSV:', error);
+      console.error('Error fetching JSONL:', error);
   });
 }
 
 // Run on page load
 window.onload = function() {
   checkLoginStatus();
-  fetchCSV();
+  fetchJSONL();
 };
