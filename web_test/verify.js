@@ -89,6 +89,7 @@ function checkLoginStatus() {
 }
 
 function handleJSONLContent(jsonlContent) {
+  console.log(jsonlContent);
   const lines = jsonlContent.trim().split('\n');
   const termsList = lines.map(line => JSON.parse(line));
 
