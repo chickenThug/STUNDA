@@ -6,13 +6,13 @@ import requests
 import pandas as pd
 import json
 from lemminflect import getInflection, getAllInflections
-nltk.data.path.append("nltk_data")
-nltk.download("wordnet")
-nltk.download("brown")
-nltk.download("universal_tagset")
-nltk.download("averaged_perceptron_tagger")
-nltk.download('omw-1.4')
-nltk.download("punkt")
+nltk.data.path.append("./nltk_data")
+nltk.download("wordnet", download_dir="./nltk_data")
+nltk.download("brown", download_dir="./nltk_data")
+nltk.download("universal_tagset", download_dir="./nltk_data")
+nltk.download("averaged_perceptron_tagger", download_dir="./nltk_data")
+nltk.download('omw-1.4', download_dir="./nltk_data")
+nltk.download("punkt", download_dir="./nltk_data")
 
 lemmatizer = WordNetLemmatizer()
 wordtags = nltk.ConditionalFreqDist(
