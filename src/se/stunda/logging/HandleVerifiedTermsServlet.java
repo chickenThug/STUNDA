@@ -68,10 +68,8 @@ public class HandleVerifiedTermsServlet extends HttpServlet {
             writeToJsonlFile(approvedArray, APPROVED_FILE_PATH, true);
             writeToJsonlFile(notApprovedArray, UNAPPROVED_FILE_PATH, true);
 
-
-            response.setContentType("application/json");
-            response.setCharacterEncoding("UTF-8");
-            response.getWriter().write(incomingTerms.toString());
+            response.setContentType("text/plain");
+            response.getWriter().write("success");
         } catch (JSONException e) {
             // Handle JSON parsing errors or other JSON related issues
             response.setStatus(HttpServletResponse.SC_BAD_REQUEST);
