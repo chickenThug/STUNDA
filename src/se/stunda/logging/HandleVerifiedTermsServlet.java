@@ -1,6 +1,7 @@
 package se.stunda.logging;
 
 import org.json.JSONArray;
+import org.json.JSONObject;
 import org.json.JSONException;
 import javax.servlet.*;
 import javax.servlet.http.*;
@@ -26,7 +27,29 @@ public class HandleVerifiedTermsServlet extends HttpServlet {
             }
             JSONArray jsonArray = new JSONArray(jsonBuffer.toString());
 
-            // Process your JSON array here
+            JSONArray approvedArray = new JSONArray();
+            JSONArray notApprovedArray = new JSONArray();
+
+            for (int i = 0; i < jsonArray.length(); i++) {
+                JSONObject jsonObject = jsonArray.getJSONObject(i);
+
+                // Determine whether the jsonObject is approved
+                boolean isApproved = jsonObject.optBoolean("approved", false);
+
+                // Remove the 'approved' key from the JSONObject
+                jsonObject.remove("approved");
+
+                // Add to the appropriate array
+                if (isApproved) {
+                    approvedArray.put(jsonObject);
+                } else {
+                    notApprovedArray.put(jsonObject);
+                }
+            }
+
+            writeToJsonlFile(approvedArray, APPROVED_FILE_PATH);
+            writeToJsonlFile(notApprovedArray, UNAPPROVED_FILE_PATH);
+
 
             response.setContentType("application/json");
             response.setCharacterEncoding("UTF-8");
@@ -39,6 +62,16 @@ public class HandleVerifiedTermsServlet extends HttpServlet {
             // Handle general errors
             response.setStatus(HttpServletResponse.SC_INTERNAL_SERVER_ERROR);
             response.getWriter().write("Internal server error occurred");
+        }        
+    }
+
+    private static void writeToJsonlFile(JSONArray jsonArray, String filePath) {
+        try (FileWriter fileWriter = new FileWriter(filePath, true)) {
+            for (int i = 0; i < jsonArray.length(); i++) {
+                fileWriter.write(jsonArray.getJSONObject(i).toString() + "\n");
+            }
+        } catch (IOException e) {
+            System.err.println("Error writing to file: " + e.getMessage());
         }
     }
 }
