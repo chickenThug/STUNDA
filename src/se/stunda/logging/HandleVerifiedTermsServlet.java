@@ -25,6 +25,8 @@ public class HandleVerifiedTermsServlet extends HttpServlet {
         try {
             StringBuilder jsonBuffer = new StringBuilder();
             String line;
+            request.setCharacterEncoding("UTF-8");
+
             while ((line = request.getReader().readLine()) != null) {
                 jsonBuffer.append(line);
             }
