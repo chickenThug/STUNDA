@@ -94,6 +94,11 @@ function generateCheckboxes(data) {
     posCell.textContent = row.agreed_pos || '';
     tableRow.appendChild(posCell);
 
+    // Swe lemma
+    const autOK = document.createElement('td');
+    autOK.textContent = row.status = 'not automatically verified' ? 'NEJ':'JA';
+    tableRow.appendChild(autOK);
+
     tableBody.appendChild(tableRow);
   });
 }

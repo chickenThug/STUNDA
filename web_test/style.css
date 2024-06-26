@@ -531,3 +531,35 @@ body {
 #error-message {
     margin-top: 10px;
 }
+
+#terms-table {
+    border-collapse: collapse;
+    margin: 25px 0;
+    font-size: 0.9em;
+    font-family: sans-serif;
+    min-width: 400px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+}
+
+#terms-table thead tr {
+    background-color: #009879;
+    color: #ffffff;
+    text-align: left;
+}
+
+#terms-table th,
+#terms-table td {
+    padding: 12px 15px;
+}
+
+#terms-table tbody tr {
+    border-bottom: 1px solid #dddddd;
+}
+
+#terms-table tbody tr:nth-of-type(even) {
+    background-color: #f3f3f3;
+}
+
+#terms-table tbody tr:last-of-type {
+    border-bottom: 2px solid #009879;
+}
