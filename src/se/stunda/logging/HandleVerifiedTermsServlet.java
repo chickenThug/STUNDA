@@ -16,6 +16,8 @@ import java.util.Set;
 import io.github.cdimascio.dotenv.Dotenv;
 
 import java.net.URI;
+import java.net.URL;
+import java.net.HttpURLConnection;
 import java.net.URISyntaxException;
 import java.net.http.HttpClient;
 import java.net.http.HttpRequest;
