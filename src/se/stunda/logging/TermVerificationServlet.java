@@ -13,7 +13,14 @@ public class TermVerificationServlet extends HttpServlet {
         response.setContentType("application/json");
         response.setCharacterEncoding("UTF-8");
 
-        try (InputStream in = Files.newInputStream(Paths.get(TERM_FILE_PATH))) {
+        Path filePath = Paths.get(TERM_FILE_PATH);
+        if (Files.size(filePath) == 0) {
+            // If the file is empty, return an empty JSON array
+            response.getWriter().write("[]");
+            return;
+        }
+
+        try (InputStream in = Files.newInputStream(filePath)) {
             // Copy JSONL content directly to response output stream
             byte[] buffer = new byte[1024];
             int bytesRead;
@@ -22,8 +29,8 @@ public class TermVerificationServlet extends HttpServlet {
             }
         } catch (Exception e) {
             response.setStatus(HttpServletResponse.SC_INTERNAL_SERVER_ERROR);
-            response.setContentType("text/plain");
-            response.getWriter().write("error:" + e.getMessage());
+            String errorMessage = "{\"error\": \"" + e.getMessage() + "\"}";
+            response.getWriter().write(errorMessage);
         }
     }
 }

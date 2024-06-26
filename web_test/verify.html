@@ -25,7 +25,23 @@
             <p>När samtliga poster är genomgångna trycker du på knappen längst ner. Då laddas alla termer med ikryssad checkbox upp i databasen, och resterande läggs undan i en fil.</p>
         </div>
         <div class="term-verification" id="term-verification">
-            <!-- Checkboxes will be appended here -->
+            <table id="terms-table">
+                <thead>
+                    <tr>
+                        <th>Godkänd</th>
+                        <th>Sve Lemma</th>
+                        <th>Eng Lemma</th>
+                        <th>Sve Böjningar</th>
+                        <th>Eng Böjningar</th>
+                        <th>Källa</th>
+                        <th>POS</th>
+                        <th>Status</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Tabellrader läggs till här -->
+                </tbody>
+            </table>
         </div>
         <div id="no-action-message" style="display: none; color: blue;">
             Det finns inga termer att hantera.
