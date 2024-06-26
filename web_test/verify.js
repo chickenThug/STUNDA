@@ -45,6 +45,9 @@ function generateCheckboxes(data) {
   const tableBody = document.querySelector('#terms-table tbody');
   tableBody.innerHTML = '';
 
+  console.log("DATAA");
+  console.log(data);
+
   if (data.length === 0) {
     // Display message if no terms to check
     const noTermsMessage = document.getElementById('no-action-message');
