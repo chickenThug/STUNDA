@@ -597,8 +597,8 @@ def main():
     output_df = pd.concat([df_stop1, df_stop2, df_stop3, df])
 
     if "swedish_inflections" not in output_df.columns:
-        output_df['swedish_inflections'] = []
-        output_df['english_inflections'] = []
+        output_df['swedish_inflections'] = None
+        output_df['english_inflections'] = None
 
     # CHANGE : Lägg till bannade ord att tas bort, (kolla termer, källa) lägg in dessa poster i var/lib/stunda/terms/banned
     output_df = check_for_banned_words(output_df)
