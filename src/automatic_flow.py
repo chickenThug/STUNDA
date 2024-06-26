@@ -542,9 +542,10 @@ def main():
         datetime_string = now.strftime('%Y-%m-%d %H:%M:%S')
 
         df.to_csv(f"/var/lib/stunda/historical_processed/unprocessed_{datetime_string}.csv", index=False, encoding="utf-8")
-
+        df["agreed_pos"] = ''
+        
         if len(df) == 0:
-            return
+            return 
     else:
         print("Missing or incorrect arguments")
         exit(1)
@@ -581,12 +582,12 @@ def main():
     print("finished lemmatization in {:.2f} minutes".format((time.time() - start_time)/60))
 
     # Drop duplicate entries over swedish lemma, engish lemma, pos and source
-    df = df.drop_duplicates(subset=["eng_lemma", "swe_lemma", "src"])
+    df = df.drop_duplicates(subset=["eng_lemma", "swe_lemma", "agreed_pos", "src"])
 
     # Aggregate the sources
-    aggregated_sources_df = df.groupby(["swe_lemma", "eng_lemma"])["src"].apply(lambda x: ", ".join(x)).reset_index()  
+    aggregated_sources_df = df.groupby(["swe_lemma", "eng_lemma", "agreed_pos"])["src"].apply(lambda x: ", ".join(x)).reset_index()  
     df = df.drop(columns="src").drop_duplicates() 
-    df = df.merge(aggregated_sources_df, on=["swe_lemma", "eng_lemma"])
+    df = df.merge(aggregated_sources_df, on=["swe_lemma", "eng_lemma", "agreed_pos"])
 
     # Generera böjningsformer
     df = generate_inflections(df)
