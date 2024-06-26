@@ -26,10 +26,10 @@ const verifyTerms =  () => {
       },
       body: JSON.stringify(terms)
     })
-    .then(response => response.json())
+    .then(response => response.text())
     .then(data => {
       console.log("Received data:", data);
-        if (data.status === "success") {
+        if (data === "success") {
             console.log("Terms processed successfully");
         } else {
             console.error("Error processing terms");
