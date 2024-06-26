@@ -27,23 +27,19 @@ public class HandleVerifiedTermsServlet extends HttpServlet {
                 jsonBuffer.append(line);
             }
             JSONArray incomingTerms = new JSONArray(jsonBuffer.toString());
-            JSONArray processedTerms = new JSONArray();
-
-            try (BufferedReader reader = new BufferedReader(new FileReader(PROCESSED_FILE_PATH))) {
-                while ((line = reader.readLine()) != null) {
-                    JSONObject jsonObject = new JSONObject(line);
-                    processedTerms.put(jsonObject);
-                }
-            }
-
+            
             JSONArray approvedArray = new JSONArray();
             JSONArray notApprovedArray = new JSONArray();
+
+            Set<String> incomingTermIds = new HashSet<>();
 
             for (int i = 0; i < incomingTerms.length(); i++) {
                 JSONObject jsonObject = incomingTerms.getJSONObject(i);
 
                 // Determine whether the jsonObject is approved
                 boolean isApproved = jsonObject.optBoolean("approved", false);
+
+                incomingTermIds.add(jsonObject.getString("eng_lemma") + jsonObject.getString("swe_lemma") + jsonObject.getString("src"));
 
                 // Remove the 'approved' key from the JSONObject
                 jsonObject.remove("approved");
@@ -56,8 +52,21 @@ public class HandleVerifiedTermsServlet extends HttpServlet {
                 }
             }
 
-            writeToJsonlFile(approvedArray, APPROVED_FILE_PATH);
-            writeToJsonlFile(notApprovedArray, UNAPPROVED_FILE_PATH);
+            JSONArray remainingProcessedTerms = new JSONArray();
+
+            try (BufferedReader reader = new BufferedReader(new FileReader(PROCESSED_FILE_PATH))) {
+                while ((line = reader.readLine()) != null) {
+                    JSONObject jsonObject = new JSONObject(line);
+                    if (!incomingTermIds.contains(jsonObject.getString("eng_lemma") + jsonObject.getString("swe_lemma") + jsonObject.getString("src"))) {
+                        remainingProcessedTerms.put(jsonObject);
+                    }
+                    
+                }
+            }
+
+            writeToJsonlFile(remainingProcessedTerms, PROCESSED_FILE_PATH, false);
+            writeToJsonlFile(approvedArray, APPROVED_FILE_PATH, true);
+            writeToJsonlFile(notApprovedArray, UNAPPROVED_FILE_PATH, true);
 
 
             response.setContentType("application/json");
@@ -77,8 +86,8 @@ public class HandleVerifiedTermsServlet extends HttpServlet {
         }        
     }
 
-    private static void writeToJsonlFile(JSONArray jsonArray, String filePath) {
-        try (FileWriter fileWriter = new FileWriter(filePath, true)) {
+    private static void writeToJsonlFile(JSONArray jsonArray, String filePath, boolean append) {
+        try (FileWriter fileWriter = new FileWriter(filePath, append)) {
             for (int i = 0; i < jsonArray.length(); i++) {
                 fileWriter.write(jsonArray.getJSONObject(i).toString() + "\n");
             }
