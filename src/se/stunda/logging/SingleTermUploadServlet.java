@@ -10,12 +10,13 @@ import java.nio.file.*;
 
 @MultipartConfig
 public class SingleTermUploadServlet extends HttpServlet {
-    private static final String FILE_PATH = "/var/lib/stunda/terms/unprocessed.csv";
+    private static final String FILE_PATH = "/var/lib/stunda/terms_test/unprocessed.csv";
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
 
         try {
+            request.setCharacterEncoding("UTF-8");
             String swedishTerm = request.getParameter("sweTerm");
             String englishTerm = request.getParameter("engTerm");
             String source =      request.getParameter("source");
