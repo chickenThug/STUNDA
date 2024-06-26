@@ -83,7 +83,7 @@ function generateCheckboxes(data) {
 
     // Eng inf
     const engInfCell = document.createElement('td');
-    engInfCell.textContent = row.english_inflection || '';
+    engInfCell.textContent = row.english_inflections || '';
     tableRow.appendChild(engInfCell);
 
     const srcCell = document.createElement('td');
@@ -96,7 +96,7 @@ function generateCheckboxes(data) {
 
     // Swe lemma
     const autOK = document.createElement('td');
-    autOK.textContent = row.status = 'not automatically verified' ? 'NEJ':'JA';
+    autOK.textContent = (row.status === 'automatically verified') ? 'JA':'NEJ';
     tableRow.appendChild(autOK);
 
     tableBody.appendChild(tableRow);
