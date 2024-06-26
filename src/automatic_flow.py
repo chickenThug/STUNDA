@@ -542,13 +542,14 @@ def main():
         datetime_string = now.strftime('%Y-%m-%d %H:%M:%S')
 
         df.to_csv(f"/var/lib/stunda/historical_processed/unprocessed_{datetime_string}.csv", index=False, encoding="utf-8")
-        df["agreed_pos"] = ''
         
         if len(df) == 0:
             return 
     else:
         print("Missing or incorrect arguments")
         exit(1)
+    
+    df["agreed_pos"] = ''
 
     t0 = time.time()
 
@@ -594,6 +595,10 @@ def main():
 
     # Concatenate all parts and calculate total processing time
     output_df = pd.concat([df_stop1, df_stop2, df_stop3, df])
+
+    if "swedish_inflections" not in output_df.columns:
+        output_df['swedish_inflections'] = []
+        output_df['english_inflections'] = []
 
     # CHANGE : Lägg till bannade ord att tas bort, (kolla termer, källa) lägg in dessa poster i var/lib/stunda/terms/banned
     output_df = check_for_banned_words(output_df)
