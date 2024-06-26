@@ -189,7 +189,7 @@ public class HandleVerifiedTermsServlet extends HttpServlet {
         } catch (Exception e) {
             // Handle general errors
             response.setStatus(HttpServletResponse.SC_INTERNAL_SERVER_ERROR);
-            response.getWriter().write("Internal server error occurred");
+            response.getWriter().write("Internal server error occurred:" + e.getMessage());
         }        
     }
 
