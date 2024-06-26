@@ -542,6 +542,9 @@ def main():
         datetime_string = now.strftime('%Y-%m-%d %H:%M:%S')
 
         df.to_csv(f"/var/lib/stunda/historical_processed/unprocessed_{datetime_string}.csv", index=False, encoding="utf-8")
+
+        if len(df) == 0:
+            return
     else:
         print("Missing or incorrect arguments")
         exit(1)
