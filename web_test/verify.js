@@ -6,6 +6,7 @@ const verifyTerms =  () => {
 
   checkboxes.forEach(checkbox => {
     const termData = JSON.parse(checkbox.value);
+    // change to termData["approved"] = checkbox.checked; ?
     if (checkbox.checked) {
       termData["approved"] = true
     } else {
@@ -41,7 +42,8 @@ const verifyTerms =  () => {
 };
 
 function generateCheckboxes(data) {
-  const container = document.getElementById('term-verification');
+  const tableBody = document.querySelector('#terms-table tbody');
+  tableBody.innerHTML = '';
 
   if (data.length === 0) {
     // Display message if no terms to check
@@ -51,31 +53,48 @@ function generateCheckboxes(data) {
   }
 
   data.forEach((row, index) => {
-      const checkboxContainer = document.createElement('div');
-      checkboxContainer.className = 'checkbox-container';
+    const tableRow = document.createElement('tr');
 
-      const checkbox = document.createElement('input');
-      checkbox.type = 'checkbox';
-      checkbox.id = `term${index}`;
-      checkbox.name = `term${index}`;
-      checkbox.value = JSON.stringify(row);
-      checkbox.checked = true;
+    // Checkboxes
+    const checkboxCell = document.createElement('td');
+    const checkbox = document.createElement('input');
+    checkbox.type = 'checkbox';
+    checkbox.id = `term${index}`;
+    checkbox.name = `term${index}`;
+    checkbox.value = JSON.stringify(row);
+    checkbox.checked = true;
+    checkboxCell.appendChild(checkbox);
+    tableRow.appendChild(checkboxCell);
 
-      const label = document.createElement('label');
-      label.htmlFor = `term${index}`;
-      // Use an array of conditions and filter out any that result in empty strings or falsy values
-      label.textContent = [
-        row.swe_lemma ? `${row.swe_lemma}${row.swedish_inflections ? ` (${row.swedish_inflections})` : ''}` : '',
-        row.eng_lemma ? `${row.eng_lemma}${row.english_inflections ? ` (${row.english_inflections})` : ''}` : '',
-        row.agreed_pos || '',
-        row.src || ''
-      ].filter(Boolean).join(', ');
+    // Swe lemma
+    const sweLemmaCell = document.createElement('td');
+    sweLemmaCell.textContent = row.swe_lemma || '';
+    tableRow.appendChild(sweLemmaCell);
 
-      checkboxContainer.appendChild(checkbox);
-      checkboxContainer.appendChild(label);
+    // Eng lemma
+    const engLemmaCell = document.createElement('td');
+    engLemmaCell.textContent = row.eng_lemma || '';
+    tableRow.appendChild(engLemmaCell);
 
-      // Append the container to the main container
-      container.appendChild(checkboxContainer);
+    // Swe inf
+    const sweInfCell = document.createElement('td');
+    sweInfCell.textContent = row.swedish_inflections || '';
+    tableRow.appendChild(sweInfCell);
+
+    // Eng inf
+    const engInfCell = document.createElement('td');
+    engInfCell.textContent = row.english_inflection || '';
+    tableRow.appendChild(engInfCell);
+
+    const srcCell = document.createElement('td');
+    srcCell.textContent = row.src || '';
+    tableRow.appendChild(srcCell);
+
+    const posCell = document.createElement('td');
+    posCell.textContent = row.agreed_pos || '';
+    tableRow.appendChild(posCell);
+
+    tableBody.appendChild(tableRow);
   });
 }
 
