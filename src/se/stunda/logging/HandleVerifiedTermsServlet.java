@@ -14,6 +14,7 @@ import java.util.List;
 import java.util.HashSet;
 import java.util.Set;
 import io.github.cdimascio.dotenv.Dotenv;
+
 import java.net.URI;
 import java.net.URISyntaxException;
 import java.net.http.HttpClient;
@@ -21,6 +22,7 @@ import java.net.http.HttpRequest;
 import java.net.http.HttpResponse;
 import java.net.http.HttpRequest.BodyPublishers;
 import java.net.http.HttpResponse.BodyHandlers;
+import java.net.http.HttpHeaders;
 
 public class HandleVerifiedTermsServlet extends HttpServlet {
     private static final String UNAPPROVED_FILE_PATH = "/var/lib/stunda/terms_test/notapproved.jsonl";
@@ -101,15 +103,15 @@ public class HandleVerifiedTermsServlet extends HttpServlet {
                 String engLemma = obj.getString("eng_lemma");
                 String sweLemma = obj.getString("swe_lemma");
                 String src = obj.getString("src");
-                JSONArray engInflections = obj.get("english_inflections");
-                JSONArray sweInflections = obj.get("swedish_inflections");
+                JSONArray engInflections = obj.optJSONArray("english_inflections");
+                JSONArray sweInflections = obj.optJSONArray("swedish_inflections");
                 String pos = obj.getString("agreed_pos");
 
                 String[] incoming_srcs = src.split(", ");
 
                 JSONObject karpSearch = getTerm(engLemma, sweLemma);
 
-                JSONArray hits = karpSearch.get("hits");
+                JSONArray hits = karpSearch.optJSONArray("hits");
 
                 boolean already_exist = false;
 
@@ -117,10 +119,10 @@ public class HandleVerifiedTermsServlet extends HttpServlet {
                     JSONObject hit = hits.getJSONObject(j);
                     String id = hit.getString("id");
                     int version = hit.getInt("version");
-                    JSONObject entry = hit.get("entry");
+                    JSONObject entry = hit.optJSONObject("entry");
 
                     String new_source;
-                    if ((entry.get("eng").getString("lemma") == engLemma) && (entry.get("swe").getString("lemma") == sweLemma)) {
+                    if ((entry.optJSONObject("eng").getString("lemma") == engLemma) && (entry.optJSONObject("swe").getString("lemma") == sweLemma)) {
                         already_exist = true;
                         new_source = entry.getString("src");
                         String[] current_srcs = new_source.split(", ");
@@ -143,8 +145,8 @@ public class HandleVerifiedTermsServlet extends HttpServlet {
                     JSONObject eng = new JSONObject();
                     JSONObject swe = new JSONObject();
 
-                    eng.put("lemma", eng_lemma);
-                    swe.put("lemma", swe_lemma);
+                    eng.put("lemma", engLemma);
+                    swe.put("lemma", sweLemma);
 
                     if (engInflections == null) {
                         eng.put("inflections", new JSONArray());
@@ -232,7 +234,7 @@ public class HandleVerifiedTermsServlet extends HttpServlet {
         return jsonResponse;
     }
 
-    public static JSONObject updateTerm(String id, JSONObject entry, String version, String apiKey, boolean verbose) {
+    public static JSONObject updateTerm(String id, JSONObject entry, int version, String apiKey, boolean verbose) {
         String urlString = "https://spraakbanken4.it.gu.se/karp/v7/entries/stunda/" + id;
         JSONObject jsonResponse = null;
 
