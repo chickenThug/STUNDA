@@ -15,6 +15,7 @@ import java.util.List;
 public class HandleVerifiedTermsServlet extends HttpServlet {
     private static final String UNAPPROVED_FILE_PATH = "/var/lib/stunda/terms_test/notapproved.jsonl";
     private static final String APPROVED_FILE_PATH = "/var/lib/stunda/terms_test/approved.jsonl";
+    private static final String PROCESSED_FILE_PATH = "/var/lib/stunda/terms_test/processed.jsonl";
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
@@ -25,13 +26,21 @@ public class HandleVerifiedTermsServlet extends HttpServlet {
             while ((line = request.getReader().readLine()) != null) {
                 jsonBuffer.append(line);
             }
-            JSONArray jsonArray = new JSONArray(jsonBuffer.toString());
+            JSONArray incomingTerms = new JSONArray(jsonBuffer.toString());
+            JSONArray processedTerms = new JSONArray();
+
+            try (BufferedReader reader = new BufferedReader(new FileReader(PROCESSED_FILE_PATH))) {
+                while ((line = reader.readLine()) != null) {
+                    JSONObject jsonObject = new JSONObject(line);
+                    processedTerms.put(jsonObject);
+                }
+            }
 
             JSONArray approvedArray = new JSONArray();
             JSONArray notApprovedArray = new JSONArray();
 
-            for (int i = 0; i < jsonArray.length(); i++) {
-                JSONObject jsonObject = jsonArray.getJSONObject(i);
+            for (int i = 0; i < incomingTerms.length(); i++) {
+                JSONObject jsonObject = incomingTerms.getJSONObject(i);
 
                 // Determine whether the jsonObject is approved
                 boolean isApproved = jsonObject.optBoolean("approved", false);
@@ -53,11 +62,14 @@ public class HandleVerifiedTermsServlet extends HttpServlet {
 
             response.setContentType("application/json");
             response.setCharacterEncoding("UTF-8");
-            response.getWriter().write(jsonArray.toString());
+            response.getWriter().write(incomingTerms.toString());
         } catch (JSONException e) {
             // Handle JSON parsing errors or other JSON related issues
             response.setStatus(HttpServletResponse.SC_BAD_REQUEST);
             response.getWriter().write("Invalid JSON data provided");
+        } catch (IOException e) {
+        response.setStatus(HttpServletResponse.SC_INTERNAL_SERVER_ERROR);
+        response.getWriter().write("Error processing request: " + e.getMessage());
         } catch (Exception e) {
             // Handle general errors
             response.setStatus(HttpServletResponse.SC_INTERNAL_SERVER_ERROR);
