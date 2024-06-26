@@ -124,13 +124,13 @@ public class HandleVerifiedTermsServlet extends HttpServlet {
                     JSONObject entry = hit.optJSONObject("entry");
 
                     String new_source;
-                    if ((entry.optJSONObject("eng").getString("lemma") == engLemma) && (entry.optJSONObject("swe").getString("lemma") == sweLemma)) {
+                    if ((entry.optJSONObject("eng").getString("lemma").equals(engLemma)) && (entry.optJSONObject("swe").getString("lemma").equals(sweLemma))) {
                         already_exist = true;
                         new_source = entry.getString("src");
                         String[] current_srcs = new_source.split(", ");
                         for (String inc_src : incoming_srcs) {
                             for (String cur_srcs : current_srcs) {
-                                if (inc_src != cur_srcs) {
+                                if (!inc_src.equals(cur_srcs)) {
                                     new_source += ", " + inc_src;
                                 }
                             }
