@@ -581,12 +581,12 @@ def main():
     print("finished lemmatization in {:.2f} minutes".format((time.time() - start_time)/60))
 
     # Drop duplicate entries over swedish lemma, engish lemma, pos and source
-    df = df.drop_duplicates(subset=["eng_lemma", "swe_lemma", "agreed_pos", "src"])
+    df = df.drop_duplicates(subset=["eng_lemma", "swe_lemma", "src"])
 
     # Aggregate the sources
-    aggregated_sources_df = df.groupby(["swe_lemma", "eng_lemma", "agreed_pos"])["src"].apply(lambda x: ", ".join(x)).reset_index()  
+    aggregated_sources_df = df.groupby(["swe_lemma", "eng_lemma"])["src"].apply(lambda x: ", ".join(x)).reset_index()  
     df = df.drop(columns="src").drop_duplicates() 
-    df = df.merge(aggregated_sources_df, on=["swe_lemma", "eng_lemma", "agreed_pos"])
+    df = df.merge(aggregated_sources_df, on=["swe_lemma", "eng_lemma"])
 
     # Generera böjningsformer
     df = generate_inflections(df)
