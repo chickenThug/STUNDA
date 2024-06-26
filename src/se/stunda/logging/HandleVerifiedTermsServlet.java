@@ -88,8 +88,6 @@ public class HandleVerifiedTermsServlet extends HttpServlet {
                 }
             }
 
-            writeToJsonlFile(remainingProcessedTerms, PROCESSED_FILE_PATH, false);
-            writeToJsonlFile(approvedArray, APPROVED_FILE_PATH, true);
             writeToJsonlFile(notApprovedArray, UNAPPROVED_FILE_PATH, true);
 
             Set<String> allowedPos = new HashSet<>();
@@ -176,6 +174,9 @@ public class HandleVerifiedTermsServlet extends HttpServlet {
                     addEntry(api_key, new_entry, false);
                 }
             }
+            
+            writeToJsonlFile(remainingProcessedTerms, PROCESSED_FILE_PATH, false);
+            writeToJsonlFile(approvedArray, APPROVED_FILE_PATH, true);
 
             response.setContentType("text/plain");
             response.getWriter().write("success");
@@ -189,7 +190,12 @@ public class HandleVerifiedTermsServlet extends HttpServlet {
         } catch (Exception e) {
             // Handle general errors
             response.setStatus(HttpServletResponse.SC_INTERNAL_SERVER_ERROR);
-            response.getWriter().write("Internal server error occurred:" + e.getMessage());
+            // Capture the stack trace
+            StringWriter sw = new StringWriter();
+            PrintWriter pw = new PrintWriter(sw);
+            e.printStackTrace(pw);
+            String stackTrace = sw.toString();
+            response.getWriter().write("Internal server error occurred: " + e.getMessage() + "\n" + stackTrace);
         }        
     }
 
