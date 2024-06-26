@@ -61,12 +61,6 @@ const validateAndUpload = () => {
     const rightsError = document.getElementById('rights-error');
     const srcCommaError = document.getElementById('src-comma-error');
 
-    if (src.includes(",")) {
-        srcCommaError.style.display = 'inline'
-    } else {
-        srcCommaError.style.display = 'none'
-    }
-
     if (!src && !rights) {
         srcError.style.display = 'inline';
         rightsError.style.display = 'inline';
@@ -78,13 +72,29 @@ const validateAndUpload = () => {
         return;
     }
     else if (!rights){
-        rightsError.style.display = 'inline';
-        srcError.style.display = 'none';
-        return;
+        if (src.includes(",")) {
+            srcError.style.display = 'none';
+            srcCommaError.style.display = 'inline'
+            rightsError.style.display = 'inline';
+            return;
+        } else {
+            rightsError.style.display = 'inline';
+            srcError.style.display = 'none';
+            srcCommaError.style.display = 'none'
+            return;
+        }
     }
     else {
-        srcError.style.display = 'none';
-        rightsError.style.display = 'none';
+        if (src.includes(",")) {
+            srcCommaError.style.display = 'inline'
+            srcError.style.display = 'none';
+            rightsError.style.display = 'none';
+            return;
+        } else {
+            srcError.style.display = 'none';
+            rightsError.style.display = 'none';
+            srcCommaError.style.display = 'none';
+        }
     }
 
     uploadFunction(swe_term, eng_term, file, src, contact);
