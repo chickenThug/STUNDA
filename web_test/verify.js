@@ -48,7 +48,7 @@ function generateCheckboxes(data) {
   console.log("DATAA");
   console.log(data);
 
-  if (data.length === 0) {
+  if (data.length === 1 && data[0].length === 0) {
     // Display message if no terms to check
     const noTermsMessage = document.getElementById('no-action-message');
     noTermsMessage.style.display = 'block';

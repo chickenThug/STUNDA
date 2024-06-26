@@ -16,7 +16,7 @@ public class TermVerificationServlet extends HttpServlet {
         Path filePath = Paths.get(TERM_FILE_PATH);
         if (Files.size(filePath) == 0) {
             // If the file is empty, return an empty JSON array
-            response.getWriter().write("");
+            response.getWriter().write("[]");
             return;
         }
 
