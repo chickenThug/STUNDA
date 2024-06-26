@@ -596,6 +596,8 @@ def main():
     # Concatenate all parts and calculate total processing time
     output_df = pd.concat([df_stop1, df_stop2, df_stop3, df])
 
+    print(output_df)
+
     if "swedish_inflections" not in output_df.columns:
         output_df['swedish_inflections'] = None
         output_df['english_inflections'] = None

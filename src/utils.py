@@ -159,11 +159,29 @@ def add_entry(authorization, entry, verbose=False):
 
     data = {"entry": entry, "message": ""}
 
-    print(data)
-
     response = requests.put(url, headers=headers, json=data)
 
-    print(response)
+    if response.status_code == 201:
+        if verbose:
+            print("successfull add")
+        return response.json()["newID"]
+    else:
+        if verbose:
+            print("unsuccessfull add", response.status_code, response)
+        return None
+    
+def add_entry_via_api_key(api_key, entry, verbose=False):
+    url = "https://spraakbanken4.it.gu.se/karp/v7/entries/stunda"
+
+    headers = {
+        "Content-Type": "application/json",
+    }
+
+    data = {"entry": entry, "message": ""}
+
+    params = {"api_key" : api_key}
+
+    response = requests.put(url, headers=headers, json=data, params=params)
 
     if response.status_code == 201:
         if verbose:

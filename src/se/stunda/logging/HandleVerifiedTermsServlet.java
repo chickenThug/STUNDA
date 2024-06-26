@@ -23,6 +23,14 @@ public class HandleVerifiedTermsServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         try {
+            Dotenv dotenv = Dotenv.configure()
+                .directory("/var/lib/stunda/data")
+                .ignoreIfMalformed()
+                .ignoreIfMissing()
+                .load();
+
+            String api_key = dotenv.get("KARP_API_KEY");
+
             StringBuilder jsonBuffer = new StringBuilder();
             String line;
             request.setCharacterEncoding("UTF-8");
@@ -72,6 +80,91 @@ public class HandleVerifiedTermsServlet extends HttpServlet {
             writeToJsonlFile(approvedArray, APPROVED_FILE_PATH, true);
             writeToJsonlFile(notApprovedArray, UNAPPROVED_FILE_PATH, true);
 
+            Set<String> allowedPos = new HashSet<>();
+            allowedPos.add("N");
+            allowedPos.add("V");
+            allowedPos.add("NP");
+            allowedPos.add("A");
+            allowedPos.add("Ab");
+
+            for (int i = 0; i < approvedArray.length(); i++) {
+                JSONObject obj = approvedArray.getJSONObject(i);
+                // Process each JSONObject
+                String engLemma = obj.getString("eng_lemma");
+                String sweLemma = obj.getString("swe_lemma");
+                String src = obj.getString("src");
+                JSONArray engInflections = obj.get("english_inflections");
+                JSONArray sweInflections = obj.get("swedish_inflections");
+                String pos = obj.getString("agreed_pos");
+
+                String[] incoming_srcs = src.split(", ");
+
+                JSONObject karpSearch = getTerm(engLemma, sweLemma);
+
+                JSONArray hits = karpSearch.get("hits");
+
+                boolean already_exist = false;
+
+                for (int j = 0; j < hits.length(); j++) {
+                    JSONObject hit = hits.getJSONObject(j);
+                    String id = hit.getString("id");
+                    int version = hit.getInt("version");
+                    JSONObject entry = hit.get("entry");
+
+                    String new_source;
+                    if ((entry.get("eng").getString("lemma") == engLemma) && (entry.get("swe").getString("lemma") == sweLemma)) {
+                        already_exist = true;
+                        new_source = entry.getString("src");
+                        String[] current_srcs = new_source.split(", ");
+                        for (String inc_src : incoming_srcs) {
+                            for (String cur_srcs : current_srcs) {
+                                if (inc_src != cur_srcs) {
+                                    new_source += ", " + inc_src;
+                                }
+                            }
+                        }
+                        entry.put("src", new_source);
+                        updateTerm(id, entry, version, api_key, false);
+                        break;
+                    }
+                }
+                if (already_exist) {
+                    continue;
+                }
+                else {
+                    JSONObject eng = new JSONObject();
+                    JSONObject swe = new JSONObject();
+
+                    eng.put("lemma", eng_lemma);
+                    swe.put("lemma", swe_lemma);
+
+                    if (engInflections == null) {
+                        eng.put("inflections", new JSONArray());
+                    } else {
+                        eng.put("inflections", engInflections);
+                    }
+            
+                    // Check and assign "inflections" for "swe"
+                    if (sweInflections == null) {
+                        swe.put("inflections", new JSONArray());
+                    } else {
+                        swe.put("inflections", sweInflections);
+                    }
+
+                    JSONObject new_entry = new JSONObject();
+
+                    new_entry.put("src", src);
+                    new_entry.put("eng", eng);
+                    new_entry.put("swe", swe);
+
+                    if (allowedPos.contains(pos)) {
+                        new_entry.put("pos", pos);
+                    }
+
+                    addEntry(api_key, new_entry, false);
+                }
+            }
+
             response.setContentType("text/plain");
             response.getWriter().write("success");
         } catch (JSONException e) {
@@ -96,5 +189,148 @@ public class HandleVerifiedTermsServlet extends HttpServlet {
         } catch (IOException e) {
             System.err.println("Error writing to file: " + e.getMessage());
         }
+    }
+
+    public static JSONObject getTerm(String eng_lemma, String swe_lemma) {
+        String urlString = "https://spraakbanken4.it.gu.se/karp/v7/query/stunda?q=and(equals|eng.lemma|" + eng_lemma + "||equals|swe.lemma|" + swe_lemma + ")&from=0&size=100";
+        JSONObject jsonResponse = new JSONObject();
+
+        try {
+            URL url = new URL(urlString);
+            HttpURLConnection conn = (HttpURLConnection) url.openConnection();
+            conn.setRequestMethod("GET");
+
+            int responseCode = conn.getResponseCode();
+
+            if (responseCode == 200) { // success
+                BufferedReader in = new BufferedReader(new InputStreamReader(conn.getInputStream()));
+                String inputLine;
+                StringBuffer response = new StringBuffer();
+
+                while ((inputLine = in.readLine()) != null) {
+                    response.append(inputLine);
+                }
+                in.close();
+
+                jsonResponse = new JSONObject(response.toString());
+                System.out.println("Successful GET");
+            } else {
+                System.out.println("Error: " + responseCode);
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        return jsonResponse;
+    }
+
+    public static JSONObject updateTerm(String id, JSONObject entry, String version, String apiKey, boolean verbose) {
+        String urlString = "https://spraakbanken4.it.gu.se/karp/v7/entries/stunda/" + id;
+        JSONObject jsonResponse = null;
+
+        try {
+            URL url = new URL(urlString + "?api_key=" + apiKey);
+            HttpURLConnection conn = (HttpURLConnection) url.openConnection();
+            conn.setRequestMethod("POST");
+            conn.setRequestProperty("Content-Type", "application/json");
+            conn.setRequestProperty("Accept", "*/*");
+            conn.setRequestProperty("Connection", "keep-alive");
+            conn.setDoOutput(true);
+
+            JSONObject data = new JSONObject();
+            data.put("entry", entry);
+            data.put("message", "");
+            data.put("version", version);
+
+            try (OutputStream os = conn.getOutputStream()) {
+                byte[] input = data.toString().getBytes("utf-8");
+                os.write(input, 0, input.length);
+            }
+
+            int responseCode = conn.getResponseCode();
+            BufferedReader in;
+            if (responseCode == 200) {
+                in = new BufferedReader(new InputStreamReader(conn.getInputStream(), "utf-8"));
+                StringBuilder response = new StringBuilder();
+                String responseLine;
+                while ((responseLine = in.readLine()) != null) {
+                    response.append(responseLine.trim());
+                }
+                jsonResponse = new JSONObject(response.toString());
+                if (verbose) {
+                    System.out.println("Successful update");
+                }
+            } else {
+                in = new BufferedReader(new InputStreamReader(conn.getErrorStream(), "utf-8"));
+                StringBuilder response = new StringBuilder();
+                String responseLine;
+                while ((responseLine = in.readLine()) != null) {
+                    response.append(responseLine.trim());
+                }
+                if (verbose) {
+                    System.out.println("Unsuccessful update: " + responseCode + ", " + response.toString());
+                }
+            }
+            in.close();
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        return jsonResponse;
+    }
+
+    public static String addEntry(String apiKey, JSONObject entry, boolean verbose) {
+        String urlString = "https://spraakbanken4.it.gu.se/karp/v7/entries/stunda";
+        String newID = null;
+
+        try {
+            URL url = new URL(urlString + "?api_key=" + apiKey);
+            HttpURLConnection conn = (HttpURLConnection) url.openConnection();
+            conn.setRequestMethod("PUT");
+            conn.setRequestProperty("Content-Type", "application/json");
+            conn.setDoOutput(true);
+
+            JSONObject data = new JSONObject();
+            data.put("entry", entry);
+            data.put("message", "");
+
+            try (OutputStream os = conn.getOutputStream()) {
+                byte[] input = data.toString().getBytes("utf-8");
+                os.write(input, 0, input.length);
+            }
+
+            int responseCode = conn.getResponseCode();
+            BufferedReader in;
+            if (responseCode == 201) {
+                in = new BufferedReader(new InputStreamReader(conn.getInputStream(), "utf-8"));
+                StringBuilder response = new StringBuilder();
+                String responseLine;
+                while ((responseLine = in.readLine()) != null) {
+                    response.append(responseLine.trim());
+                }
+                JSONObject jsonResponse = new JSONObject(response.toString());
+                newID = jsonResponse.getString("newID");
+                if (verbose) {
+                    System.out.println("Successful add");
+                }
+            } else {
+                in = new BufferedReader(new InputStreamReader(conn.getErrorStream(), "utf-8"));
+                StringBuilder response = new StringBuilder();
+                String responseLine;
+                while ((responseLine = in.readLine()) != null) {
+                    response.append(responseLine.trim());
+                }
+                if (verbose) {
+                    System.out.println("Unsuccessful add: " + responseCode + ", " + response.toString());
+                }
+            }
+            in.close();
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        return newID;
     }
 }
