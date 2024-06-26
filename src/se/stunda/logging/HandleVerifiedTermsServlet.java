@@ -190,12 +190,7 @@ public class HandleVerifiedTermsServlet extends HttpServlet {
         } catch (Exception e) {
             // Handle general errors
             response.setStatus(HttpServletResponse.SC_INTERNAL_SERVER_ERROR);
-            // Capture the stack trace
-            StringWriter sw = new StringWriter();
-            PrintWriter pw = new PrintWriter(sw);
-            e.printStackTrace(pw);
-            String stackTrace = sw.toString();
-            response.getWriter().write("Internal server error occurred: " + e.getMessage() + "\n" + stackTrace);
+            response.getWriter().write("Internal server error occurred: " + e.getMessage());
         }        
     }
 
