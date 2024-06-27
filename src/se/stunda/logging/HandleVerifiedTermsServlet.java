@@ -7,25 +7,13 @@ import javax.servlet.*;
 import javax.servlet.http.*;
 import java.io.IOException;
 import java.io.*;
-import java.nio.file.Files;
-import java.nio.file.Path;
-import java.nio.file.Paths;
-import java.util.List;
 import java.util.HashSet;
 import java.util.Set;
 import io.github.cdimascio.dotenv.Dotenv;
 
-import java.net.URI;
 import java.net.URL;
 import java.net.URLEncoder;
 import java.net.HttpURLConnection;
-import java.net.URISyntaxException;
-import java.net.http.HttpClient;
-import java.net.http.HttpRequest;
-import java.net.http.HttpResponse;
-import java.net.http.HttpRequest.BodyPublishers;
-import java.net.http.HttpResponse.BodyHandlers;
-import java.net.http.HttpHeaders;
 
 public class HandleVerifiedTermsServlet extends HttpServlet {
     private static final String UNAPPROVED_FILE_PATH = "/var/lib/stunda/terms/notapproved.jsonl";
@@ -37,10 +25,10 @@ public class HandleVerifiedTermsServlet extends HttpServlet {
             throws ServletException, IOException {
         try {
             Dotenv dotenv = Dotenv.configure()
-                .directory("/var/lib/stunda/data")
-                .ignoreIfMalformed()
-                .ignoreIfMissing()
-                .load();
+                    .directory("/var/lib/stunda/data")
+                    .ignoreIfMalformed()
+                    .ignoreIfMissing()
+                    .load();
 
             String api_key = dotenv.get("KARP_API_KEY");
 
@@ -52,7 +40,7 @@ public class HandleVerifiedTermsServlet extends HttpServlet {
                 jsonBuffer.append(line);
             }
             JSONArray incomingTerms = new JSONArray(jsonBuffer.toString());
-            
+
             JSONArray approvedArray = new JSONArray();
             JSONArray notApprovedArray = new JSONArray();
 
@@ -64,7 +52,8 @@ public class HandleVerifiedTermsServlet extends HttpServlet {
                 // Determine whether the jsonObject is approved
                 boolean isApproved = jsonObject.optBoolean("approved", false);
 
-                incomingTermIds.add(jsonObject.getString("eng_lemma") + jsonObject.getString("swe_lemma") + jsonObject.getString("src"));
+                incomingTermIds.add(jsonObject.getString("eng_lemma") + jsonObject.getString("swe_lemma")
+                        + jsonObject.getString("src"));
 
                 // Remove the 'approved' key from the JSONObject
                 jsonObject.remove("approved");
@@ -82,10 +71,11 @@ public class HandleVerifiedTermsServlet extends HttpServlet {
             try (BufferedReader reader = new BufferedReader(new FileReader(PROCESSED_FILE_PATH))) {
                 while ((line = reader.readLine()) != null) {
                     JSONObject jsonObject = new JSONObject(line);
-                    if (!incomingTermIds.contains(jsonObject.getString("eng_lemma") + jsonObject.getString("swe_lemma") + jsonObject.getString("src"))) {
+                    if (!incomingTermIds.contains(jsonObject.getString("eng_lemma") + jsonObject.getString("swe_lemma")
+                            + jsonObject.getString("src"))) {
                         remainingProcessedTerms.put(jsonObject);
                     }
-                    
+
                 }
             }
 
@@ -123,7 +113,8 @@ public class HandleVerifiedTermsServlet extends HttpServlet {
                     JSONObject entry = hit.optJSONObject("entry");
 
                     String new_source;
-                    if ((entry.optJSONObject("eng").getString("lemma").equals(engLemma)) && (entry.optJSONObject("swe").getString("lemma").equals(sweLemma))) {
+                    if ((entry.optJSONObject("eng").getString("lemma").equals(engLemma))
+                            && (entry.optJSONObject("swe").getString("lemma").equals(sweLemma))) {
                         already_exist = true;
                         new_source = entry.getString("src");
                         String[] current_srcs = new_source.split(", ");
@@ -141,8 +132,7 @@ public class HandleVerifiedTermsServlet extends HttpServlet {
                 }
                 if (already_exist) {
                     continue;
-                }
-                else {
+                } else {
                     JSONObject eng = new JSONObject();
                     JSONObject swe = new JSONObject();
 
@@ -154,7 +144,7 @@ public class HandleVerifiedTermsServlet extends HttpServlet {
                     } else {
                         eng.put("inflections", engInflections);
                     }
-            
+
                     // Check and assign "inflections" for "swe"
                     if (sweInflections == null) {
                         swe.put("inflections", new JSONArray());
@@ -175,7 +165,7 @@ public class HandleVerifiedTermsServlet extends HttpServlet {
                     addEntry(api_key, new_entry, false);
                 }
             }
-            
+
             writeToJsonlFile(remainingProcessedTerms, PROCESSED_FILE_PATH, false);
             writeToJsonlFile(approvedArray, APPROVED_FILE_PATH, true);
 
@@ -186,13 +176,13 @@ public class HandleVerifiedTermsServlet extends HttpServlet {
             response.setStatus(HttpServletResponse.SC_BAD_REQUEST);
             response.getWriter().write("Invalid JSON data provided");
         } catch (IOException e) {
-        response.setStatus(HttpServletResponse.SC_INTERNAL_SERVER_ERROR);
-        response.getWriter().write("Error processing request: " + e.getMessage());
+            response.setStatus(HttpServletResponse.SC_INTERNAL_SERVER_ERROR);
+            response.getWriter().write("Error processing request: " + e.getMessage());
         } catch (Exception e) {
             // Handle general errors
             response.setStatus(HttpServletResponse.SC_INTERNAL_SERVER_ERROR);
             response.getWriter().write("Internal server error occurred: " + e.getMessage());
-        }        
+        }
     }
 
     private static void writeToJsonlFile(JSONArray jsonArray, String filePath, boolean append) {
@@ -209,7 +199,9 @@ public class HandleVerifiedTermsServlet extends HttpServlet {
         JSONObject jsonResponse = new JSONObject();
 
         try {
-            String urlString = "https://spraakbanken4.it.gu.se/karp/v7/query/stunda?q=and(equals|eng.lemma|" + URLEncoder.encode(eng_lemma, "UTF-8") + "||equals|swe.lemma|" + URLEncoder.encode(swe_lemma, "UTF-8") + ")&from=0&size=100";
+            String urlString = "https://spraakbanken4.it.gu.se/karp/v7/query/stunda?q=and(equals|eng.lemma|"
+                    + URLEncoder.encode(eng_lemma, "UTF-8") + "||equals|swe.lemma|"
+                    + URLEncoder.encode(swe_lemma, "UTF-8") + ")&from=0&size=100";
             URL url = new URL(urlString);
             HttpURLConnection conn = (HttpURLConnection) url.openConnection();
             conn.setRequestMethod("GET");

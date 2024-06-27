@@ -1,12 +1,10 @@
 package se.stunda.logging;
 
 import javax.servlet.annotation.MultipartConfig;
-import javax.servlet.annotation.WebServlet;
 import javax.servlet.*;
 import javax.servlet.http.*;
 import java.io.*;
 import java.nio.file.*;
-import java.nio.file.attribute.BasicFileAttributes;
 
 @MultipartConfig
 public class TermUploadServlet extends HttpServlet {
