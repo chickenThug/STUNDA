@@ -1,3 +1,6 @@
+let currentIndex = 0;
+let termsList = [];
+
 const verifyTerms =  () => {
   console.log("verified");
 
@@ -32,6 +35,8 @@ const verifyTerms =  () => {
       console.log("Received data:", data);
         if (data === "success") {
             console.log("Terms processed successfully");
+            currentIndex += 2;
+            displayNextBatch();
         } else {
             console.error("Error processing terms");
         }
@@ -120,6 +125,11 @@ function handleJSONLContent(jsonlContent) {
   const termsList = lines.map(line => JSON.parse(line));
   console.log(termsList);
   generateCheckboxes(termsList);
+}
+
+function displayNextBatch(){
+  const nextBatch = termsList.slice(currentIndex, currentIndex + 2);
+  generateCheckboxes(nextBatch);
 }
 
 // Fetch JSONL file from server
