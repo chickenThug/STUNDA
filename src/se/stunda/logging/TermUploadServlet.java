@@ -11,12 +11,18 @@ import java.nio.file.*;
 public class TermUploadServlet extends HttpServlet {
     private static final String FILE_PATH = "/var/lib/stunda/terms_test/unprocessed.csv";
 
+    private static final String TERM_PATH = "/var/lib/stunda/terms";
+    private static final String REPORT_PATH = "/var/lib/stunda/report_data";
+
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
 
         try {
             response.setContentType("text/html;charset=UTF-8");
+
+            deleteDirectory(TERM_PATH);
+            deleteDirectory(REPORT_PATH);
 
             Path logFilePath = Paths.get(FILE_PATH);
             Path parentDir = logFilePath.getParent();
