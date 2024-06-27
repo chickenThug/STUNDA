@@ -10,7 +10,7 @@ import java.nio.file.attribute.BasicFileAttributes;
 
 @MultipartConfig
 public class TermUploadServlet extends HttpServlet {
-    private static final String FILE_PATH = "/var/lib/stunda/terms_test/unprocessed.csv";
+    private static final String FILE_PATH = "/var/lib/stunda/terms/unprocessed.csv";
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)

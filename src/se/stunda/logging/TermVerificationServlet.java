@@ -6,7 +6,7 @@ import javax.servlet.*;
 import javax.servlet.http.*;
 
 public class TermVerificationServlet extends HttpServlet {
-    private static final String TERM_FILE_PATH = "/var/lib/stunda/terms_test/processed.jsonl";
+    private static final String TERM_FILE_PATH = "/var/lib/stunda/terms/processed.jsonl";
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {

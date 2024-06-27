@@ -28,9 +28,9 @@ import java.net.http.HttpResponse.BodyHandlers;
 import java.net.http.HttpHeaders;
 
 public class HandleVerifiedTermsServlet extends HttpServlet {
-    private static final String UNAPPROVED_FILE_PATH = "/var/lib/stunda/terms_test/notapproved.jsonl";
-    private static final String APPROVED_FILE_PATH = "/var/lib/stunda/terms_test/approved.jsonl";
-    private static final String PROCESSED_FILE_PATH = "/var/lib/stunda/terms_test/processed.jsonl";
+    private static final String UNAPPROVED_FILE_PATH = "/var/lib/stunda/terms/notapproved.jsonl";
+    private static final String APPROVED_FILE_PATH = "/var/lib/stunda/terms/approved.jsonl";
+    private static final String PROCESSED_FILE_PATH = "/var/lib/stunda/terms/processed.jsonl";
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
