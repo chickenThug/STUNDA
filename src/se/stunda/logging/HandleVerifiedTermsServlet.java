@@ -205,7 +205,7 @@ public class HandleVerifiedTermsServlet extends HttpServlet {
     }
 
     public static JSONObject getTerm(String eng_lemma, String swe_lemma) {
-        String urlString = "https://spraakbanken4.it.gu.se/karp/v7/query/stunda?q=and(equals|eng.lemma|" + eng_lemma + "||equals|swe.lemma|" + swe_lemma + ")&from=0&size=100";
+        String urlString = "https://spraakbanken4.it.gu.se/karp/v7/query/stunda?q=and(equals|eng.lemma|" + URLEncoder.encode(eng_lemma, "UTF-8") + "||equals|swe.lemma|" + URLEncoder.encode(swe_lemma, "UTF-8") + ")&from=0&size=100";
         JSONObject jsonResponse = new JSONObject();
 
         try {
