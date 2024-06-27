@@ -12,18 +12,12 @@ import java.nio.file.attribute.BasicFileAttributes;
 public class TermUploadServlet extends HttpServlet {
     private static final String FILE_PATH = "/var/lib/stunda/terms_test/unprocessed.csv";
 
-    private static final String TERM_PATH = "/var/lib/stunda/terms";
-    private static final String REPORT_PATH = "/var/lib/stunda/report_data";
-
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
 
         try {
             response.setContentType("text/html;charset=UTF-8");
-
-            deleteDirectory(Paths.get(TERM_PATH));
-            deleteDirectory(Paths.get(REPORT_PATH));
 
             Path logFilePath = Paths.get(FILE_PATH);
             Path parentDir = logFilePath.getParent();
@@ -64,21 +58,5 @@ public class TermUploadServlet extends HttpServlet {
             response.getWriter().write("error: " + e.getMessage());
         }
 
-    }
-
-    private void deleteDirectory(Path path) throws IOException {
-        Files.walkFileTree(path, new SimpleFileVisitor<Path>() {
-            @Override
-            public FileVisitResult visitFile(Path file, BasicFileAttributes attrs) throws IOException {
-                Files.delete(file);
-                return FileVisitResult.CONTINUE;
-            }
-
-            @Override
-            public FileVisitResult postVisitDirectory(Path dir, IOException exc) throws IOException {
-                Files.delete(dir);
-                return FileVisitResult.CONTINUE;
-            }
-        });
     }
 }
