@@ -1,3 +1,6 @@
+let currentIndex = 0;
+let termsList = [];
+
 const verifyTerms =  () => {
   console.log("verified");
 
@@ -32,6 +35,8 @@ const verifyTerms =  () => {
       console.log("Received data:", data);
         if (data === "success") {
             console.log("Terms processed successfully");
+            currentIndex += 2;
+            displayNextBatch();
         } else {
             console.error("Error processing terms");
         }
@@ -48,7 +53,7 @@ function generateCheckboxes(data) {
   console.log("DATAA");
   console.log(data);
 
-  if (data.length === 1 && data[0].length === 0) {
+  if ((data.length === 1 && data[0].length === 0) || (data.length === 0)) {
     // Display message if no terms to check
     const noTermsMessage = document.getElementById('no-action-message');
     noTermsMessage.style.display = 'block';
@@ -117,9 +122,14 @@ function checkLoginStatus() {
 function handleJSONLContent(jsonlContent) {
   console.log(jsonlContent);
   const lines = jsonlContent.trim().split('\n');
-  const termsList = lines.map(line => JSON.parse(line));
+  termsList = lines.map(line => JSON.parse(line));
   console.log(termsList);
-  generateCheckboxes(termsList);
+  displayNextBatch();
+}
+
+function displayNextBatch(){
+  const nextBatch = termsList.slice(currentIndex, currentIndex + 2);
+  generateCheckboxes(nextBatch);
 }
 
 // Fetch JSONL file from server
