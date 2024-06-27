@@ -611,7 +611,7 @@ def main():
     df = generate_inflections(df)
 
     # Concatenate all parts and calculate total processing time
-    output_df = pd.concat([df_stop1, df_stop2, df_stop3, df])
+    output_df = pd.concat([df_stop1, df_stop2, df_stop3, df]).reset_index(drop=True)
 
     if "swedish_inflections" not in output_df.columns:
         output_df['swedish_inflections'] = None
