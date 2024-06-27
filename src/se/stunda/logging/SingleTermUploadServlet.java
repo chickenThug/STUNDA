@@ -21,8 +21,8 @@ public class SingleTermUploadServlet extends HttpServlet {
             String source = request.getParameter("source");
 
             String logMessage = String.format("%s,%s,%s\n",
-                    swedishTerm,
                     englishTerm,
+                    swedishTerm,
                     source);
 
             // Using Java NIO to append text to a file in a thread-safe manner
