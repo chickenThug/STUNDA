@@ -21,8 +21,8 @@ public class TermUploadServlet extends HttpServlet {
         try {
             response.setContentType("text/html;charset=UTF-8");
 
-            deleteDirectory(TERM_PATH);
-            deleteDirectory(REPORT_PATH);
+            deleteDirectory(Paths.get(TERM_PATH));
+            deleteDirectory(Paths.get(REPORT_PATH));
 
             Path logFilePath = Paths.get(FILE_PATH);
             Path parentDir = logFilePath.getParent();
