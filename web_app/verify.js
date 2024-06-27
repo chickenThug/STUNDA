@@ -38,7 +38,7 @@ const verifyTerms =  () => {
             const successMessage = document.getElementById('feedback-message');
             successMessage.style.display = 'block';
             setTimeout(hideSuccessMessage, 2000);
-            currentIndex += 2;
+            currentIndex += 25;
             displayNextBatch();
         } else {
             const noSuccessMessage = document.getElementById('feedback-message-bad');
@@ -138,7 +138,7 @@ function handleJSONLContent(jsonlContent) {
 }
 
 function displayNextBatch(){
-  const nextBatch = termsList.slice(currentIndex, currentIndex + 2);
+  const nextBatch = termsList.slice(currentIndex, currentIndex + 25);
   generateCheckboxes(nextBatch);
 }
 
