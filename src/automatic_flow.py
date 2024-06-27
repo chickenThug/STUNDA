@@ -458,9 +458,24 @@ def check_for_banned_words(df):
                 return True
         return False
     
+    duplicates = df.columns.duplicated()
+
+    if duplicates.any():
+        print("duplicates", df.columns[duplicates])
+
     df['contains_banned'] = df['eng_lemma'].apply(lambda x: contains_banned_word(x, banned_words["en"]))
 
+    duplicates = df.columns.duplicated()
+
+    if duplicates.any():
+        print("duplicates", df.columns[duplicates])
+
     df.loc[~df['contains_banned'], "contains_banned"] = df['swe_lemma'].apply(lambda x: contains_banned_word(x, banned_words["sv"]))
+
+    duplicates = df.columns.duplicated()
+
+    if duplicates.any():
+        print("duplicates", df.columns[duplicates])
 
     df.loc[~df['contains_banned'], "contains_banned"] = df['src'].apply(lambda x: contains_banned_word(x, banned_words["en"] + banned_words["sv"]))
 
