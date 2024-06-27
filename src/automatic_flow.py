@@ -457,6 +457,7 @@ def check_for_banned_words(df):
             if word in banned_words:
                 return True
         return False
+    
     df['contains_banned'] = df['eng_lemma'].apply(lambda x: contains_banned_word(x, banned_words["en"]))
 
     df.loc[~df['contains_banned'], "contains_banned"] = df['swe_lemma'].apply(lambda x: contains_banned_word(x, banned_words["sv"]))
@@ -532,6 +533,7 @@ def main():
     elif args.server:
         load_dotenv(dotenv_path="/var/lib/stunda/data/.env")
         df = pd.read_csv("/var/lib/stunda/terms/unprocessed.csv", encoding='utf-8')
+        df = df.astype(str)
         og_df = df.copy()
         from datetime import datetime
 
