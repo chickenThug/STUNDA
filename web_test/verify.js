@@ -35,7 +35,7 @@ const verifyTerms =  () => {
       console.log("Received data:", data);
         if (data === "success") {
             console.log("Terms processed successfully");
-            currentIndex += 2;
+            currentIndex += 25;
             displayNextBatch();
         } else {
             console.error("Error processing terms");
@@ -128,7 +128,7 @@ function handleJSONLContent(jsonlContent) {
 }
 
 function displayNextBatch(){
-  const nextBatch = termsList.slice(currentIndex, currentIndex + 2);
+  const nextBatch = termsList.slice(currentIndex, currentIndex + 25);
   generateCheckboxes(nextBatch);
 }
 
