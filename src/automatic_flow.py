@@ -466,12 +466,12 @@ def check_for_banned_words(df):
     return df
 # TODO: add checking if term already exist
 def term_already_exists(existing_terms, new_term):
-    term = (new_term["eng_lemma"], new_term["swe_lemma"], new_term["agreed_pos"], new_term["src"])
+    term = (new_term["eng_lemma"], new_term["swe_lemma"], new_term["src"])
     for existing_term in existing_terms:
-        compare_term = (existing_term["entry"]["eng"]["lemma"], existing_term["entry"]["swe"]["lemma"], existing_term["entry"]["pos"])
-        if term[:3] == compare_term:
+        compare_term = (existing_term["entry"]["eng"]["lemma"], existing_term["entry"]["swe"]["lemma"])
+        if term[:2] == compare_term:
             sources = existing_term["entry"]["src"].split(", ")
-            if term[3] not in sources:
+            if term[2] not in sources:
                 existing_term["entry"]["src"] = existing_term["entry"]["src"] + ", " + new_term["src"]
                 key = os.getenv('KARP_API_KEY')
                 update_posts_via_api_key(existing_term["id"], existing_term["entry"], existing_term["version"], key, verbose=True)
