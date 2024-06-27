@@ -125,17 +125,17 @@ async function search(language, searchString) {
 let display_entry = {}
 
 const sourceExplanationEnglish = {
-    "PK" :"paired keyword explanation",
-    "ACM" : "ACM explanation",
-    "ICT" : "ICT explanation",
-    "GF" : "GF explanation eeeeee"
+    "PK" :"Keywords scraped from thesis projects",
+    "ACM" : "Association for Computing Machinery",
+    "ICT" : "Mechanically extracted terms from the KTH course IK2554 lecture notes in June 2014",
+    "GF" : "Terms collected by a bachelor project group at Chalmers in 2020"
 }
 
 const sourceExplanationSwedish = {
-    "PK" :"paired keyword förklaring",
-    "ACM" : "ACM förklaring",
-    "ICT" : "ICT förklaring",
-    "GF" : "GF förklaring"
+    "PK" :"Nyckelord skrapade från examensarbeten",
+    "ACM" : "Association for Computing Machinery",
+    "ICT" : "Skrapade termer från KTH-kursens IK2554 föreläsningsanteckningar juni 2014",
+    "GF" : "Insamlade termer av en kandidatprojektgrupp vid Chalmers 2020"
 }
 
 const posMapEnglish = {

@@ -458,29 +458,15 @@ def check_for_banned_words(df):
                 return True
         return False
     
-    duplicates = df.columns.duplicated()
-
-    if duplicates.any():
-        print("duplicates", df.columns[duplicates])
 
     df['contains_banned'] = df['eng_lemma'].apply(lambda x: contains_banned_word(x, banned_words["en"]))
 
-    duplicates = df.columns.duplicated()
-
-    if duplicates.any():
-        print("duplicates", df.columns[duplicates])
-
     df.loc[~df['contains_banned'], "contains_banned"] = df['swe_lemma'].apply(lambda x: contains_banned_word(x, banned_words["sv"]))
-
-    duplicates = df.columns.duplicated()
-
-    if duplicates.any():
-        print("duplicates", df.columns[duplicates])
 
     df.loc[~df['contains_banned'], "contains_banned"] = df['src'].apply(lambda x: contains_banned_word(x, banned_words["en"] + banned_words["sv"]))
 
     return df
-# TODO: add checking if term already exist
+
 def term_already_exists(existing_terms, new_term):
     term = (new_term["eng_lemma"], new_term["swe_lemma"], new_term["src"])
     for existing_term in existing_terms:
@@ -609,6 +595,8 @@ def main():
 
     # Generera böjningsformer
     df = generate_inflections(df)
+
+    print("finished generating inflections in {:.2f} minutes".format((time.time() - start_time)/60))
 
     # Concatenate all parts and calculate total processing time
     output_df = pd.concat([df_stop1, df_stop2, df_stop3, df]).reset_index(drop=True)
