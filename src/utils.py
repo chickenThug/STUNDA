@@ -370,8 +370,9 @@ def swe_inflections(swe_lemma, pos):
             if inflection.get("msd", "") in ["pres ind aktiv", "pret ind aktiv", "sup aktiv"]:
                 verified_inflections.append(inflection.get("writtenForm", ""))
     elif pos in  ["A", "Ab"]:
-        if inflection.get("msd", "") in ["pos indef sg u nom", "pos indef sg n nom", "pos indef pl nom"]:
-            verified_inflections.append(inflection.get("writtenForm", ""))
+        for inflection in inflections:
+            if inflection.get("msd", "") in ["pos indef sg u nom", "pos indef sg n nom", "pos indef pl nom"]:
+                verified_inflections.append(inflection.get("writtenForm", ""))
 
     for inflection in verified_inflections:
         if "-" in inflection and not "-" in swe_lemma:
