@@ -35,9 +35,14 @@ const verifyTerms =  () => {
       console.log("Received data:", data);
         if (data === "success") {
             console.log("Terms processed successfully");
-            currentIndex += 25;
+            const successMessage = document.getElementById('feedback-message');
+            successMessage.style.display = 'block';
+            setTimeout(hideSuccessMessage, 2000);
+            currentIndex += 2;
             displayNextBatch();
         } else {
+            const noSuccessMessage = document.getElementById('feedback-message-bad');
+            noSuccessMessage.style.display = 'block';
             console.error("Error processing terms");
         }
     })
@@ -45,6 +50,11 @@ const verifyTerms =  () => {
         console.error("Error: ", error);
     });
 };
+
+const hideSuccessMessage = () => {
+  const successMessage = document.getElementById('feedback-message');
+  successMessage.style.display = 'none';
+ }
 
 function generateCheckboxes(data) {
   const tableBody = document.querySelector('#terms-table tbody');
@@ -128,7 +138,7 @@ function handleJSONLContent(jsonlContent) {
 }
 
 function displayNextBatch(){
-  const nextBatch = termsList.slice(currentIndex, currentIndex + 25);
+  const nextBatch = termsList.slice(currentIndex, currentIndex + 2);
   generateCheckboxes(nextBatch);
 }
 
