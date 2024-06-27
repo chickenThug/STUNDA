@@ -53,7 +53,7 @@ function generateCheckboxes(data) {
   console.log("DATAA");
   console.log(data);
 
-  if (data.length === 1 && data[0].length === 0) {
+  if ((data.length === 1 && data[0].length === 0) || (data.length === 0)) {
     // Display message if no terms to check
     const noTermsMessage = document.getElementById('no-action-message');
     noTermsMessage.style.display = 'block';
@@ -122,9 +122,9 @@ function checkLoginStatus() {
 function handleJSONLContent(jsonlContent) {
   console.log(jsonlContent);
   const lines = jsonlContent.trim().split('\n');
-  const termsList = lines.map(line => JSON.parse(line));
+  termsList = lines.map(line => JSON.parse(line));
   console.log(termsList);
-  generateCheckboxes(termsList);
+  displayNextBatch();
 }
 
 function displayNextBatch(){
