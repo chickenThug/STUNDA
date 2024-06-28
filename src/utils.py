@@ -6,45 +6,19 @@ import requests
 import pandas as pd
 import json
 from lemminflect import getInflection, getAllInflections
+
 nltk.data.path.append("./nltk_data")
 nltk.download("wordnet", download_dir="./nltk_data")
 nltk.download("brown", download_dir="./nltk_data")
 nltk.download("universal_tagset", download_dir="./nltk_data")
 nltk.download("averaged_perceptron_tagger", download_dir="./nltk_data")
-nltk.download('omw-1.4', download_dir="./nltk_data")
+nltk.download("omw-1.4", download_dir="./nltk_data")
 nltk.download("punkt", download_dir="./nltk_data")
 
 lemmatizer = WordNetLemmatizer()
 wordtags = nltk.ConditionalFreqDist(
     (w.lower(), t) for w, t in nltk.corpus.brown.tagged_words(tagset="universal")
 )
-
-
-def english_lemmatizer(term, pos_tags):
-    pos_tags = pos_tags.split(" ")
-
-    # Lemmatize single word
-    if len(pos_tags) == 1:
-        pos_tag = pos_tags[0]
-        if pos_tag in ["NN", "NNS"]:  # Lemmatize noun
-            return lemmatizer.lemmatize(term, "n"), "lemmatized"
-        elif pos_tag in ["VBZ", "VBP", "VBN", "VBG", "VBD", "VB"]:  # Lemmatize verb
-            return lemmatizer.lemmatize(term, "v"), "lemmatized"
-        elif pos_tag in ["JJR", "JJS", "JJ"]:
-            return lemmatizer.lemmatize(term, "a"), "lemmatized"  # Lemmatize adjective
-        elif pos_tag in ["RBS", "RB", "RBR"]:
-            return lemmatizer.lemmatize(term, "r"), "lemmatized"  # Lemmatize adverb
-        else:
-            return term, "unknown english single pos tag"
-    else:
-        last_tag = pos_tags[-1]
-        words = term.split(" ")
-        if last_tag == "NNS":
-            lemmatized_word = lemmatizer.lemmatize(words[-1], "n")
-            words[-1] = lemmatized_word
-            return " ".join(words), "lemmatized"
-        else:
-            return term, "lemmatized"
 
 
 def english_lemmatizer_v2(term, single_pos, long_pos):
@@ -102,35 +76,6 @@ def convert_to_simple_pos(terms):
     return " ".join(terms)
 
 
-def delete_entry_by_id(id, authorization, verbose=False):
-    url = f"https://spraakbanken4.it.gu.se/karp/v7/entries/stunda/{id}/1"
-
-    headers = {
-        "Authorization": "Bearer " + authorization,
-        "Content-Type": "application/json",
-    }
-
-    response = requests.delete(url=url, headers=headers)
-
-    print(response)
-
-    if verbose:
-        if response.status_code == 204:
-            print("Succesfully deleted entry with id", id)
-        else:
-            print("Could not delete entry with id", id)
-
-    return response.status_code == 204
-
-
-def delete_entries_by_ids(ids, authorization, verbose=False):
-    success = []
-    for id in ids:
-        success.append(delete_entry_by_id(id, authorization, verbose))
-
-    return success
-
-
 def get_all():
     url = f"https://spraakbanken4.it.gu.se/karp/v7/query/stunda?q="
 
@@ -149,27 +94,6 @@ def get_all():
         return {}
 
 
-def add_entry(authorization, entry, verbose=False):
-    url = "https://spraakbanken4.it.gu.se/karp/v7/entries/stunda"
-
-    headers = {
-        "Authorization": "Bearer " + authorization,
-        "Content-Type": "application/json",
-    }
-
-    data = {"entry": entry, "message": ""}
-
-    response = requests.put(url, headers=headers, json=data)
-
-    if response.status_code == 201:
-        if verbose:
-            print("successfull add")
-        return response.json()["newID"]
-    else:
-        if verbose:
-            print("unsuccessfull add", response.status_code, response)
-        return None
-    
 def add_entry_via_api_key(api_key, entry, verbose=False):
     url = "https://spraakbanken4.it.gu.se/karp/v7/entries/stunda"
 
@@ -179,7 +103,7 @@ def add_entry_via_api_key(api_key, entry, verbose=False):
 
     data = {"entry": entry, "message": ""}
 
-    params = {"api_key" : api_key}
+    params = {"api_key": api_key}
 
     response = requests.put(url, headers=headers, json=data, params=params)
 
@@ -191,42 +115,20 @@ def add_entry_via_api_key(api_key, entry, verbose=False):
         if verbose:
             print("unsuccessfull add", response.status_code, response)
         return None
-    
-def add_inflections(id, authorization, entry, version, verbose=False):
-    url = f"https://spraakbanken4.it.gu.se/karp/v7/entries/stunda/{id}"
 
-    headers = {
-        "Authorization": "Bearer " + authorization,
-        "Content-Type": "application/json",
-        "Accept" : "*/*",
-        "Connection" : "keep-alive"
-    }
-
-    data = {"entry": entry, "message": "", "version": version}
-
-    response = requests.post(url, headers=headers, json=data) # changed data=data to json=data
-
-    if response.status_code == 200:
-        if verbose:
-            print("successfull update")
-        return response.json()
-    else:
-        if verbose:
-            print("unsuccessfull update", response.status_code, response)
-        return None
 
 def update_posts_via_api_key(id, entry, version, api_key, verbose=False):
     url = f"https://spraakbanken4.it.gu.se/karp/v7/entries/stunda/{id}"
 
     headers = {
         "Content-Type": "application/json",
-        "Accept" : "*/*",
-        "Connection" : "keep-alive"
+        "Accept": "*/*",
+        "Connection": "keep-alive",
     }
 
     data = {"entry": entry, "message": "", "version": version}
 
-    params = {"api_key" : api_key}
+    params = {"api_key": api_key}
 
     response = requests.post(url, headers=headers, json=data, params=params)
 
@@ -238,13 +140,6 @@ def update_posts_via_api_key(id, entry, version, api_key, verbose=False):
         if verbose:
             print("unsuccessfull update", response.status_code, response)
         return None
-
-
-def add_entries(authorization, entries, verbose=False):
-    results = []
-    for entry in entries:
-        results.append(add_entry(authorization, entry, verbose))
-    return results
 
 
 # Function to spell-check using Skrutten Stava API
@@ -275,26 +170,6 @@ def swedish_spell_check(term):
         return None
 
 
-# Function to pos-tag using Skrutten Granska API
-def swedish_pos_tagging(term):
-    url = "https://skrutten.csc.kth.se/granskaapi/taggstava/"
-
-    words = term.split(" ")
-
-    if len(words) == 1:
-        response = requests.get(url + "json/" + term)
-    else:
-        params = {"coding": "json", "words": term}
-
-        response = requests.post(url, data=params)
-
-    if response.status_code == 200:
-        result = response.json()
-        return result
-    else:
-        return None
-
-
 def granska_pos(term):
     url = "https://skrutten.csc.kth.se/granskaapi/pos.php"
 
@@ -309,8 +184,9 @@ def granska_pos(term):
         return pos_tags
     else:
         return None
-    
-def split_swedish_word(term): # Fix for term consisting of multiple words?
+
+
+def split_swedish_word(term):  # Fix for term consisting of multiple words?
     url = "https://skrutten.csc.kth.se/granskaapi/compound/"
 
     params = {"coding": "json", "words": term}
@@ -319,16 +195,17 @@ def split_swedish_word(term): # Fix for term consisting of multiple words?
 
     if response.status_code == 200:
         result = response.json()
-        if result[0]['parts']:
-            last_part = result[0]['parts'][0].split("|")[-1]
-            beginning_list = result[0]['parts'][0].split("|")[:-1]
+        if result[0]["parts"]:
+            last_part = result[0]["parts"][0].split("|")[-1]
+            beginning_list = result[0]["parts"][0].split("|")[:-1]
             beginning_part = "".join(beginning_list)
             return beginning_part, last_part
         return None, None
     else:
         return None
 
-def get_swe_inflections(swe_lemma, tag = False):
+
+def get_swe_inflections(swe_lemma, tag=False):
     url = f"https://ws.spraakbanken.gu.se/ws/karp/v4/query?q=extended||and|wf|equals|{swe_lemma}&resource=saldom"
 
     response = requests.get(url)
@@ -336,54 +213,72 @@ def get_swe_inflections(swe_lemma, tag = False):
     if response.status_code == 200:
         result = response.json()
 
-        if not result['hits']['hits'] and not tag:
+        if not result["hits"]["hits"] and not tag:
             # time to split the word and try with the last past
             first_part, last_part = split_swedish_word(swe_lemma)
             if last_part:
                 inflections = get_swe_inflections(last_part, True)
-                # here i was thinking i could do some concatenation but i dont know if that will work?? 
+                # here i was thinking i could do some concatenation but i dont know if that will work??
                 if not type(inflections) == list:
-                    return  f"No inflections for {swe_lemma}"
+                    return f"No inflections for {swe_lemma}"
                 for inflection in inflections:
-                    inflection['writtenForm'] = first_part + inflection['writtenForm']
+                    inflection["writtenForm"] = first_part + inflection["writtenForm"]
                 return inflections
             return f"No inflections for {swe_lemma}"
-        elif not result['hits']['hits'] and tag:
+        elif not result["hits"]["hits"] and tag:
             return f"No inflections for {swe_lemma}"
-        
-        return result['hits']['hits'][0]['_source']['WordForms']
-    
+
+        return result["hits"]["hits"][0]["_source"]["WordForms"]
+
     else:
         return None
+
 
 def swe_inflections(swe_lemma, pos):
     verified_inflections = []
     inflections = get_swe_inflections(swe_lemma)
     if not type(inflections) == list:
-            return []
+        return []
     if pos == "N":
         for inflection in inflections:
             if inflection.get("msd", "") == "pl indef nom":
                 verified_inflections.append(inflection.get("writtenForm", ""))
     elif pos == "V":
         for inflection in inflections:
-            if inflection.get("msd", "") in ["pres ind aktiv", "pret ind aktiv", "sup aktiv"]:
+            if inflection.get("msd", "") in [
+                "pres ind aktiv",
+                "pret ind aktiv",
+                "sup aktiv",
+            ]:
                 verified_inflections.append(inflection.get("writtenForm", ""))
-    elif pos in  ["A", "Ab"]:
+    elif pos in ["A", "Ab"]:
         for inflection in inflections:
-            if inflection.get("msd", "") in ["pos indef sg u nom", "pos indef sg n nom", "pos indef pl nom"]:
+            if inflection.get("msd", "") in [
+                "pos indef sg u nom",
+                "pos indef sg n nom",
+                "pos indef pl nom",
+            ]:
                 verified_inflections.append(inflection.get("writtenForm", ""))
 
     for inflection in verified_inflections:
         if "-" in inflection and not "-" in swe_lemma:
             inflection = inflection.split("-")[1]
 
-    verified_inflections = [inflection.split("-")[1] if ("-" in inflection and not "-" in swe_lemma) else inflection for inflection in verified_inflections]
+    verified_inflections = [
+        (
+            inflection.split("-")[1]
+            if ("-" in inflection and not "-" in swe_lemma)
+            else inflection
+        )
+        for inflection in verified_inflections
+    ]
     return verified_inflections
+
 
 def get_eng_inflections(eng_lemma, tag):
     # print(getInflection('be', tag='VBD'))
-    return getInflection(eng_lemma, tag = tag)
+    return getInflection(eng_lemma, tag=tag)
+
 
 def eng_inflections(eng_lemma, pos):
     verified_inflections = []
@@ -400,6 +295,7 @@ def eng_inflections(eng_lemma, pos):
         if "VBD" in inflections:
             verified_inflections.append(inflections.get("VBD", "")[0])
     return verified_inflections
+
 
 # TODO probably removes
 def swedish_lemmatizing(term):
@@ -500,6 +396,26 @@ def english_pos_single_word(word):
     return list(wordtags[word.lower()].items())
 
 
+# Function to pos-tag using Skrutten Granska API
+def swedish_pos_tagging(term):
+    url = "https://skrutten.csc.kth.se/granskaapi/taggstava/"
+
+    words = term.split(" ")
+
+    if len(words) == 1:
+        response = requests.get(url + "json/" + term)
+    else:
+        params = {"coding": "json", "words": term}
+
+        response = requests.post(url, data=params)
+
+    if response.status_code == 200:
+        result = response.json()
+        return result
+    else:
+        return None
+
+
 def pos_agreement_term_based(swedish_term, english_term):
     if (len(english_term.split(" ")) > 1) or (len(swedish_term.split(" ")) > 1):
         return "N"
@@ -539,43 +455,9 @@ def pos_agreement_term_based(swedish_term, english_term):
         return f"too many possible pos tags: {tags_as_string}"
 
 
-def get_karp_terms():
-    """
-    Retrieve terms from Karp, extracting English lemma, Swedish lemma, and POS.
-
-    Returns:
-    - pandas.DataFrame: DataFrame containing English lemma, Swedish lemma, and POS for each term.
-    """
-
-    json_data = get_all()
-
-    entries = json_data["hits"]
-
-    terms = []
-    for entry in entries:
-
-        english_lemma = entry["entry"]["eng"]["lemma"]
-
-        pos = entry["entry"]["pos"]
-
-        swedish_lemma = entry["entry"]["swe"]["lemma"]
-
-        terms.append(
-            {"English lemma": english_lemma, "Swedish lemma": swedish_lemma, "POS": pos}
-        )
-
-        synonyms = entry["entry"].get("synonyms", [])
-
-        for synonym in synonyms:
-            terms.append(
-                {"English lemma": english_lemma, "Swedish lemma": synonym, "POS": pos}
-            )
-
-    return pd.DataFrame(terms)
-
 def get_eng_inflections(eng_lemma, tag):
     # print(getInflection('be', tag='VBD'))
     # Nouns: NNS
     # Verbs: VBG, VBN, VBD
-    # Adjective: 
-    return getAllInflections(eng_lemma, upos = tag)
+    # Adjective:
+    return getAllInflections(eng_lemma, upos=tag)
