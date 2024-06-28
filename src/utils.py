@@ -315,6 +315,7 @@ def eng_inflections(eng_lemma, pos):
     return verified_inflections
 
 
+# Function for lemmatizing a single swedish term
 def swedish_lemmatizer_single_term(term):
     url = "https://skrutten.csc.kth.se/granskaapi/lemma/"
 
@@ -329,6 +330,7 @@ def swedish_lemmatizer_single_term(term):
         return None
 
 
+# Function for getting inflections from skrutten API
 def get_inflections(term, form):
     url = "https://skrutten.csc.kth.se/granskaapi/inflect.php"
 
@@ -339,6 +341,7 @@ def get_inflections(term, form):
     return response.json()[0]["interpretations"][0]["inflections"]
 
 
+# Function for lemmatizing adjective
 def lemmatize_adjective(adj, form, genus):
 
     target_tag = f"jj.pos.{genus}.sin.ind.nom"
@@ -352,6 +355,7 @@ def lemmatize_adjective(adj, form, genus):
     return None
 
 
+# Function that can lemmatize swedish terms consisting of a single term or adjective followed by a noun
 def advanced_swedish_lemmatizer(term, simple_pos, swedish_pos):
     if not " " in term.strip(" "):
         return swedish_lemmatizer_single_term(term), "ok"
@@ -369,30 +373,12 @@ def advanced_swedish_lemmatizer(term, simple_pos, swedish_pos):
         return term, "no processing rule for swedish POS sequence"
 
 
-def pos_agreement(swedish_pos, english_pos):
-    if (len(swedish_pos.split(" ")) > 1) or (len(english_pos.split(" ")) > 1):
-        return True
-    eng_pos_local = "IS THIS A EASTER EGG?"
-    if english_pos in ["NN", "NNS"]:
-        eng_pos_local = "NN"
-    elif english_pos in ["VBZ", "VBP", "VBN", "VBG", "VBD", "VB"]:
-        eng_pos_local = "VB"
-    elif english_pos in ["JJR", "JJS", "JJ"]:
-        eng_pos_local = "JJ"
-    elif english_pos in ["RBS", "RB", "RBR"]:
-        eng_pos_local = "AB"
-
-    if eng_pos_local == swedish_pos:
-        return True
-    else:
-        return False
-
-
+# Function for getting possible Part-of-Speech tags for a single english term
 def english_pos_single_word(word):
     return list(wordtags[word.lower()].items())
 
 
-# Function to pos-tag using Skrutten Granska API
+# Function for getting possible Part-of-Speech tags for a single swedish term
 def swedish_pos_tagging(term):
     url = "https://skrutten.csc.kth.se/granskaapi/taggstava/"
 
@@ -412,9 +398,13 @@ def swedish_pos_tagging(term):
         return None
 
 
+# Function for finding if there is exist an intersection between the possible swedish POS tags and english POS tags consisting of a single POS tag
 def pos_agreement_term_based(swedish_term, english_term):
+    # If multiple terms return Noun
     if (len(english_term.split(" ")) > 1) or (len(swedish_term.split(" ")) > 1):
         return "N"
+
+    # Map to a unified convention
     swedish_mapping = {"nn": "N", "vb": "V", "jj": "A", "ab": "Ab", "pc": "P"}
 
     english_mapping = {
@@ -427,12 +417,15 @@ def pos_agreement_term_based(swedish_term, english_term):
         "NUM": "NUM",
     }
 
+    # Create a set of swedish tags
     swedish_pos_tags = set(
         [
             swedish_mapping.get(tag.split(".")[0], "?")
             for tag in swedish_pos_tagging(swedish_term)[0]["tags"]
         ]
     )
+
+    # Create a set of english tags
     english_pos_tags = set(
         [
             english_mapping.get(tag[0], "?")
@@ -440,17 +433,22 @@ def pos_agreement_term_based(swedish_term, english_term):
         ]
     )
 
+    # Take the intersection
     tag = swedish_pos_tags.intersection(english_pos_tags)
 
+    # Single POS - success
     if len(tag) == 1:
         return tag.pop()
+    # No POS
     elif len(tag) == 0:
         return "no pos found"
+    # More than one POS
     else:
         tags_as_string = " ".join(list(tag))
         return f"too many possible pos tags: {tags_as_string}"
 
 
+# Function for getting english inflections using Lemminflect
 def get_eng_inflections(eng_lemma, tag):
     # print(getInflection("be", tag="VBD"))
     # Nouns: NNS
