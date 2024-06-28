@@ -10,6 +10,7 @@ document.addEventListener('DOMContentLoaded', function() {
             if (isValid) {
                 // Set session storage to ensure user logged in
                 sessionStorage.setItem('loggedIn', 'true');
+                sessionStorage.setItem('username', username);
                 window.location.href = "verify.html";
             } else {
                 document.getElementById('error-message').textContent = "Invalid username or password";
