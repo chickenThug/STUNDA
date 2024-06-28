@@ -67,6 +67,13 @@ function generateCheckboxes(data) {
     // Display message if no terms to check
     const noTermsMessage = document.getElementById('no-action-message');
     noTermsMessage.style.display = 'block';
+
+    const tableHead = document.querySelector('#terms-table thead');
+    tableHead.style.display = 'none';
+    
+    const submitButton = document.querySelector('.submit-button');
+    submitButton.style.display = 'none';
+
     return;
   }
 
