@@ -1,4 +1,4 @@
-package se.stunda.logging;
+package se.stunda;
 
 import java.io.*;
 import java.nio.file.*;

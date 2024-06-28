@@ -1,4 +1,4 @@
-package se.stunda.logging;
+package se.stunda;
 
 import io.github.cdimascio.dotenv.Dotenv;
 import java.io.*;

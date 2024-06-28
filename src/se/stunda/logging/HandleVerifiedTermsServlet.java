@@ -1,4 +1,4 @@
-package se.stunda.logging;
+package se.stunda;
 
 import org.json.JSONArray;
 import org.json.JSONObject;
