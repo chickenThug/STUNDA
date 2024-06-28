@@ -22,6 +22,8 @@ For the best search hit the swedish lemma, english lemma, inflections, alternati
 
 If there are no terms on KARP that matches the users search, the user is suggested to visit the upload page to upload the term.
 
+You can access the search page [here](https://folkets-lexikon.csc.kth.se/stunda/).
+
 #### Report functionality
 The user has the ability to report a term by clicking on the interrobang symbol that is displayed for each term. By conducting a report, the user can specify what they want to report with the term (for example if they believe that it is a bad translation, not a valid data term etc). The report is then saved in is full format on the server, and a log that a report has been made is also saved on the server.
 
@@ -48,6 +50,8 @@ Source and rights for upload are mandatory fields for the user to be able to upl
 The terms that are uploaded by the user is saved in the file `unprocessed.csv` on the format "eng_lemma,swe_lemma,src" on the server.
 
 This file will later on be handled by the automatic flow where the terms will be processed. Read more at `../src/README.md`.
+
+You can access the upload page [here](https://folkets-lexikon.csc.kth.se/stunda/upload.html).
 
 #### Servlet calls
 The searchpage makes fetches to the following servlets:
