@@ -5,3 +5,4 @@ src/stunda-terms.jsonl
 .DS_Store
 src/script/__pycache__/
 .env
+compile_all.sh
