@@ -2,8 +2,6 @@ let currentIndex = 0;
 let termsList = [];
 
 const verifyTerms =  () => {
-  console.log("verified");
-
   const checkboxes = document.querySelectorAll('#term-verification input[type="checkbox"]');
   const terms = [];
 
@@ -18,10 +16,6 @@ const verifyTerms =  () => {
     terms.push(termData);
   });
 
-   console.log("verification otw");
-   console.log(terms);
-
-   // FIX SERVLET CALL HERE
    // Send approved and not approved terms to the servlet
    fetch('/stunda/handle-verify', {
       method: 'POST',
@@ -32,9 +26,7 @@ const verifyTerms =  () => {
     })
     .then(response => response.text())
     .then(data => {
-      console.log("Received data:", data);
         if (data === "success") {
-            console.log("Terms processed successfully");
             const successMessage = document.getElementById('feedback-message');
             successMessage.style.display = 'block';
             setTimeout(hideSuccessMessage, 2000);
@@ -59,9 +51,6 @@ const hideSuccessMessage = () => {
 function generateCheckboxes(data) {
   const tableBody = document.querySelector('#terms-table tbody');
   tableBody.innerHTML = '';
-
-  console.log("DATAA");
-  console.log(data);
 
   if ((data.length === 1 && data[0].length === 0) || (data.length === 0)) {
     // Display message if no terms to check
@@ -137,10 +126,8 @@ function checkLoginStatus() {
 }
 
 function handleJSONLContent(jsonlContent) {
-  console.log(jsonlContent);
   const lines = jsonlContent.trim().split('\n');
   termsList = lines.map(line => JSON.parse(line));
-  console.log(termsList);
   displayNextBatch();
 }
 
