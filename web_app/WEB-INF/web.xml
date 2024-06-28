@@ -7,7 +7,7 @@
     </welcome-file-list>
     <servlet>
         <servlet-name>LogSearchServlet</servlet-name>
-        <servlet-class>se.stunda.logging.LogSearchServlet</servlet-class>
+        <servlet-class>se.stunda.LogSearchServlet</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>LogSearchServlet</servlet-name>
@@ -15,7 +15,7 @@
     </servlet-mapping>
     <servlet>
         <servlet-name>UploadReportServlet</servlet-name>
-        <servlet-class>se.stunda.logging.UploadReportServlet</servlet-class>
+        <servlet-class>se.stunda.UploadReportServlet</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>UploadReportServlet</servlet-name>
@@ -23,7 +23,7 @@
     </servlet-mapping>
     <servlet>
         <servlet-name>TermUploadServlet</servlet-name>
-        <servlet-class>se.stunda.logging.TermUploadServlet</servlet-class>
+        <servlet-class>se.stunda.TermUploadServlet</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>TermUploadServlet</servlet-name>
@@ -31,7 +31,7 @@
     </servlet-mapping>
     <servlet>
         <servlet-name>SingleTermUploadServlet</servlet-name>
-        <servlet-class>se.stunda.logging.SingleTermUploadServlet</servlet-class>
+        <servlet-class>se.stunda.SingleTermUploadServlet</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>SingleTermUploadServlet</servlet-name>
@@ -39,7 +39,7 @@
     </servlet-mapping>
     <servlet>
         <servlet-name>LogUploadServlet</servlet-name>
-        <servlet-class>se.stunda.logging.LogUploadServlet</servlet-class>
+        <servlet-class>se.stunda.LogUploadServlet</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>LogUploadServlet</servlet-name>
@@ -47,7 +47,7 @@
     </servlet-mapping>
     <servlet>
         <servlet-name>TermVerificationServlet</servlet-name>
-        <servlet-class>se.stunda.logging.TermVerificationServlet</servlet-class>
+        <servlet-class>se.stunda.TermVerificationServlet</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>TermVerificationServlet</servlet-name>
@@ -55,7 +55,7 @@
     </servlet-mapping>
     <servlet>
         <servlet-name>CheckLoginServlet</servlet-name>
-        <servlet-class>se.stunda.logging.CheckLoginServlet</servlet-class>
+        <servlet-class>se.stunda.CheckLoginServlet</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>CheckLoginServlet</servlet-name>
@@ -63,7 +63,7 @@
     </servlet-mapping>
     <servlet>
         <servlet-name>HandleVerifiedTermsServlet</servlet-name>
-        <servlet-class>se.stunda.logging.HandleVerifiedTermsServlet</servlet-class>
+        <servlet-class>se.stunda.HandleVerifiedTermsServlet</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>HandleVerifiedTermsServlet</servlet-name>

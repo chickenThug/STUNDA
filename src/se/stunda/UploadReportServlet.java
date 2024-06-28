@@ -1,4 +1,4 @@
-package se.stunda.logging;
+package se.stunda;
 
 import javax.servlet.*;
 import javax.servlet.http.*;

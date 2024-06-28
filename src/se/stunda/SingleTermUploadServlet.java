@@ -1,4 +1,4 @@
-package se.stunda.logging;
+package se.stunda;
 
 import javax.servlet.annotation.MultipartConfig;
 import javax.servlet.*;

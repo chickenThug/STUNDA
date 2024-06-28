@@ -6,3 +6,4 @@ src/stunda-terms.jsonl
 src/__pycache__/
 .env
 compile_all.sh
+nltk_data
