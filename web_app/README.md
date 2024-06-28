@@ -2,7 +2,7 @@
 This folder contains everything necessary for the web deployment of the project.
 
 ## Directories
-- `files` contains the outline.csv available to the user on the upload page.
+- `files` contains the outline.csv available to the user on the upload page
 
 - `images` contains all of the images and icons used on the web page
 
@@ -10,6 +10,7 @@ This folder contains everything necessary for the web deployment of the project.
 
 ## Pages and files
 All of the pages gathered CSS is contained in the `style.css` file.
+
 ### Search page
 The search page consists of `index.html` and `search.js`.
 
@@ -34,17 +35,19 @@ The upload page consists of `upload.js` and `upload.html`.
 
 The functionality and purpose of this page is to allow the user to upload term pairs that will then be processed by the automatic flow and manually verified to either be added to the database or rejected.
 
-The user is shown a instruction for the upload, and also has the option to download an outline csv file where they can add their terms.
+The user is shown a instruction for the upload, and also has the option to download an `outline.csv` file where they can add their terms.
 
 The user can either:
-1. upload a single term pair
-2. upload a csv file containing multiple term pairs at once
+1. Upload a single term pair
+2. Upload a csv file containing multiple term pairs at once
 
 A part from these input fields, there is also fields for source and contact information. There is also a checkbox that ensures that the user gives the rights for the terms to be publically uploaded in STUNDA.
 
 Source and rights for upload are mandatory fields for the user to be able to upload the terms. It is not valid with a ","-symbol in the source.
 
-The terms that are uploaded by the user is saved in the file unprocessed.csv on the format "eng_lemma,swe_lemma,src" on the server.
+The terms that are uploaded by the user is saved in the file `unprocessed.csv` on the format "eng_lemma,swe_lemma,src" on the server.
+
+This file will later on be handled by the automatic flow where the terms will be processed. Read more at `../src/README.md`.
 
 #### Servlet calls
 The searchpage makes fetches to the following servlets:
@@ -63,4 +66,5 @@ The verification page reads the terms from the processed.jsonl file (which conta
 The verification page displays 25 term pairs from unprocessed.jsonl file at a time, and the user has to go through these and press the submit button in order to be prompted with 25 new terms (if there exists 25 more).
 
 #### Servlet calls
-- POST to `handle-verify` to 
+- POST to `handle-verify` to for sending approved terms to the database, writing these approved terms to approved.jsonl and writing the non approved terms to notapproved.jsonl
+- GET to `term-verification` to fetch the processed terms ready for final verification from processed.jsonl
