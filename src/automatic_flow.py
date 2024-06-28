@@ -1,8 +1,8 @@
-
 import os
 
 import sys
-sys.path.insert(0, 'lib')
+
+sys.path.insert(0, "lib")
 import argparse
 import pandas as pd
 from collections import defaultdict
@@ -13,7 +13,6 @@ from dotenv import load_dotenv
 
 
 # Load environment variables from .env file
-# Fix loading of correct .env file when on serer
 load_dotenv()
 
 banned_words = {
@@ -164,7 +163,7 @@ banned_words = {
         "wank",
         "whore",
         "x rated",
-        "xxx"
+        "xxx",
     ],
     "sv": [
         "abort",
@@ -299,9 +298,10 @@ banned_words = {
         "wank",
         "hora",
         "x betygsatt",
-        "xxx"
-    ]
+        "xxx",
+    ],
 }
+
 
 def clean_and_simple_checks(df):
     """
@@ -321,33 +321,46 @@ def clean_and_simple_checks(df):
     df["swe_lemma"] = df["swe_lemma"].str.replace(r"\s+", " ", regex=True).str.lower()
 
     # remove [*] and [**] from entries
-    df["eng_lemma"] = df["eng_lemma"].str.replace(r"\[\*\*?\]", "", regex=True).str.strip()
-    df["swe_lemma"] = df["swe_lemma"].str.replace(r"\[\*\*?\]", "", regex=True).str.strip()
+    df["eng_lemma"] = (
+        df["eng_lemma"].str.replace(r"\[\*\*?\]", "", regex=True).str.strip()
+    )
+    df["swe_lemma"] = (
+        df["swe_lemma"].str.replace(r"\[\*\*?\]", "", regex=True).str.strip()
+    )
 
     # copy paranthesis from entry
     df["eng_paranthesis"] = df["eng_lemma"].str.extract(r"(\([^\(]+\))")
     df["swe_paranthesis"] = df["swe_lemma"].str.extract(r"(\([^\(]+\))")
 
     # remove paranthesis from entry
-    df["eng_lemma"] = df["eng_lemma"].str.replace(r"\([^\(]+\)", "", regex=True).str.strip()
-    df["swe_lemma"] = df["swe_lemma"].str.replace(r"\([^\(]+\)", "", regex=True).str.strip()
+    df["eng_lemma"] = (
+        df["eng_lemma"].str.replace(r"\([^\(]+\)", "", regex=True).str.strip()
+    )
+    df["swe_lemma"] = (
+        df["swe_lemma"].str.replace(r"\([^\(]+\)", "", regex=True).str.strip()
+    )
 
     # define condition for checking if a swedish and english lemma exist
-    lemma_exist_cond = (df['eng_lemma'] == "") | (df['swe_lemma'] == "")
+    lemma_exist_cond = (df["eng_lemma"] == "") | (df["swe_lemma"] == "")
 
     # condition to ensure only accpeted characters are present in the lemma
-    character_condition = (df["eng_lemma"].str.match(r"^[a-zA-Z\-\d ]+$")) & (df["swe_lemma"].str.match(r"^[a-zA-ZåäöÅÄÖ\- \d]+$"))
+    character_condition = (df["eng_lemma"].str.match(r"^[a-zA-Z\-\d ]+$")) & (
+        df["swe_lemma"].str.match(r"^[a-zA-ZåäöÅÄÖ\- \d]+$")
+    )
 
     # mark the entries ready for the next stage
     df.loc[character_condition & ~lemma_exist_cond, "status"] = "shallow processed"
 
     # mark entries with data quality issues
-    df.loc[~character_condition & ~lemma_exist_cond, "status"] = "invalid characters in lemma"
+    df.loc[~character_condition & ~lemma_exist_cond, "status"] = (
+        "invalid characters in lemma"
+    )
 
     # Mark entries with no english or swedish lemma as lacking translation
     df.loc[lemma_exist_cond, "status"] = "no translation"
 
     return df
+
 
 def spell_check(df):
     """
@@ -373,25 +386,37 @@ def spell_check(df):
     # mark entries
     df.loc[english_spell_condition & swedish_spell_condition, "status"] = "spelling ok"
 
-    df.loc[english_spell_condition & ~swedish_spell_condition, "status"] = "swedish misspelt"
+    df.loc[english_spell_condition & ~swedish_spell_condition, "status"] = (
+        "swedish misspelt"
+    )
 
-    df.loc[~english_spell_condition & swedish_spell_condition, "status"] = "english misspelt"
+    df.loc[~english_spell_condition & swedish_spell_condition, "status"] = (
+        "english misspelt"
+    )
 
-    df.loc[~english_spell_condition & ~swedish_spell_condition, "status"] = "both misspelt"
+    df.loc[~english_spell_condition & ~swedish_spell_condition, "status"] = (
+        "both misspelt"
+    )
 
     return df
+
 
 def pos(df):
     if len(df) == 0:
         return df
     # Find agreed pos
-    df['agreed_pos'] = df.apply(lambda x: pos_agreement_term_based(x["swe_lemma"], x["eng_lemma"]), axis=1)
+    df["agreed_pos"] = df.apply(
+        lambda x: pos_agreement_term_based(x["swe_lemma"], x["eng_lemma"]), axis=1
+    )
 
-    df.loc[~df["agreed_pos"].isin(["N", "V", "A", "Ab", "P"]), "status"] = df.loc[~df["agreed_pos"].isin(["N", "V", "A", "Ab", "P"]), "agreed_pos"]
+    df.loc[~df["agreed_pos"].isin(["N", "V", "A", "Ab", "P"]), "status"] = df.loc[
+        ~df["agreed_pos"].isin(["N", "V", "A", "Ab", "P"]), "agreed_pos"
+    ]
 
-    df.loc[df["agreed_pos"].isin(["N", "V", "A", "Ab", "P"]), "status"] = 'found pos'
+    df.loc[df["agreed_pos"].isin(["N", "V", "A", "Ab", "P"]), "status"] = "found pos"
 
     return df
+
 
 def lemmatize(df):
     """
@@ -408,47 +433,76 @@ def lemmatize(df):
     if len(df) == 0:
         return df
     # get pos of english lemmas
-    df['english_pos'] = df["eng_lemma"].apply(english_pos)
+    df["english_pos"] = df["eng_lemma"].apply(english_pos)
 
     # get pos of swedish lemmas
-    df['swedish_pos'] = df["swe_lemma"].apply(granska_pos)
+    df["swedish_pos"] = df["swe_lemma"].apply(granska_pos)
 
     # reduce information for easier checks
-    df['simple_swedish_pos']= df["swedish_pos"].apply(convert_to_simple_pos)
+    df["simple_swedish_pos"] = df["swedish_pos"].apply(convert_to_simple_pos)
 
     # condition to check for suspected sarskrivning
-    sarskrivning_condition = df["simple_swedish_pos"].str.contains(r"NNS? NNS?", regex=True)
+    sarskrivning_condition = df["simple_swedish_pos"].str.contains(
+        r"NNS? NNS?", regex=True
+    )
 
     df.loc[sarskrivning_condition, "status"] = "suspected särskriving"
 
-    # lemmatize swedish lemma 
-    df['swe_lemma'], df['swe_lemmatizer_status'] = zip(*df.apply(lambda x: advanced_swedish_lemmatizer(x["swe_lemma"], x["simple_swedish_pos"], x["swedish_pos"]), axis=1))
+    # lemmatize swedish lemma
+    df["swe_lemma"], df["swe_lemmatizer_status"] = zip(
+        *df.apply(
+            lambda x: advanced_swedish_lemmatizer(
+                x["swe_lemma"], x["simple_swedish_pos"], x["swedish_pos"]
+            ),
+            axis=1,
+        )
+    )
 
-    df['eng_lemma'] = df.apply(lambda x: english_lemmatizer_v2(x["eng_lemma"], x["agreed_pos"], x["english_pos"]), axis=1)
+    df["eng_lemma"] = df.apply(
+        lambda x: english_lemmatizer_v2(
+            x["eng_lemma"], x["agreed_pos"], x["english_pos"]
+        ),
+        axis=1,
+    )
 
-    df.loc[~sarskrivning_condition & (df['swe_lemmatizer_status'] == 'ok'), 'status'] = "automatically verified"
-    df.loc[~sarskrivning_condition & (df['swe_lemmatizer_status'] != 'ok'), 'status'] = df.loc[~sarskrivning_condition & (df['swe_lemmatizer_status'] != 'ok'), 'swe_lemmatizer_status']
+    df.loc[
+        ~sarskrivning_condition & (df["swe_lemmatizer_status"] == "ok"), "status"
+    ] = "automatically verified"
+    df.loc[
+        ~sarskrivning_condition & (df["swe_lemmatizer_status"] != "ok"), "status"
+    ] = df.loc[
+        ~sarskrivning_condition & (df["swe_lemmatizer_status"] != "ok"),
+        "swe_lemmatizer_status",
+    ]
 
     return df
+
 
 def generate_inflections(df):
     if len(df) == 0:
         return df
 
-    df["swedish_inflections"] = df.apply(lambda x: swe_inflections(x.swe_lemma, x.agreed_pos), axis=1)
-    df["english_inflections"] = df.apply(lambda x: eng_inflections(x.eng_lemma, x.agreed_pos), axis=1)
+    df["swedish_inflections"] = df.apply(
+        lambda x: swe_inflections(x.swe_lemma, x.agreed_pos), axis=1
+    )
+    df["english_inflections"] = df.apply(
+        lambda x: eng_inflections(x.eng_lemma, x.agreed_pos), axis=1
+    )
 
     return df
+
+
 def clean_pos(df):
-    df.fillna('', inplace=True)
-    df.loc[df['POS'] == 'no pos found', 'POS'] = ''
+    df.fillna("", inplace=True)
+    df.loc[df["POS"] == "no pos found", "POS"] = ""
 
     def has_multiple_words(row):
-        return ' ' in row['Swedish lemma'] or ' ' in row['English lemma']
+        return " " in row["Swedish lemma"] or " " in row["English lemma"]
 
     # Apply the function to update 'POS' column
-    df.loc[df.apply(has_multiple_words, axis=1) & (df['POS'] != ''), 'POS'] = 'NP'
+    df.loc[df.apply(has_multiple_words, axis=1) & (df["POS"] != ""), "POS"] = "NP"
     return df
+
 
 def check_for_banned_words(df):
     def contains_banned_word(text, banned_words):
@@ -457,41 +511,61 @@ def check_for_banned_words(df):
             if word in banned_words:
                 return True
         return False
-    
 
-    df['contains_banned'] = df['eng_lemma'].apply(lambda x: contains_banned_word(x, banned_words["en"]))
+    df["contains_banned"] = df["eng_lemma"].apply(
+        lambda x: contains_banned_word(x, banned_words["en"])
+    )
 
-    df.loc[~df['contains_banned'], "contains_banned"] = df['swe_lemma'].apply(lambda x: contains_banned_word(x, banned_words["sv"]))
+    df.loc[~df["contains_banned"], "contains_banned"] = df["swe_lemma"].apply(
+        lambda x: contains_banned_word(x, banned_words["sv"])
+    )
 
-    df.loc[~df['contains_banned'], "contains_banned"] = df['src'].apply(lambda x: contains_banned_word(x, banned_words["en"] + banned_words["sv"]))
+    df.loc[~df["contains_banned"], "contains_banned"] = df["src"].apply(
+        lambda x: contains_banned_word(x, banned_words["en"] + banned_words["sv"])
+    )
 
     return df
+
 
 def term_already_exists(existing_terms, new_term):
     term = (new_term["eng_lemma"], new_term["swe_lemma"], new_term["src"])
     for existing_term in existing_terms:
-        compare_term = (existing_term["entry"]["eng"]["lemma"], existing_term["entry"]["swe"]["lemma"])
+        compare_term = (
+            existing_term["entry"]["eng"]["lemma"],
+            existing_term["entry"]["swe"]["lemma"],
+        )
         if term[:2] == compare_term:
             sources = existing_term["entry"]["src"].split(", ")
             if term[2] not in sources:
-                existing_term["entry"]["src"] = existing_term["entry"]["src"] + ", " + new_term["src"]
-                key = os.getenv('KARP_API_KEY')
-                update_posts_via_api_key(existing_term["id"], existing_term["entry"], existing_term["version"], key, verbose=True)
+                existing_term["entry"]["src"] = (
+                    existing_term["entry"]["src"] + ", " + new_term["src"]
+                )
+                key = os.getenv("KARP_API_KEY")
+                update_posts_via_api_key(
+                    existing_term["id"],
+                    existing_term["entry"],
+                    existing_term["version"],
+                    key,
+                    verbose=True,
+                )
             return True
     return False
 
-        
-
 
 def main():
-    # CHANGE : Ändra inläsning --> läsa in från var/lib/stunda/terms/unprocessed
-    parser = argparse.ArgumentParser(description="Automatically process english-swedish computer science term pairs")
+    parser = argparse.ArgumentParser(
+        description="Automatically process english-swedish computer science term pairs"
+    )
     parser.add_argument("-s", "--strings", nargs=3, help="Two term pairs")
     parser.add_argument("-f", "--file", help="Input txt file")
     parser.add_argument("-jf", "--jsonfile", help="Input json file")
     parser.add_argument("-jfl", "--jsonlfile", help="Input jsonl file")
-    parser.add_argument("-srv", "--server",action="store_true", help="flag for indicatig the file is being run on the server")
-
+    parser.add_argument(
+        "-srv",
+        "--server",
+        action="store_true",
+        help="flag for indicatig the file is being run on the server",
+    )
 
     args = parser.parse_args()
 
@@ -504,36 +578,61 @@ def main():
 
     if args.strings:
         load_dotenv()
-        term_pairs.append({"eng_lemma" : args.strings[0], "swe_lemma": args.strings[1], "src": args.strings[2]})
+        term_pairs.append(
+            {
+                "eng_lemma": args.strings[0],
+                "swe_lemma": args.strings[1],
+                "src": args.strings[2],
+            }
+        )
         single_input = True
         df = pd.DataFrame(term_pairs)
     elif args.file:
         load_dotenv()
-        with open(args.file, 'r', encoding='utf-8') as file:
+        with open(args.file, "r", encoding="utf-8") as file:
             term_pairs = file.readlines()
-            term_pairs = [{'eng_lemma' : term_pair.rstrip().split(',')[0], 'swe_lemma': term_pair.rstrip().split(',')[1], "src": term_pair.rstrip().split(',')[2]} for term_pair in term_pairs]
+            term_pairs = [
+                {
+                    "eng_lemma": term_pair.rstrip().split(",")[0],
+                    "swe_lemma": term_pair.rstrip().split(",")[1],
+                    "src": term_pair.rstrip().split(",")[2],
+                }
+                for term_pair in term_pairs
+            ]
         df = pd.DataFrame(term_pairs)
     elif args.jsonfile:
         load_dotenv()
-        with open(args.jsonfile, 'r', encoding='utf-8') as file:
+        with open(args.jsonfile, "r", encoding="utf-8") as file:
             # Load JSON data from the file
             data = json.load(file)
             for key, value in data.items():
                 for swe_term in value:
-                    term_pairs.append({"eng_lemma": key, "swe_lemma": swe_term, "src":"paired keywords"})
+                    term_pairs.append(
+                        {
+                            "eng_lemma": key,
+                            "swe_lemma": swe_term,
+                            "src": "paired keywords",
+                        }
+                    )
         df = pd.DataFrame(term_pairs)
     elif args.jsonlfile:
         load_dotenv()
-        with open(args.jsonlfile, 'r', encoding='utf-8') as file:
+        with open(args.jsonlfile, "r", encoding="utf-8") as file:
             # Iterate through each line in the file
             for line in file:
                 # Load the JSON object from the line
                 data = json.loads(line)
-                term_pairs.append({"eng_lemma": data["eng"]["lemma"], "swe_lemma":data["swe"]["lemma"], "src": data["src"]})
+                term_pairs.append(
+                    {
+                        "eng_lemma": data["eng"]["lemma"],
+                        "swe_lemma": data["swe"]["lemma"],
+                        "src": data["src"],
+                    }
+                )
             df = pd.DataFrame(term_pairs)
     elif args.server:
         load_dotenv(dotenv_path="/var/lib/stunda/data/.env")
-        df = pd.read_csv("/var/lib/stunda/terms/unprocessed.csv", encoding='utf-8')
+        df = pd.read_csv("/var/lib/stunda/terms/unprocessed.csv", encoding="utf-8")
         df = df.astype(str)
         og_df = df.copy()
         from datetime import datetime
@@ -542,17 +641,21 @@ def main():
         now = datetime.now()
 
         # Format as a string
-        datetime_string = now.strftime('%Y-%m-%d %H:%M:%S')
+        datetime_string = now.strftime("%Y-%m-%d %H:%M:%S")
 
-        df.to_csv(f"/var/lib/stunda/historical_processed/unprocessed_{datetime_string}.csv", index=False, encoding="utf-8")
-        
+        df.to_csv(
+            f"/var/lib/stunda/historical_processed/unprocessed_{datetime_string}.csv",
+            index=False,
+            encoding="utf-8",
+        )
+
         if len(df) == 0:
-            return 
+            return
     else:
         print("Missing or incorrect arguments")
         exit(1)
-    
-    df["agreed_pos"] = ''
+
+    df["agreed_pos"] = ""
 
     t0 = time.time()
 
@@ -567,7 +670,9 @@ def main():
     # Time the spell check
     start_time = time.time()
     df = spell_check(df_cont.copy())
-    print("finished spell check in {:.2f} minutes".format((time.time() - start_time)/60))
+    print(
+        "finished spell check in {:.2f} minutes".format((time.time() - start_time) / 60)
+    )
 
     df_stop2 = df[df["status"] != "spelling ok"]
     df_cont = df[df["status"] == "spelling ok"]
@@ -575,52 +680,67 @@ def main():
     # Time the part-of-speech tagging
     start_time = time.time()
     df = pos(df_cont.copy())
-    print("finished part-of-speech tagging in {:.2f} minutes".format((time.time() - start_time)/60))
+    print(
+        "finished part-of-speech tagging in {:.2f} minutes".format(
+            (time.time() - start_time) / 60
+        )
+    )
 
-    df_stop3 = df[df['status'] != 'found pos']
-    df_cont = df[df['status'] == 'found pos']
+    df_stop3 = df[df["status"] != "found pos"]
+    df_cont = df[df["status"] == "found pos"]
 
     # Time the lemmatization
     start_time = time.time()
     df = lemmatize(df_cont.copy())
-    print("finished lemmatization in {:.2f} minutes".format((time.time() - start_time)/60))
+    print(
+        "finished lemmatization in {:.2f} minutes".format(
+            (time.time() - start_time) / 60
+        )
+    )
 
     # Drop duplicate entries over swedish lemma, engish lemma, pos and source
     df = df.drop_duplicates(subset=["eng_lemma", "swe_lemma", "agreed_pos", "src"])
 
     # Aggregate the sources
-    aggregated_sources_df = df.groupby(["swe_lemma", "eng_lemma", "agreed_pos"])["src"].apply(lambda x: ", ".join(x)).reset_index()  
-    df = df.drop(columns="src").drop_duplicates() 
+    aggregated_sources_df = (
+        df.groupby(["swe_lemma", "eng_lemma", "agreed_pos"])["src"]
+        .apply(lambda x: ", ".join(x))
+        .reset_index()
+    )
+    df = df.drop(columns="src").drop_duplicates()
     df = df.merge(aggregated_sources_df, on=["swe_lemma", "eng_lemma", "agreed_pos"])
 
     # Generera böjningsformer
     df = generate_inflections(df)
 
-    print("finished generating inflections in {:.2f} minutes".format((time.time() - start_time)/60))
+    print(
+        "finished generating inflections in {:.2f} minutes".format(
+            (time.time() - start_time) / 60
+        )
+    )
 
     # Concatenate all parts and calculate total processing time
     output_df = pd.concat([df_stop1, df_stop2, df_stop3, df]).reset_index(drop=True)
 
     if "swedish_inflections" not in output_df.columns:
-        output_df['swedish_inflections'] = None
-        output_df['english_inflections'] = None
+        output_df["swedish_inflections"] = None
+        output_df["english_inflections"] = None
 
-    # CHANGE : Lägg till bannade ord att tas bort, (kolla termer, källa) lägg in dessa poster i var/lib/stunda/terms/banned
     output_df = check_for_banned_words(output_df)
 
-    # CHANGE: Kolla dubletter, om dublett --> lägg till källan till posten, flagga automatiskt OK och lägg i var/lib/stunda/terms/approved
-    # TODO skippa entries med bannade ord och tilldela dessa false för att termen inte existerar
     existing_terms = get_all()["hits"]
 
     output_df["already_exist"] = False
 
-    output_df.loc[~output_df.contains_banned, "already_exist"] = output_df.loc[~output_df.contains_banned].apply(lambda x: term_already_exists(existing_terms, x), axis=1)
+    output_df.loc[~output_df.contains_banned, "already_exist"] = output_df.loc[
+        ~output_df.contains_banned
+    ].apply(lambda x: term_already_exists(existing_terms, x), axis=1)
 
     total_time = time.time() - t0
-    print("Total processing time: {:.2f} minutes".format(total_time/60))
+    print("Total processing time: {:.2f} minutes".format(total_time / 60))
 
-    # CHANGE : Lägg behandlade ord i var/lib/stunda/terms/processed
     if args.server or False:
+
         def set_reason(status):
             if status == "automatically verified":
                 return ""
@@ -629,58 +749,90 @@ def main():
 
         output_df["reason"] = output_df["status"].apply(set_reason)
 
-        output_df.loc[~(output_df.status == "automatically verified"), "status"] = "not automatically verified"
-        
+        output_df.loc[~(output_df.status == "automatically verified"), "status"] = (
+            "not automatically verified"
+        )
+
         df_banned = output_df.loc[output_df.contains_banned]
         df_exist_already = output_df.loc[output_df.already_exist]
-        df_new_terms = output_df.loc[(~output_df.contains_banned) & (~output_df.already_exist)]
+        df_new_terms = output_df.loc[
+            (~output_df.contains_banned) & (~output_df.already_exist)
+        ]
 
-        columns_to_save = ["eng_lemma", "swe_lemma", "src", "status", "agreed_pos", "swedish_inflections", "english_inflections", "reason"]
+        columns_to_save = [
+            "eng_lemma",
+            "swe_lemma",
+            "src",
+            "status",
+            "agreed_pos",
+            "swedish_inflections",
+            "english_inflections",
+            "reason",
+        ]
 
         # Converting the selected DataFrame to a list of JSON objects
-        jsonl_banned = json.loads(df_banned[columns_to_save].to_json(orient="records", force_ascii=False))
+        jsonl_banned = json.loads(
+            df_banned[columns_to_save].to_json(orient="records", force_ascii=False)
+        )
 
-        with open("/var/lib/stunda/terms/banned.jsonl", 'a', encoding='utf-8') as file:
+        with open("/var/lib/stunda/terms/banned.jsonl", "a", encoding="utf-8") as file:
             for item in jsonl_banned:
-                json_line = json.dumps(item, ensure_ascii=False) + '\n'
+                json_line = json.dumps(item, ensure_ascii=False) + "\n"
                 file.write(json_line)
 
         # Converting the selected DataFrame to a list of JSON objects
-        jsonl_new_terms = json.loads(df_new_terms[columns_to_save].to_json(orient="records", force_ascii=False))
-        
-        with open("/var/lib/stunda/terms/processed.jsonl", 'a', encoding='utf-8') as file:
+        jsonl_new_terms = json.loads(
+            df_new_terms[columns_to_save].to_json(orient="records", force_ascii=False)
+        )
+
+        with open(
+            "/var/lib/stunda/terms/processed.jsonl", "a", encoding="utf-8"
+        ) as file:
             for item in jsonl_new_terms:
-                json_line = json.dumps(item, ensure_ascii=False) + '\n'
+                json_line = json.dumps(item, ensure_ascii=False) + "\n"
                 file.write(json_line)
 
         # Converting the selected DataFrame to a list of JSON objects
-        jsonl_existing_terms = json.loads(df_exist_already[columns_to_save].to_json(orient="records", force_ascii=False))
+        jsonl_existing_terms = json.loads(
+            df_exist_already[columns_to_save].to_json(
+                orient="records", force_ascii=False
+            )
+        )
 
-        with open("/var/lib/stunda/terms/approved.jsonl", 'a', encoding='utf-8') as file:
+        with open(
+            "/var/lib/stunda/terms/approved.jsonl", "a", encoding="utf-8"
+        ) as file:
             for item in jsonl_existing_terms:
-                json_line = json.dumps(item, ensure_ascii=False) + '\n'
+                json_line = json.dumps(item, ensure_ascii=False) + "\n"
                 file.write(json_line)
 
-        og_df.head(0).to_csv("/var/lib/stunda/terms/unprocessed.csv", index=False, encoding='utf-8')
+        og_df.head(0).to_csv(
+            "/var/lib/stunda/terms/unprocessed.csv", index=False, encoding="utf-8"
+        )
     else:
         if single_input:
             print("English lemma:", output_df.at[0, "eng_lemma"])
             print("Swedish lemma:", output_df.at[0, "swe_lemma"])
             print("Status       :", output_df.at[0, "status"])
-            if 'agreed_pos' in output_df.columns and len(output_df.at[0, "eng_lemma"].split(" ")) == 1 and len(output_df.at[0, "swe_lemma"].split(" ")) == 1:
+            if (
+                "agreed_pos" in output_df.columns
+                and len(output_df.at[0, "eng_lemma"].split(" ")) == 1
+                and len(output_df.at[0, "swe_lemma"].split(" ")) == 1
+            ):
                 print("POS          :", output_df.at[0, "agreed_pos"])
-            print(df)
+
         else:
             # from tabulate import tabulate
-            output_df.rename(columns={'eng_lemma': 'English lemma', 'swe_lemma': 'Swedish lemma', 'agreed_pos': 'POS' }, inplace=True)
+            output_df.rename(
+                columns={
+                    "eng_lemma": "English lemma",
+                    "swe_lemma": "Swedish lemma",
+                    "agreed_pos": "POS",
+                },
+                inplace=True,
+            )
             output_df = clean_pos(output_df)
-            output_df.to_csv("ready_for_karp_v2.csv", index=False)
-            # output_df = output_df[["English lemma", 'Swedish lemma', 'POS', 'status']]
-            # 
-            # output_df.to_csv("ready_for_karp_v2.csv", index=False)
-            # print(tabulate(output_df, headers='keys', tablefmt='psql', showindex=False))
+            print(output_df)
 
 
 main()
-
-    
