@@ -1,12 +1,12 @@
+# Third-part libraries
 import nltk
 from nltk.corpus import wordnet
 from nltk.stem import WordNetLemmatizer
 from nltk.tokenize import word_tokenize
 import requests
-import pandas as pd
-import json
-from lemminflect import getInflection, getAllInflections
+from lemminflect import getAllInflections
 
+# path to save nltk-data
 nltk.data.path.append("./nltk_data")
 nltk.download("wordnet", download_dir="./nltk_data")
 nltk.download("brown", download_dir="./nltk_data")
@@ -21,17 +21,24 @@ wordtags = nltk.ConditionalFreqDist(
 )
 
 
+# Function for lemmatizing english terms based on the term and Part-of-Speech using the WordNetLemmatizer
 def english_lemmatizer(term, single_pos, long_pos):
+    # Check for single or multiple terms
     if len(term.split(" ")) == 1:
         pos = single_pos.lower()
+        # convert pos to expected convention
         if pos == "ab":
             pos = "r"
         return lemmatizer.lemmatize(term, pos)
     else:
+        # Extract the POS of the last word
         last_tag = long_pos.split(" ")[-1]
         words = term.split(" ")
+        # If the last word is a plural noun
         if last_tag == "NNS":
+            # Lemmatize the last word
             lemmatized_word = lemmatizer.lemmatize(words[-1], "n")
+            # use the lemmatized last word
             words[-1] = lemmatized_word
             return " ".join(words)
         else:
@@ -42,7 +49,6 @@ def english_lemmatizer(term, single_pos, long_pos):
 def english_pos(term):
     tokenized_words = word_tokenize(term)
     pos_tags = nltk.pos_tag(tokenized_words)
-
     pos_tags = " ".join([pos_tag[1] for pos_tag in pos_tags])
     return pos_tags
 
@@ -76,6 +82,7 @@ def convert_to_simple_pos(terms):
     return " ".join(terms)
 
 
+# Function for getting all terms from KARP
 def get_all():
     url = f"https://spraakbanken4.it.gu.se/karp/v7/query/stunda?q="
 
@@ -94,6 +101,7 @@ def get_all():
         return {}
 
 
+# Function for adding an entry to KARP by means of an API-key
 def add_entry_via_api_key(api_key, entry, verbose=False):
     url = "https://spraakbanken4.it.gu.se/karp/v7/entries/stunda"
 
@@ -117,6 +125,7 @@ def add_entry_via_api_key(api_key, entry, verbose=False):
         return None
 
 
+# Function for updating an entry to KARP by means of an API-key
 def update_posts_via_api_key(id, entry, version, api_key, verbose=False):
     url = f"https://spraakbanken4.it.gu.se/karp/v7/entries/stunda/{id}"
 
@@ -170,6 +179,7 @@ def swedish_spell_check(term):
         return None
 
 
+# Function to POS tag using Skrutten API
 def granska_pos(term):
     url = "https://skrutten.csc.kth.se/granskaapi/pos.php"
 
@@ -186,7 +196,8 @@ def granska_pos(term):
         return None
 
 
-def split_swedish_word(term):  # Fix for term consisting of multiple words?
+# Function for breaking down compound words using the Skrutten API
+def split_swedish_word(term):
     url = "https://skrutten.csc.kth.se/granskaapi/compound/"
 
     params = {"coding": "json", "words": term}
@@ -202,10 +213,11 @@ def split_swedish_word(term):  # Fix for term consisting of multiple words?
             return beginning_part, last_part
         return None, None
     else:
-        return None
+        return None, None
 
 
-def get_swe_inflections(swe_lemma, tag=False):
+# Function for generating swedish inflections using SALDO
+def get_swe_inflections(swe_lemma, second_try=False):
     url = f"https://ws.spraakbanken.gu.se/ws/karp/v4/query?q=extended||and|wf|equals|{swe_lemma}&resource=saldom"
 
     response = requests.get(url)
@@ -213,19 +225,19 @@ def get_swe_inflections(swe_lemma, tag=False):
     if response.status_code == 200:
         result = response.json()
 
-        if not result["hits"]["hits"] and not tag:
+        if not result["hits"]["hits"] and not second_try:
             # time to split the word and try with the last past
             first_part, last_part = split_swedish_word(swe_lemma)
             if last_part:
                 inflections = get_swe_inflections(last_part, True)
-                # here i was thinking i could do some concatenation but i dont know if that will work??
                 if not type(inflections) == list:
                     return f"No inflections for {swe_lemma}"
                 for inflection in inflections:
                     inflection["writtenForm"] = first_part + inflection["writtenForm"]
                 return inflections
             return f"No inflections for {swe_lemma}"
-        elif not result["hits"]["hits"] and tag:
+
+        elif not result["hits"]["hits"] and second_try:
             return f"No inflections for {swe_lemma}"
 
         return result["hits"]["hits"][0]["_source"]["WordForms"]
@@ -234,15 +246,21 @@ def get_swe_inflections(swe_lemma, tag=False):
         return None
 
 
+# Function for getting swedish inflections for a lemma and pos
 def swe_inflections(swe_lemma, pos):
+    # List consisting of the verified infletctions
     verified_inflections = []
     inflections = get_swe_inflections(swe_lemma)
+    # Unable to generate inflections
     if not type(inflections) == list:
         return []
+    # Noun
     if pos == "N":
         for inflection in inflections:
+            # Extract the plural indefinitve nomanative form
             if inflection.get("msd", "") == "pl indef nom":
                 verified_inflections.append(inflection.get("writtenForm", ""))
+    # Verb
     elif pos == "V":
         for inflection in inflections:
             if inflection.get("msd", "") in [
@@ -251,6 +269,7 @@ def swe_inflections(swe_lemma, pos):
                 "sup aktiv",
             ]:
                 verified_inflections.append(inflection.get("writtenForm", ""))
+    # Adverb and Adjective
     elif pos in ["A", "Ab"]:
         for inflection in inflections:
             if inflection.get("msd", "") in [
@@ -260,6 +279,7 @@ def swe_inflections(swe_lemma, pos):
             ]:
                 verified_inflections.append(inflection.get("writtenForm", ""))
 
+    # Remove hyphen and content before (yes this is weird but SALDO sometimes generates a hyphen and prefix for words when generating inflections)
     for inflection in verified_inflections:
         if "-" in inflection and not "-" in swe_lemma:
             inflection = inflection.split("-")[1]
@@ -275,12 +295,15 @@ def swe_inflections(swe_lemma, pos):
     return verified_inflections
 
 
+# Function for getting english inflections for a lemma and pos
 def eng_inflections(eng_lemma, pos):
     verified_inflections = []
+    # Noun
     if pos == "N":
         inflections = get_eng_inflections(eng_lemma, "NOUN")
         if "NNS" in inflections:
             verified_inflections.append(inflections.get("NNS", "")[0])
+    # Verb
     elif pos == "V":
         inflections = get_eng_inflections(eng_lemma, "VERB")
         if "VBG" in inflections:
@@ -290,26 +313,6 @@ def eng_inflections(eng_lemma, pos):
         if "VBD" in inflections:
             verified_inflections.append(inflections.get("VBD", "")[0])
     return verified_inflections
-
-
-# TODO probably removes
-def swedish_lemmatizing(term):
-    url = "https://skrutten.csc.kth.se/granskaapi/lemma/"
-
-    words = term.split(" ")
-
-    if len(words) == 1:
-        response = requests.get(url + "json/" + term)
-    else:
-        params = {"coding": "json", "words": term}
-
-        response = requests.post(url, data=params)
-
-    if response.status_code == 200:
-        result = response.json()
-        return result
-    else:
-        return None
 
 
 def swedish_lemmatizer_single_term(term):
@@ -332,8 +335,6 @@ def get_inflections(term, form):
     params = {"coding": "json", "word": term, "tag": form}
 
     response = requests.get(url, params=params)
-
-    # print(response.status_code)
 
     return response.json()[0]["interpretations"][0]["inflections"]
 
