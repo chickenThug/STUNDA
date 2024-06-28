@@ -16,6 +16,8 @@ const verifyTerms =  () => {
     terms.push(termData);
   });
 
+  // THE USERNAME CAN BE GOTTEN BY sessionStorage.getItem('username');
+
    // Send approved and not approved terms to the servlet
    fetch('/stunda/handle-verify', {
       method: 'POST',
