@@ -475,9 +475,7 @@ def lemmatize(df):
     )
 
     df["eng_lemma"] = df.apply(
-        lambda x: english_lemmatizer_v2(
-            x["eng_lemma"], x["agreed_pos"], x["english_pos"]
-        ),
+        lambda x: english_lemmatizer(x["eng_lemma"], x["agreed_pos"], x["english_pos"]),
         axis=1,
     )
 

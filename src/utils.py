@@ -21,7 +21,7 @@ wordtags = nltk.ConditionalFreqDist(
 )
 
 
-def english_lemmatizer_v2(term, single_pos, long_pos):
+def english_lemmatizer(term, single_pos, long_pos):
     if len(term.split(" ")) == 1:
         pos = single_pos.lower()
         if pos == "ab":
@@ -275,11 +275,6 @@ def swe_inflections(swe_lemma, pos):
     return verified_inflections
 
 
-def get_eng_inflections(eng_lemma, tag):
-    # print(getInflection('be', tag='VBD'))
-    return getInflection(eng_lemma, tag=tag)
-
-
 def eng_inflections(eng_lemma, pos):
     verified_inflections = []
     if pos == "N":
@@ -456,7 +451,7 @@ def pos_agreement_term_based(swedish_term, english_term):
 
 
 def get_eng_inflections(eng_lemma, tag):
-    # print(getInflection('be', tag='VBD'))
+    # print(getInflection("be", tag="VBD"))
     # Nouns: NNS
     # Verbs: VBG, VBN, VBD
     # Adjective:
