@@ -1,4 +1,6 @@
 document.addEventListener('DOMContentLoaded', function() {
+
+    // Function that compares user entered credentials to those saved on server for login
     document.getElementById('login-form').addEventListener('submit', async function(event) {
         event.preventDefault();
 
@@ -7,8 +9,8 @@ document.addEventListener('DOMContentLoaded', function() {
 
         try {
             const isValid = await checkLogin(username, password);
+            // if valid credentials --> set session storage and locate user to verification page
             if (isValid) {
-                // Set session storage to ensure user logged in
                 sessionStorage.setItem('loggedIn', 'true');
                 sessionStorage.setItem('username', username);
                 window.location.href = "verify.html";
@@ -21,6 +23,8 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
 
+    /* Function that checks entered credentials to those saved on the server. 
+    Returns boolean value true if credentials were correct, else false. */
     async function checkLogin(username, password) {
         const response = await fetch('/stunda/check-login', {
             method: 'POST',
