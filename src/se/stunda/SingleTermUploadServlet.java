@@ -16,6 +16,7 @@ public class SingleTermUploadServlet extends HttpServlet {
 
         try {
             request.setCharacterEncoding("UTF-8");
+            
             // get parameters
             String swedishTerm = request.getParameter("sweTerm");
             String englishTerm = request.getParameter("engTerm");
@@ -28,7 +29,7 @@ public class SingleTermUploadServlet extends HttpServlet {
                     source);
 
             // Add entry to file containing unprocessed terms
-            Files.write(Paths.get(FILE_PATH), entry.getBytes(), StandardOpenOption.CREATE,
+            Files.write(Paths.get(FILE_PATH), entry.getBytes("utf-8"), StandardOpenOption.CREATE,
                     StandardOpenOption.APPEND);
 
             // Send back a succesfull response

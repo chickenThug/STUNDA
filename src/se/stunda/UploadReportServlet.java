@@ -10,7 +10,7 @@ public class UploadReportServlet extends HttpServlet {
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         try {
-
+            request.setCharacterEncoding("UTF-8");
             // Get the data from the request
             String sweLemma          = request.getParameter("sweLemma");
             String engLemma          = request.getParameter("engLemma");
@@ -39,7 +39,7 @@ public class UploadReportServlet extends HttpServlet {
             }
 
             // Append the report at the end of file
-            Files.write(Paths.get(LOG_FILE_PATH), report.getBytes(), StandardOpenOption.CREATE, StandardOpenOption.APPEND);
+            Files.write(Paths.get(LOG_FILE_PATH), report.getBytes("utf-8"), StandardOpenOption.CREATE, StandardOpenOption.APPEND);
 
             // Send back a response
             response.setContentType("text/plain");
