@@ -43,11 +43,11 @@ public class TermUploadServlet extends HttpServlet {
                             if (i == 0) {
                                 i++;
                                 if (line.equals("eng_term,swe_term")) {
-                                    pattern = Pattern.compile("\"([^\"]*)\"|([^,]+)");
+                                    pattern = Pattern.compile("(\"[^\"]*\"|[^,]+)");
                                     continue;
                                 }
                                 else if (line.equals("eng_term;swe_term")) {
-                                    pattern = Pattern.compile("\"([^\"]*)\"|([^;]+)");
+                                    pattern = Pattern.compile("(\"[^\"]*\"|[^;]+)");
                                     continue;
                                 }
                                 else  {
