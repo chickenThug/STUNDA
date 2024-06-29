@@ -16,10 +16,6 @@ public class SingleTermUploadServlet extends HttpServlet {
             throws ServletException, IOException {
 
         try {
-            File file = new File(OLD_LOG_FILE);
-            if (file.exists()) {
-                file.delete();
-            }
             request.setCharacterEncoding("UTF-8");
             String swedishTerm = request.getParameter("sweTerm");
             String englishTerm = request.getParameter("engTerm");
