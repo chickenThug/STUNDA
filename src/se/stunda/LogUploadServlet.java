@@ -13,21 +13,27 @@ public class LogUploadServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         try {
+            request.setCharacterEncoding("UTF-8");
+            // Get parameters from request
             String timestamp = request.getParameter("timestamp");
             String uploadType = request.getParameter("uploadType");
             boolean successful = Boolean.parseBoolean(request.getParameter("successful"));
 
+            // Format log message
             String logMessage = String.format("Time Stamp: %s, Upload Type: %s, Successful: %s\n",
                     timestamp,
                     uploadType,
                     successful);
-
-            Files.write(Paths.get(LOG_FILE_PATH), logMessage.getBytes(), StandardOpenOption.CREATE,
+            
+            // Append log message to the end of file
+            Files.write(Paths.get(LOG_FILE_PATH), logMessage.getBytes("utf-8"), StandardOpenOption.CREATE,
                     StandardOpenOption.APPEND);
 
+            // Respond to server
             response.setContentType("text/plain");
             response.getWriter().write("Upload Logged Successfully");
         } catch (Exception e) {
+            // Respond with error message to server
             response.setStatus(HttpServletResponse.SC_INTERNAL_SERVER_ERROR);
             response.setContentType("text/plain");
             response.getWriter().write("error: " + e.getMessage());

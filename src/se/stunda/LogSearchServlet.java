@@ -12,7 +12,7 @@ public class LogSearchServlet extends HttpServlet {
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         try {
-
+            request.setCharacterEncoding("UTF-8");
             // Get the data from the request
             String searchString = request.getParameter("searchString");
             int searchHits = Integer.parseInt(request.getParameter("searchHits"));
@@ -20,6 +20,7 @@ public class LogSearchServlet extends HttpServlet {
             String timestamp = request.getParameter("timestamp");
             String searchLanguage = request.getParameter("searchLanguage");
 
+            //Format log message
             String logMessage = String.format("Search String: %s, Search Hits: %d, Successful: %s, Time Stamp: %s, Search Language: %s\n",
                     searchString,
                     searchHits,
@@ -27,8 +28,8 @@ public class LogSearchServlet extends HttpServlet {
                     timestamp,
                     searchLanguage);
 
-            // Using Java NIO to append text to a file in a thread-safe manner
-            Files.write(Paths.get(LOG_FILE_PATH), logMessage.getBytes(), StandardOpenOption.CREATE, StandardOpenOption.APPEND);
+            // Append log message to the end of search log file
+            Files.write(Paths.get(LOG_FILE_PATH), logMessage.getBytes("utf-8"), StandardOpenOption.CREATE, StandardOpenOption.APPEND);
 
             // Send back a response
             response.setContentType("text/plain");

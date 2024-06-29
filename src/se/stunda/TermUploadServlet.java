@@ -40,7 +40,7 @@ public class TermUploadServlet extends HttpServlet {
                                 continue;
                             }
                             String writeString = line + "," + source + "\n";
-                            Files.write(Paths.get(FILE_PATH), writeString.getBytes(), StandardOpenOption.CREATE,
+                            Files.write(Paths.get(FILE_PATH), writeString.getBytes("utf-8"), StandardOpenOption.CREATE,
                                     StandardOpenOption.APPEND);
                         }
                     }

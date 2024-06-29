@@ -10,7 +10,7 @@ public class UploadReportServlet extends HttpServlet {
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         try {
-
+            request.setCharacterEncoding("UTF-8");
             // Get the data from the request
             String sweLemma          = request.getParameter("sweLemma");
             String engLemma          = request.getParameter("engLemma");
@@ -20,7 +20,8 @@ public class UploadReportServlet extends HttpServlet {
             String other             = request.getParameter("other");
             String timestamp         = request.getParameter("timestamp");
 
-            String logMessage = String.format("Swedish Lemma: %s, English Lemma: %s, Non-Computing Term: %b, Wrong Translation: %b, Inappropriate: %b, Other: %s, Timestamp: %s",
+            // Format report string
+            String report = String.format("Swedish Lemma: %s, English Lemma: %s, Non-Computing Term: %b, Wrong Translation: %b, Inappropriate: %b, Other: %s, Timestamp: %s",
                 sweLemma,
                 engLemma,
                 nonComputingTerm,
@@ -37,8 +38,8 @@ public class UploadReportServlet extends HttpServlet {
                 Files.createDirectories(parentDir);
             }
 
-            // Using Java NIO to append text to a file in a thread-safe manner
-            Files.write(Paths.get(LOG_FILE_PATH), logMessage.getBytes(), StandardOpenOption.CREATE, StandardOpenOption.APPEND);
+            // Append the report at the end of file
+            Files.write(Paths.get(LOG_FILE_PATH), report.getBytes("utf-8"), StandardOpenOption.CREATE, StandardOpenOption.APPEND);
 
             // Send back a response
             response.setContentType("text/plain");

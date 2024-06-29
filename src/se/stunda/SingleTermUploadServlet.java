@@ -9,30 +9,34 @@ import java.nio.file.*;
 @MultipartConfig
 public class SingleTermUploadServlet extends HttpServlet {
     private static final String FILE_PATH = "/var/lib/stunda/terms/unprocessed.csv";
-    
+
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
 
         try {
             request.setCharacterEncoding("UTF-8");
+            
+            // get parameters
             String swedishTerm = request.getParameter("sweTerm");
             String englishTerm = request.getParameter("engTerm");
             String source = request.getParameter("source");
 
-            String logMessage = String.format("%s,%s,%s\n",
+            // Format entry for storage
+            String entry = String.format("%s,%s,%s\n",
                     englishTerm,
                     swedishTerm,
                     source);
 
-            // Using Java NIO to append text to a file in a thread-safe manner
-            Files.write(Paths.get(FILE_PATH), logMessage.getBytes(), StandardOpenOption.CREATE,
+            // Add entry to file containing unprocessed terms
+            Files.write(Paths.get(FILE_PATH), entry.getBytes("utf-8"), StandardOpenOption.CREATE,
                     StandardOpenOption.APPEND);
 
-            // Send back a response
+            // Send back a succesfull response
             response.setContentType("text/plain");
             response.getWriter().write("Term Uploaded Successfully");
         } catch (Exception e) {
+            // Send back an error response
             response.setStatus(HttpServletResponse.SC_INTERNAL_SERVER_ERROR);
             response.setContentType("text/plain");
             response.getWriter().write("error: " + e.getMessage());
