@@ -7,6 +7,15 @@ Utils contains functions that are used for the term processing in `automatic_flo
 ## `automatic_flow.py`
 The automatic processing of incoming terms stored in `unprocessed.csv` is handled by `automatic_flow.py`.
 
+To run the file the following libraries are needed:
+
+- pandas
+- lemminflect
+- python-dotenv
+- nltk
+
+To run the file on the server use the following ´python3 src/automatic_flow.py -srv´
+
 The processing consists of the following steps:
 
 1. Data cleaning
