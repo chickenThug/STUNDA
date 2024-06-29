@@ -1,13 +1,10 @@
 package se.stunda;
 
-import io.github.cdimascio.dotenv.Dotenv;
 import java.io.*;
 import javax.servlet.*;
 import javax.servlet.http.*;
 
 public class CheckLoginServlet extends HttpServlet {
-    private String storedUsername;
-    private String storedPassword;
     String filePath = "/var/lib/stunda/data/users.txt";
 
     @Override
@@ -19,7 +16,8 @@ public class CheckLoginServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         
-        boolean found = false;
+        // Boolean indicating if the provided username and password are valid
+        boolean isValid = false;
         try (BufferedReader br = new BufferedReader(new FileReader(filePath))) {
             String line;
            
@@ -28,13 +26,13 @@ public class CheckLoginServlet extends HttpServlet {
             while ((line = br.readLine()) != null) {
                 // Split the line into username and password
                 String[] parts = line.split("\\s+");
-                if (parts.length == 2) {
+                if (parts.length == 2) { 
                     String usernameFromFile = parts[0];
                     String passwordFromFile = parts[1];
 
                     // Compare username and password
                     if (usernameFromFile.equals(username) && passwordFromFile.equals(password)) {
-                        found = true;
+                        isValid = true;
                         break;
                     }
                 }
@@ -44,7 +42,8 @@ public class CheckLoginServlet extends HttpServlet {
             response.getWriter().write("{\"valid\":" + false + "}");
         } 
 
+        // Respond to server
         response.setContentType("application/json");
-        response.getWriter().write("{\"valid\":" + found + "}");
+        response.getWriter().write("{\"valid\":" + isValid + "}");
     }
 }
