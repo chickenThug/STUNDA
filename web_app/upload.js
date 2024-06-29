@@ -109,10 +109,12 @@ let language = 'swe';
 const language_toggle = () => {
     const languageToggle = document.getElementById('language-toggle');
     if (languageToggle.alt === 'swe') {
+        document.documentElement.lang = 'sv';
         switchToSwedish();
         language = 'swe';
         languageToggle.alt = 'eng';
     } else {
+        document.documentElement.lang = 'en';
         switchToEnglish();
         language = 'eng';
         languageToggle.alt = 'swe';

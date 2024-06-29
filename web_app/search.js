@@ -562,6 +562,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
 // Function to change text content to English
 const switchToEnglish = () => {
+    document.documentElement.lang = 'en';
     // Change logo text
     document.querySelector('.logo-main').textContent = 'STUNDA';
     document.querySelector('.logo-sub').textContent = 'Swedish Technical University Network for Computing Terms';
@@ -654,6 +655,7 @@ const switchToEnglish = () => {
 
 // Function to change text content to Swedish
 const switchToSwedish = () => {
+    document.documentElement.lang = 'sv';
     // Change logo text
     document.querySelector('.logo-main').textContent = 'STUNDA';
     document.querySelector('.logo-sub').textContent = 'Sveriges Tekniska Universitets Nätverk för Datatermer';
