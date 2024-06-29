@@ -24,7 +24,7 @@ public class HandleVerifiedTermsServlet extends HttpServlet {
     private static final String UNAPPROVED_FILE_PATH = "/var/lib/stunda/terms/notapproved.jsonl";
     private static final String APPROVED_FILE_PATH = "/var/lib/stunda/terms/approved.jsonl";
     private static final String PROCESSED_FILE_PATH = "/var/lib/stunda/terms/processed.jsonl";
-    private static final String LOG_FILE_PATH = "/var/log/stunda/log_search.txt";
+    private static final String LOG_FILE_PATH = "/var/log/stunda/log_verify.txt";
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
