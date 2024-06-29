@@ -1,3 +1,4 @@
+// Function for handling when the user tries to upload terms
 const uploadFunction = (swe_term, eng_term, file, src, contact) => {
     let now = new Date();
     let dateString = now.toString();
@@ -7,19 +8,19 @@ const uploadFunction = (swe_term, eng_term, file, src, contact) => {
         uploadType = 'terms';
     }
 
+    // Single term upload
     if (swe_term && eng_term){
         const termData = {engTerm: eng_term, sweTerm: swe_term, source: src}
         single_term_upload(termData);
     }
 
+    // File upload
     const formData = new FormData();
-
     formData.append('csvfile', file);
-
     formData.append('source', src);
 
     const xhr = new XMLHttpRequest();
-    xhr.open('POST', '/stunda/term-upload', true);
+    xhr.open('POST', '/stunda/term-upload', true); // The servlet responsible for file upload
 
     xhr.onload = function() {
         if (xhr.status === 200) {
@@ -43,14 +44,16 @@ const uploadFunction = (swe_term, eng_term, file, src, contact) => {
     xhr.send(formData);
 }
 
+/* Function for validating the user inputs. 
+If something is bad --> show appropriate error messages. Else --> call uploadFunction()*/
 const validateAndUpload = () => {
-    // Hide feedback messages
     const feedbackMessage = document.getElementById("feedback-message");
     feedbackMessage.style.display = 'none';
 
     const badfeedbackMessage = document.getElementById("feedback-message-bad");
     badfeedbackMessage.style.display = 'none';
 
+    // Extract all the values from the form
     const swe_term = document.getElementById('swe_term').value;
     const eng_term = document.getElementById('eng_term').value;
     const file = document.getElementById('term_file').files[0];
@@ -102,6 +105,7 @@ const validateAndUpload = () => {
 
 let language = 'swe';
 
+// Function called when language button is pressed. Switches the language accordingly
 const language_toggle = () => {
     const languageToggle = document.getElementById('language-toggle');
     if (languageToggle.alt === 'swe') {
@@ -139,6 +143,7 @@ const switchToSwedish = () => {
     document.querySelector('#feedback-message-bad').innerHTML = 'Uppladdning av termer gick inte. Vänligen försök igen vid senare tillfälle.'
 }
 
+// Function for calling the servlet handling the logging of the upload
 function log_upload(data){
     fetch('/stunda/log-upload', {
         method: 'POST',
@@ -152,6 +157,7 @@ function log_upload(data){
     .catch(error => console.error('Error logging upload:', error));
 }
 
+// Function for calling the servlet handling the single term upload
 function single_term_upload(data){
     fetch('/stunda/single-term-upload', {
         method: 'POST',
