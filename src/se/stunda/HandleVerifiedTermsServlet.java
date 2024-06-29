@@ -5,7 +5,7 @@ import org.json.JSONObject;
 import org.json.JSONException;
 import javax.servlet.*;
 import javax.servlet.http.*;
-import java.io.IOException;
+
 import java.io.*;
 import java.util.HashSet;
 import java.util.Set;
@@ -13,12 +13,18 @@ import io.github.cdimascio.dotenv.Dotenv;
 
 import java.net.URL;
 import java.net.URLEncoder;
+import java.nio.file.Files;
+import java.nio.file.Paths;
+import java.nio.file.StandardOpenOption;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.net.HttpURLConnection;
 
 public class HandleVerifiedTermsServlet extends HttpServlet {
     private static final String UNAPPROVED_FILE_PATH = "/var/lib/stunda/terms/notapproved.jsonl";
     private static final String APPROVED_FILE_PATH = "/var/lib/stunda/terms/approved.jsonl";
     private static final String PROCESSED_FILE_PATH = "/var/lib/stunda/terms/processed.jsonl";
+    private static final String LOG_FILE_PATH = "/var/log/stunda/log_verify.txt";
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
@@ -39,12 +45,18 @@ public class HandleVerifiedTermsServlet extends HttpServlet {
             while ((line = request.getReader().readLine()) != null) {
                 jsonBuffer.append(line);
             }
-            JSONArray incomingTerms = new JSONArray(jsonBuffer.toString());
+
+            JSONObject incomingData = new JSONObject(jsonBuffer.toString());
+            String username = incomingData.getString("username");
+            JSONArray incomingTerms = incomingData.getJSONArray("terms");
 
             JSONArray approvedArray = new JSONArray();
             JSONArray notApprovedArray = new JSONArray();
 
             Set<String> incomingTermIds = new HashSet<>();
+
+            DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
+            LocalDateTime now = LocalDateTime.now();
 
             for (int i = 0; i < incomingTerms.length(); i++) {
                 JSONObject jsonObject = incomingTerms.getJSONObject(i);
@@ -64,6 +76,14 @@ public class HandleVerifiedTermsServlet extends HttpServlet {
                 } else {
                     notApprovedArray.put(jsonObject);
                 }
+
+                String logMessage = String.format(
+                        "Username: %s, Swe Lemma: %s, Eng Lemma: %s, Timestamp: %s, Approved: %s\n",
+                        username, jsonObject.getString("swe_lemma"), jsonObject.getString("eng_lemma"), dtf.format(now),
+                        isApproved ? "approved" : "not approved");
+
+                Files.write(Paths.get(LOG_FILE_PATH), logMessage.getBytes(), StandardOpenOption.CREATE,
+                        StandardOpenOption.APPEND);
             }
 
             JSONArray remainingProcessedTerms = new JSONArray();

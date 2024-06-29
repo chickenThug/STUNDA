@@ -63,16 +63,18 @@ The flow of the Servlet is:
 - The Servlet loads the KARP API key from the server
 2. Reading and Parsing Request
 - It reads the incoming JSON data from the request, which contains terms marked as approved and not approved, and sorts these into approvedArray and notApprovedArray
-3. Updating Processed terms
+3. Logging 
+- Loggs the approval of each term pair to `log_verify.txt` containing information about the username, swedish lemma, english lemma, timestamp and if the term pair was approved or not
+4. Updating Processed terms
 - Reads the existing processed terms from `processed.jsonl` and retains those not present in the current incoming terms
-4. Handling not approved terms
+5. Handling not approved terms
 - Writes all of the non-approved terms to `notapproved.jsonl`
-5. KARP Database Interaction
+6. KARP Database Interaction
 - For each approved item: checks its presence in the KARP database using `getItem`
 - If the term pair already exists in KARP, update its entry to include the new source
 - If the term does not exist, construct a new entry and add it do KARP using `addEntry`
-6. Final File Updates
+7. Final File Updates
 - Write remaining processed terms back to `processed.jsonl`
 - Write approved terms to `approved.jsonl`
-7. Response
+8. Response
 - Responds to the client with a message if the operations were successful or not

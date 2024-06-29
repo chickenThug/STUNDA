@@ -17,8 +17,10 @@ const verifyTerms =  () => {
   });
   const username = sessionStorage.getItem('username');
 
-  console.log("username");
-  console.log(username);
+  const payload = {
+    username: username,
+    terms: terms
+  };
 
    // Send approved and not approved terms to the servlet
    fetch('/stunda/handle-verify', {
@@ -26,7 +28,7 @@ const verifyTerms =  () => {
       headers: {
           'Content-Type': 'application/json'
       },
-      body: JSON.stringify(terms)
+      body: JSON.stringify(payload)
     })
     .then(response => response.text())
     .then(data => {
