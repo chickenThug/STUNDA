@@ -30,6 +30,7 @@ public class TermUploadServlet extends HttpServlet {
                     && request.getContentType().toLowerCase().contains("multipart/form-data")) {
                 // Get the part of the request that contains the file
                 Part filePart = request.getPart("csvfile");
+                // Get the provided source
                 String source = request.getParameter("source"); 
 
                 if (filePart != null) {
@@ -42,14 +43,19 @@ public class TermUploadServlet extends HttpServlet {
                             //CSV header
                             if (i == 0) {
                                 i++;
+                                //Proccess , seperated csv
                                 if (line.equals("eng_term,swe_term")) {
+                                    // Regex to match CSV fields that may contain commas within quotes
                                     pattern = Pattern.compile("(\"[^\"]*\"|[^,]+)");
                                     continue;
                                 }
+                                //Proccess ; seperated csv
                                 else if (line.equals("eng_term;swe_term")) {
+                                    // Regex to match CSV fields that may contain commas within quotes
                                     pattern = Pattern.compile("(\"[^\"]*\"|[^;]+)");
                                     continue;
                                 }
+                                //Incorrect CSV header
                                 else  {
                                     response.setStatus(HttpServletResponse.SC_INTERNAL_SERVER_ERROR);
                                     response.setContentType("text/plain");
@@ -57,11 +63,12 @@ public class TermUploadServlet extends HttpServlet {
                                     break;
                                 }
                             }
-                            // Regex to match CSV fields that may contain commas within quotes
+                            //Match regex
                             Matcher matcher = pattern.matcher(line);
                             String[] parts = new String[2];
                             int index = 0;
 
+                            // Match the first two entries
                             while (matcher.find()) {
                                 if (index < 2) {
                                     // Check if group 1 (quoted value) is not null, otherwise use group 2

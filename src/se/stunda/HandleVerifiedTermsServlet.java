@@ -30,6 +30,7 @@ public class HandleVerifiedTermsServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         try {
+            // Load environment file
             Dotenv dotenv = Dotenv.configure()
                     .directory("/var/lib/stunda/data")
                     .ignoreIfMalformed()
@@ -42,17 +43,21 @@ public class HandleVerifiedTermsServlet extends HttpServlet {
             String line;
             request.setCharacterEncoding("UTF-8");
 
+            // Read request line by line
             while ((line = request.getReader().readLine()) != null) {
                 jsonBuffer.append(line);
             }
 
             JSONObject incomingData = new JSONObject(jsonBuffer.toString());
+
+            // Load username of the user approving the term
             String username = incomingData.getString("username");
             JSONArray incomingTerms = incomingData.getJSONArray("terms");
 
             JSONArray approvedArray = new JSONArray();
             JSONArray notApprovedArray = new JSONArray();
 
+            // Set to store the incoming terms so they can be removed from processed.jsonl
             Set<String> incomingTermIds = new HashSet<>();
 
             DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
@@ -63,34 +68,39 @@ public class HandleVerifiedTermsServlet extends HttpServlet {
 
                 // Determine whether the jsonObject is approved
                 boolean isApproved = jsonObject.optBoolean("approved", false);
-
+                
+                // Add the incoming term to the set of seen terms
                 incomingTermIds.add(jsonObject.getString("eng_lemma") + jsonObject.getString("swe_lemma")
                         + jsonObject.getString("src"));
 
                 // Remove the 'approved' key from the JSONObject
                 jsonObject.remove("approved");
 
-                // Add to the appropriate array
+                // Split the incoming terms into approved and not approved
                 if (isApproved) {
                     approvedArray.put(jsonObject);
                 } else {
                     notApprovedArray.put(jsonObject);
                 }
 
+                // Format logmessage
                 String logMessage = String.format(
                         "Username: %s, Swe Lemma: %s, Eng Lemma: %s, Timestamp: %s, Approved: %s\n",
                         username, jsonObject.getString("swe_lemma"), jsonObject.getString("eng_lemma"), dtf.format(now),
                         isApproved ? "approved" : "not approved");
-
+                
+                // Append log message to log
                 Files.write(Paths.get(LOG_FILE_PATH), logMessage.getBytes(), StandardOpenOption.CREATE,
                         StandardOpenOption.APPEND);
             }
 
+            // Array to store terms not verified by user
             JSONArray remainingProcessedTerms = new JSONArray();
 
             try (BufferedReader reader = new BufferedReader(new FileReader(PROCESSED_FILE_PATH))) {
                 while ((line = reader.readLine()) != null) {
                     JSONObject jsonObject = new JSONObject(line);
+                    // Check if term has been manually verified
                     if (!incomingTermIds.contains(jsonObject.getString("eng_lemma") + jsonObject.getString("swe_lemma")
                             + jsonObject.getString("src"))) {
                         remainingProcessedTerms.put(jsonObject);
@@ -99,6 +109,7 @@ public class HandleVerifiedTermsServlet extends HttpServlet {
                 }
             }
 
+            // Write not approved terms to file
             writeToJsonlFile(notApprovedArray, UNAPPROVED_FILE_PATH, true);
 
             Set<String> allowedPos = new HashSet<>();
@@ -118,14 +129,17 @@ public class HandleVerifiedTermsServlet extends HttpServlet {
                 JSONArray sweInflections = obj.optJSONArray("swedish_inflections");
                 String pos = obj.getString("agreed_pos");
 
+                // Array of sources
                 String[] incoming_srcs = src.split(", ");
-
+                
+                // Search if terms exists on KARP
                 JSONObject karpSearch = getTerm(engLemma, sweLemma);
 
                 JSONArray hits = karpSearch.optJSONArray("hits");
 
                 boolean already_exist = false;
 
+                // Iterate through hits
                 for (int j = 0; j < hits.length(); j++) {
                     JSONObject hit = hits.getJSONObject(j);
                     String id = hit.getString("id");
@@ -133,9 +147,13 @@ public class HandleVerifiedTermsServlet extends HttpServlet {
                     JSONObject entry = hit.optJSONObject("entry");
 
                     String new_source;
+
+                    // Term already exists
                     if ((entry.optJSONObject("eng").getString("lemma").equals(engLemma))
                             && (entry.optJSONObject("swe").getString("lemma").equals(sweLemma))) {
                         already_exist = true;
+
+                        // Check if the source also already exists
                         new_source = entry.getString("src");
                         String[] current_srcs = new_source.split(", ");
                         for (String inc_src : incoming_srcs) {
@@ -152,7 +170,7 @@ public class HandleVerifiedTermsServlet extends HttpServlet {
                 }
                 if (already_exist) {
                     continue;
-                } else {
+                } else { // New entry 
                     JSONObject eng = new JSONObject();
                     JSONObject swe = new JSONObject();
 
@@ -186,7 +204,10 @@ public class HandleVerifiedTermsServlet extends HttpServlet {
                 }
             }
 
+            // Write the remaining terms to be processed to file
             writeToJsonlFile(remainingProcessedTerms, PROCESSED_FILE_PATH, false);
+
+            // Write approved terms to file
             writeToJsonlFile(approvedArray, APPROVED_FILE_PATH, true);
 
             response.setContentType("text/plain");
@@ -205,6 +226,7 @@ public class HandleVerifiedTermsServlet extends HttpServlet {
         }
     }
 
+    // Helper function for writing to list of JSON objects to file
     private static void writeToJsonlFile(JSONArray jsonArray, String filePath, boolean append) {
         try (FileWriter fileWriter = new FileWriter(filePath, append)) {
             for (int i = 0; i < jsonArray.length(); i++) {
@@ -215,6 +237,7 @@ public class HandleVerifiedTermsServlet extends HttpServlet {
         }
     }
 
+    // Helper function for searching against KARP
     public static JSONObject getTerm(String eng_lemma, String swe_lemma) {
         JSONObject jsonResponse = new JSONObject();
 
@@ -250,6 +273,7 @@ public class HandleVerifiedTermsServlet extends HttpServlet {
         return jsonResponse;
     }
 
+    // Helper function for updating an entry on KARP
     public static JSONObject updateTerm(String id, JSONObject entry, int version, String apiKey, boolean verbose) {
         String urlString = "https://spraakbanken4.it.gu.se/karp/v7/entries/stunda/" + id;
         JSONObject jsonResponse = null;
@@ -306,6 +330,7 @@ public class HandleVerifiedTermsServlet extends HttpServlet {
         return jsonResponse;
     }
 
+    // Helper function for adding an entry to KARP
     public static String addEntry(String apiKey, JSONObject entry, boolean verbose) {
         String urlString = "https://spraakbanken4.it.gu.se/karp/v7/entries/stunda";
         String newID = null;
