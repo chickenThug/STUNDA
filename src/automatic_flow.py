@@ -759,7 +759,7 @@ def main():
     output_df = check_for_banned_words(output_df)
 
     # Check if terms already exist in the KARP database
-    existing_terms = get_all()["hits"]
+    existing_terms = get_all()
     output_df["already_exist"] = False
     output_df.loc[~output_df.contains_banned, "already_exist"] = output_df.loc[
         ~output_df.contains_banned
