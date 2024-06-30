@@ -1,24 +1,21 @@
+// Function to get terms from the KARP database
 function getTermsFromKarp(field, query_mode, searchString) {
-    // Format the search string into the URL
     const apiUrl = `https://spraakbanken4.it.gu.se/karp/v7/query/stunda?q=and(or(${query_mode}|${field}|"${searchString}"))&from=0&size=100`;
-    // Make the GET request using fetch()
     return fetch(apiUrl)
       .then(response => {
-        // Check if the response is OK (status code 200)
         if (!response.ok) {
           throw new Error('Network response was not ok');
         }
         return response.json();
       })
       .catch(error => {
-        // Handle any errors that occur during the fetch
         console.error('There was a problem with the fetch operation:', error);
         return "error";
       });
 }
 
+// Function called 
 async function search(language, searchString) {
-
     let languageLemma = "";
     let oppositeLang = "";
     let oppositeLemma = "";
@@ -174,18 +171,19 @@ const bilingualExplanationMap = createBilingualMap(sourceExplanationEnglish, sou
 
 let last_get_similar_words_result = {};
 
-let language = 'swe';
+let language = 'swe'; // Language of the page
 
-let switched_view = 'no';
+let switched_view = 'no'; // If the user has switched the view or not
 
-let done_search = 'no';
+let done_search = 'no'; // If a search has been done
 
 let new_best_result = display_entry;
 
+// Function called when user makes a search. Calls functions for searching for words and displaying the results
 const getResults = async (word, search_language) => {
     done_search = 'yes';
 
-    let result = await search(search_language, word);
+    let result = await search(search_language, word); // Making the search
 
     // Create a new Date object
     let now = new Date();
@@ -230,6 +228,7 @@ const handle_button_parsing = (string_data) => {
     display_best_result(display_entry);
 }
 
+// Function for displaying when there are no hits on KARP
 function display_no_result() {
     // Clear results
     document.getElementById("search-results").style.display = "none";
@@ -265,6 +264,7 @@ function display_no_result() {
     document.getElementById("best-search-result").style.display = "block";
 }
 
+// Function logging the search
 function log_search(data) {
     fetch('/stunda/log-search', {
         method: 'POST',
@@ -278,6 +278,7 @@ function log_search(data) {
     .catch(error => console.error('Error logging search:', error));
 }
 
+// Function for logging the report data
 function log_report_data(data) {
     fetch('/stunda/log-report-data', {
         method: 'POST',
@@ -291,6 +292,7 @@ function log_report_data(data) {
     .catch(error => console.error('Error logging search:', error));
 }
 
+// Function for displaying errors
 function display_error_result() {
     // Clear results
     document.getElementById("search-results").style.display = "none";
@@ -315,6 +317,7 @@ function display_error_result() {
     document.getElementById("best-search-result").style.display = "block";
 }
 
+// Function for displaying the best search result div
 const display_best_result = (data) => {
     best_word_container = document.getElementById("best-search-result");
     // Clear the container so we don't append the same results multiple times
@@ -332,7 +335,7 @@ const display_best_result = (data) => {
 
     // Report button
     const iconButton = document.createElement("img");
-    iconButton.src = "images/interrobang.png"; // flag_icon.png
+    iconButton.src = "images/interrobang.png";
     iconButton.alt = "Report Icon";
     iconButton.classList.add("icon-button");
     iconButton.onclick = () => {
@@ -362,13 +365,9 @@ const display_best_result = (data) => {
         }
 
         // Paragraphs for bottom section
-        // Logic for switching between källor and källa
-
         if (data.source.length === 1) {
-            // create_paragraph("Källa", data.source, bottomSection)
             create_source_paragraph("Källa", data.source, bottomSection, language)
         } else {
-            // create_paragraph("Källor", data.source, bottomSection)
             create_source_paragraph("Källor", data.source, bottomSection, language)
         }
     } else {
@@ -390,7 +389,6 @@ const display_best_result = (data) => {
         }
 
         // Paragraphs for bottom section
-        // Logic for switching between källor and källa
         if (data.source.length === 1) {
             create_source_paragraph("Source", data.source, bottomSection, language)
         } else {
@@ -404,6 +402,7 @@ const display_best_result = (data) => {
     best_word_container.appendChild(bottomSection);
 }
 
+// Function for displaying the similar result hits
 const display_similar_results = (search_language) => {
     similar_words_result = last_get_similar_words_result;
     similar_words_container = document.getElementById("search-results");
@@ -421,6 +420,7 @@ const display_similar_results = (search_language) => {
     }
 }
 
+// Function for creating paragraphs to append to the HTML
 const create_paragraph = (title, value, container, bigFont) => {
     const paragraph = document.createElement("p");
     let displayValue = value;
@@ -474,6 +474,7 @@ const create_source_paragraph = (title, sources, container, language) => {
     }
 }
 
+// Function to create the buttons for the similar result div
 const create_button = (data, container, language) => {
     const button = document.createElement("button");
     let lemma = language === "swe" ? data.swedishLemma : data.englishLemma;
@@ -482,18 +483,17 @@ const create_button = (data, container, language) => {
     container.appendChild(button);
 }
 
-// Function to show the modal
+// Function to show the report modal
 const showModal = () => {
     const modal = document.getElementById("report-modal");
     modal.style.display = "block";
-    // Add event listener to the form
     const reportForm = document.getElementById("report-form");
     if (reportForm) {
         reportForm.addEventListener("submit", handleFormSubmit);
     }
 };
 
-// Function to hide the modal
+// Function to hide the report modal
 const hideModal = () => {
     const modal = document.getElementById("report-modal");
     modal.style.display = "none";
@@ -515,7 +515,7 @@ const hideModal = () => {
     feedbackMessage.style.display = 'none';
 };
 
-// Function to handle form submission
+// Function to handle form submission for the report modal
 const handleFormSubmit = () => {
     const dataterm_error = document.getElementById("dataterm-checkbox").checked;
     const translation_error = document.getElementById("translation-checkbox").checked;
@@ -543,7 +543,7 @@ const handleFormSubmit = () => {
     setTimeout(hideModal, 2000); // Hide modal after 2 seconds
 };
 
-// Logic for enter on the keyboard and not just pressing "sök"
+// Logic for enter on the keyboard and not just pressing the search button
 document.addEventListener("DOMContentLoaded", function() {
     const searchInput = document.getElementById("search-input");
     const searchLanguage = document.getElementById("search-language")
@@ -746,6 +746,7 @@ const switchToSwedish = () => {
     }
 };
 
+// Function for switching language, called when user presses the language toggle icon
 const language_toggle = () => {
     const languageToggle = document.getElementById('language-toggle');
     if (languageToggle.alt === 'swe') {
