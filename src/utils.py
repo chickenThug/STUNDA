@@ -84,9 +84,12 @@ def convert_to_simple_pos(terms):
 
 # Function for getting all terms from KARP
 def get_all():
+    return get_all_help(0, 5000)
+
+def get_all_help(start, size):
     url = f"https://spraakbanken4.it.gu.se/karp/v7/query/stunda?q="
 
-    params = {"size": 10000}
+    params = {"size": size, "from": start}
 
     # Make the GET request
     response = requests.get(url, params=params)
@@ -94,12 +97,16 @@ def get_all():
     # Check if the request was successful (status code 200)
     if response.status_code == 200:
         # Print the response content
-        print("succesfull get")
-        return response.json()  # Assuming the response is in JSON format
+        response = response.json()
+
+        if response["total"] > (start+size):
+            return response["hits"] + get_all_help(start+size, size)
+        else:
+            return response["hits"]
     else:
         print("Error:", response.status_code)
-        return {}
-
+        return []
+    pass
 
 # Function for adding an entry to KARP by means of an API-key
 def add_entry_via_api_key(api_key, entry, verbose=False):
