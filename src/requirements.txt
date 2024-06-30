@@ -1,6 +1,4 @@
 pandas
-numpy
 lemminflect
 python-dotenv
-requests
 nltk
