@@ -159,7 +159,6 @@ function log_upload(data){
     .catch(error => console.error('Error logging upload:', error));
 }
 
-/*
 // Function for calling the servlet handling the single term upload
 function single_term_upload(data){
     fetch('/stunda/single-term-upload', {
@@ -168,22 +167,6 @@ function single_term_upload(data){
             'Content-Type': 'application/x-www-form-urlencoded',
         },
         body: new URLSearchParams(data)
-    })
-    .then(response => response.text())
-    .then(data => console.log(data))
-    .catch(error => console.error('Error uploading single terms:', error));
-}
-    */
-// Function for calling the servlet handling the single term upload
-function single_term_upload(data) {
-    const formData = new FormData();
-    formData.append('engTerm', data.engTerm);
-    formData.append('sweTerm', data.sweTerm);
-    formData.append('source', data.source);
-
-    fetch('/stunda/single-term-upload', {
-        method: 'POST',
-        body: formData
     })
     .then(response => response.text())
     .then(data => console.log(data))
