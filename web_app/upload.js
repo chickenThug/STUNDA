@@ -179,6 +179,9 @@ function single_term_upload(data, dateString){
                 successful: true
             });
             console.log("Single term upload successful.");
+
+            const feedbackMessage = document.getElementById("feedback-message");
+            feedbackMessage.style.display = 'block';
         } else {
             throw new Error('Upload failed');
         }
@@ -191,5 +194,8 @@ function single_term_upload(data, dateString){
             successful: false
         });
         console.error('Error uploading single terms:', error);
+
+        const badfeedbackMessage = document.getElementById("feedback-message-bad");
+        badfeedbackMessage.style.display = 'block';
     });
 }
