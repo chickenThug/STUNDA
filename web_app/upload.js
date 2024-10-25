@@ -11,7 +11,7 @@ const uploadFunction = (swe_term, eng_term, file, src, contact) => {
     // Single term upload
     if (swe_term && eng_term){
         const termData = {engTerm: eng_term, sweTerm: swe_term, source: src}
-        single_term_upload(termData);
+        single_term_upload(termData, dateString);
     }
 
     // File upload
@@ -162,7 +162,7 @@ function log_upload(data){
 }
 
 // Function for calling the servlet handling the single term upload
-function single_term_upload(data){
+function single_term_upload(data, dateString){
     fetch('/stunda/single-term-upload', {
         method: 'POST',
         headers: {
