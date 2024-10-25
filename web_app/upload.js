@@ -15,7 +15,8 @@ const uploadFunction = (swe_term, eng_term, file, src, contact) => {
     }
 
     // File upload
-    const formData = new FormData();
+    if (file){
+        const formData = new FormData();
     formData.append('csvfile', file);
     formData.append('source', src);
 
@@ -42,6 +43,7 @@ const uploadFunction = (swe_term, eng_term, file, src, contact) => {
     };
 
     xhr.send(formData);
+    }
 }
 
 /* Function for validating the user inputs. 
@@ -168,7 +170,26 @@ function single_term_upload(data){
         },
         body: new URLSearchParams(data)
     })
-    .then(response => response.text())
-    .then(data => console.log(data))
-    .catch(error => console.error('Error uploading single terms:', error));
+    .then(response => {
+        if (response.ok) {
+            // Log successful upload
+            log_upload({
+                timestamp: dateString,
+                uploadType: 'terms',
+                successful: true
+            });
+            console.log("Single term upload successful.");
+        } else {
+            throw new Error('Upload failed');
+        }
+    })
+    .catch(error => {
+        // Log failed upload
+        log_upload({
+            timestamp: dateString,
+            uploadType: 'terms',
+            successful: false
+        });
+        console.error('Error uploading single terms:', error);
+    });
 }
