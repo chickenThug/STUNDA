@@ -392,12 +392,13 @@ body {
 
 .tooltip .info {
     visibility: hidden;
-    width: 160px;
+    max-width: 320px;
+    white-space: pre-wrap;
     background-color: black;
     color: white;
     text-align: center;
     border-radius: 6px;
-    padding: 5px 0;
+    padding: 5px 8px;
     position: absolute;
     z-index: 1;
     bottom: 100%;
@@ -415,8 +416,6 @@ body {
     display: inline-block;
     cursor: pointer;
     border-bottom: 1px dotted black;
-    margin-right: 5px;
-    /* Add space between items */
 }
 
 /* Styles for the info container */

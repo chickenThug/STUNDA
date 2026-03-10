@@ -46,7 +46,10 @@
         <div id="no-action-message" style="display: none; color: blue;">
             Det finns inga termer att hantera.
         </div>
+	<button class="submit-button" onclick="uncheckAll()">Avmarkera alla</button>
+
         <button class="submit-button" onclick="verifyTerms()">Godkänn termer</button>
+        <button class="submit-button" onclick="verifyTerms(10000)">Godkänn och visa 1000 nya termer</button>
         <div id="feedback-message" style="display: none; color: green;">
             Lyckad hantering av termer!
         </div>

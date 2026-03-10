@@ -1,6 +1,6 @@
 // Function to get terms from the KARP database
 function getTermsFromKarp(field, query_mode, searchString) {
-    const apiUrl = `https://spraakbanken4.it.gu.se/karp/v7/query/stunda?q=and(or(${query_mode}|${field}|"${searchString}"))&from=0&size=100`;
+    const apiUrl = `https://spraakbanken4.it.gu.se/karp/v7/query/stunda?q=and(or(${query_mode}|${field}|${searchString}))&from=0&size=100`;
     return fetch(apiUrl)
       .then(response => {
         if (!response.ok) {
@@ -33,7 +33,14 @@ async function search(language, searchString) {
         throw new Error(`Unknown language '${language}': can only accept 'swe' or 'eng'.`);
     }
 
-    let matches = await getTermsFromKarp(`${language}.lemma`, "startswith", searchString);
+    const karpSearchString = searchString.includes('-') ? searchString.split('-')[0] : searchString;
+    let matches = await getTermsFromKarp(`${language}.lemma`, "startswith", karpSearchString);
+    if (searchString.includes('-') && matches !== "error") {
+        matches.hits = matches.hits.filter(hit =>
+            hit.entry[language].lemma.toLowerCase().startsWith(searchString.toLowerCase())
+        );
+        matches.total = matches.hits.length;
+    }
 
     if (matches === "error") {
         return "error"
@@ -121,17 +128,21 @@ async function search(language, searchString) {
 let display_entry = {}
 
 const sourceExplanationEnglish = {
-    "PK" :"Keywords scraped from thesis projects",
+    "PK" : "Keywords scraped from degree project theses",
     "ACM" : "Association for Computing Machinery",
     "ICT" : "Mechanically extracted terms from the KTH course IK2554 lecture notes in June 2014",
-    "GF" : "Terms collected by a bachelor project group at Chalmers in 2020"
+    "GF" : "Terms collected by a bachelor degree project group at Chalmers in 2020",
+    "SMIT" : "Swedish language technology and maching learning term group",
+    "Lotsson" : "Lotsson's IT dictionary"
 }
 
 const sourceExplanationSwedish = {
-    "PK" :"Nyckelord skrapade från examensarbeten",
+    "PK" : "Nyckelord skrapade från examensarbeten",
     "ACM" : "Association for Computing Machinery",
     "ICT" : "Skrapade termer från KTH-kursens IK2554 föreläsningsanteckningar juni 2014",
-    "GF" : "Insamlade termer av en kandidatprojektgrupp vid Chalmers 2020"
+    "GF" : "Insamlade termer av en kandidatexamensarbetesgrupp vid Chalmers 2020",
+    "SMIT" : "Svenska språkteknologi- och maskininlärningstermgruppen",
+    "Lotsson" : "Lotssons IT-ordbok"
 }
 
 const posMapEnglish = {
@@ -148,6 +159,14 @@ const posMapSwedish = {
     "A" : "Adjektiv",
     "Ab" : "Adverb",
     "NP" : "Substantivfras"
+}
+
+function pos_map_english(pos) {
+    return pos in posMapEnglish ? posMapEnglish[pos] : "";
+}
+
+function pos_map_swedish(pos) {
+    return pos in posMapSwedish ? posMapSwedish[pos] : "";
 }
 
 // Function to create a bilingual map
@@ -266,7 +285,7 @@ function display_no_result() {
 
 // Function logging the search
 function log_search(data) {
-    fetch('/stunda/log-search', {
+    fetch('./log-search', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/x-www-form-urlencoded',
@@ -280,7 +299,7 @@ function log_search(data) {
 
 // Function for logging the report data
 function log_report_data(data) {
-    fetch('/stunda/log-report-data', {
+    fetch('./log-report-data', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/x-www-form-urlencoded',
@@ -359,7 +378,7 @@ const display_best_result = (data) => {
             create_paragraph("Böjningar", data.englishInflections, rightSection);
         }
 
-        create_paragraph("Ordklass", posMapSwedish[data.pos], bottomSection);
+        create_paragraph("Ordklass", pos_map_swedish(data.pos), bottomSection);
         if (data.alternativeTranslations.length !== 0){
             create_paragraph("Alternativa översättningar", data.alternativeTranslations, bottomSection);
         }
@@ -383,7 +402,7 @@ const display_best_result = (data) => {
             create_paragraph("Inflections", data.englishInflections, rightSection);
         }
 
-        create_paragraph("Part-of-speech", posMapEnglish[data.pos], bottomSection);
+        create_paragraph("Part-of-speech", pos_map_english(data.pos), bottomSection);
         if (data.alternativeTranslations.length !== 0){
             create_paragraph("Alternative translations", data.alternativeTranslations, bottomSection);
         }
@@ -443,6 +462,18 @@ const create_paragraph = (title, value, container, bigFont) => {
     container.appendChild(paragraph);
 }
 
+function get_explanation(source, language) {
+    if (language === "swe" && source in sourceExplanationSwedish) {
+        return sourceExplanationSwedish[source];
+    }
+    else if (language === "eng" && source in sourceExplanationEnglish) {
+        return sourceExplanationEnglish[source];
+    }
+    else {
+        return "";
+    }
+}
+
 const create_source_paragraph = (title, sources, container, language) => {
     const label = document.createElement('span');
     label.id = 'label-text';
@@ -450,20 +481,42 @@ const create_source_paragraph = (title, sources, container, language) => {
     container.appendChild(label);
     // Create a span for each source with a tooltip
     sources.forEach(source => {
-        const wordSpan = document.createElement('span');
+	wordspan = null;
+	sourcetext = source;
+	tooltiptext = get_explanation(source, language);
+	linkURL = null;
+	
+	// Kolla om formatet är "text<URL>tooltiptext"
+        match = source.match(/^(.*)<(https?:\/\/[^>]+)>(.*)$/);
+        if (match) {
+            sourcetext = match[1].trim();
+            linkURL = match[2].trim();
+            tooltiptext = match[3].trim();
+            if (tooltiptext.length == 0) {
+		tooltiptext = get_explanation(sourcetext, language);
+            }
+            tooltiptext = (tooltiptext + "\n" + (language === "swe" ? "(länk)" : "(link)")).trim();
+	} else if (source.startsWith("http")) {
+	    linkURL = source
+	    sourcetext = (language === "swe" ? "(länk)" : "(link)");
+	}
+	if (linkURL != null) {
+            wordSpan = document.createElement('a');
+            wordSpan.href = linkURL;
+            wordSpan.target = "_blank";
+            wordSpan.rel = "noopener noreferrer";
+        } else {
+            wordSpan = document.createElement('span');
+	}
         wordSpan.classList.add('tooltip');
-        wordSpan.textContent = source;
+        wordSpan.textContent = sourcetext;
 
-        const tooltipSpan = document.createElement('span');
-        tooltipSpan.classList.add('info');
-        if (language === "swe") {
-            tooltipSpan.textContent = sourceExplanationSwedish[source];
-        }
-        else {
-            tooltipSpan.textContent = sourceExplanationEnglish[source];
-        }
-
-        wordSpan.appendChild(tooltipSpan);
+	if (tooltiptext.length > 0) {
+            const tooltipSpan = document.createElement('span');
+            tooltipSpan.classList.add('info');
+            tooltipSpan.textContent = tooltiptext
+            wordSpan.appendChild(tooltipSpan);
+	}
         container.appendChild(wordSpan);
         container.appendChild(document.createTextNode(', ')); // Add comma
     });
@@ -624,7 +677,15 @@ const switchToEnglish = () => {
 
         for (let tooltip of tooltips) {
             const swedish_text = tooltip.textContent;
-            tooltip.textContent = bilingualExplanationMap[swedish_text];
+	    if (swedish_text in bilingualExplanationMap) {
+		const tomatch = bilingualExplanationMap[swedish_text];
+		const match = tomatch.match(/^(.*)<(https?:\/\/[^>]+)>(.*)$/);
+		if (match) {
+		    tooltip.textContent = match[3].trim();
+		} else {
+		    tooltip.textContent = tomatch;
+		}
+	    }
         }
 
         paragraphs.forEach(paragraph => {
@@ -638,7 +699,7 @@ const switchToEnglish = () => {
             } else if (paragraph.textContent.includes('Böjningar')) {
                 paragraph.innerHTML = '<strong>Inflections:</strong> ' + display_entry.englishInflections.join(', ');
             } else if (paragraph.textContent.includes('Ordklass')) {
-                paragraph.innerHTML = '<strong>Part-of-speech:</strong> ' + posMapEnglish[display_entry.pos];
+                paragraph.innerHTML = '<strong>Part-of-speech:</strong> ' + pos_map_english(display_entry.pos);
             } else if (paragraph.textContent.includes('Alternativa översättningar')) {
                 paragraph.innerHTML = '<strong>Alternative translations:</strong> ' + display_entry.alternativeTranslations.join(', ');
             }else if (paragraph.textContent.includes('Inga sökresultat!')) {
@@ -717,7 +778,15 @@ const switchToSwedish = () => {
 
         for (let tooltip of tooltips) {
             const english_text = tooltip.textContent;
-            tooltip.textContent = bilingualExplanationMap[english_text];
+	    if (english_text in bilingualExplanationMap) {
+		const tomatch = bilingualExplanationMap[english_text];
+		const match = tomatch.match(/^(.*)<(https?:\/\/[^>]+)>(.*)$/);
+		if (match) {
+		    tooltip.textContent = match[3].trim();
+		} else {
+		    tooltip.textContent = tomatch;
+		}
+	    }
         }
 
         paragraphs.forEach(paragraph => {
@@ -731,7 +800,7 @@ const switchToSwedish = () => {
             } else if (paragraph.textContent.includes('Inflections')) {
                 paragraph.innerHTML = '<strong>Böjningar:</strong> ' + display_entry.englishInflections.join(', ');
             } else if (paragraph.textContent.includes('Part-of-speech')) {
-                paragraph.innerHTML = '<strong>Ordklass:</strong> ' + posMapSwedish[display_entry.pos];
+                paragraph.innerHTML = '<strong>Ordklass:</strong> ' + pos_map_swedish(display_entry.pos);
             } else if (paragraph.textContent.includes('Alternative translations')) {
                 paragraph.innerHTML = '<strong>Alternativa översättningar:</strong> ' + display_entry.alternativeTranslations.join(', ');
             }else if (paragraph.textContent.includes('No search results found!')) {

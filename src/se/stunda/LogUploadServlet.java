@@ -8,7 +8,7 @@ import java.nio.file.Paths;
 import java.nio.file.StandardOpenOption;
 
 public class LogUploadServlet extends HttpServlet {
-    private static final String LOG_FILE_PATH = "/var/log/stunda/log_upload.txt";
+    private static final String LOG_FILE_PATH = Config.LOG_DIR + "/log_upload.txt";
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {

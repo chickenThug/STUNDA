@@ -6,7 +6,7 @@ import javax.servlet.http.*;
 
 public class CheckLoginServlet extends HttpServlet {
     // File contianing user names and passwords
-    String filePath = "/var/lib/stunda/data/users.txt";
+    String filePath = Config.DATA_DIR + "/data/users.txt";
 
     @Override
     public void init() throws ServletException {

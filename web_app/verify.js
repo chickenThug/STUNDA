@@ -1,8 +1,14 @@
 let currentIndex = 0;
+let currentBatchSize = 25;
 let termsList = [];
 
+function uncheckAll() {
+  const checkboxes = document.querySelectorAll('#term-verification input[type="checkbox"]');
+  checkboxes.forEach(cb => { cb.checked = false; });
+}
+
 // Function for when the user presses verify terms
-const verifyTerms =  () => {
+const verifyTerms = (nextBatchSize = 25) => {
   const checkboxes = document.querySelectorAll('#term-verification input[type="checkbox"]');
   const terms = [];
 
@@ -23,7 +29,7 @@ const verifyTerms =  () => {
   };
 
    // Send approved and not approved terms to the servlet
-   fetch('/stunda/handle-verify', {
+   fetch('./handle-verify', {
       method: 'POST',
       headers: {
           'Content-Type': 'application/json'
@@ -36,8 +42,8 @@ const verifyTerms =  () => {
             const successMessage = document.getElementById('feedback-message');
             successMessage.style.display = 'block';
             setTimeout(hideSuccessMessage, 2000); // Hide success message after 2 seconds
-            currentIndex += 25;
-            displayNextBatch();
+            currentIndex += currentBatchSize;
+            displayNextBatch(nextBatchSize);
         } else {
             const noSuccessMessage = document.getElementById('feedback-message-bad');
             noSuccessMessage.style.display = 'block';
@@ -142,15 +148,16 @@ function handleJSONLContent(jsonlContent) {
   displayNextBatch();
 }
 
-// Function to display the terms in batches of 25 term pairs
-function displayNextBatch(){
-  const nextBatch = termsList.slice(currentIndex, currentIndex + 25);
+// Function to display the terms in batches
+function displayNextBatch(batchSize = 25){
+  const nextBatch = termsList.slice(currentIndex, currentIndex + batchSize);
+  currentBatchSize = nextBatch.length;
   generateCheckboxes(nextBatch);
 }
 
 // Fetch JSONL file from server
 async function fetchJSONL() {
-  await fetch('/stunda/term-verification', {
+  await fetch('./term-verification', {
       method: 'GET',
       headers: {
           'Content-Type': 'application/json'

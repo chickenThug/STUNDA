@@ -21,10 +21,10 @@ import java.time.format.DateTimeFormatter;
 import java.net.HttpURLConnection;
 
 public class HandleVerifiedTermsServlet extends HttpServlet {
-    private static final String UNAPPROVED_FILE_PATH = "/var/lib/stunda/terms/notapproved.jsonl";
-    private static final String APPROVED_FILE_PATH = "/var/lib/stunda/terms/approved.jsonl";
-    private static final String PROCESSED_FILE_PATH = "/var/lib/stunda/terms/processed.jsonl";
-    private static final String LOG_FILE_PATH = "/var/log/stunda/log_verify.txt";
+    private static final String UNAPPROVED_FILE_PATH = Config.DATA_DIR + "/terms/notapproved.jsonl";
+    private static final String APPROVED_FILE_PATH = Config.DATA_DIR + "/terms/approved.jsonl";
+    private static final String PROCESSED_FILE_PATH = Config.DATA_DIR + "/terms/processed.jsonl";
+    private static final String LOG_FILE_PATH = Config.LOG_DIR + "/log_verify.txt";
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
@@ -32,7 +32,7 @@ public class HandleVerifiedTermsServlet extends HttpServlet {
         try {
             // Load environment file
             Dotenv dotenv = Dotenv.configure()
-                    .directory("/var/lib/stunda/data")
+                    .directory(Config.DATA_DIR + "/data")
                     .ignoreIfMalformed()
                     .ignoreIfMissing()
                     .load();
@@ -164,7 +164,7 @@ public class HandleVerifiedTermsServlet extends HttpServlet {
                             }
                         }
                         entry.put("src", new_source);
-                        updateTerm(id, entry, version, api_key, false);
+                        if (Config.KARP_WRITES_ENABLED) updateTerm(id, entry, version, api_key, false);
                         break;
                     }
                 }
@@ -200,7 +200,7 @@ public class HandleVerifiedTermsServlet extends HttpServlet {
                         new_entry.put("pos", pos);
                     }
 
-                    addEntry(api_key, new_entry, false);
+                    if (Config.KARP_WRITES_ENABLED) addEntry(api_key, new_entry, false);
                 }
             }
 

@@ -21,7 +21,7 @@ const uploadFunction = (swe_term, eng_term, file, src, contact) => {
     formData.append('source', src);
 
     const xhr = new XMLHttpRequest();
-    xhr.open('POST', '/stunda/term-upload', true); // The servlet responsible for file upload
+    xhr.open('POST', './term-upload', true); // The servlet responsible for file upload
 
     xhr.onload = function() {
         if (xhr.status === 200) {
@@ -149,7 +149,7 @@ const switchToSwedish = () => {
 
 // Function for calling the servlet handling the logging of the upload
 function log_upload(data){
-    fetch('/stunda/log-upload', {
+    fetch('./log-upload', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/x-www-form-urlencoded',
@@ -163,7 +163,7 @@ function log_upload(data){
 
 // Function for calling the servlet handling the single term upload
 function single_term_upload(data, dateString){
-    fetch('/stunda/single-term-upload', {
+    fetch('./single-term-upload', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/x-www-form-urlencoded',

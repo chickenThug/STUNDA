@@ -8,7 +8,7 @@ import java.nio.file.*;
 
 @MultipartConfig
 public class SingleTermUploadServlet extends HttpServlet {
-    private static final String FILE_PATH = "/var/lib/stunda/terms/unprocessed.csv";
+    private static final String FILE_PATH = Config.DATA_DIR + "/terms/unprocessed.csv";
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)

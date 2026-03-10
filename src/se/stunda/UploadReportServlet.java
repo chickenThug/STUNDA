@@ -6,7 +6,7 @@ import java.io.*;
 import java.nio.file.*;
 
 public class UploadReportServlet extends HttpServlet {
-    private static final String LOG_FILE_PATH = "/var/lib/stunda/report_data/report_data.txt";
+    private static final String LOG_FILE_PATH = Config.DATA_DIR + "/report_data/report_data.txt";
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         try {

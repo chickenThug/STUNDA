@@ -10,7 +10,14 @@ import java.util.regex.Pattern;
 
 @MultipartConfig
 public class TermUploadServlet extends HttpServlet {
-    private static final String FILE_PATH = "/var/lib/stunda/terms/unprocessed.csv";
+    private static final String FILE_PATH = Config.DATA_DIR + "/terms/unprocessed.csv";
+
+    private static String csvQuote(String field) {
+        if (field != null && field.contains(",") && !field.startsWith("\"")) {
+            return "\"" + field + "\"";
+        }
+        return field;
+    }
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
@@ -40,44 +47,52 @@ public class TermUploadServlet extends HttpServlet {
                         Pattern pattern = null;
 
                         while ((line = reader.readLine()) != null) {
+                            // Strip UTF-8 BOM if present (common in Excel-generated CSV files)
+                            if (i == 0 && line.startsWith("\uFEFF")) {
+                                line = line.substring(1);
+                            }
+
                             //CSV header
                             if (i == 0) {
                                 i++;
                                 //Proccess , seperated csv
-                                if (line.equals("eng_term,swe_term")) {
+                                if (line.equals("eng_term,swe_term") || line.equals("eng_term,swe_term,source")) {
                                     // Regex to match CSV fields that may contain commas within quotes
                                     pattern = Pattern.compile("(\"[^\"]*\"|[^,]+)");
                                     continue;
                                 }
                                 //Proccess ; seperated csv
-                                else if (line.equals("eng_term;swe_term")) {
+                                else if (line.equals("eng_term;swe_term") || line.equals("eng_term;swe_term;source")) {
                                     // Regex to match CSV fields that may contain commas within quotes
                                     pattern = Pattern.compile("(\"[^\"]*\"|[^;]+)");
                                     continue;
                                 }
-                                //Incorrect CSV header
-                                else  {
-                                    response.setStatus(HttpServletResponse.SC_INTERNAL_SERVER_ERROR);
-                                    response.setContentType("text/plain");
-                                    response.getWriter().write("Invalid CSV header");
-                                    break;
+                                // No recognized header - treat first line as data and auto-detect delimiter
+                                else {
+                                    if (line.contains(";")) {
+                                        pattern = Pattern.compile("(\"[^\"]*\"|[^;]+)");
+                                    } else {
+                                        pattern = Pattern.compile("(\"[^\"]*\"|[^,]+)");
+                                    }
+                                    // Fall through to process this line as data
                                 }
                             }
                             //Match regex
                             Matcher matcher = pattern.matcher(line);
-                            String[] parts = new String[2];
+                            String[] parts = new String[3];
                             int index = 0;
 
-                            // Match the first two entries
+                            // Match the first three entries
                             while (matcher.find()) {
-                                if (index < 2) {
+                                if (index < 3) {
                                     // Check if group 1 (quoted value) is not null, otherwise use group 2
                                     parts[index++] = matcher.group(1) != null ? matcher.group(1) : matcher.group(2);
                                 }
                             }
-                            
-                            if (index == 2) {
-                                String writeString = parts[0] + "," + parts[1] + "," + source + "\n";
+
+                            if (index >= 2) {
+                                String rowSource = (index == 3) ? parts[2] : source;
+                                String writeString = csvQuote(parts[0]) + "," + csvQuote(parts[1]) + "," + csvQuote(rowSource) + "\n";
                                 Files.write(Paths.get(FILE_PATH), writeString.getBytes("utf-8"), StandardOpenOption.CREATE,
                                     StandardOpenOption.APPEND);
                             }

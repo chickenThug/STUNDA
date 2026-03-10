@@ -26,7 +26,7 @@ document.addEventListener('DOMContentLoaded', function() {
     /* Function that checks entered credentials to those saved on the server. 
     Returns boolean value true if credentials were correct, else false. */
     async function checkLogin(username, password) {
-        const response = await fetch('/stunda/check-login', {
+        const response = await fetch('./check-login', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/x-www-form-urlencoded',

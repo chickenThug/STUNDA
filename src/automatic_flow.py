@@ -640,10 +640,18 @@ def main():
         "-srv",
         "--server",
         action="store_true",
-        help="flag for indicatig the file is being run on the server",
+        help="flag for indicating the file is being run on the server",
+    )
+    parser.add_argument(
+        "-test",
+        "--test",
+        action="store_true",
+        help="flag for running against the teststunda instance",
     )
 
     args = parser.parse_args()
+
+    data_dir = "/var/lib/teststunda" if args.test else "/var/lib/stunda"
 
     # Initialize flags and data structures for processing
     term_pairs = []
@@ -661,9 +669,9 @@ def main():
             }
         )
         df = pd.DataFrame(term_pairs)
-    elif args.server:
-        load_dotenv(dotenv_path="/var/lib/stunda/data/.env")
-        df = pd.read_csv("/var/lib/stunda/terms/unprocessed.csv", encoding="utf-8")
+    elif args.server or args.test:
+        load_dotenv(dotenv_path=f"{data_dir}/data/.env")
+        df = pd.read_csv(f"{data_dir}/terms/unprocessed.csv", encoding="utf-8")
         df = df.astype(str)
         og_df = df.copy()
 
@@ -672,7 +680,7 @@ def main():
 
         # Save original input
         df.to_csv(
-            f"/var/lib/stunda/historical_processed/unprocessed_{datetime_string}.csv",
+            f"{data_dir}/historical_processed/unprocessed_{datetime_string}.csv",
             index=False,
             encoding="utf-8",
         )
@@ -770,7 +778,7 @@ def main():
     print("Total processing time: {:.2f} minutes".format(total_time / 60))
 
     # Handle output based on the environment (server or local)
-    if args.server:
+    if args.server or args.test:
 
         def set_reason(status):
             if status == "automatically verified":
@@ -812,7 +820,7 @@ def main():
         )
 
         # Saved banned entries
-        with open("/var/lib/stunda/terms/banned.jsonl", "a", encoding="utf-8") as file:
+        with open(f"{data_dir}/terms/banned.jsonl", "a", encoding="utf-8") as file:
             for item in jsonl_banned:
                 json_line = json.dumps(item, ensure_ascii=False) + "\n"
                 file.write(json_line)
@@ -824,7 +832,7 @@ def main():
 
         # Save new entries
         with open(
-            "/var/lib/stunda/terms/processed.jsonl", "a", encoding="utf-8"
+            f"{data_dir}/terms/processed.jsonl", "a", encoding="utf-8"
         ) as file:
             for item in jsonl_new_terms:
                 json_line = json.dumps(item, ensure_ascii=False) + "\n"
@@ -839,7 +847,7 @@ def main():
 
         # Save already existing entries
         with open(
-            "/var/lib/stunda/terms/approved.jsonl", "a", encoding="utf-8"
+            f"{data_dir}/terms/approved.jsonl", "a", encoding="utf-8"
         ) as file:
             for item in jsonl_existing_terms:
                 json_line = json.dumps(item, ensure_ascii=False) + "\n"
@@ -847,7 +855,7 @@ def main():
 
         # Remove all processed entries from unprocessed
         og_df.head(0).to_csv(
-            "/var/lib/stunda/terms/unprocessed.csv", index=False, encoding="utf-8"
+            f"{data_dir}/terms/unprocessed.csv", index=False, encoding="utf-8"
         )
     else:
 
