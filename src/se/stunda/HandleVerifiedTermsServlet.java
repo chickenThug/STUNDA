@@ -164,6 +164,10 @@ public class HandleVerifiedTermsServlet extends HttpServlet {
                             }
                         }
                         entry.put("src", new_source);
+                        JSONArray synonymsJson = obj.optJSONArray("synonyms");
+                        if (synonymsJson != null && synonymsJson.length() > 0) {
+                            entry.put("synonyms", synonymsJson);
+                        }
                         if (Config.KARP_WRITES_ENABLED) updateTerm(id, entry, version, api_key, false);
                         break;
                     }
@@ -200,7 +204,55 @@ public class HandleVerifiedTermsServlet extends HttpServlet {
                         new_entry.put("pos", pos);
                     }
 
+                    JSONArray synonymsJson = obj.optJSONArray("synonyms");
+                    if (synonymsJson != null && synonymsJson.length() > 0) {
+                        new_entry.put("synonyms", synonymsJson);
+                    }
+
                     if (Config.KARP_WRITES_ENABLED) addEntry(api_key, new_entry, false);
+
+                    // Push each alternative English translation as a separate KARP entry
+                    JSONArray altTransJson = obj.optJSONArray("alternative_translations");
+                    if (altTransJson != null) {
+                        for (int k = 0; k < altTransJson.length(); k++) {
+                            String altEngLemma = altTransJson.getString(k);
+                            JSONObject altKarpSearch = getTerm(altEngLemma, sweLemma);
+                            JSONArray altHits = altKarpSearch.optJSONArray("hits");
+                            boolean altExists = false;
+                            if (altHits != null) {
+                                for (int m = 0; m < altHits.length(); m++) {
+                                    JSONObject altHit = altHits.getJSONObject(m);
+                                    JSONObject altEntry = altHit.optJSONObject("entry");
+                                    if (altEntry != null
+                                            && altEntry.optJSONObject("eng").getString("lemma").equals(altEngLemma)
+                                            && altEntry.optJSONObject("swe").getString("lemma").equals(sweLemma)) {
+                                        altExists = true;
+                                        break;
+                                    }
+                                }
+                            }
+                            if (!altExists) {
+                                JSONObject altEng = new JSONObject();
+                                JSONObject altSwe = new JSONObject();
+                                altEng.put("lemma", altEngLemma);
+                                altEng.put("inflections", new JSONArray());
+                                altSwe.put("lemma", sweLemma);
+                                if (sweInflections == null) {
+                                    altSwe.put("inflections", new JSONArray());
+                                } else {
+                                    altSwe.put("inflections", sweInflections);
+                                }
+                                JSONObject altEntry = new JSONObject();
+                                altEntry.put("src", src);
+                                altEntry.put("eng", altEng);
+                                altEntry.put("swe", altSwe);
+                                if (allowedPos.contains(pos)) {
+                                    altEntry.put("pos", pos);
+                                }
+                                if (Config.KARP_WRITES_ENABLED) addEntry(api_key, altEntry, false);
+                            }
+                        }
+                    }
                 }
             }
 

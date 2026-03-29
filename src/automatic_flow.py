@@ -3,6 +3,7 @@ import os
 import sys
 import argparse
 import json
+import re
 import time
 from collections import defaultdict
 from datetime import datetime
@@ -622,6 +623,55 @@ def term_already_exists(existing_terms, new_term):
     return False
 
 
+def process_synonyms(synonyms):
+    """
+    Clean, spell-check, and lemmatize each synonym.
+    Silently drops synonyms that fail character or spell checks.
+    POS is derived independently per synonym; lemmatization failure falls back to the cleaned word.
+    Returns list of processed synonym strings.
+    """
+    processed = []
+    for syn in synonyms:
+        syn = re.sub(r'\s+', ' ', syn).lower().strip()
+        # Strip bracketed annotations such as [även]
+        syn = re.sub(r'\[[^\]]*\]\s*', '', syn).strip()
+        if not re.match(r'^[a-zA-ZåäöÅÄÖ\- \d]+$', syn):
+            continue
+        if not swedish_spell_check(syn):
+            continue
+        swe_pos = granska_pos(syn)
+        simple_pos = convert_to_simple_pos(swe_pos)
+        lemmatized, status = advanced_swedish_lemmatizer(syn, simple_pos, swe_pos)
+        processed.append(lemmatized if status == 'ok' else syn)
+    return processed
+
+
+def process_eng_synonyms(synonyms):
+    """
+    Clean, spell-check, and lemmatize each English alternative translation.
+    Silently drops entries that fail character or spell checks.
+    All-caps single words are treated as acronyms and bypass spell-checking.
+    POS is derived independently per synonym.
+    Returns list of processed strings.
+    """
+    processed = []
+    for syn in synonyms:
+        syn = re.sub(r'\s+', ' ', syn).strip()
+        is_acronym = syn.isupper() and ' ' not in syn
+        syn = syn.lower()
+        if not re.match(r'^[a-zA-Z\- \d]+$', syn):
+            continue
+        if is_acronym:
+            processed.append(syn)
+            continue
+        if not is_word_in_english(syn):
+            continue
+        eng_pos_tag = english_pos(syn)
+        lemmatized = english_lemmatizer(syn, eng_pos_tag, eng_pos_tag)
+        processed.append(lemmatized)
+    return processed
+
+
 def main():
     """
     Main function to orchestrate the processing of English-Swedish computer science term pairs.
@@ -691,6 +741,26 @@ def main():
         print("Missing or incorrect arguments")
         exit(1)
 
+    # Split swe_lemma on comma; first part is lemma, rest are synonyms
+    df['swe_synonyms'] = df['swe_lemma'].apply(
+        lambda x: [s.strip() for s in str(x).split(',')[1:]]
+    )
+    df['swe_lemma'] = df['swe_lemma'].apply(
+        lambda x: str(x).split(',')[0].strip()
+    )
+    # Default synonyms to raw list; overwritten with processed synonyms after lemmatization
+    df['synonyms'] = df['swe_synonyms']
+
+    # Split eng_lemma on comma; first part is lemma, rest are alternative translations
+    df['eng_alt_raw'] = df['eng_lemma'].apply(
+        lambda x: [s.strip() for s in str(x).split(',')[1:]]
+    )
+    df['eng_lemma'] = df['eng_lemma'].apply(
+        lambda x: str(x).split(',')[0].strip()
+    )
+    # Default alternative_translations to raw list; overwritten after lemmatization
+    df['alternative_translations'] = df['eng_alt_raw']
+
     # Initialize DataFrame column for agreed POS
     df["agreed_pos"] = ""
 
@@ -735,6 +805,10 @@ def main():
         )
     )
 
+    # Process synonyms for rows that completed lemmatization
+    df['synonyms'] = [process_synonyms(s) for s in df['swe_synonyms']]
+    df['alternative_translations'] = [process_eng_synonyms(s) for s in df['eng_alt_raw']]
+
     # Drop duplicate entries over swedish lemma, engish lemma, pos and source
     df = df.drop_duplicates(subset=["eng_lemma", "swe_lemma", "agreed_pos", "src"])
 
@@ -744,7 +818,7 @@ def main():
         .apply(lambda x: ", ".join(x))
         .reset_index()
     )
-    df = df.drop(columns="src").drop_duplicates()
+    df = df.drop(columns="src").drop_duplicates(subset=["eng_lemma", "swe_lemma", "agreed_pos"])
     df = df.merge(aggregated_sources_df, on=["swe_lemma", "eng_lemma", "agreed_pos"])
 
     # Generate inflections for the processed terms
@@ -812,6 +886,8 @@ def main():
             "swedish_inflections",
             "english_inflections",
             "reason",
+            "synonyms",
+            "alternative_translations",
         ]
 
         # Converting the selected DataFrame to a list of JSON objects
@@ -831,12 +907,9 @@ def main():
         )
 
         # Save new entries
-        with open(
-            f"{data_dir}/terms/processed.jsonl", "a", encoding="utf-8"
-        ) as file:
+        with open(f"{data_dir}/terms/processed.jsonl", "a", encoding="utf-8") as file:
             for item in jsonl_new_terms:
-                json_line = json.dumps(item, ensure_ascii=False) + "\n"
-                file.write(json_line)
+                file.write(json.dumps(item, ensure_ascii=False) + "\n")
 
         # Converting the selected DataFrame to a list of JSON objects
         jsonl_existing_terms = json.loads(
@@ -846,12 +919,9 @@ def main():
         )
 
         # Save already existing entries
-        with open(
-            f"{data_dir}/terms/approved.jsonl", "a", encoding="utf-8"
-        ) as file:
+        with open(f"{data_dir}/terms/approved.jsonl", "a", encoding="utf-8") as file:
             for item in jsonl_existing_terms:
-                json_line = json.dumps(item, ensure_ascii=False) + "\n"
-                file.write(json_line)
+                file.write(json.dumps(item, ensure_ascii=False) + "\n")
 
         # Remove all processed entries from unprocessed
         og_df.head(0).to_csv(

@@ -99,10 +99,20 @@ function generateCheckboxes(data) {
     sweLemmaCell.textContent = row.swe_lemma || '';
     tableRow.appendChild(sweLemmaCell);
 
+    // Synonyms
+    const synonymsCell = document.createElement('td');
+    synonymsCell.textContent = Array.isArray(row.synonyms) ? row.synonyms.join(', ') : (row.synonyms || '');
+    tableRow.appendChild(synonymsCell);
+
     // English lemma
     const engLemmaCell = document.createElement('td');
     engLemmaCell.textContent = row.eng_lemma || '';
     tableRow.appendChild(engLemmaCell);
+
+    // Alternative translations
+    const altTransCell = document.createElement('td');
+    altTransCell.textContent = Array.isArray(row.alternative_translations) ? row.alternative_translations.join(', ') : (row.alternative_translations || '');
+    tableRow.appendChild(altTransCell);
 
     // Swedish inflections
     const sweInfCell = document.createElement('td');

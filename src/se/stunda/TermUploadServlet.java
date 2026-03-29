@@ -4,6 +4,10 @@ import javax.servlet.annotation.MultipartConfig;
 import javax.servlet.*;
 import javax.servlet.http.*;
 import java.io.*;
+import java.nio.ByteBuffer;
+import java.nio.charset.Charset;
+import java.nio.charset.CharacterCodingException;
+import java.nio.charset.CodingErrorAction;
 import java.nio.file.*;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -41,7 +45,29 @@ public class TermUploadServlet extends HttpServlet {
                 String source = request.getParameter("source"); 
 
                 if (filePart != null) {
-                    try (BufferedReader reader = new BufferedReader(new InputStreamReader(filePart.getInputStream()))) {
+                    // Read raw bytes and detect encoding (UTF-8 or ISO-8859-1)
+                    ByteArrayOutputStream buffer = new ByteArrayOutputStream();
+                    byte[] chunk = new byte[4096];
+                    int bytesRead;
+                    InputStream rawStream = filePart.getInputStream();
+                    while ((bytesRead = rawStream.read(chunk)) != -1) {
+                        buffer.write(chunk, 0, bytesRead);
+                    }
+                    byte[] rawBytes = buffer.toByteArray();
+
+                    String detectedCharset = "UTF-8";
+                    try {
+                        Charset.forName("UTF-8")
+                            .newDecoder()
+                            .onMalformedInput(CodingErrorAction.REPORT)
+                            .onUnmappableCharacter(CodingErrorAction.REPORT)
+                            .decode(ByteBuffer.wrap(rawBytes));
+                    } catch (CharacterCodingException e) {
+                        detectedCharset = "ISO-8859-1";
+                    }
+
+                    try (BufferedReader reader = new BufferedReader(
+                            new InputStreamReader(new ByteArrayInputStream(rawBytes), detectedCharset))) {
                         String line;
                         int i = 0;
                         Pattern pattern = null;
