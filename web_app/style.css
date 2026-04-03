@@ -463,13 +463,39 @@ body {
     background-color: #007bff;
     border: none;
     border-radius: 5px;
-    margin-top: 10px;
     color: #fff;
     cursor: pointer;
 }
 
 .submit-button:hover {
     background-color: #005CAA;
+}
+
+.submit-button:disabled,
+.submit-button:disabled:hover {
+    background-color: #aaa;
+    cursor: not-allowed;
+}
+
+.button-row {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 10px;
+}
+
+.post-upload-button {
+    padding: 11px 25px;
+    background-color: #6c757d;
+    border: none;
+    border-radius: 5px;
+    color: #fff;
+    cursor: pointer;
+}
+
+.post-upload-button:hover {
+    background-color: #545b62;
 }
 
 #term-verification {

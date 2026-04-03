@@ -10,6 +10,13 @@ import java.nio.file.*;
 public class SingleTermUploadServlet extends HttpServlet {
     private static final String FILE_PATH = Config.DATA_DIR + "/terms/unprocessed.csv";
 
+    private static String csvQuote(String field) {
+        if (field != null && field.contains(",") && !field.startsWith("\"")) {
+            return "\"" + field + "\"";
+        }
+        return field;
+    }
+
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
@@ -22,11 +29,11 @@ public class SingleTermUploadServlet extends HttpServlet {
             String englishTerm = request.getParameter("engTerm");
             String source = request.getParameter("source");
 
-            // Format entry for storage
+            // Format entry for storage, quoting fields that contain commas
             String entry = String.format("%s,%s,%s\n",
-                    englishTerm,
-                    swedishTerm,
-                    source);
+                    csvQuote(englishTerm),
+                    csvQuote(swedishTerm),
+                    csvQuote(source));
 
             // Add entry to file containing unprocessed terms
             Files.write(Paths.get(FILE_PATH), entry.getBytes("utf-8"), StandardOpenOption.CREATE,
