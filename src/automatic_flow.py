@@ -320,9 +320,11 @@ def clean_and_simple_checks(df):
 
     """
 
-    # Remove excess whitespace and convert to lower case
-    df["eng_lemma"] = df["eng_lemma"].str.replace(r"\s+", " ", regex=True).str.lower()
-    df["swe_lemma"] = df["swe_lemma"].str.replace(r"\s+", " ", regex=True).str.lower()
+    # Remove excess whitespace and convert to lower case (preserve all-caps lemmas)
+    df["eng_lemma"] = df["eng_lemma"].str.replace(r"\s+", " ", regex=True)
+    df["eng_lemma"] = df["eng_lemma"].apply(lambda x: x if x.upper() == x else x.lower())
+    df["swe_lemma"] = df["swe_lemma"].str.replace(r"\s+", " ", regex=True)
+    df["swe_lemma"] = df["swe_lemma"].apply(lambda x: x if x.upper() == x else x.lower())
 
     # remove [*] and [**] from entries
     df["eng_lemma"] = (
@@ -464,10 +466,11 @@ def lemmatize(df):
 
     df.loc[sarskrivning_condition, "status"] = "suspected särskriving"
 
-    # lemmatize swedish lemma
+    # lemmatize swedish lemma (preserve all-caps lemmas)
     df["swe_lemma"], df["swe_lemmatizer_status"] = zip(
         *df.apply(
-            lambda x: advanced_swedish_lemmatizer(
+            lambda x: (x["swe_lemma"], "ok") if x["swe_lemma"].upper() == x["swe_lemma"]
+            else advanced_swedish_lemmatizer(
                 x["swe_lemma"], x["simple_swedish_pos"], x["swedish_pos"]
             ),
             axis=1,
@@ -475,7 +478,8 @@ def lemmatize(df):
     )
 
     df["eng_lemma"] = df.apply(
-        lambda x: english_lemmatizer(x["eng_lemma"], x["agreed_pos"], x["english_pos"]),
+        lambda x: x["eng_lemma"] if x["eng_lemma"].upper() == x["eng_lemma"]
+        else english_lemmatizer(x["eng_lemma"], x["agreed_pos"], x["english_pos"]),
         axis=1,
     )
 
@@ -702,6 +706,7 @@ def main():
     args = parser.parse_args()
 
     data_dir = "/var/lib/teststunda" if args.test else "/var/lib/stunda"
+    print(f"Using data directory: {data_dir}")
 
     # Initialize flags and data structures for processing
     term_pairs = []

@@ -136,7 +136,7 @@ const sourceExplanationEnglish = {
     "ACM" : "Association for Computing Machinery",
     "ICT" : "Mechanically extracted terms from the KTH course IK2554 lecture notes in June 2014",
     "GF" : "Terms collected by a bachelor degree project group at Chalmers in 2020",
-    "SMIT" : "Swedish language technology and maching learning term group",
+    "SMIT" : "<https://folkets-lexikon.csc.kth.se/LTterminology/>Swedish language technology and maching learning term group",
     "Lotsson" : "Lotsson's IT dictionary"
 }
 
@@ -145,7 +145,7 @@ const sourceExplanationSwedish = {
     "ACM" : "Association for Computing Machinery",
     "ICT" : "Skrapade termer från KTH-kursens IK2554 föreläsningsanteckningar juni 2014",
     "GF" : "Insamlade termer av en kandidatexamensarbetesgrupp vid Chalmers 2020",
-    "SMIT" : "Svenska språkteknologi- och maskininlärningstermgruppen",
+    "SMIT" : "<https://folkets-lexikon.csc.kth.se/LTterminology/>Svenska språkteknologi- och maskininlärningstermgruppen",
     "Lotsson" : "Lotssons IT-ordbok"
 }
 
@@ -503,6 +503,7 @@ const create_source_paragraph = (title, sources, container, language) => {
 	linkURL = null;
 	
 	// Kolla om formatet är "text<URL>tooltiptext"
+        explanationmatch = tooltiptext.match(/^(.*)<(https?:\/\/[^>]+)>(.*)$/);
         match = source.match(/^(.*)<(https?:\/\/[^>]+)>(.*)$/);
         if (match) {
             sourcetext = match[1].trim();
@@ -512,6 +513,11 @@ const create_source_paragraph = (title, sources, container, language) => {
 		tooltiptext = get_explanation(sourcetext, language);
             }
             tooltiptext = (tooltiptext + "\n" + (language === "swe" ? "(länk)" : "(link)")).trim();
+	} else if (explanationmatch) {
+            if (explanationmatch[1].trim().length > 0) sourcetext = explanationmatch[1].trim();
+            if (explanationmatch[2].trim().length > 0) linkURL = explanationmatch[2].trim();
+            if (explanationmatch[3].trim().length > 0) tooltiptext = explanationmatch[3].trim();
+            if (linkURL != null) tooltiptext = (tooltiptext + "\n" + (language === "swe" ? "(länk)" : "(link)")).trim();
 	} else if (source.startsWith("http")) {
 	    linkURL = source
 	    sourcetext = (language === "swe" ? "(länk)" : "(link)");
