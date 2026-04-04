@@ -722,7 +722,11 @@ def main():
     elif args.server or args.test:
         load_dotenv(dotenv_path=f"{data_dir}/data/.env")
         df = pd.read_csv(f"{data_dir}/terms/unprocessed.csv", encoding="utf-8")
+        if 'comment' not in df.columns:
+            df['comment'] = ''
         df = df.astype(str)
+        df['comment'] = df['comment'].replace('nan', '')
+        df = df[df['eng_lemma'] != 'eng_lemma']
         og_df = df.copy()
 
         now = datetime.now()
@@ -833,6 +837,11 @@ def main():
     # Concatenate all parts
     output_df = pd.concat([df_stop1, df_stop2, df_stop3, df]).reset_index(drop=True)
 
+    if 'comment' not in output_df.columns:
+        output_df['comment'] = ''
+    else:
+        output_df['comment'] = output_df['comment'].fillna('').replace('nan', '')
+
     if "swedish_inflections" not in output_df.columns:
         output_df["swedish_inflections"] = None
         output_df["english_inflections"] = None
@@ -888,6 +897,7 @@ def main():
             "reason",
             "synonyms",
             "alternative_translations",
+            "comment",
         ]
 
         # Converting the selected DataFrame to a list of JSON objects

@@ -79,7 +79,8 @@ async function search(language, searchString) {
                 swedishInflections: hit.entry.swe.inflection ?? [],
                 englishInflections: hit.entry.eng.inflection ?? [],
                 synonyms: hit.entry.synonyms ?? [],
-                alternativeTranslations: []
+                alternativeTranslations: [],
+                comment: hit.entry.comment ?? ""
             };
         } else {
             let sources_old = entries[key].source;
@@ -98,7 +99,8 @@ async function search(language, searchString) {
                     swedishInflections: hit.entry.swe.inflection ?? [],
                     englishInflections: hit.entry.eng.inflection ?? [],
                     synonyms: hit.entry.synonyms ?? [],
-                    alternativeTranslations: []
+                    alternativeTranslations: [],
+                    comment: hit.entry.comment ?? ""
                 };
                 for (const synonym in old_translations) {
                     entries[key].alternativeTranslations.push(synonym)
@@ -383,6 +385,9 @@ const display_best_result = (data) => {
             create_paragraph("Böjningar", data.englishInflections, rightSection);
         }
 
+        if (data.comment && data.comment.length > 0) {
+            create_paragraph("Kommentar", data.comment, bottomSection);
+        }
         create_paragraph("Ordklass", pos_map_swedish(data.pos), bottomSection);
         if (data.alternativeTranslations.length !== 0){
             create_paragraph("Alternativa översättningar", data.alternativeTranslations, bottomSection);
@@ -410,6 +415,9 @@ const display_best_result = (data) => {
             create_paragraph("Inflections", data.englishInflections, rightSection);
         }
 
+        if (data.comment && data.comment.length > 0) {
+            create_paragraph("Comment", data.comment, bottomSection);
+        }
         create_paragraph("Part-of-speech", pos_map_english(data.pos), bottomSection);
         if (data.alternativeTranslations.length !== 0){
             create_paragraph("Alternative translations", data.alternativeTranslations, bottomSection);
@@ -706,6 +714,8 @@ const switchToEnglish = () => {
                 paragraph.innerHTML = '<strong>English:</strong> ' + display_entry.englishLemma;
             } else if (paragraph.textContent.includes('Böjningar')) {
                 paragraph.innerHTML = '<strong>Inflections:</strong> ' + display_entry.englishInflections.join(', ');
+            } else if (paragraph.textContent.includes('Kommentar')) {
+                paragraph.innerHTML = '<strong>Comment:</strong> ' + display_entry.comment;
             } else if (paragraph.textContent.includes('Ordklass')) {
                 paragraph.innerHTML = '<strong>Part-of-speech:</strong> ' + pos_map_english(display_entry.pos);
             } else if (paragraph.textContent.includes('Synonymer')) {
@@ -809,6 +819,8 @@ const switchToSwedish = () => {
                 paragraph.innerHTML = '<strong>Engelska:</strong> ' + display_entry.englishLemma;
             } else if (paragraph.textContent.includes('Inflections')) {
                 paragraph.innerHTML = '<strong>Böjningar:</strong> ' + display_entry.englishInflections.join(', ');
+            } else if (paragraph.textContent.includes('Comment')) {
+                paragraph.innerHTML = '<strong>Kommentar:</strong> ' + display_entry.comment;
             } else if (paragraph.textContent.includes('Part-of-speech')) {
                 paragraph.innerHTML = '<strong>Ordklass:</strong> ' + pos_map_swedish(display_entry.pos);
             } else if (paragraph.textContent.includes('Synonyms')) {

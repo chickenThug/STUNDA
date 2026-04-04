@@ -209,6 +209,11 @@ public class HandleVerifiedTermsServlet extends HttpServlet {
                         new_entry.put("synonyms", synonymsJson);
                     }
 
+                    String comment = obj.optString("comment", "");
+                    if (!comment.isEmpty()) {
+                        new_entry.put("comment", comment);
+                    }
+
                     if (Config.KARP_WRITES_ENABLED) addEntry(api_key, new_entry, false);
 
                     // Push each alternative English translation as a separate KARP entry

@@ -129,6 +129,11 @@ function generateCheckboxes(data) {
     srcCell.textContent = row.src || '';
     tableRow.appendChild(srcCell);
 
+    // Comment
+    const commentCell = document.createElement('td');
+    commentCell.textContent = row.comment || '';
+    tableRow.appendChild(commentCell);
+
     // POS
     const posCell = document.createElement('td');
     posCell.textContent = row.agreed_pos || '';

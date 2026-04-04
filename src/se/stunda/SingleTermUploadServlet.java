@@ -30,7 +30,7 @@ public class SingleTermUploadServlet extends HttpServlet {
             String source = request.getParameter("source");
 
             // Format entry for storage, quoting fields that contain commas
-            String entry = String.format("%s,%s,%s\n",
+            String entry = String.format("%s,%s,%s,\n",
                     csvQuote(englishTerm),
                     csvQuote(swedishTerm),
                     csvQuote(source));

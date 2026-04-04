@@ -105,20 +105,21 @@ public class TermUploadServlet extends HttpServlet {
                             }
                             //Match regex
                             Matcher matcher = pattern.matcher(line);
-                            String[] parts = new String[3];
+                            String[] parts = new String[4];
                             int index = 0;
 
-                            // Match the first three entries
+                            // Match the first four entries
                             while (matcher.find()) {
-                                if (index < 3) {
+                                if (index < 4) {
                                     // Check if group 1 (quoted value) is not null, otherwise use group 2
                                     parts[index++] = matcher.group(1) != null ? matcher.group(1) : matcher.group(2);
                                 }
                             }
 
                             if (index >= 2) {
-                                String rowSource = (index == 3) ? parts[2] : source;
-                                String writeString = csvQuote(parts[0]) + "," + csvQuote(parts[1]) + "," + csvQuote(rowSource) + "\n";
+                                String rowSource = (index >= 3) ? parts[2] : source;
+                                String rowComment = (index >= 4 && parts[3] != null) ? parts[3] : "";
+                                String writeString = csvQuote(parts[0]) + "," + csvQuote(parts[1]) + "," + csvQuote(rowSource) + "," + csvQuote(rowComment) + "\n";
                                 Files.write(Paths.get(FILE_PATH), writeString.getBytes("utf-8"), StandardOpenOption.CREATE,
                                     StandardOpenOption.APPEND);
                             }
