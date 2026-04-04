@@ -721,7 +721,7 @@ def main():
         df = pd.DataFrame(term_pairs)
     elif args.server or args.test:
         load_dotenv(dotenv_path=f"{data_dir}/data/.env")
-        df = pd.read_csv(f"{data_dir}/terms/unprocessed.csv", encoding="utf-8")
+        df = pd.read_csv(f"{data_dir}/terms/unprocessed.csv", encoding="utf-8", index_col=False)
         if 'comment' not in df.columns:
             df['comment'] = ''
         df = df.astype(str)

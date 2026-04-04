@@ -82,7 +82,8 @@ public class TermUploadServlet extends HttpServlet {
                             if (i == 0) {
                                 i++;
                                 //Proccess , seperated csv
-                                if (line.equals("eng_term,swe_term") || line.equals("eng_term,swe_term,source")) {
+                                if (line.equals("eng_term,swe_term") || line.equals("eng_term,swe_term,source")
+                                        || line.equals("eng_lemma,swe_lemma,src") || line.equals("eng_lemma,swe_lemma,src,comment")) {
                                     // Regex to match CSV fields that may contain commas within quotes
                                     pattern = Pattern.compile("(\"[^\"]*\"|[^,]+)");
                                     continue;
