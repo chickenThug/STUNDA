@@ -61,7 +61,9 @@ public class HandleVerifiedTermsServlet extends HttpServlet {
             Set<String> incomingTermIds = new HashSet<>();
 
             DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
+            DateTimeFormatter datef = DateTimeFormatter.ofPattern("yyyy-MM-dd");
             LocalDateTime now = LocalDateTime.now();
+            String today = datef.format(now);
 
             for (int i = 0; i < incomingTerms.length(); i++) {
                 JSONObject jsonObject = incomingTerms.getJSONObject(i);
@@ -214,6 +216,8 @@ public class HandleVerifiedTermsServlet extends HttpServlet {
                         new_entry.put("comment", comment);
                     }
 
+                    new_entry.put("date", today);
+
                     if (Config.KARP_WRITES_ENABLED) addEntry(api_key, new_entry, false);
 
                     // Push each alternative English translation as a separate KARP entry
@@ -254,6 +258,7 @@ public class HandleVerifiedTermsServlet extends HttpServlet {
                                 if (allowedPos.contains(pos)) {
                                     altEntry.put("pos", pos);
                                 }
+                                altEntry.put("date", today);
                                 if (Config.KARP_WRITES_ENABLED) addEntry(api_key, altEntry, false);
                             }
                         }
