@@ -34,7 +34,13 @@ async function search(language, searchString) {
     }
 
     const karpSearchString = searchString.includes('-') ? searchString.split('-')[0] : searchString;
-    let matches = await getTermsFromKarp(`${language}.lemma`, "startswith", karpSearchString);
+    const synonymMatchesPromise = language === "swe"
+        ? getTermsFromKarp("synonyms", "startswith", karpSearchString)
+        : Promise.resolve(null);
+    let [matches, synonymMatches] = await Promise.all([
+        getTermsFromKarp(`${language}.lemma`, "startswith", karpSearchString),
+        synonymMatchesPromise
+    ]);
     if (searchString.includes('-') && matches !== "error") {
         matches.hits = matches.hits.filter(hit =>
             hit.entry[language].lemma.toLowerCase().startsWith(searchString.toLowerCase())
@@ -44,6 +50,17 @@ async function search(language, searchString) {
 
     if (matches === "error") {
         return "error"
+    }
+
+    // Merge synonym matches (Swedish only), deduplicating by entry id
+    if (synonymMatches && synonymMatches !== "error") {
+        const seenIds = new Set(matches.hits.map(h => h.id));
+        for (const hit of synonymMatches.hits) {
+            if (!seenIds.has(hit.id)) {
+                matches.hits.push(hit);
+            }
+        }
+        matches.total = matches.hits.length;
     }
 
     // Dictionary for keeping track of unique entries
