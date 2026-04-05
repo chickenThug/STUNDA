@@ -98,7 +98,7 @@ async function search(language, searchString) {
                     display_pos: entries[key].display_pos,
                     swedishInflections: hit.entry.swe.inflection ?? [],
                     englishInflections: hit.entry.eng.inflection ?? [],
-                    synonyms: hit.entry.synonyms ?? [],
+                    synonyms: (hit.entry.synonyms ?? []).length > 0 ? hit.entry.synonyms : (entries[key].synonyms ?? []),
                     alternativeTranslations: [],
                     comment: hit.entry.comment ?? ""
                 };
