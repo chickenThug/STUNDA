@@ -151,18 +151,18 @@ async function search(language, searchString) {
 let display_entry = {}
 
 const sourceExplanationEnglish = {
-    "PK" : "Keywords scraped from degree project theses",
-    "ACM" : "Association for Computing Machinery",
-    "ICT" : "Mechanically extracted terms from the KTH course IK2554 lecture notes in June 2014",
+    "PK" : "Keywords scraped from degree project theses in 2024",
+    "ACM" : "<https://www.acm.org/publications/computing-classification-system/1998/ccs98>The 1998 ACM Computing Classification System",
+    "ICT" : "Mechanically extracted terms from lecture notes of the KTH course in June 2014",
     "GF" : "Terms collected by a bachelor degree project group at Chalmers in 2020",
     "SMIT" : "<https://folkets-lexikon.csc.kth.se/LTterminology/>Swedish language technology and maching learning term group",
     "Lotsson" : "Lotsson's IT dictionary"
 }
 
 const sourceExplanationSwedish = {
-    "PK" : "Nyckelord skrapade från examensarbeten",
-    "ACM" : "Association for Computing Machinery",
-    "ICT" : "Skrapade termer från KTH-kursens IK2554 föreläsningsanteckningar juni 2014",
+    "PK" : "Nyckelord skrapade från examensarbeten 2024",
+    "ACM" : "<https://www.acm.org/publications/computing-classification-system/1998/ccs98>ACM:s datalogiklassifikationssystem 1998",
+    "ICT" : "Skrapade termer från föreläsningsanteckningar i KTH-kursen IK2554 juni 2014",
     "GF" : "Insamlade termer av en kandidatexamensarbetesgrupp vid Chalmers 2020",
     "SMIT" : "<https://folkets-lexikon.csc.kth.se/LTterminology/>Svenska språkteknologi- och maskininlärningstermgruppen",
     "Lotsson" : "Lotssons IT-ordbok"
