@@ -216,8 +216,6 @@ public class HandleVerifiedTermsServlet extends HttpServlet {
                         new_entry.put("comment", comment);
                     }
 
-                    new_entry.put("date", today);
-
                     if (Config.KARP_WRITES_ENABLED) addEntry(api_key, new_entry, false);
 
                     // Push each alternative English translation as a separate KARP entry
@@ -258,7 +256,6 @@ public class HandleVerifiedTermsServlet extends HttpServlet {
                                 if (allowedPos.contains(pos)) {
                                     altEntry.put("pos", pos);
                                 }
-                                altEntry.put("date", today);
                                 if (Config.KARP_WRITES_ENABLED) addEntry(api_key, altEntry, false);
                             }
                         }
