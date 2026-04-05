@@ -45,6 +45,7 @@ public class TermUploadServlet extends HttpServlet {
                 String source = request.getParameter("source"); 
 
                 if (filePart != null) {
+                    int termCount = 0;
                     // Read raw bytes and detect encoding (UTF-8 or ISO-8859-1)
                     ByteArrayOutputStream buffer = new ByteArrayOutputStream();
                     byte[] chunk = new byte[4096];
@@ -123,6 +124,7 @@ public class TermUploadServlet extends HttpServlet {
                                 String writeString = csvQuote(parts[0]) + "," + csvQuote(parts[1]) + "," + csvQuote(rowSource) + "," + csvQuote(rowComment) + "\n";
                                 Files.write(Paths.get(FILE_PATH), writeString.getBytes("utf-8"), StandardOpenOption.CREATE,
                                     StandardOpenOption.APPEND);
+                                termCount++;
                             }
                             else {
                                 //invalid CSV line
@@ -130,6 +132,7 @@ public class TermUploadServlet extends HttpServlet {
                             
                         }
                     }
+                    response.getWriter().write(String.valueOf(termCount));
                 } else {
                     response.getWriter().println("No file uploaded!");
                 }

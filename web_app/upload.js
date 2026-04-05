@@ -29,7 +29,11 @@ const uploadFunction = (swe_term, eng_term, file, src, contact) => {
             const data = {timestamp: dateString, uploadType: uploadType, successful: true}
             log_upload(data);
 
+            lastUploadCount = parseInt(xhr.responseText) || 0;
             const feedbackMessage = document.getElementById("feedback-message");
+            feedbackMessage.innerHTML = language === 'swe'
+                ? `Lyckad uppladdning av ${lastUploadCount} termer. Tack för ditt bidrag!`
+                : `Successful upload of ${lastUploadCount} terms. Thank you for your contribution!`;
             feedbackMessage.style.display = 'block';
             onUploadSuccess();
         } else {
@@ -138,6 +142,7 @@ const validateAndUpload = () => {
 }
 
 let language = 'swe';
+let lastUploadCount = 0;
 
 // Function called when language button is pressed. Switches the language accordingly
 const language_toggle = () => {
@@ -162,7 +167,9 @@ const switchToEnglish = () => {
 
     document.querySelector('.upload-container').innerHTML = '<p>Upload single term pair:</p><input type="text" class="upload-input" id="swe_term" placeholder="Swedish term..." oninput="checkUploadReady()"><input type="text" class="upload-input" id="eng_term" placeholder="English term..." oninput="checkUploadReady()"><p>Upload file:</p><input type="file" class="upload-file" id="term_file" onchange="checkUploadReady()"><span id="src-error" class="error-message" style="color: red; display: none;">Source is mandatory</span><span id="src-comma-error" class="error-message" style="color: red; display: none;">It is not allowed with a comma in the source</span><input type="text" class="upload-input" id="src" placeholder="Source..." required><input type="text" class="upload-input" id="contact" placeholder="Contact information..."><span id="rights-error" class="error-message" style="color: red; display: none;">You have to approve the rights before upload</span><div><input type="checkbox" id="terms_checkbox"><label for="terms_checkbox">I give the rights for the terms to be uploaded publicly in STUNDA</label></div><div class="button-row"><button class="submit-button" id="upload-button" disabled onclick="validateAndUpload()">Upload</button><button class="post-upload-button" id="more-terms-button" style="display:none" onclick="angerFlerTermpar()">Enter more term pairs</button><button class="post-upload-button" id="back-button" style="display:none" onclick="tillbakaStunda()">Back to Stunda</button></div>';
 
-    document.querySelector('#feedback-message').innerHTML = 'Successful upload of terms. Thank you for your contribution!';
+    document.querySelector('#feedback-message').innerHTML = lastUploadCount > 0
+        ? `Successful upload of ${lastUploadCount} terms. Thank you for your contribution!`
+        : 'Successful upload of terms. Thank you for your contribution!';
 
     document.querySelector('#feedback-message-bad').innerHTML = 'Unsuccessful upload of terms. Please try again later.'
 }
@@ -174,7 +181,9 @@ const switchToSwedish = () => {
 
     document.querySelector('.upload-container').innerHTML = '<p>Ladda upp ett enskilt termpar:</p><input type="text" class="upload-input" id="swe_term" placeholder="Svensk term..." oninput="checkUploadReady()"><input type="text" class="upload-input" id="eng_term" placeholder="Engelsk term..." oninput="checkUploadReady()"><p>Ladda upp fil:</p><input type="file" class="upload-file" id="term_file" onchange="checkUploadReady()"><span id="src-error" class="error-message" style="color: red; display: none;">Källa är obligatoriskt</span><span id="src-comma-error" class="error-message" style="color: red; display: none;">Det är inte tillåtet med kommatecken i källan</span><input type="text" class="upload-input" id="src" placeholder="Källa..." required><input type="text" class="upload-input" id="contact" placeholder="Kontaktuppgifter..."><span id="rights-error" class="error-message" style="color: red; display: none;">Du måste godkänna rättigheterna innan uppladdning</span><div><input type="checkbox" id="terms_checkbox"><label for="terms_checkbox">Jag ger rättigheter till att angivna termer laddas upp publikt i STUNDA</label></div><div class="button-row"><button class="submit-button" id="upload-button" disabled onclick="validateAndUpload()">Ladda upp</button><button class="post-upload-button" id="more-terms-button" style="display:none" onclick="angerFlerTermpar()">Ange fler termpar</button><button class="post-upload-button" id="back-button" style="display:none" onclick="tillbakaStunda()">Tillbaka till Stunda</button></div>';
 
-    document.querySelector('#feedback-message').innerHTML = 'Lyckad uppladdning av termer. Tack för ditt bidrag!';
+    document.querySelector('#feedback-message').innerHTML = lastUploadCount > 0
+        ? `Lyckad uppladdning av ${lastUploadCount} termer. Tack för ditt bidrag!`
+        : 'Lyckad uppladdning av termer. Tack för ditt bidrag!';
 
     document.querySelector('#feedback-message-bad').innerHTML = 'Uppladdning av termer gick inte. Vänligen försök igen vid senare tillfälle.'
 }
