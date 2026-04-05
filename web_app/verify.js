@@ -2,6 +2,9 @@ let currentIndex = 0;
 let currentBatchSize = 25;
 let termsList = [];
 
+const ARRAY_FIELDS = ['synonyms', 'alternative_translations', 'swedish_inflections', 'english_inflections'];
+const POS_OPTIONS = ['', 'N', 'NP', 'V', 'A', 'Ab'];
+
 function uncheckAll() {
   const checkboxes = document.querySelectorAll('#term-verification input[type="checkbox"]');
   checkboxes.forEach(cb => { cb.checked = false; });
@@ -9,71 +12,113 @@ function uncheckAll() {
 
 // Function for when the user presses verify terms
 const verifyTerms = (nextBatchSize = 25) => {
-  const checkboxes = document.querySelectorAll('#term-verification input[type="checkbox"]');
+  const rows = document.querySelectorAll('#terms-table tbody tr');
   const terms = [];
 
-  checkboxes.forEach(checkbox => {
-    const termData = JSON.parse(checkbox.value);
-    if (checkbox.checked) {
-      termData["approved"] = true
-    } else {
-      termData["approved"] = false
-    }
+  rows.forEach(row => {
+    const original = JSON.parse(row.dataset.original);
+    const checkbox = row.querySelector('input[type="checkbox"]');
+    const termData = { ...original };
+
+    // Read editable cells
+    row.querySelectorAll('[data-field]').forEach(cell => {
+      const field = cell.dataset.field;
+      const raw = (cell.tagName === 'SELECT' ? cell.value : cell.textContent).trim();
+      if (ARRAY_FIELDS.includes(field)) {
+        termData[field] = raw ? raw.split(',').map(s => s.trim()).filter(s => s) : [];
+      } else {
+        termData[field] = raw;
+      }
+    });
+
+    termData.approved = checkbox.checked;
     terms.push(termData);
   });
-  const username = sessionStorage.getItem('username');
 
-  const payload = {
-    username: username,
-    terms: terms
+  const username = sessionStorage.getItem('username');
+  const payload = { username: username, terms: terms };
+
+  const setButtonsDisabled = (disabled) => {
+    document.getElementById('verify-button').disabled = disabled;
+    document.getElementById('verify-more-button').disabled = disabled;
   };
 
-   // Send approved and not approved terms to the servlet
-   fetch('./handle-verify', {
-      method: 'POST',
-      headers: {
-          'Content-Type': 'application/json'
-      },
-      body: JSON.stringify(payload)
-    })
-    .then(response => response.text())
-    .then(data => {
-        if (data === "success") {
-            const successMessage = document.getElementById('feedback-message');
-            successMessage.style.display = 'block';
-            setTimeout(hideSuccessMessage, 2000); // Hide success message after 2 seconds
-            currentIndex += currentBatchSize;
-            displayNextBatch(nextBatchSize);
-        } else {
-            const noSuccessMessage = document.getElementById('feedback-message-bad');
-            noSuccessMessage.style.display = 'block';
-            console.error("Error processing terms");
-        }
-    })
-    .catch(error => {
-        console.error("Error: ", error);
-    });
+  setButtonsDisabled(true);
+
+  // Send approved and not approved terms to the servlet
+  fetch('./handle-verify', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify(payload)
+  })
+  .then(response => response.text())
+  .then(data => {
+    if (data === "success") {
+      const successMessage = document.getElementById('feedback-message');
+      successMessage.style.display = 'block';
+      setTimeout(hideSuccessMessage, 2000);
+      currentIndex += currentBatchSize;
+      displayNextBatch(nextBatchSize);
+    } else {
+      const noSuccessMessage = document.getElementById('feedback-message-bad');
+      noSuccessMessage.style.display = 'block';
+      console.error("Error processing terms");
+    }
+    setButtonsDisabled(false);
+  })
+  .catch(error => {
+    console.error("Error: ", error);
+    setButtonsDisabled(false);
+  });
 };
 
 const hideSuccessMessage = () => {
   const successMessage = document.getElementById('feedback-message');
   successMessage.style.display = 'none';
- }
+}
 
- // Function for generating the table with the terms
+// Helper: create an editable td
+function editableCell(field, value) {
+  const cell = document.createElement('td');
+  cell.contentEditable = 'true';
+  cell.dataset.field = field;
+  if (Array.isArray(value)) {
+    cell.textContent = value.join(', ');
+  } else {
+    cell.textContent = value || '';
+  }
+  return cell;
+}
+
+// Helper: create a pos select td
+function posSelectCell(currentPos) {
+  const cell = document.createElement('td');
+  const select = document.createElement('select');
+  select.dataset.field = 'agreed_pos';
+  POS_OPTIONS.forEach(pos => {
+    const option = document.createElement('option');
+    option.value = pos;
+    option.textContent = pos || '—';
+    if ((currentPos || '') === pos) option.selected = true;
+    select.appendChild(option);
+  });
+  cell.appendChild(select);
+  return cell;
+}
+
+// Function for generating the table with the terms
 function generateCheckboxes(data) {
   const tableBody = document.querySelector('#terms-table tbody');
   tableBody.innerHTML = '';
 
   // If there is no more terms to handle
   if ((data.length === 1 && data[0].length === 0) || (data.length === 0)) {
-    // Display message if no terms to check
     const noTermsMessage = document.getElementById('no-action-message');
     noTermsMessage.style.display = 'block';
 
     const tableHead = document.querySelector('#terms-table thead');
     tableHead.style.display = 'none';
-    
+
     const submitButton = document.querySelector('.submit-button');
     submitButton.style.display = 'none';
 
@@ -82,66 +127,30 @@ function generateCheckboxes(data) {
 
   data.forEach((row, index) => {
     const tableRow = document.createElement('tr');
+    tableRow.dataset.original = JSON.stringify(row);
 
-    // Checkboxes
+    // Checkbox
     const checkboxCell = document.createElement('td');
     const checkbox = document.createElement('input');
     checkbox.type = 'checkbox';
     checkbox.id = `term${index}`;
-    checkbox.name = `term${index}`;
-    checkbox.value = JSON.stringify(row);
     checkbox.checked = true;
     checkboxCell.appendChild(checkbox);
     tableRow.appendChild(checkboxCell);
 
-    // Swedish lemma
-    const sweLemmaCell = document.createElement('td');
-    sweLemmaCell.textContent = row.swe_lemma || '';
-    tableRow.appendChild(sweLemmaCell);
+    tableRow.appendChild(editableCell('swe_lemma', row.swe_lemma));
+    tableRow.appendChild(editableCell('synonyms', row.synonyms));
+    tableRow.appendChild(editableCell('eng_lemma', row.eng_lemma));
+    tableRow.appendChild(editableCell('alternative_translations', row.alternative_translations));
+    tableRow.appendChild(editableCell('swedish_inflections', row.swedish_inflections));
+    tableRow.appendChild(editableCell('english_inflections', row.english_inflections));
+    tableRow.appendChild(editableCell('src', row.src));
+    tableRow.appendChild(editableCell('comment', row.comment));
+    tableRow.appendChild(posSelectCell(row.agreed_pos));
 
-    // Synonyms
-    const synonymsCell = document.createElement('td');
-    synonymsCell.textContent = Array.isArray(row.synonyms) ? row.synonyms.join(', ') : (row.synonyms || '');
-    tableRow.appendChild(synonymsCell);
-
-    // English lemma
-    const engLemmaCell = document.createElement('td');
-    engLemmaCell.textContent = row.eng_lemma || '';
-    tableRow.appendChild(engLemmaCell);
-
-    // Alternative translations
-    const altTransCell = document.createElement('td');
-    altTransCell.textContent = Array.isArray(row.alternative_translations) ? row.alternative_translations.join(', ') : (row.alternative_translations || '');
-    tableRow.appendChild(altTransCell);
-
-    // Swedish inflections
-    const sweInfCell = document.createElement('td');
-    sweInfCell.textContent = row.swedish_inflections || '';
-    tableRow.appendChild(sweInfCell);
-
-    // English inflections
-    const engInfCell = document.createElement('td');
-    engInfCell.textContent = row.english_inflections || '';
-    tableRow.appendChild(engInfCell);
-
-    // Source
-    const srcCell = document.createElement('td');
-    srcCell.textContent = row.src || '';
-    tableRow.appendChild(srcCell);
-
-    // Comment
-    const commentCell = document.createElement('td');
-    commentCell.textContent = row.comment || '';
-    tableRow.appendChild(commentCell);
-
-    // POS
-    const posCell = document.createElement('td');
-    posCell.textContent = row.agreed_pos || '';
-    tableRow.appendChild(posCell);
-
-    // If the term pair was automatically verified by the flow or not
+    // Auto-verified (not editable)
     const autOK = document.createElement('td');
-    autOK.textContent = (row.status === 'automatically verified') ? 'JA':'NEJ';
+    autOK.textContent = (row.status === 'automatically verified') ? 'JA' : 'NEJ';
     tableRow.appendChild(autOK);
 
     tableBody.appendChild(tableRow);
@@ -151,8 +160,7 @@ function generateCheckboxes(data) {
 // Function to check if the user is logged in
 function checkLoginStatus() {
   if (sessionStorage.getItem('loggedIn') !== 'true') {
-      // Redirect to login page if not logged in
-      window.location.href = "login.html";
+    window.location.href = "login.html";
   }
 }
 
@@ -164,7 +172,7 @@ function handleJSONLContent(jsonlContent) {
 }
 
 // Function to display the terms in batches
-function displayNextBatch(batchSize = 25){
+function displayNextBatch(batchSize = 25) {
   const nextBatch = termsList.slice(currentIndex, currentIndex + batchSize);
   currentBatchSize = nextBatch.length;
   generateCheckboxes(nextBatch);
@@ -173,15 +181,13 @@ function displayNextBatch(batchSize = 25){
 // Fetch JSONL file from server
 async function fetchJSONL() {
   await fetch('./term-verification', {
-      method: 'GET',
-      headers: {
-          'Content-Type': 'application/json'
-      }
+    method: 'GET',
+    headers: { 'Content-Type': 'application/json' }
   })
   .then(response => response.text())
   .then(data => handleJSONLContent(data))
   .catch(error => {
-      console.error('Error fetching JSONL:', error);
+    console.error('Error fetching JSONL:', error);
   });
 }
 

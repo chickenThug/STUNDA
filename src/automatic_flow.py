@@ -308,7 +308,7 @@ banned_words = {
 }
 
 
-def clean_and_simple_checks(df):
+def clean_and_simple_checks(df, keepcase=False):
     """
     Clean and perform simple checks on the DataFrame lemma data to ensure data quality.
 
@@ -320,11 +320,13 @@ def clean_and_simple_checks(df):
 
     """
 
-    # Remove excess whitespace and convert to lower case (preserve all-caps lemmas)
+    # Remove excess whitespace and (unless keepcase) convert to lower case (preserve all-caps lemmas)
     df["eng_lemma"] = df["eng_lemma"].str.replace(r"\s+", " ", regex=True)
-    df["eng_lemma"] = df["eng_lemma"].apply(lambda x: x if x.upper() == x else x.lower())
+    if not keepcase:
+        df["eng_lemma"] = df["eng_lemma"].apply(lambda x: x if x.upper() == x else x.lower())
     df["swe_lemma"] = df["swe_lemma"].str.replace(r"\s+", " ", regex=True)
-    df["swe_lemma"] = df["swe_lemma"].apply(lambda x: x if x.upper() == x else x.lower())
+    if not keepcase:
+        df["swe_lemma"] = df["swe_lemma"].apply(lambda x: x if x.upper() == x else x.lower())
 
     # remove [*] and [**] from entries
     df["eng_lemma"] = (
@@ -425,13 +427,17 @@ def pos(df):
         lambda x: pos_agreement_term_based(x["swe_lemma"], x["eng_lemma"]), axis=1
     )
 
+    # Upgrade "N" to "NP" (noun phrase) when either lemma contains a space
+    multi_word = df["swe_lemma"].str.contains(" ") | df["eng_lemma"].str.contains(" ")
+    df.loc[(df["agreed_pos"] == "N") & multi_word, "agreed_pos"] = "NP"
+
     # If no pos is found set status accordingly
-    df.loc[~df["agreed_pos"].isin(["N", "V", "A", "Ab", "P"]), "status"] = df.loc[
-        ~df["agreed_pos"].isin(["N", "V", "A", "Ab", "P"]), "agreed_pos"
+    df.loc[~df["agreed_pos"].isin(["N", "NP", "V", "A", "Ab", "P"]), "status"] = df.loc[
+        ~df["agreed_pos"].isin(["N", "NP", "V", "A", "Ab", "P"]), "agreed_pos"
     ]
 
     # If pos found set status accordingly
-    df.loc[df["agreed_pos"].isin(["N", "V", "A", "Ab", "P"]), "status"] = "found pos"
+    df.loc[df["agreed_pos"].isin(["N", "NP", "V", "A", "Ab", "P"]), "status"] = "found pos"
 
     return df
 
@@ -479,7 +485,7 @@ def lemmatize(df):
 
     df["eng_lemma"] = df.apply(
         lambda x: x["eng_lemma"] if x["eng_lemma"].upper() == x["eng_lemma"]
-        else english_lemmatizer(x["eng_lemma"], x["agreed_pos"], x["english_pos"]),
+        else english_lemmatizer(x["eng_lemma"], "N" if x["agreed_pos"] == "NP" else x["agreed_pos"], x["english_pos"]),
         axis=1,
     )
 
@@ -650,7 +656,7 @@ def process_synonyms(synonyms):
     return processed
 
 
-def process_eng_synonyms(synonyms):
+def process_eng_synonyms(synonyms, keepcase=False):
     """
     Clean, spell-check, and lemmatize each English alternative translation.
     Silently drops entries that fail character or spell checks.
@@ -662,7 +668,8 @@ def process_eng_synonyms(synonyms):
     for syn in synonyms:
         syn = re.sub(r'\s+', ' ', syn).strip()
         is_acronym = syn.isupper() and ' ' not in syn
-        syn = syn.lower()
+        if not keepcase:
+            syn = syn.lower()
         if not re.match(r'^[a-zA-Z\- \d]+$', syn):
             continue
         if is_acronym:
@@ -701,6 +708,12 @@ def main():
         "--test",
         action="store_true",
         help="flag for running against the teststunda instance",
+    )
+    parser.add_argument(
+        "-keepcase",
+        "--keepcase",
+        action="store_true",
+        help="keep the original case of lemmas from unprocessed.csv (do not lowercase)",
     )
 
     args = parser.parse_args()
@@ -777,7 +790,7 @@ def main():
 
     # Time the cleaning and simple checks
     start_time = time.time()
-    df = clean_and_simple_checks(df)
+    df = clean_and_simple_checks(df, keepcase=args.keepcase)
     print("finished simple checks in {:.2f} seconds".format(time.time() - start_time))
 
     df_stop1 = df[df["status"] != "shallow processed"]
@@ -816,7 +829,7 @@ def main():
 
     # Process synonyms for rows that completed lemmatization
     df['synonyms'] = [process_synonyms(s) for s in df['swe_synonyms']]
-    df['alternative_translations'] = [process_eng_synonyms(s) for s in df['eng_alt_raw']]
+    df['alternative_translations'] = [process_eng_synonyms(s, keepcase=args.keepcase) for s in df['eng_alt_raw']]
 
     # Drop duplicate entries over swedish lemma, engish lemma, pos and source
     df = df.drop_duplicates(subset=["eng_lemma", "swe_lemma", "agreed_pos", "src"])

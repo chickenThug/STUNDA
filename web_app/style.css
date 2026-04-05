@@ -588,3 +588,28 @@ body {
 #terms-table tbody tr:last-of-type {
     border-bottom: 2px solid #009879;
 }
+#terms-table td[contenteditable="true"] {
+    cursor: text;
+}
+
+#terms-table td[contenteditable="true"]:hover,
+#terms-table td[contenteditable="true"]:focus {
+    background-color: #f0f8ff;
+    outline: 1px solid #007bff;
+}
+
+#terms-table select {
+    border: none;
+    background: transparent;
+    cursor: pointer;
+    font-size: inherit;
+    font-family: inherit;
+    width: 100%;
+    min-width: 4em;
+}
+
+#terms-table select:hover,
+#terms-table select:focus {
+    background-color: #f0f8ff;
+    outline: 1px solid #007bff;
+}
