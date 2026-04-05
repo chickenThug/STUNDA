@@ -97,7 +97,8 @@ async function search(language, searchString) {
                 englishInflections: hit.entry.eng.inflection ?? [],
                 synonyms: hit.entry.synonyms ?? [],
                 alternativeTranslations: [],
-                comment: hit.entry.comment ?? ""
+                comment: hit.entry.comment ?? "",
+                date: hit.entry.date ?? ""
             };
         } else {
             let sources_old = entries[key].source;
@@ -117,7 +118,8 @@ async function search(language, searchString) {
                     englishInflections: hit.entry.eng.inflection ?? [],
                     synonyms: (hit.entry.synonyms ?? []).length > 0 ? hit.entry.synonyms : (entries[key].synonyms ?? []),
                     alternativeTranslations: [],
-                    comment: hit.entry.comment ?? ""
+                    comment: hit.entry.comment ?? "",
+                    date: hit.entry.date ?? ""
                 };
                 for (const synonym in old_translations) {
                     entries[key].alternativeTranslations.push(synonym)
@@ -412,9 +414,9 @@ const display_best_result = (data) => {
 
         // Paragraphs for bottom section
         if (data.source.length === 1) {
-            create_source_paragraph("Källa", data.source, bottomSection, language)
+            create_source_paragraph("Källa", data.source, bottomSection, language, data.date)
         } else {
-            create_source_paragraph("Källor", data.source, bottomSection, language)
+            create_source_paragraph("Källor", data.source, bottomSection, language, data.date)
         }
     } else {
         // Paragraphs for left section
@@ -442,9 +444,9 @@ const display_best_result = (data) => {
 
         // Paragraphs for bottom section
         if (data.source.length === 1) {
-            create_source_paragraph("Source", data.source, bottomSection, language)
+            create_source_paragraph("Source", data.source, bottomSection, language, data.date)
         } else {
-            create_source_paragraph("Sources", data.source, bottomSection, language)
+            create_source_paragraph("Sources", data.source, bottomSection, language, data.date)
         }
     }
 
@@ -507,7 +509,7 @@ function get_explanation(source, language) {
     }
 }
 
-const create_source_paragraph = (title, sources, container, language) => {
+const create_source_paragraph = (title, sources, container, language, date = "") => {
     const label = document.createElement('span');
     label.id = 'label-text';
     label.innerHTML = `<strong>${title}: </strong>`;
@@ -563,6 +565,9 @@ const create_source_paragraph = (title, sources, container, language) => {
     // Remove the last comma
     if (container.lastChild) {
         container.removeChild(container.lastChild);
+    }
+    if (date && date.length > 0) {
+        container.appendChild(document.createTextNode(` (${date})`));
     }
 }
 
