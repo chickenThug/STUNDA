@@ -1,5 +1,9 @@
 package se.stunda;
 
+import com.opencsv.CSVParserBuilder;
+import com.opencsv.CSVReader;
+import com.opencsv.CSVReaderBuilder;
+import com.opencsv.CSVWriter;
 import javax.servlet.annotation.MultipartConfig;
 import javax.servlet.*;
 import javax.servlet.http.*;
@@ -9,18 +13,55 @@ import java.nio.charset.Charset;
 import java.nio.charset.CharacterCodingException;
 import java.nio.charset.CodingErrorAction;
 import java.nio.file.*;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
+import java.util.ArrayList;
+import java.util.List;
 
 @MultipartConfig
 public class TermUploadServlet extends HttpServlet {
     private static final String FILE_PATH = Config.DATA_DIR + "/terms/unprocessed.csv";
 
-    private static String csvQuote(String field) {
-        if (field != null && field.contains(",") && !field.startsWith("\"")) {
-            return "\"" + field + "\"";
+    private static String stripSurroundingQuotes(String s) {
+        if (s.length() >= 2 && s.charAt(0) == '"' && s.charAt(s.length() - 1) == '"') {
+            return s.substring(1, s.length() - 1);
         }
-        return field;
+        return s;
+    }
+
+    private static String clean(String s) {
+        return stripSurroundingQuotes(s.trim());
+    }
+
+    private static List<String[]> expandRows(String eng, String swe, String src, String comment) {
+        String[] engParts = eng.split(";", -1);
+        String[] sweParts = swe.split(";", -1);
+        boolean engHasSemi = engParts.length > 1;
+        boolean sweHasSemi = sweParts.length > 1;
+
+        List<String[]> rows = new ArrayList<>();
+
+        if (engHasSemi && sweHasSemi) {
+            if (engParts.length != sweParts.length) {
+                System.err.println("Warning: mismatched semicolon count in eng_lemma (" +
+                        eng + ") and swe_lemma (" + swe + ") — skipping split");
+                rows.add(new String[]{clean(eng), clean(swe), src, comment});
+            } else {
+                for (int i = 0; i < engParts.length; i++) {
+                    rows.add(new String[]{clean(engParts[i]), clean(sweParts[i]), src, comment});
+                }
+            }
+        } else if (sweHasSemi) {
+            for (String swePart : sweParts) {
+                rows.add(new String[]{clean(eng), clean(swePart), src, comment});
+            }
+        } else if (engHasSemi) {
+            for (String engPart : engParts) {
+                rows.add(new String[]{clean(engPart), clean(swe), src, comment});
+            }
+        } else {
+            rows.add(new String[]{clean(eng), clean(swe), src, comment});
+        }
+
+        return rows;
     }
 
     @Override
@@ -67,69 +108,46 @@ public class TermUploadServlet extends HttpServlet {
                         detectedCharset = "ISO-8859-1";
                     }
 
-                    try (BufferedReader reader = new BufferedReader(
-                            new InputStreamReader(new ByteArrayInputStream(rawBytes), detectedCharset))) {
-                        String line;
-                        int i = 0;
-                        Pattern pattern = null;
+                    // Strip UTF-8 BOM if present (common in Excel-generated CSV files)
+                    String content = new String(rawBytes, detectedCharset);
+                    if (content.startsWith("\uFEFF")) {
+                        content = content.substring(1);
+                    }
 
-                        while ((line = reader.readLine()) != null) {
-                            // Strip UTF-8 BOM if present (common in Excel-generated CSV files)
-                            if (i == 0 && line.startsWith("\uFEFF")) {
-                                line = line.substring(1);
-                            }
+                    // Auto-detect delimiter from first line
+                    char delimiter = content.contains(";") && !content.contains(",") ? ';' : ',';
 
-                            //CSV header
-                            if (i == 0) {
-                                i++;
-                                //Proccess , seperated csv
-                                if (line.equals("eng_term,swe_term") || line.equals("eng_term,swe_term,source")
-                                        || line.equals("eng_lemma,swe_lemma,src") || line.equals("eng_lemma,swe_lemma,src,comment")) {
-                                    // Regex to match CSV fields that may contain commas within quotes
-                                    pattern = Pattern.compile("(\"[^\"]*\"|[^,]+)");
+                    try (CSVReader csvReader = new CSVReaderBuilder(new StringReader(content))
+                            .withCSVParser(new CSVParserBuilder().withSeparator(delimiter).build())
+                            .build();
+                         CSVWriter csvWriter = new CSVWriter(new FileWriter(FILE_PATH, true),
+                            CSVWriter.DEFAULT_SEPARATOR,
+                            CSVWriter.DEFAULT_QUOTE_CHARACTER,
+                            CSVWriter.DEFAULT_ESCAPE_CHARACTER,
+                            CSVWriter.DEFAULT_LINE_END)) {
+
+                        String[] parts;
+                        boolean firstLine = true;
+
+                        while ((parts = csvReader.readNext()) != null) {
+                            // Skip recognized header rows
+                            if (firstLine) {
+                                firstLine = false;
+                                if (parts.length >= 2 &&
+                                        (parts[0].equals("eng_term") || parts[0].equals("eng_lemma")) &&
+                                        (parts[1].equals("swe_term") || parts[1].equals("swe_lemma"))) {
                                     continue;
                                 }
-                                //Proccess ; seperated csv
-                                else if (line.equals("eng_term;swe_term") || line.equals("eng_term;swe_term;source")) {
-                                    // Regex to match CSV fields that may contain commas within quotes
-                                    pattern = Pattern.compile("(\"[^\"]*\"|[^;]+)");
-                                    continue;
-                                }
-                                // No recognized header - treat first line as data and auto-detect delimiter
-                                else {
-                                    if (line.contains(";")) {
-                                        pattern = Pattern.compile("(\"[^\"]*\"|[^;]+)");
-                                    } else {
-                                        pattern = Pattern.compile("(\"[^\"]*\"|[^,]+)");
-                                    }
-                                    // Fall through to process this line as data
-                                }
-                            }
-                            //Match regex
-                            Matcher matcher = pattern.matcher(line);
-                            String[] parts = new String[4];
-                            int index = 0;
-
-                            // Match the first four entries
-                            while (matcher.find()) {
-                                if (index < 4) {
-                                    // Check if group 1 (quoted value) is not null, otherwise use group 2
-                                    parts[index++] = matcher.group(1) != null ? matcher.group(1) : matcher.group(2);
-                                }
                             }
 
-                            if (index >= 2) {
-                                String rowSource = (index >= 3) ? parts[2] : source;
-                                String rowComment = (index >= 4 && parts[3] != null) ? parts[3] : "";
-                                String writeString = csvQuote(parts[0]) + "," + csvQuote(parts[1]) + "," + csvQuote(rowSource) + "," + csvQuote(rowComment) + "\n";
-                                Files.write(Paths.get(FILE_PATH), writeString.getBytes("utf-8"), StandardOpenOption.CREATE,
-                                    StandardOpenOption.APPEND);
-                                termCount++;
+                            if (parts.length >= 2 && !parts[0].isEmpty() && !parts[1].isEmpty()) {
+                                String rowSource = (parts.length >= 3 && !parts[2].isEmpty()) ? parts[2] : source;
+                                String rowComment = (parts.length >= 4 && parts[3] != null) ? parts[3] : "";
+                                for (String[] row : expandRows(parts[0], parts[1], rowSource, rowComment)) {
+                                    csvWriter.writeNext(row);
+                                    termCount++;
+                                }
                             }
-                            else {
-                                //invalid CSV line
-                            }
-                            
                         }
                     }
                     response.getWriter().write(String.valueOf(termCount));

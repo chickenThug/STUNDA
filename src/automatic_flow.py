@@ -405,6 +405,10 @@ def spell_check(df):
         "both misspelt"
     )
 
+    # Preserve the spell check outcome in its own column so it survives
+    # later pipeline steps even when they are not used to stop the row.
+    df["spell_status"] = df["status"]
+
     return df
 
 
@@ -439,15 +443,24 @@ def pos(df):
     # If pos found set status accordingly
     df.loc[df["agreed_pos"].isin(["N", "NP", "V", "A", "Ab", "P"]), "status"] = "found pos"
 
+    # Preserve the POS outcome in its own column so it survives later
+    # pipeline steps even when they are not used to stop the row.
+    df["pos_status"] = df["status"]
+
     return df
 
 
-def lemmatize(df):
+def lemmatize(df, keepcase=False):
     """
     Perform Swedish POS tagging and lemmatization on a DataFrame.
 
     Parameters:
     - df (pandas.DataFrame): DataFrame containing columns "swe_lemma" and "simple_swedish_pos".
+    - keepcase (bool): if True, don't lemmatize lemmas that contain any
+      uppercase character. The Skrutten/WordNet lemmatizer APIs normalize
+      their output to lowercase regardless of input casing, so a mixed-case
+      term such as "LSTM-modell" would otherwise come back as "lstm-modell"
+      even though the caller asked to preserve the original case.
 
     Returns:
     - pandas.DataFrame: Filtered DataFrame with successfully lemmatized entries.
@@ -472,10 +485,22 @@ def lemmatize(df):
 
     df.loc[sarskrivning_condition, "status"] = "suspected särskriving"
 
-    # lemmatize swedish lemma (preserve all-caps lemmas)
+    # agreed_pos is only a real POS tag when pos() found a single agreed tag;
+    # on disagreement it instead holds an error string (e.g. "no pos found").
+    # Lemmatizers and inflection generators key off this value, so an invalid
+    # tag here must skip lemmatization for that row rather than being passed
+    # through (english_lemmatizer would otherwise raise a KeyError).
+    valid_pos = {"N", "NP", "V", "A", "Ab", "P"}
+
+    # lemmatize swedish lemma (preserve all-caps lemmas, and any casing at
+    # all when keepcase is set, since the lemmatizer APIs always return
+    # lowercase output)
     df["swe_lemma"], df["swe_lemmatizer_status"] = zip(
         *df.apply(
-            lambda x: (x["swe_lemma"], "ok") if x["swe_lemma"].upper() == x["swe_lemma"]
+            lambda x: (x["swe_lemma"], "ok")
+            if x["swe_lemma"].upper() == x["swe_lemma"]
+            or x["agreed_pos"] not in valid_pos
+            or (keepcase and x["swe_lemma"] != x["swe_lemma"].lower())
             else advanced_swedish_lemmatizer(
                 x["swe_lemma"], x["simple_swedish_pos"], x["swedish_pos"]
             ),
@@ -484,7 +509,10 @@ def lemmatize(df):
     )
 
     df["eng_lemma"] = df.apply(
-        lambda x: x["eng_lemma"] if x["eng_lemma"].upper() == x["eng_lemma"]
+        lambda x: x["eng_lemma"]
+        if x["eng_lemma"].upper() == x["eng_lemma"]
+        or x["agreed_pos"] not in valid_pos
+        or (keepcase and x["eng_lemma"] != x["eng_lemma"].lower())
         else english_lemmatizer(x["eng_lemma"], "N" if x["agreed_pos"] == "NP" else x["agreed_pos"], x["english_pos"]),
         axis=1,
     )
@@ -613,17 +641,35 @@ def term_already_exists(existing_terms, new_term):
 
         # Check if the English and Swedish lemmas match
         if term[:2] == compare_term:
-            sources = existing_term["entry"]["src"].split(", ")
+            entry = existing_term["entry"]
+            needs_update = False
 
             # Update the source if it's not already listed
+            sources = entry["src"].split(", ")
             if term[2] not in sources:
-                existing_term["entry"]["src"] += ", " + new_term["src"]
+                entry["src"] += ", " + new_term["src"]
+                needs_update = True
 
+            # Merge in any Swedish synonyms from this row that aren't
+            # already on the KARP entry, instead of silently dropping them
+            # just because the primary eng/swe lemma pair already exists.
+            existing_synonyms = entry.get("synonyms") or []
+            new_synonyms = new_term.get("synonyms")
+            if not isinstance(new_synonyms, list):
+                new_synonyms = []
+            merged_synonyms = existing_synonyms + [
+                s for s in new_synonyms if s not in existing_synonyms
+            ]
+            if merged_synonyms != existing_synonyms:
+                entry["synonyms"] = merged_synonyms
+                needs_update = True
+
+            if needs_update:
                 # Retrieve API key from environment and update the entry via API
                 key = os.getenv("KARP_API_KEY")
                 update_posts_via_api_key(
                     existing_term["id"],
-                    existing_term["entry"],
+                    entry,
                     existing_term["version"],
                     key,
                     verbose=True,
@@ -633,10 +679,16 @@ def term_already_exists(existing_terms, new_term):
     return False
 
 
-def process_synonyms(synonyms):
+def process_synonyms(synonyms, continue_on_issues=False):
     """
-    Clean, spell-check, and lemmatize each synonym.
-    Silently drops synonyms that fail character or spell checks.
+    Clean and lemmatize each synonym. Drops synonyms that fail the
+    character check. Synonyms that fail the Swedish spell check are
+    dropped by default, same as before; when continue_on_issues is set
+    they're kept in cleaned form but not lemmatized instead, since
+    Skrutten's dictionary doesn't cover all valid domain terminology
+    (e.g. "ambiguitet") and silently dropping such synonyms loses real
+    data. Only opt-in via continue_on_issues since it can also let a
+    genuine misspelling through uncorrected.
     POS is derived independently per synonym; lemmatization failure falls back to the cleaned word.
     Returns list of processed synonym strings.
     """
@@ -648,6 +700,8 @@ def process_synonyms(synonyms):
         if not re.match(r'^[a-zA-ZåäöÅÄÖ\- \d]+$', syn):
             continue
         if not swedish_spell_check(syn):
+            if continue_on_issues:
+                processed.append(syn)
             continue
         swe_pos = granska_pos(syn)
         simple_pos = convert_to_simple_pos(swe_pos)
@@ -656,14 +710,32 @@ def process_synonyms(synonyms):
     return processed
 
 
-def process_eng_synonyms(synonyms, keepcase=False):
+def process_eng_synonyms(synonyms, keepcase=False, continue_on_issues=False):
     """
     Clean, spell-check, and lemmatize each English alternative translation.
-    Silently drops entries that fail character or spell checks.
+    Drops entries that fail the character check. Entries that fail the
+    English spell check are dropped by default; when continue_on_issues
+    is set they're kept in cleaned form instead, for the same reason as
+    in process_synonyms - only opt-in since it can also let a genuine
+    misspelling through uncorrected.
     All-caps single words are treated as acronyms and bypass spell-checking.
     POS is derived independently per synonym.
     Returns list of processed strings.
     """
+    # english_lemmatizer's single-word branch expects a WordNet-style tag
+    # (N/V/A/Ab, matching the "ab" -> "r" special case it already handles),
+    # but english_pos() returns raw Penn Treebank tags (NN, VB, JJ, RB, ...).
+    # Map between the two so single-word synonyms don't hit an unmapped tag.
+    def to_single_word_pos(penn_tag):
+        first_tag = penn_tag.split(" ")[0]
+        if first_tag.startswith("VB"):
+            return "V"
+        if first_tag.startswith("JJ"):
+            return "A"
+        if first_tag.startswith("RB"):
+            return "Ab"
+        return "N"
+
     processed = []
     for syn in synonyms:
         syn = re.sub(r'\s+', ' ', syn).strip()
@@ -676,9 +748,11 @@ def process_eng_synonyms(synonyms, keepcase=False):
             processed.append(syn)
             continue
         if not is_word_in_english(syn):
+            if continue_on_issues:
+                processed.append(syn)
             continue
         eng_pos_tag = english_pos(syn)
-        lemmatized = english_lemmatizer(syn, eng_pos_tag, eng_pos_tag)
+        lemmatized = english_lemmatizer(syn, to_single_word_pos(eng_pos_tag), eng_pos_tag)
         processed.append(lemmatized)
     return processed
 
@@ -714,6 +788,15 @@ def main():
         "--keepcase",
         action="store_true",
         help="keep the original case of lemmas from unprocessed.csv (do not lowercase)",
+    )
+    parser.add_argument(
+        "-coi",
+        "--continue-on-issues",
+        action="store_true",
+        help="run spell check, POS tagging, lemmatization and inflection generation "
+        "for every entry, even those with misspellings or POS disagreement, "
+        "instead of stopping early. Entries are still sent to manual review "
+        "with every detected issue listed instead of being auto-approved.",
     )
 
     args = parser.parse_args()
@@ -803,8 +886,15 @@ def main():
         "finished spell check in {:.2f} minutes".format((time.time() - start_time) / 60)
     )
 
-    df_stop2 = df[df["status"] != "spelling ok"]
-    df_cont = df[df["status"] == "spelling ok"]
+    if args.continue_on_issues:
+        # Keep every entry moving through the rest of the pipeline; the
+        # misspelling reason is preserved in "spell_status" and folded
+        # back into the final status/reason further down.
+        df_stop2 = df.iloc[0:0]
+        df_cont = df
+    else:
+        df_stop2 = df[df["status"] != "spelling ok"]
+        df_cont = df[df["status"] == "spelling ok"]
 
     # Time the part-of-speech tagging
     start_time = time.time()
@@ -815,12 +905,17 @@ def main():
         )
     )
 
-    df_stop3 = df[df["status"] != "found pos"]
-    df_cont = df[df["status"] == "found pos"]
+    if args.continue_on_issues:
+        # Same as above: keep going, "pos_status" remembers the disagreement.
+        df_stop3 = df.iloc[0:0]
+        df_cont = df
+    else:
+        df_stop3 = df[df["status"] != "found pos"]
+        df_cont = df[df["status"] == "found pos"]
 
     # Time the lemmatization
     start_time = time.time()
-    df = lemmatize(df_cont.copy())
+    df = lemmatize(df_cont.copy(), keepcase=args.keepcase)
     print(
         "finished lemmatization in {:.2f} minutes".format(
             (time.time() - start_time) / 60
@@ -828,8 +923,8 @@ def main():
     )
 
     # Process synonyms for rows that completed lemmatization
-    df['synonyms'] = [process_synonyms(s) for s in df['swe_synonyms']]
-    df['alternative_translations'] = [process_eng_synonyms(s, keepcase=args.keepcase) for s in df['eng_alt_raw']]
+    df['synonyms'] = [process_synonyms(s, continue_on_issues=args.continue_on_issues) for s in df['swe_synonyms']]
+    df['alternative_translations'] = [process_eng_synonyms(s, keepcase=args.keepcase, continue_on_issues=args.continue_on_issues) for s in df['eng_alt_raw']]
 
     # Drop duplicate entries over swedish lemma, engish lemma, pos and source
     df = df.drop_duplicates(subset=["eng_lemma", "swe_lemma", "agreed_pos", "src"])
@@ -880,6 +975,34 @@ def main():
 
     # Handle output based on the environment (server or local)
     if args.server or args.test:
+
+        if args.continue_on_issues:
+            # "status" currently only reflects the outcome of the last step
+            # that touched the row (lemmatization), since spell_check() and
+            # pos() no longer stop rows with issues before overwriting it.
+            # Fold the earlier spell/POS outcomes back in so no issue is
+            # silently dropped from what the manual reviewer sees.
+            def combine_status(row):
+                spell_status = row.get("spell_status")
+                pos_status = row.get("pos_status")
+
+                # Rows that never reached spell_check() (format check
+                # failures) don't have these columns populated - status
+                # already holds the right reason for them.
+                if pd.isna(spell_status) and pd.isna(pos_status):
+                    return row["status"]
+
+                issues = []
+                if pd.notna(spell_status) and spell_status != "spelling ok":
+                    issues.append(spell_status)
+                if pd.notna(pos_status) and pos_status != "found pos":
+                    issues.append(pos_status)
+                if row["status"] != "automatically verified":
+                    issues.append(row["status"])
+
+                return "; ".join(issues) if issues else "automatically verified"
+
+            output_df["status"] = output_df.apply(combine_status, axis=1)
 
         def set_reason(status):
             if status == "automatically verified":

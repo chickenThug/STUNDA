@@ -33,7 +33,13 @@ async function search(language, searchString) {
         throw new Error(`Unknown language '${language}': can only accept 'swe' or 'eng'.`);
     }
 
-    const karpSearchString = searchString.includes('-') ? searchString.split('-')[0] : searchString;
+    // KARP's "startswith" query mode only prefix-matches a single token, so
+    // it can't find phrases containing a space (e.g. "compound word") or
+    // match past a hyphen in a compound. Query it with just the first
+    // word/segment instead, then filter the results locally for entries
+    // that actually start with the full search string.
+    const karpSearchString = searchString.split(/[\s-]/)[0];
+    const needsLocalFilter = karpSearchString !== searchString;
     const synonymMatchesPromise = language === "swe"
         ? getTermsFromKarp("synonyms", "startswith", karpSearchString)
         : Promise.resolve(null);
@@ -41,7 +47,7 @@ async function search(language, searchString) {
         getTermsFromKarp(`${language}.lemma`, "startswith", karpSearchString),
         synonymMatchesPromise
     ]);
-    if (searchString.includes('-') && matches !== "error") {
+    if (needsLocalFilter && matches !== "error") {
         matches.hits = matches.hits.filter(hit =>
             hit.entry[language].lemma.toLowerCase().startsWith(searchString.toLowerCase())
         );
@@ -117,17 +123,13 @@ async function search(language, searchString) {
                     swedishInflections: hit.entry.swe.inflection ?? [],
                     englishInflections: hit.entry.eng.inflection ?? [],
                     synonyms: (hit.entry.synonyms ?? []).length > 0 ? hit.entry.synonyms : (entries[key].synonyms ?? []),
-                    alternativeTranslations: [],
+                    alternativeTranslations: [...old_translations, { lemma: opposite_lemma, sources: sources_old }],
                     comment: hit.entry.comment ?? "",
                     date: hit.entry.date ?? ""
                 };
-                for (const synonym in old_translations) {
-                    entries[key].alternativeTranslations.push(synonym)
-                }
-                entries[key].alternativeTranslations.push(`${opposite_lemma} (${sources_old})`);
             }
             else {
-                entries[key].alternativeTranslations.push(`${hit.entry[oppositeLang].lemma} (${hit.entry.src})`);
+                entries[key].alternativeTranslations.push({ lemma: hit.entry[oppositeLang].lemma, sources: hit.entry.src.split(", ") });
             }
         }
       });
@@ -392,7 +394,7 @@ const display_best_result = (data) => {
         // Paragraphs for left section
         create_paragraph("Svenska", data.swedishLemma, leftSection, true);
         if (data.swedishInflections.length !== 0){
-            create_paragraph("Böjningar", data.swedishInflections, leftSection);
+            create_paragraph("Böjningar", data.swedishInflections, leftSection).classList.add('swedish-inflections-p');
         }
         if (data.synonyms && data.synonyms.length !== 0){
             create_paragraph("Synonymer", data.synonyms, leftSection);
@@ -401,7 +403,7 @@ const display_best_result = (data) => {
         // Paragraphs for right section
         create_paragraph("Engelska", data.englishLemma, rightSection, true);
         if (data.englishInflections.length !== 0){
-            create_paragraph("Böjningar", data.englishInflections, rightSection);
+            create_paragraph("Böjningar", data.englishInflections, rightSection).classList.add('english-inflections-p');
         }
 
         if (data.comment && data.comment.length > 0) {
@@ -409,7 +411,7 @@ const display_best_result = (data) => {
         }
         create_paragraph("Ordklass", pos_map_swedish(data.pos), bottomSection);
         if (data.alternativeTranslations.length !== 0){
-            create_paragraph("Alternativa översättningar", data.alternativeTranslations, bottomSection);
+            create_alternative_translations_paragraph("Alternativa översättningar", data.alternativeTranslations, bottomSection, language);
         }
 
         // Paragraphs for bottom section
@@ -422,7 +424,7 @@ const display_best_result = (data) => {
         // Paragraphs for left section
         create_paragraph("Swedish", data.swedishLemma, leftSection, true);
         if (data.swedishInflections.length !== 0){
-            create_paragraph("Inflections", data.swedishInflections, leftSection);
+            create_paragraph("Inflections", data.swedishInflections, leftSection).classList.add('swedish-inflections-p');
         }
         if (data.synonyms && data.synonyms.length !== 0){
             create_paragraph("Synonyms", data.synonyms, leftSection);
@@ -431,7 +433,7 @@ const display_best_result = (data) => {
         // Paragraphs for right section
         create_paragraph("English", data.englishLemma, rightSection, true);
         if (data.englishInflections.length !== 0){
-            create_paragraph("Inflections", data.englishInflections, rightSection);
+            create_paragraph("Inflections", data.englishInflections, rightSection).classList.add('english-inflections-p');
         }
 
         if (data.comment && data.comment.length > 0) {
@@ -439,7 +441,7 @@ const display_best_result = (data) => {
         }
         create_paragraph("Part-of-speech", pos_map_english(data.pos), bottomSection);
         if (data.alternativeTranslations.length !== 0){
-            create_paragraph("Alternative translations", data.alternativeTranslations, bottomSection);
+            create_alternative_translations_paragraph("Alternative translations", data.alternativeTranslations, bottomSection, language);
         }
 
         // Paragraphs for bottom section
@@ -495,6 +497,7 @@ const create_paragraph = (title, value, container, bigFont) => {
     }
 
     container.appendChild(paragraph);
+    return paragraph;
 }
 
 function get_explanation(source, language) {
@@ -509,18 +512,16 @@ function get_explanation(source, language) {
     }
 }
 
-const create_source_paragraph = (title, sources, container, language, date = "") => {
-    const label = document.createElement('span');
-    label.id = 'label-text';
-    label.innerHTML = `<strong>${title}: </strong>`;
-    container.appendChild(label);
-    // Create a span for each source with a tooltip
+// Appends a tooltip-enabled (and, when the source encodes a URL, clickable)
+// span for each source into container, comma-separated. Shared between the
+// main "Källa/Källor" line and the sources shown per alternative translation.
+function append_sources(sources, container, language) {
     sources.forEach(source => {
-	wordspan = null;
+	wordSpan = null;
 	sourcetext = source;
 	tooltiptext = get_explanation(source, language);
 	linkURL = null;
-	
+
 	// Kolla om formatet är "text<URL>tooltiptext"
         explanationmatch = tooltiptext.match(/^(.*)<(https?:\/\/[^>]+)>(.*)$/);
         match = source.match(/^(.*)<(https?:\/\/[^>]+)>(.*)$/);
@@ -566,9 +567,46 @@ const create_source_paragraph = (title, sources, container, language, date = "")
     if (container.lastChild) {
         container.removeChild(container.lastChild);
     }
+}
+
+const create_source_paragraph = (title, sources, container, language, date = "") => {
+    const label = document.createElement('span');
+    label.id = 'label-text';
+    label.innerHTML = `<strong>${title}: </strong>`;
+    container.appendChild(label);
+
+    append_sources(sources, container, language);
+
     if (date && date.length > 0) {
         container.appendChild(document.createTextNode(` (${date})`));
     }
+}
+
+// Fills `paragraph` with the label followed by each alternative translation
+// and its source(s), using the same tooltip/link rendering as the main
+// source line. Exposed separately from create_alternative_translations_paragraph
+// so a language switch can re-render an existing paragraph in place.
+function fill_alternative_translations_paragraph(paragraph, title, translations, language) {
+    paragraph.innerHTML = '';
+    const label = document.createElement('span');
+    label.innerHTML = `<strong>${title}:</strong> `;
+    paragraph.appendChild(label);
+
+    translations.forEach((translation, index) => {
+        paragraph.appendChild(document.createTextNode(`${translation.lemma} (`));
+        append_sources(translation.sources, paragraph, language);
+        paragraph.appendChild(document.createTextNode(')'));
+        if (index < translations.length - 1) {
+            paragraph.appendChild(document.createTextNode(', '));
+        }
+    });
+}
+
+const create_alternative_translations_paragraph = (title, translations, container, language) => {
+    const paragraph = document.createElement("p");
+    paragraph.classList.add('alt-translations-p');
+    fill_alternative_translations_paragraph(paragraph, title, translations, language);
+    container.appendChild(paragraph);
 }
 
 // Function to create the buttons for the similar result div
@@ -733,23 +771,28 @@ const switchToEnglish = () => {
         }
 
         paragraphs.forEach(paragraph => {
-            // Translate each paragraph content
-            if (paragraph.textContent.includes('Svenska')) {
-                paragraph.innerHTML = '<strong>Swedish:</strong> ' + display_entry.swedishLemma;
-            } else if (paragraph.textContent.includes('Böjningar')) {
+            // Translate each paragraph content. Paragraphs that can embed
+            // tooltip text (inflections, alternative translations) are
+            // matched by CSS class rather than textContent: a source's
+            // hidden tooltip explanation can otherwise coincidentally
+            // contain a keyword like "Svenska" (e.g. the SMIT source text)
+            // and get misidentified by the substring checks below.
+            if (paragraph.classList.contains('swedish-inflections-p')) {
                 paragraph.innerHTML = '<strong>Inflections:</strong> ' + display_entry.swedishInflections.join(', ');
+            } else if (paragraph.classList.contains('english-inflections-p')) {
+                paragraph.innerHTML = '<strong>Inflections:</strong> ' + display_entry.englishInflections.join(', ');
+            } else if (paragraph.classList.contains('alt-translations-p')) {
+                fill_alternative_translations_paragraph(paragraph, 'Alternative translations', display_entry.alternativeTranslations, 'eng');
+            } else if (paragraph.textContent.includes('Svenska')) {
+                paragraph.innerHTML = '<strong>Swedish:</strong> ' + display_entry.swedishLemma;
             } else if (paragraph.textContent.includes('Engelska')) {
                 paragraph.innerHTML = '<strong>English:</strong> ' + display_entry.englishLemma;
-            } else if (paragraph.textContent.includes('Böjningar')) {
-                paragraph.innerHTML = '<strong>Inflections:</strong> ' + display_entry.englishInflections.join(', ');
             } else if (paragraph.textContent.includes('Kommentar')) {
                 paragraph.innerHTML = '<strong>Comment:</strong> ' + display_entry.comment;
             } else if (paragraph.textContent.includes('Ordklass')) {
                 paragraph.innerHTML = '<strong>Part-of-speech:</strong> ' + pos_map_english(display_entry.pos);
             } else if (paragraph.textContent.includes('Synonymer')) {
                 paragraph.innerHTML = '<strong>Synonyms:</strong> ' + display_entry.synonyms.join(', ');
-            } else if (paragraph.textContent.includes('Alternativa översättningar')) {
-                paragraph.innerHTML = '<strong>Alternative translations:</strong> ' + display_entry.alternativeTranslations.join(', ');
             }else if (paragraph.textContent.includes('Inga sökresultat!')) {
                 paragraph.innerHTML = '<strong>No search results found!</strong>';
             }else if (paragraph.textContent.includes('Kunde inte nå KARP!')) {
@@ -838,23 +881,28 @@ const switchToSwedish = () => {
         }
 
         paragraphs.forEach(paragraph => {
-            // Translate each paragraph content
-            if (paragraph.textContent.includes('Swedish')) {
-                paragraph.innerHTML = '<strong>Svenska:</strong> ' + display_entry.swedishLemma;
-            } else if (paragraph.textContent.includes('Inflections')) {
+            // Translate each paragraph content. Paragraphs that can embed
+            // tooltip text (inflections, alternative translations) are
+            // matched by CSS class rather than textContent: a source's
+            // hidden tooltip explanation can otherwise coincidentally
+            // contain a keyword like "Swedish" (e.g. the SMIT source text)
+            // and get misidentified by the substring checks below.
+            if (paragraph.classList.contains('swedish-inflections-p')) {
                 paragraph.innerHTML = '<strong>Böjningar:</strong> ' + display_entry.swedishInflections.join(', ');
+            } else if (paragraph.classList.contains('english-inflections-p')) {
+                paragraph.innerHTML = '<strong>Böjningar:</strong> ' + display_entry.englishInflections.join(', ');
+            } else if (paragraph.classList.contains('alt-translations-p')) {
+                fill_alternative_translations_paragraph(paragraph, 'Alternativa översättningar', display_entry.alternativeTranslations, 'swe');
+            } else if (paragraph.textContent.includes('Swedish')) {
+                paragraph.innerHTML = '<strong>Svenska:</strong> ' + display_entry.swedishLemma;
             } else if (paragraph.textContent.includes('English')) {
                 paragraph.innerHTML = '<strong>Engelska:</strong> ' + display_entry.englishLemma;
-            } else if (paragraph.textContent.includes('Inflections')) {
-                paragraph.innerHTML = '<strong>Böjningar:</strong> ' + display_entry.englishInflections.join(', ');
             } else if (paragraph.textContent.includes('Comment')) {
                 paragraph.innerHTML = '<strong>Kommentar:</strong> ' + display_entry.comment;
             } else if (paragraph.textContent.includes('Part-of-speech')) {
                 paragraph.innerHTML = '<strong>Ordklass:</strong> ' + pos_map_swedish(display_entry.pos);
             } else if (paragraph.textContent.includes('Synonyms')) {
                 paragraph.innerHTML = '<strong>Synonymer:</strong> ' + display_entry.synonyms.join(', ');
-            } else if (paragraph.textContent.includes('Alternative translations')) {
-                paragraph.innerHTML = '<strong>Alternativa översättningar:</strong> ' + display_entry.alternativeTranslations.join(', ');
             }else if (paragraph.textContent.includes('No search results found!')) {
                 paragraph.innerHTML = '<strong>Inga sökresultat!</strong>';
             }else if (paragraph.textContent.includes('Could not reach KARP!')) {
