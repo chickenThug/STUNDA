@@ -138,6 +138,11 @@ public class HandleVerifiedTermsServlet extends HttpServlet {
                 JSONObject karpSearch = getTerm(engLemma, sweLemma);
 
                 JSONArray hits = karpSearch.optJSONArray("hits");
+                if (hits == null) {
+                    System.err.println("Warning: KARP search failed for eng_lemma=" + engLemma
+                            + ", swe_lemma=" + sweLemma + " — skipping this term");
+                    continue;
+                }
 
                 boolean already_exist = false;
 
@@ -273,13 +278,19 @@ public class HandleVerifiedTermsServlet extends HttpServlet {
             response.getWriter().write("success");
         } catch (JSONException e) {
             // Handle JSON parsing errors or other JSON related issues
+            System.err.println("HandleVerifiedTermsServlet: invalid JSON data provided");
+            e.printStackTrace();
             response.setStatus(HttpServletResponse.SC_BAD_REQUEST);
             response.getWriter().write("Invalid JSON data provided");
         } catch (IOException e) {
+            System.err.println("HandleVerifiedTermsServlet: error processing request");
+            e.printStackTrace();
             response.setStatus(HttpServletResponse.SC_INTERNAL_SERVER_ERROR);
             response.getWriter().write("Error processing request: " + e.getMessage());
         } catch (Exception e) {
             // Handle general errors
+            System.err.println("HandleVerifiedTermsServlet: internal server error occurred");
+            e.printStackTrace();
             response.setStatus(HttpServletResponse.SC_INTERNAL_SERVER_ERROR);
             response.getWriter().write("Internal server error occurred: " + e.getMessage());
         }
@@ -307,6 +318,8 @@ public class HandleVerifiedTermsServlet extends HttpServlet {
             URL url = new URL(urlString);
             HttpURLConnection conn = (HttpURLConnection) url.openConnection();
             conn.setRequestMethod("GET");
+            conn.setConnectTimeout(5000);
+            conn.setReadTimeout(10000);
 
             int responseCode = conn.getResponseCode();
 
@@ -345,6 +358,8 @@ public class HandleVerifiedTermsServlet extends HttpServlet {
             conn.setRequestProperty("Accept", "*/*");
             conn.setRequestProperty("Connection", "keep-alive");
             conn.setDoOutput(true);
+            conn.setConnectTimeout(5000);
+            conn.setReadTimeout(10000);
 
             JSONObject data = new JSONObject();
             data.put("entry", entry);
@@ -400,6 +415,8 @@ public class HandleVerifiedTermsServlet extends HttpServlet {
             conn.setRequestMethod("PUT");
             conn.setRequestProperty("Content-Type", "application/json");
             conn.setDoOutput(true);
+            conn.setConnectTimeout(5000);
+            conn.setReadTimeout(10000);
 
             JSONObject data = new JSONObject();
             data.put("entry", entry);
