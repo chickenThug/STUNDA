@@ -424,11 +424,19 @@ def pos_agreement_term_based(swedish_term, english_term):
         "NUM": "NUM",
     }
 
+    # Query Skrutten for possible tags. This can be None (request failed)
+    # or an empty list (Skrutten has no tagging for this term at all), so
+    # guard against both instead of indexing blindly into the result.
+    swedish_tagging_result = swedish_pos_tagging(swedish_term)
+
+    if not swedish_tagging_result:
+        return "no pos found"
+
     # Create a set of swedish tags
     swedish_pos_tags = set(
         [
             swedish_mapping.get(tag.split(".")[0], "?")
-            for tag in swedish_pos_tagging(swedish_term)[0]["tags"]
+            for tag in swedish_tagging_result[0]["tags"]
         ]
     )
 
